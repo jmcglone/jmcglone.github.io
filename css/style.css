@@ -4,6 +4,8 @@ body { padding-top: 20px; padding-bottom: 40px; font-family: 'Merriweather', Geo
 
 /* Navigation */
 .nav { margin-top: 4px; }
+h3.muted a {text-decoration: none; color: #999999; }
+h3.muted a:hover { text-decoration: none; color: #0088cc; }
 		
 /* Custom container */
 .container-narrow { margin: 0 auto; max-width: 800px; }
@@ -21,3 +23,7 @@ ul.listnotes { margin: 0 auto; }
 /* Note */
 .note { width: 600px; margin: 0 auto; line-height: 25px; }
 .note h2.date { font-size: 24.5px; font-weight: 300; font-style: italic; }
+
+/* CV */
+.cv {line-height: 23px; }
+.cv li { line-height: 23px; }
