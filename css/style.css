@@ -16,4 +16,5 @@ body { padding-top: 20px; padding-bottom: 40px; font-family: 'Merriweather', Geo
 ul.listnotes { margin: 0 auto; }
 
 /* Note */
-.note { width: 600px; margin: 0 auto; line-height: 24px; }
+.note { width: 600px; margin: 0 auto; line-height: 25px; }
+.note h2.date { font-size: 24.5px; font-weight: 300; font-style: italic; }
