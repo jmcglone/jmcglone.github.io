@@ -3,7 +3,7 @@
 body { padding-top: 20px; padding-bottom: 40px; font-family: 'Merriweather', Georgia, Times; font-size: 16px; }
 		
 /* Custom container */
-.container-narrow { margin: 0 auto; max-width: 700px; }
+.container-narrow { margin: 0 auto; max-width: 800px; }
 .container-narrow > hr { margin: 30px 0; }
 
 /* Jumbotron */     
@@ -12,8 +12,8 @@ body { padding-top: 20px; padding-bottom: 40px; font-family: 'Merriweather', Geo
 .jumbotron .btn { font-size: 21px; padding: 14px 24px; }
 
 /* Notes */
-.notelist { width: 500px; margin: 0 auto; }
+.notelist { width: 600px; margin: 0 auto; }
 ul.listnotes { margin: 0 auto; }
 
 /* Note */
-.note { width: 500px; margin: 0 auto; }
+.note { width: 600px; margin: 0 auto; line-height: 24px; }
