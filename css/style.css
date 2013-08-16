@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic,700,700italic);
 
-body { padding-top: 20px; padding-bottom: 40px; font-family: 'Merriwather', Georgia, Times; }
+body { padding-top: 20px; padding-bottom: 40px; font-family: 'Merriweather', Georgia, Times; }
 		
 /* Custom container */
 .container-narrow { margin: 0 auto; max-width: 700px; }
