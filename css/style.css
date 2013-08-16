@@ -25,5 +25,5 @@ ul.listnotes { margin: 0 auto; }
 .note h2.date { font-size: 24.5px; font-weight: 300; font-style: italic; }
 
 /* CV */
-.cv {line-height: 23px; }
+.cv {line-height: 23px; width: 700px; margin: 0 auto;}
 .cv li { line-height: 23px; }
