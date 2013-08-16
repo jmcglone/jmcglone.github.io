@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic,700,700italic);
 
-body { padding-top: 20px; padding-bottom: 40px; font-family: 'Merriweather', Georgia, Times; }
+body { padding-top: 20px; padding-bottom: 40px; font-family: 'Merriweather', Georgia, Times; font-size: 16px; }
 		
 /* Custom container */
 .container-narrow { margin: 0 auto; max-width: 700px; }
@@ -14,3 +14,6 @@ body { padding-top: 20px; padding-bottom: 40px; font-family: 'Merriweather', Geo
 /* Notes */
 .notelist { width: 500px; margin: 0 auto; }
 ul.listnotes { margin: 0 auto; }
+
+/* Note */
+.note { width: 500px; margin: 0 auto; }
