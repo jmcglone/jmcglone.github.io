@@ -27,3 +27,5 @@ ul.listnotes { margin: 0 auto; }
 /* CV */
 .cv {line-height: 23px; width: 700px; margin: 0 auto;}
 .cv li { line-height: 23px; }
+.cv h2 { font-size: 26.5px; }
+.cv h1 { font-size: 32.5px; }
