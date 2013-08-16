@@ -1,7 +1,7 @@
-<div class="row postlist">
+<div class="notelist">
     {% for post in site.posts %}
-    <ul class="listposts unstyled">
+    <ul class="listnotes unstyled">
       <li><span>{{ post.date | date_to_string }} &raquo;</span> <a href="{{ post.url }}">{{ post.title }}</a></li>
     </ul>
     {% endfor %}
-</div><!--/.row .postlist -->
+</div><!--/.notelist -->
