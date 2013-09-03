@@ -15,6 +15,7 @@ h3.muted a:hover { text-decoration: none; color: #0088cc; }
 .jumbotron { margin: 100px 0; text-align: center; }
 .jumbotron h1 { font-size: 72px; line-height: 1; }
 .jumbotron .btn { font-size: 21px; padding: 14px 24px; }
+.jumbotron .span3 { width: 253px; }
 
 /* Notes */
 .notelist { width: 600px; margin: 0 auto; }
