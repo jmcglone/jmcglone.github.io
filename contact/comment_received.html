@@ -1,0 +1,13 @@
+---
+layout: comment_layout
+title: Contact | Your Comment Was Received
+contact: active
+---
+<div class="contact">
+	<p>Thanks for your message and reaching out. Here's to our future conversation!</p>
+	<?php if (isset($return_url))
+	{
+		echo '<p>You are now returning to the page you were on. Click the link if you are not redirected automatically.</p>';
+		echo '<p><a href="'.$return_url.'">'.$return_url.'</a></p>';
+	} ?>
+</div>
