@@ -10,6 +10,7 @@ h3.muted a:hover { text-decoration: none; color: #0088cc; }
 /* Custom container */
 .container-narrow { margin: 0 auto; max-width: 800px; }
 .container-narrow > hr { margin: 30px 0; }
+.container-narrow > hr.footer {margin-bottom: 15px; }
 
 /* E-Mail */
 .obfuscate { unicode-bidi: bidi-override; direction: rtl; }
@@ -34,3 +35,7 @@ ul.listnotes { margin: 0 auto; }
 .cv li { line-height: 23px; }
 .cv h2 { font-size: 26.5px; }
 .cv h1 { font-size: 32.5px; }
+
+/* Contact */
+
+
