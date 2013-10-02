@@ -15,7 +15,8 @@ h3.muted a:hover { text-decoration: none; color: #0088cc; }
 .jumbotron { margin: 80px 0; }
 .jumbotron h1 { font-size: 72px; line-height: 1; }
 .jumbotron .btn { font-size: 21px; padding: 14px 24px; }
-.jumbotron p { line-height: 23px; }
+.jumbotron p { line-height: 25px; }
+.jumbotron p.lead { line-height: 30px; }
 
 /* Notes */
 .notelist { width: 600px; margin: 0 auto; }
