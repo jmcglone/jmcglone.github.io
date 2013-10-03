@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Here's a test note for the new GitHub site.
+title: Running a Personal Site with GitHub
 ---
 
 Lebowski ipsum vEE FUCK YOU UP, MAN! VEE TAKE YOUR MONEY! Dolor sit amet, consectetur adipiscing elit. A man will refer to his "dick" or his "rod" or his "Johnson". Praesent ac magna justo pellentesque ac lectus quis elit blandit fringilla a ut turpis. Does the Pope shit in the woods? Praesent felis ligula, malesuada suscipit malesuada non. You want a toe? I can get you a toe, believe me. There are ways, Dude. You don't wanna know about it, believe me. Ultrices non urna sed orci ipsum.
