@@ -32,11 +32,12 @@ ul.listnotes { margin: 0 auto; }
 ul.listnotes li {line-height: 30px; } 
 
 /* Note */
+.notes, .contact, .about, .cv { margin-bottom: 30px; }
 .note, .contact, .about { width: 600px; margin: 0 auto; line-height: 25px; }
 .note h2.date { font-size: 24.5px; font-weight: 300; font-style: italic; }
 
 /* CV */
-.cv {line-height: 23px; width: 700px; margin: 0 auto;}
+.cv {line-height: 23px; width: 650px; margin: 0 auto;}
 .cv li { line-height: 23px; }
 .cv h2 { font-size: 26.5px; }
 .cv h1 { font-size: 32.5px; }
