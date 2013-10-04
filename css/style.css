@@ -4,12 +4,12 @@
 body { padding-top: 20px; padding-bottom: 40px; font-family: 'Merriweather', Georgia, Times; font-size: 16px; }
 
 /* Masthead */
-.header, .footer { font-family: 'Montserrat', Helvetica, sans-serif; text-transform: uppercase; }
+.header, .footer, .header h3 { font-family: 'Montserrat', Helvetica, sans-serif; text-transform: uppercase; }
 
 /* Navigation */
 .nav { margin-top: 4px; }
-h3.muted a {text-decoration: none; color: #999999; }
-h3.muted a:hover { text-decoration: none; color: #0088cc; }
+h3.muted-text a {text-decoration: none; color: #999999; }
+h3.muted-text a:hover { text-decoration: none; color: #0088cc; }
 		
 /* Custom container */
 .container-narrow { margin: 0 auto; max-width: 800px; }
