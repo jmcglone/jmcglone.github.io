@@ -32,8 +32,8 @@ ul.listnotes { margin: 0 auto; }
 ul.listnotes li {line-height: 30px; } 
 
 /* Note */
-.notes, .contact, .about, .cv { margin-bottom: 30px; }
-.note, .contact, .about { width: 600px; margin: 0 auto; line-height: 25px; }
+.notes, .contact, .about, .cv, .error { margin-bottom: 30px; }
+.note, .contact, .about, .error { width: 600px; margin: 0 auto; line-height: 25px; }
 .note h2.date { font-size: 24.5px; font-weight: 300; font-style: italic; }
 
 /* CV */
