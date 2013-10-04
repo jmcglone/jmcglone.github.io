@@ -47,5 +47,5 @@ iframe .ss-footer { display: none; }
 iframe {font-family: 'Merriweather', Georgia, Times; font-size: 16px;}
 
 /* About */
-.about ul.unstyled li { line-height: 25px; }
+.about ul.unstyled li { line-height: 30px; text-indent: 30px margin-left: -30px;}
 
