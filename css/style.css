@@ -4,7 +4,7 @@
 body { padding-top: 20px; padding-bottom: 40px; font-family: 'Merriweather', Georgia, Times; font-size: 16px; }
 
 /* Masthead */
-.masthead, .footer { font-family: 'Montserrat', Helvetica, sans-serif; text-transform: uppercase;}
+.masthead, .footer { font-family: 'Montserrat', Helvetica, sans-serif; text-transform: uppercase; }
 
 /* Navigation */
 .nav { margin-top: 4px; }
