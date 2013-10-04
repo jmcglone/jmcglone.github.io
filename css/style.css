@@ -9,8 +9,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: 'Merriweathe
 .header, .footer, .header h3 { font-family: 'Montserrat', Helvetica, sans-serif; text-transform: uppercase; }
 
 /* Navigation */
-h3.muted-text a {text-decoration: none; color: #999999; }
-h3.muted-text a:hover { text-decoration: none; color: #0088cc; }
+h3.text-muted a {text-decoration: none; color: #999999; }
+h3.text-muted a:hover { text-decoration: none; color: #0088cc; }
 		
 /* Custom container */
 .container > hr { margin: 30px 0; }
