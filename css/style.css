@@ -3,16 +3,16 @@
 
 body { padding-top: 20px; padding-bottom: 40px; font-family: 'Merriweather', Georgia, Times; font-size: 16px; }
 
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: 'Merriweather', Georgia, Times; }
+
 /* Masthead */
 .header, .footer, .header h3 { font-family: 'Montserrat', Helvetica, sans-serif; text-transform: uppercase; }
 
 /* Navigation */
-.nav { margin-top: 4px; }
 h3.muted-text a {text-decoration: none; color: #999999; }
 h3.muted-text a:hover { text-decoration: none; color: #0088cc; }
 		
 /* Custom container */
-.container-narrow { margin: 0 auto; max-width: 800px; }
 .container > hr { margin: 30px 0; }
 .container > hr.footer {margin-bottom: 15px; }
 
@@ -23,8 +23,8 @@ h3.muted-text a:hover { text-decoration: none; color: #0088cc; }
 .jumbotron { margin: 80px 0; }
 .jumbotron h1 { font-size: 72px; line-height: 1; }
 .jumbotron .btn { font-size: 21px; padding: 14px 24px; }
-.jumbotron p { line-height: 25px; }
-.jumbotron p.lead { line-height: 30px; }
+.marketing p { line-height: 25px; }
+.marketing p.lead { line-height: 30px; }
 
 /* Notes */
 .notelist { width: 600px; margin: 0 auto; }
@@ -42,10 +42,8 @@ ul.listnotes li {line-height: 30px; }
 .cv h1 { font-size: 32.5px; }
 
 /* Contact */
-iframe h1.ss-form-title { display: none; }
-iframe .ss-footer { display: none; }
 iframe {font-family: 'Merriweather', Georgia, Times; font-size: 16px;}
 
 /* About */
-.about ul.unstyled li { line-height: 30px; text-indent: 30px margin-left: -30px;}
+.about ul.list-unstyled li { line-height: 30px; text-indent: 30px margin-left: -30px;}
 
