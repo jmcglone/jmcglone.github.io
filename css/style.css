@@ -11,6 +11,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: 'Merriweathe
 /* Navigation */
 h3.text-muted a {text-decoration: none; color: #999999; }
 h3.text-muted a:hover { text-decoration: none; color: #0088cc; }
+
+img.avatar { margin-bottom: 30px; }
 		
 /* Custom container */
 .container > hr { margin: 30px 0; }
