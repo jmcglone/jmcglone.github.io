@@ -38,11 +38,11 @@ ul.listnotes li {line-height: 30px; }
 .note h2.date { font-size: 24.5px; font-weight: 300; font-style: italic; }
 
 /* Color Log */
-ul.swatch { list-style: none; width: 85%; margin: 40px auto; padding: 20px 0; }
-.swatch li { display: inline; float: left; height: 40px; width: 90px; text-indent: -9999px; }
-.swatch li:hover { height: 49px; width: 110px; vertical-align: top; }
-.swatch li:last-child { webkit-border-top-right-radius: 9px; -webkit-border-bottom-right-radius: 9px; -moz-border-radius-topright: 9px; -moz-border-radius-bottomright: 9px; border-top-right-radius: 9px; border-bottom-right-radius: 9px; }
-.swatch li:first-child { webkit-border-top-left-radius: 9px; -webkit-border-bottom-left-radius: 9px; -moz-border-radius-topleft: 9px; -moz-border-radius-bottomleft: 9px; border-top-left-radius: 9px; border-bottom-left-radius: 9px; }
+ul.swatch { list-style: none; margin: 40px auto; padding: 20px 0; }
+ul.swatch li { display: inline; float: left; height: 40px; width: 90px; text-indent: -9999px; }
+ul.swatch li:hover { height: 49px; width: 110px; vertical-align: top; }
+ul.swatch li:last-child { webkit-border-top-right-radius: 9px; -webkit-border-bottom-right-radius: 9px; -moz-border-radius-topright: 9px; -moz-border-radius-bottomright: 9px; border-top-right-radius: 9px; border-bottom-right-radius: 9px; }
+ul.swatch li:first-child { webkit-border-top-left-radius: 9px; -webkit-border-bottom-left-radius: 9px; -moz-border-radius-topleft: 9px; -moz-border-radius-bottomleft: 9px; border-top-left-radius: 9px; border-bottom-left-radius: 9px; }
 
 /* CV */
 .cv {line-height: 23px; width: 650px; margin: 0 auto;}
@@ -50,7 +50,7 @@ ul.swatch { list-style: none; width: 85%; margin: 40px auto; padding: 20px 0; }
 .cv h2 { font-size: 26.5px; }
 .cv h1 { font-size: 32.5px; }
 
-.notes, .contact, .about, .cv, .error { margin-bottom: 30px; }
+.notes, .contact, .about, .cv, .error, .swatches { margin-bottom: 30px; }
 
 /* Contact */
 iframe {font-family: 'Merriweather', Georgia, Times; font-size: 16px;}
