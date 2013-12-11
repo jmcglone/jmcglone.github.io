@@ -40,7 +40,7 @@ ul.listnotes li {line-height: 30px; }
 /* Swatches */
 .swatch-log { margin: 30px auto; height: 100px; }
 ul.swatch { list-style: none; margin: 0 auto; padding: 0; height: 50px; }
-ul.swatch li { display: inline; float: left; height: 33px; width: 75px; text-indent: -9999px; font-size: 14px; text-align: center; font-family: 'Montserrat', Helvetica, sans-serif; }
+ul.swatch li { color: ##f0f0f0; display: inline; float: left; height: 33px; width: 75px; text-indent: -9999px; font-size: 14px; text-align: center; font-family: 'Montserrat', Helvetica, sans-serif; }
 ul.swatch li:hover { height: 49px; width: 75px; vertical-align: middle; text-indent: 0; }
 ul.swatch li:last-child { webkit-border-top-right-radius: 9px; -webkit-border-bottom-right-radius: 9px; -moz-border-radius-topright: 9px; -moz-border-radius-bottomright: 9px; border-top-right-radius: 9px; border-bottom-right-radius: 9px; }
 ul.swatch li:first-child { webkit-border-top-left-radius: 9px; -webkit-border-bottom-left-radius: 9px; -moz-border-radius-topleft: 9px; -moz-border-radius-bottomleft: 9px; border-top-left-radius: 9px; border-bottom-left-radius: 9px; }
