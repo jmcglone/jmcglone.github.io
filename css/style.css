@@ -34,16 +34,17 @@ ul.listnotes { margin: 0 auto; }
 ul.listnotes li {line-height: 30px; } 
 
 /* Note */
-.note, .contact, .about, .error, .swatches { width: 600px; margin: 0 auto; line-height: 26px; }
+.note, .contact, .about, .error { width: 600px; margin: 0 auto; line-height: 26px; }
 .note h2.date { font-size: 24.5px; font-weight: 300; font-style: italic; }
 
 /* Swatches */
+.swatches { width: 600px; margin: 30px auto; line-height: 26px; height: 100px; }
 ul.swatch { list-style: none; margin: 0 auto; padding: 0; }
 ul.swatch li { display: inline; float: left; height: 33px; width: 75px; text-indent: -9999px; }
 ul.swatch li:hover { height: 49px; width: 75px; vertical-align: middle; text-indent: 0; }
 ul.swatch li:last-child { webkit-border-top-right-radius: 9px; -webkit-border-bottom-right-radius: 9px; -moz-border-radius-topright: 9px; -moz-border-radius-bottomright: 9px; border-top-right-radius: 9px; border-bottom-right-radius: 9px; }
 ul.swatch li:first-child { webkit-border-top-left-radius: 9px; -webkit-border-bottom-left-radius: 9px; -moz-border-radius-topleft: 9px; -moz-border-radius-bottomleft: 9px; border-top-left-radius: 9px; border-bottom-left-radius: 9px; }
-p.attribution { clear: left; }
+.swatches p { clear: left; margin-top: 10px;  }
 
 /* CV */
 .cv {line-height: 23px; width: 650px; margin: 0 auto;}
