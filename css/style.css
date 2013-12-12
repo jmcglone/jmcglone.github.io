@@ -38,7 +38,8 @@ ul.listnotes li {line-height: 30px; }
 .note h2.date, .swatch-log h2.date { font-size: 24.5px; font-weight: 300; font-style: italic; }
 
 /* Swatches */
-.swatch-log { margin: 30px auto 90px; height: 100px; }
+.swatch-log h2.date { margin-bottom: 30px; }
+.swatch-log { margin: 30px auto 70px; height: 140px; }
 ul.swatch { list-style: none; margin: 0 auto; padding: 0; height: 50px; }
 ul.swatch li { display: inline; float: left; height: 33px; width: 75px; text-indent: -9999px; font-size: 14px; text-align: center; font-family: 'Montserrat', Helvetica, sans-serif; }
 ul.swatch li:hover { height: 49px; width: 75px; vertical-align: middle; text-indent: 0; }
