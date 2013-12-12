@@ -8,4 +8,4 @@ Enter [*Swatches*](http://jmcglone.com/swatches), a simple way to track sets of 
 
 In getting here, I've been heavily influenced by [dribbble's](http://dribbble.com) design approach to color sets, as well as the attention it gives to color in the designs its users post and share in that space. But I'd like to be able to track sets of colors I find that work really well, as well as the hex color values that make up those sets. 
 
-In the future, I'd like to develop a way to make this much more dynamic or work better with Jekyll but also a tool or service that others can utilize. In the meantime, I hope this is useful to people and inspires others to think more about color and using color on the web and in their designs for the web.
+In the future, I'd like to develop a way to make this much more dynamic or work better with Jekyll but also a tool or service that others can utilize. In the meantime, I hope this is useful to people and inspires others to think more about color and using color on the web.
