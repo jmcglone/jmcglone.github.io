@@ -5,7 +5,7 @@ body { padding-top: 20px; padding-bottom: 40px; font-family: 'Merriweather', Geo
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: 'Merriweather', Georgia, Times; font-weight: 700;}
 
-blockquote p { font-size: 16px; line-heigh: 1.8; }
+blockquote p { font-size: 16px; line-height: 1.8; }
 
 /* Masthead */
 .header, .footer, .header h3 { font-family: 'Montserrat', Helvetica, sans-serif; text-transform: uppercase; font-weight: normal; }
