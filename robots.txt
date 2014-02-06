@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /blogarchives/
+Disallow: /notes/2013/10/08/thoughts-about-professional-online-identities/
