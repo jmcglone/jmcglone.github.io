@@ -43,7 +43,7 @@ ul.listnotes li {line-height: 30px; }
 .swatch-log h2.date { margin-bottom: 30px; }
 .swatch-log { margin: 30px auto 70px; height: 140px; }
 ul.swatch { list-style: none; margin: 0 auto; padding: 0; height: 50px; }
-ul.swatch li { text-transform: uppercase; display: inline; float: left; height: 80px; width: 75px; text-indent: -9999px; font-size: 14px; text-align: center; font-family: 'Montserrat', Helvetica, sans-serif; }
+ul.swatch li { text-transform: uppercase; display: inline; float: left; height: 80px; width: 75px; text-indent: -9999px; font-size: 14px; text-align: center; font-family: 'Montserrat', Helvetica, sans-serif; background-image: url(/img/glass.png); background-repeat: repeat-x; background-position: 0 50%;}
 ul.swatch li:hover { height: 75px; width: 75px; vertical-align: middle; text-indent: 0; }
 /* 
 ul.swatch li:last-child { webkit-border-top-right-radius: 9px; -webkit-border-bottom-right-radius: 9px; -moz-border-radius-topright: 9px; -moz-border-radius-bottomright: 9px; border-top-right-radius: 9px; border-bottom-right-radius: 9px; }
