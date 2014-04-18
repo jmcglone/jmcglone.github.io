@@ -68,6 +68,6 @@ iframe {font-family: 'Merriweather', Georgia, Times; font-size: 16px;}
 
 /* Guides */
 .guide { line-height: 23px; }
-.guide .title { padding: 100px 30px 0px; width: 100%; height: 60%; margin-bottom: 40px; background: #E04D32; color: #E8E7E6; }
+.guide .title { padding: 100px 30px 0px; width: 100%; height: 60%; margin-bottom: 40px; background: #E04D32; color: #FFF; }
 .guide .title h1 { font-size: 46px; }
 .guide p { margin: 0 0 1em;  }
