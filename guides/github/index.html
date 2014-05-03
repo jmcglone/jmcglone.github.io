@@ -40,9 +40,46 @@ description: A beginner's guide to creating a personal website using Jekyll and 
 
 <!-- insert image of a project on github -->
 
-<p>GitHub Pages lets you do this, but if the pages are HTML or Markdown, you can view the file like any other website.</p>
 
 <h2>So, What is GitHub Pages?</h2>
+<p>GitHub Pages lets you do the same things, but if the pages are HTML or Markdown, you can view the file like any other website. GitHub Pages is the self-aware version of GitHub.</p>
 
+<p>If the repository is named a certain way and the files inside it are HTML, you can view the file on the web like any other website.</p>
+
+<p>Optionally, GitHub Pages comes with a powerful static site generator called Jekyll.</p>
+
+<h2>I'm in. Let's Get Started!</h2>
+<p>Now let's create an <code>index.html</code> page and put this markup inside of it:</p>
+<code>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Harry Lime, Not a Good Friend</title>
+	</head>
+	<body>
+		<nav>
+    		<ul>
+        		<li><a href="/">Home</a></li>
+	        	<li><a href="/about">About</a></li>
+        		<li><a href="/cv">CV</a></li>
+        		<li><a href="/blog">Blog</a></li>
+    		</ul>
+		</nav>
+		<div class="container">
+    		<div class="blurb">
+        		<h1>Hi there, I'm Harry Lime!</h1>
+				<p>I'm best known as the character from <em>The Third Man</em> who faked his death and led his childhood friend Holly Martins on a mad chase through Vienna. <a href="/about">Learn more about me...</a></p>
+    		</div><!-- /.blurb -->
+		</div><!-- /.container -->
+		<footer>
+    		<ul>
+        		<li><a href="mailto:harrylimehub@gmail.com">email</a></li>
+        		<li><a href="https//github.com/harry-lime">github.com/harry-lime</a></li>
+			</ul>
+		</footer>
+	</body>
+</html>
+			
+		</code>
 
 </div> <!-- /.github -->
