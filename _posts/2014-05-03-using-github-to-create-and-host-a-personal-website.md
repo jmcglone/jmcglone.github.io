@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using GitHub to Create and Host and Personal Website
+title: Using GitHub to Create and Host a Personal Website
 ---
 This is an overdue note about my switch to using GitHub and Jekyll for this website.
 
@@ -25,4 +25,4 @@ So I made a wishlist of the things I wanted for a personal website:
 
 There are a lot of lightweight CMS options out there, <!-- links --> but I fell for GitHub. It's well known and established, and the partnership it has developed with Jekyll developers (it's based in Ruby) and its use of markdown to separate content from markup just seemed to click with me as a digital publisher. It may not be for everybody, but it can be.
 
-So, after building my site from scratch (along with the help of Bootstrap), I've finally taken it a step further and created a <a href="/guides/github-pages" title="Creating and Hosting a Personal Site on GitHub">beginner's guide to getting started building and hosting a personal website and blog with GitHub Pages and Jekyll</a>. It is very step-by-step, even refactors code to teach you how Jekyll works, and was created to accompany a workshop I gave during University of Michigan's 2014 Enriching Scholarship Conference.
+So, after building my site from scratch (along with the help of Bootstrap), I've finally taken it a step further and created a <a href="#" title="Creating and Hosting a Personal Site on GitHub">(coming very soon) beginner's guide to getting started building and hosting a personal website and blog with GitHub Pages and Jekyll</a>. It is very step-by-step, even refactors code to teach you how Jekyll works, and was created to accompany a workshop I gave during University of Michigan's 2014 Enriching Scholarship Conference.
