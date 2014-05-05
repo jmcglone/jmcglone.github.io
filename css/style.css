@@ -67,7 +67,7 @@ iframe {font-family: 'Merriweather', Georgia, Times; font-size: 16px;}
 .about ul.list-unstyled li { line-height: 30px; text-indent: -30px; margin-left: 30px;}
 
 /* Guides */
-.guide { width: 90%; margin: 0 auto; line-height: 26px;}
+.guide { width: 90%; margin: 0 auto 60px auto; line-height: 26px;}
 .guide .title { padding: 100px 30px 0px; width: 100%; height: 60%; margin-bottom: 40px; background: #d5d5d5; color: #428bca; }
 .guide .title h1 { font-size: 46px; color: #181818; }
 .guide p { margin: 0 0 1em;  }
@@ -90,26 +90,4 @@ pre.prettyprint { padding: 10px !important; margin: 40px; font-size: 12px;}
 	margin: 5px 15px 0px 0px;
 	font-family: 'Montserrat', Helvetica, sans-serif; }
 
-.circle-text {
-    width:50%;
-}
-.circle-text:after {
-    content: "";
-    display: block;
-    width: 100%;
-    height:0;
-    padding-bottom: 100%;
-    background: #4679BD; 
-    -moz-border-radius: 50%; 
-    -webkit-border-radius: 50%; 
-    border-radius: 50%;
-}
-.circle-text div {
-    float:left;
-    width:100%;
-    padding-top:50%;
-    line-height:1em;
-    margin-top:-0.5em;
-    text-align:center;
-    color:white;
-}
+
