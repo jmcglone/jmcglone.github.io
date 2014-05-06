@@ -9,21 +9,21 @@ description: A beginner's guide to creating a personal website and blog using Je
   <p>A step-by-step beginner's guide to creating a personal website and blog using Jekyll and hosting it for free using GitHub Pages.</p>
    <p><a href="http://hankquinlan.github.io" class="btn btn-primary btn-md" role="button">View Demo Site</a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/hankquinlan/hankquinlan.github.io/archive/master.zip" class="btn btn-primary btn-md" role="button">Download Demo Files</a></p>
 	</div>
-  <p>This guide is meant to help Git and GitHub beginners get up and running with <a href="https://pages.github.com/">GitHub Pages</a> and <a href="http://jekyllrb.com/">Jekyll</a> in an afternoon. It assumes you know very little about version control, Git, and GitHub. It is helpful if you know the basics of HTML and CSS since we'll be working directly with these languages, but by no means do you need to be an expert in either area. The idea is to learn by doing, so the code we'll be implementing is available in this guide or can be downloaded entirely at <a href="https://github.com/hankquinlan/hankquinlan.github.io/archive/master.zip">this GitHub repo</a>. Feel free to copy and paste or type the code directly into your project's files.</p>
+  <p>This guide is meant to help Git and GitHub beginners get up and running with <a href="https://pages.github.com/">GitHub Pages</a> and <a href="http://jekyllrb.com/">Jekyll</a> in an afternoon. It assumes you know very little about version control, Git, and GitHub. It is helpful if you know the basics of HTML and CSS since we'll be working directly with these languages. We'll also be using a little bit of <a href="https://daringfireball.net/projects/markdown/">Markdown</a>, but by no means do you need to be an expert with any of these languages. The idea is to learn by doing, so the code we'll be implementing in this tutorial is available in this guide or can be downloaded entirely at <a href="https://github.com/hankquinlan/hankquinlan.github.io/archive/master.zip">this GitHub repo</a>. Feel free to copy and paste or type this code directly into your project's files.</p>
 
 <p>For a little background on <em>why</em> I chose GitHub and GitHub Pages for my personal website (and other projects), see <a href="/notes/2014/05/03/using-github-to-create-and-host-a-personal-website/">this note</a>.</p>
 
 <h2>Other Resources You Should Know</h2>
-  <p>In order to make GitHub Pages accessible to a wider audience, this guide focuses on using the web interface on github.com to build your personal website, thereby generalizing and glossing over the more advanced tools associated with Git and GitHub. To get a lot dirtier wit Git and GitHub (ie, the command line and terminal), there are several other great guides you should also know about, probably bookmark, and read after completing this one: <a href="http://24ways.org/2013/get-started-with-github-pages/" title="Get Started with GitHub Pages by Anna Debenham">Anna Debenham</a>, <a href="http://www.thinkful.com/learn/a-guide-to-using-github-pages/" title="A Guide To Using GitHub Pages by Thinkful">Thinkful</a>, and even <a href="https://pages.github.com/" title="GitHub Pages">GitHub</a> itself go above and beyond making the command line or local workflow of GitHub hosting and Jekyll templates accessible to a wider audience.</p>
+  <p>In order to make GitHub Pages accessible to a wider audience, this guide focuses on using the web interface on github.com to build your personal website, thereby generalizing and glossing over the standard tools associated with Git and GitHub. To get a lot dirtier wit Git and GitHub (ie, the command line and terminal), there are several other great guides you should also know about, probably bookmark, and read after completing this one: <a href="http://24ways.org/2013/get-started-with-github-pages/" title="Get Started with GitHub Pages by Anna Debenham">Anna Debenham</a>, <a href="http://www.thinkful.com/learn/a-guide-to-using-github-pages/" title="A Guide To Using GitHub Pages by Thinkful">Thinkful</a>, and even <a href="https://pages.github.com/" title="GitHub Pages">GitHub</a> itself go above and beyond making the command line or local workflow of GitHub hosting and Jekyll templates accessible to a wider audience.</p>
 
-<p>Also, at <a href="#resources">the end of this document</a>, there is a pretty good list of resources related to Git, GitHub/Pages, and Jekyll that can help you dive deeper into these tools. I'll do my best to keep this list updated as I find new ones.</p> 
+<p>Also, at <a href="#resources">the end of this document</a>, there is a pretty good list of resources related to Git, GitHub/Pages, Jekyll, and Markdown that can help you dive deeper into these tools. I'll do my best to keep this list updated as I find new ones.</p> 
 
 <h2>What is Git, GitHub, and GitHub Pages?</h2>
-<p>Git, GitHub, and GitHub Pages are all very closely related. Imagine Git as the parent and GitHub and GitHub Pages as its children, both which rely on and use Git. Projects that use Git are stored publicly in GitHub and GitHub pages. So in a very generalized way, Git is what you do locally on your own computer and GitHub is the place where all this gets stored publicly on a server.</p>
+<p>Git, GitHub, and GitHub Pages are all very closely related. Imagine Git as the workflow to get things done and GitHub and GitHub Pages as places to store the work you finish. Projects that use Git are stored publicly in GitHub and GitHub pages, so in a very generalized way, Git is what you do locally on your own computer and GitHub is the place where all this gets stored publicly on a server.</p>
 <h3>Git</h3>
 <p><a href="http://git-scm.com/">Git</a> is a version control system that tracks changes to files in a project over time. It typically records what the changes were (what was added? what was removed from the file?), who made the changes, notes and comments about the changes by the changer, and at what time the changes were made. It is primarily used for software development projects which are often collaborative, so in this sense, it is a tool to help enable and improve collaboration. However, its collaborative nature has led it to gain interest in the publishing community as a tool to help in both authoring and editorial workflows.</p>
 
-<p>Git is for people who want to maintain multiple versions of their files in an efficient manner and travel back in time to visit different version without juggling numerous files along with their confusing names stored at different locations. Think of Git and version control like a magic undo button.</p>
+<p>Git is for people who want to maintain multiple versions of their files in an efficient manner and travel back in time to visit different versions without juggling numerous files along with their confusing names stored at different locations. Think of Git and version control like a magic undo button.</p>
 
 <p>In the diagram below, each stage represents a “save”. Without Git, you cannot go back to any of the in between stages from the initial draft and final draft. If you wanted to change the opening paragraph in the final draft, you’d have to delete data that you couldn’t recover. To work around this, we use the “save as” option, name it something different, delete the opening paragraph and start writing a new one.</p>
 
@@ -34,9 +34,9 @@ description: A beginner's guide to creating a personal website and blog using Je
 <p>When you have the chance, I <strong>highly recommend</strong> this <a href="https://try.github.io/levels/1/challenges/1">15 minute, hands-on web tutorial on using Git</a>.</p>
 
 <h3>GitHub</h3>
-<p>GitHub is a web hosting service for the source code of software and web development projects that use the Git. In many cases, most of the code is publicly available, so where developers can easily collaborate, download, use, improve, and remix code. The container for the code of a specific project is called a repository.</p>
+<p>GitHub is a web hosting service for the source code of software and web development projects (or other text based projects) that use the Git. In many cases, most of the code is publicly available, enabling developers to easily investigate, collaborate, download, use, improve, and remix that code. The container for the code of a specific project is called a repository.</p>
 
-<p>There are thousands of really cool and exciting projects on GitHub, with new projects added every day. Some examples of popular software development projects that make their code available on GitHub include:</p>
+<p>There are thousands of really cool and exciting repositories on GitHub, with new ones added every day. Some examples of popular software development projects that make their code available on GitHub include:</p>
 <ul>
 	<li><a href="https://github.com/twbs/bootstrap">Twitter Bootstrap</a>, an extremely popular front-end framework for mobile first websites, created by developers at Twitter.</li>
 	<li><a href="https://github.com/h5bp/html5-boilerplate">HTML5 Boilerplate</a>, a front-end template for quickly building websites, </li>
@@ -49,18 +49,12 @@ description: A beginner's guide to creating a personal website and blog using Je
 <img class="img-responsive" src="/img/guides/github-ruby-on-rails.png"/>
 
 <h3>GitHub Pages</h3>
-<p>GitHub Pages are public webpages hosted for free through GitHub. GitHub users can create and host both personal websites (one allowed per user) and websites related to specific GitHub projects. Pages lets you do the same things as GitHub, but if the repository is named a certain way and files inside it are HTML or Markdown, you can view the file like any other website. GitHub Pages is the self-aware version of GitHub. Pages also comes with a powerful <a href="http://staticgen.com/">static site generator</a> called <a href="http://jekyllrb.com/">Jekyll</a>.</p>
-
-<!-- list a few sites with a link to the site and link to the GitHub source code -->
-<ul><li><a href="#">Example one (source code)</a></li>
-	<li><a href="#">Example one (source code)</a></li>
-	<li><a href="#">Example one (source code)</a></li>
-	</ul>
+<p>GitHub Pages are public webpages hosted for free through GitHub. GitHub users can create and host both personal websites (one allowed per user) and websites related to specific GitHub projects. Pages lets you do the same things as GitHub, but if the repository is named a certain way and files inside it are HTML or Markdown, you can view the file like any other website. GitHub Pages is the self-aware version of GitHub. Pages also comes with a powerful <a href="http://staticgen.com/">static site generator</a> called <a href="http://jekyllrb.com/">Jekyll</a>, which we'll learn more about later on.</p>
 
 <h2>Getting Started with GitHub Pages</h2>
-<p>Don't worry if some of these concepts are still a little fuzzy to you. The best way to learn this stuff is to just start doing the work, so let's not waste anymore time.</p>
+<p>Don't worry if some of these concepts are still a little fuzzy to you. The best way to learn this stuff is to just start doing the work, so let's not waste anymore time and dive right in.</p>
 
-<p><span class="step">1</span>Create your project's repository. Login to your GitHub account and go to <a href="http://github.com/new">http://github.com/new</a> or click the New repository icon.</p>
+<p><span class="step">1</span>Create your project's repository. Login to your GitHub account and go to <a href="https://github.com/new">https://github.com/new</a> or click the New repository icon from your account homepage.</p>
 
 <img class="img-responsive" src="/img/guides/01-create-repo.png"/>
 
@@ -73,7 +67,7 @@ description: A beginner's guide to creating a personal website and blog using Je
 <img class="img-responsive" src="/img/guides/03-01-create-index-page.png"/>
 <img class="img-responsive" src="/img/guides/03-02-create-index-page.png"/>
 
-<p>Put this markup inside of the text editor:</p>
+<p>On the resulting page, put this markup inside of the GitHub text editor:</p>
 <pre class="prettyprint pre-scrollable"><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
@@ -149,13 +143,22 @@ footer &lbrace;
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
 &rbrace;
+
+ul.posts &lbrace; 
+    margin: 20px auto 40px; 
+    font-size: 1.5em;
+&rbrace;
+
+ul.posts li &lbrace;
+    list-style: none;
+&rbrace;
 </pre>
 
 <p>Don't forget to commit the new CSS file!</p>
 
 <img class="img-responsive" src="/img/guides/06-commit-css-file.png"/>
 
-<p><span class="step">6</span> Link to your CSS file. Go back to <code>index.html</code> and select the "Edit" button.</p>
+<p><span class="step">6</span> Link to your CSS file inside your HTML document's <code>&lt;head&gt;</code>. Go back to <code>index.html</code> and select the "Edit" button.</p>
 	
 <img class="img-responsive" src="/img/guides/07-01-edit-index-page.png"/>
 	
@@ -194,15 +197,15 @@ footer &lbrace;
 <p>Visit <a href="#">http://username.github.io</a> to see your styled website. It should look at like <a href="http://hankquinlan.github.io">http://hankquinlan.github.io</a>.</p>
 
 <h2>Using Jekyll with GitHub Pages</h2>
-<p>Again, it is best to setup Jekyll on your local machine so you can do your edits locally, then push those changes to your GitHub repo. But to learn how Jekyll works, we're going to build it into our GitHub repo using the GitHub web interface.</p>
-<p>Like GitHub Pages, Jekyll is self-aware, so if you add folders and files following specific naming conventions, when you commit to GitHub, Jekyll will build your site.</p>
+<p>Like GitHub Pages, Jekyll is self-aware, so if you add folders and files following specific naming conventions, when you commit to GitHub, Jekyll will magically build your website.</p>
+<p>While I recommend setting up Jekyll on your own computer so you can edit and preview your site locally, and when ready, push those changes to your GitHub repo, we're not going to do that. Instead, to quickly get a handle on how Jekyll works, we're going to build it into our GitHub repo using the GitHub web interface.</p>
 <h3>What is Jekyll?</h3>
-<p>Jekyll is a very powerful static site generator. In some senses, it is a throwback to the days of static HTML before databases were used to store website content. The big difference is that it is extremely modern, slick, and easy enough to learn that it isn't just for techies. When used inside GitHub, Jekyll will automatically re-generate all the HTML pages for your website each time you commit a file. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page.</p>
-<p>Templates (or layouts in Jekyll nomenclature) are your best friend when using a static site generator. Instead of repeating the same navigation markup on every page I create, which I'd have to edit on every page if I add, remove, or change the location of navigation item, I can create what Jekyll calls a layout that gets used on all my pages.</p>
+<p>Jekyll is a very powerful static site generator. In some senses, it is a throwback to the days of static HTML before databases were used to store website content. For simple sites without complex architectures, like a personal website, this is a huge plus. When used alongside GitHub, Jekyll will automatically re-generate all the HTML pages for your website each time you commit a file.</p> 
+<p>Jekyll makes managing your website easier because it depends on templates. Templates (or layouts in Jekyll nomenclature) are your best friend when using a static site generator. Instead of repeating the same navigation markup on every page I create, which I'd have to edit on every page if I add, remove, or change the location of navigation item, I can create what Jekyll calls a layout that gets used on all my pages. In this tutorial, we're going to create two Jekyll templates to help power your website.</p>
 <h3>Setting Up Jekyll on github.com</h3>
 <p>In order for Jekyll to work with your site, you need to follow <a href="http://jekyllrb.com/docs/structure/">Jekyll's directory structure</a>. To learn about this structure, we're going to build it right into our GitHub repo.</p>
  
-<p><span class="step">7</span> Create a <code>.gitignore</code> file. This file tells Git to ignore the <code>_site</code> directory that Jekyll automatically generates each time you commit</p>
+<p><span class="step">7</span> Create a <code>.gitignore</code> file. This file tells Git to ignore the <code>_site</code> directory that Jekyll automatically generates each time you commit. Because this directory and all the files inside are written each time you commit, you do not want this directory under version control.</p>
 
 <img class="img-responsive" src="/img/guides/08-01-create-gitignore.png"/>
 
@@ -211,13 +214,13 @@ footer &lbrace;
 	_site/
 </pre>
 
-<p><span class="step">8</span> Create a <code>_config.yml</code> file that tells Jekyll some basics about your project. In this example, we're telling Jekyll the name of our site and what version of markdown we'd like to use:</p>
+<p><span class="step">8</span> Create a <code>_config.yml</code> file that tells Jekyll some basics about your project. In this example, we're telling Jekyll the name of our site and what version of Markdown we'd like to use:</p>
 <pre class="prettyprint pre-scrollable">
 	name: Hank Quinlan, Horrible Cop
 	markdown: kramdown
 </pre>
 <p><em>At this point, I'm hopeful that you've got the hang of creating files and directories using the GitHub web interface, so I'm going stop using screenshots to illustrate those actions.</em></p>
-<p><span class="step">9</span>Make a <code>_layouts</code> directory, and create file inside it called <code>default.html</code>. (Remember, you can make directories while making new files –&nbsp;see the <a href="#css"><code>main.css</code> step</a>.)</p> 
+<p><span class="step">9</span>Make a <code>_layouts</code> directory, and create file inside it called <code>default.html</code>. (Remember, you can make directories while making new files. See the <a href="#css"><code>main.css</code> step</a> if you forgot.)</p> 
 <p>This is our main layout that will contain repeated elements like our <code>&lt;head&gt;</code> and <code>&lt;footer&gt;</code>. Now we won't have to repeat that markup on every single page we create, making maintenance of our site much easier. So let's move those elements from <code>index.html</code> into <code>default.html</code> to get something that looks like this in the end:</p>
 <pre class="prettyprint pre-scrollable"><code>&lt;!DOCTYPE html&gt;
 	&lt;html&gt;
@@ -249,7 +252,7 @@ footer &lbrace;
 		&lt;/body&gt;
 	&lt;/html&gt;</code></pre>
 
-<p>Take note of the <code>&lbrace;&lbrace; page.title &rbrace;&rbrace;</code> and <code>&lbrace;&lbrace; content &rbrace;&rbrace;</code> tags in there. They're what Jekyll calls liquid tags, and these are used to inject content into the final web page.</p> 
+<p>Take note of the <code>&lbrace;&lbrace; page.title &rbrace;&rbrace;</code> and <code>&lbrace;&lbrace; content &rbrace;&rbrace;</code> tags in there. They're what Jekyll calls liquid tags, and these are used to inject content into the final web page. More on this in a bit.</p> 
 
 <p><span class="step">10</span> Now update your <code>index.html</code> to use your default layout:</p>
 <pre class="prettyprint pre-scrollable"><code>---
@@ -261,10 +264,10 @@ title: Hank Quinlan, Horrible Cop
 	&lt;p&gt;I'm best known as the horrible cop from &lt;em&gt;A Touch of Evil&lt;/em&gt; Don't trust me. &lt;a href="/about"&gt;Read more about my life...&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;&lt;!-- /.blurb --&gt;</code></pre>
 
-<p>Notice the plain text at the top of the file. Jekyll calls this the Front-matter. Any file on your site that contains this will be processed by Jekyll. Every time you commit a file that specifies <code>layout: default</code> at the top, Jekyll will magically generate the full HTML document by replacing <code>&lbrace;&lbrace; content &rbrace;&rbrace;</code> in <code>_layouts/default.html</code> with the contents of the committed file.</p>
+<p>Notice the plain text at the top of the file. Jekyll calls this the Front-matter. Any file on your site that contains this will be processed by Jekyll. Every time you commit a file that specifies <code>layout: default</code> at the top, Jekyll will magically generate the full HTML document by replacing <code>&lbrace;&lbrace; content &rbrace;&rbrace;</code> in <code>_layouts/default.html</code> with the contents of the committed file. Awesome!</p>
 
 <h3>Setting up a Blog</h3>
-<p>A Jekyll-based blog uses some of the same conventions that we've familiarized ourselves with in the previous steps, but takes things further by adding a few more conventions for us to follow. It is pretty customizable, but in this guide we're only going to cover the basics.</p> 
+<p>A Jekyll-based blog uses the same conventions that we've familiarized ourselves with in the previous steps, but takes things further by adding a few more for us to follow. Jekyll is very flexible allowing you to extend your site as you wish, but in this guide we're only going to cover the basics: creating a post, making a page to list our posts, creating a custom permalink for posts, and creating an RSS feed for the blog.</p> 
 
 <p>We'll want to create a new layout for our blog posts called <code>post.html</code> and a folder to store each individual post called <code>_posts/</code>.</p>
 <p><span class="step">11</span> Start by creating the layout. Create a file named <code>post.html</code> in your <code>_layouts</code> folder. Notice the post layout uses the default layout as it's base, and adds a couple new liquid tags to print the title of the post and date:</p>
@@ -287,11 +290,11 @@ date: 2014-04-30
 
 Well. Finally got around to putting this old website together. Neat thing about it - powered by &lbrack;Jekyll&rbrack;&lpar;http://jekyllrb.com&rpar; and I can use Markdown to author my posts. It actually is a lot easier than I thought it was going to be.</code></pre>
 
-	<p>Note the file extension <code>.md</code> stands for Markdown, and the Markdown syntax used inside the file gets converted to HTML by Jekyll. Like Wikitext, <a href="https://daringfireball.net/projects/markdown/">Markdown</a> is a markup language with a syntax closer to plain text. The idea of Markdown is to get out of the author's way so they can write their HTML content quickly, making Markdown very suitable as a blog authoring syntax.</p>
+	<p>Note the file extension <code>.md</code> stands for Markdown, and the Markdown syntax used inside the file gets converted to HTML by Jekyll. Like Wikitext, <a href="https://daringfireball.net/projects/markdown/">Markdown</a> is a markup language with a syntax closer to plain text. The idea of Markdown is to get out of the author's way so they can write their HTML content quickly, making Markdown very suitable as a blog authoring syntax. If you aren't already, you'll want to get familiar with Markdown syntax, and this <a href="http://packetlife.net/media/library/16/Markdown.pdf">printable cheatsheet (PDF)</a> will be your best friend.</p>
 	
 	<p>After committing the new post, navigate to <a href="#">http://username.github.io/YYYY/MM/DD/name-of-your-post</a> to view it.</p> 
 	
-<p>All this is great, but your readers won't know the exact URLs of your posts. So next we need to create a page that lists each post's title and hyperlink. You could create this list on your homepage or alternatively, create a blog subpage that collects all of your posts. We're going to do the latter.</p>
+<p>All this is great, but your readers won't always know the exact URLs of your posts. So next we need to create a page on our site that lists each post's title and hyperlink. You could create this list on your homepage or alternatively, create a blog subpage that collects all of your posts. We're going to do the latter.</p>
 		
 <p><span class="step">13</span> Create a <code>blog</code> directory and create a file named <code>index.html</code> inside it. To list each post, we'll use a foreach loop to create an unordered list of our blog posts:</p>
 <pre class="prettyprint pre-scrollable"><code>---
@@ -309,7 +312,7 @@ title: Hank Quinlan's Blog
 	<p>Now checkout <a href="#">http://username.github.io/blog/</a>. You should see your first post listed and linked there. Nice job!</p>
 	
 	<h3>Customizing Your Blog</h3>
-	<p>We've only begun to scratch the surface with Jekyll its blog aware functionality. This guide is only going to cover a couple more steps you might want to take for your blog.</p>
+	<p>We've only begun to scratch the surface with Jekyll's blog aware functionality. This guide is only going to cover a couple more steps you might want to take for your blog.</p>
 	
 	<p>You may have noticed that the URL of your blog post does not include the blog directory in it. In Jekyll we can control the structure of our permalinks by editing the <code>_config.yml</code> file we created in Step 8. So let's change our permalink structure to include the blog directory.</p>
 	
@@ -348,17 +351,21 @@ layout: feed
 	&lbrace;&percnt; endfor &percnt;&rbrace;
 
 &lt;/feed&gt;</code></pre>
-		
-<p><span class="step">16</span> You're almost done! Don't forget to create and commit your <code>about/index.html</code> and <code>cv/index.html</code> pages. Since I'm sure you've got the hang of things now, I'll back off and let you get finished.</p> 
+<p>Now you can include a link to your RSS feed on your site for users to subscribe to your blog. Navigate to <a href="#">http://username.github.io/blog/atom.xml</a> to view your feed.</p>
 
-<p><span class="step">17</span> Before going any further, take the time to <a href="https://help.github.com/articles/set-up-git">setup Git</a> and <a href="http://jekyllrb.com/docs/installation/">Jekyll</a> on your own computer. This tutorial is all about Git in the web browser, so really it's only the half way point. <strong>You're going to have to do this if you want to be able to upload images or PDF downloads to your GitHub repo.</strong> GitHub's tutorials and desktop application make local setup easy, and now that you know what you're doing, you should be able to get this going. Do it!</strong> </p>
+<h2>Wrapping Up</h2>		
+<p><span class="step">16</span> You're almost done! Don't forget to create and commit your <code>about/index.html</code> and <code>cv/index.html</code> pages. Since I'm sure you've got the hang of things now, I'll back off and let you get these pages finished on your own.</p> 
 
-<h2>Wrapping Up</h2>
-<p>Hopefully this has given you the confidence to do many other things with Git, GitHub, Jekyll and your website or blog. You could go in many different directions at this point, as I'm sure you've already started scheming what's next, but here are a few things I can think of that would be worth your time to pursue next:</p>
+<p><span class="step">17</span> Before going any further, take the time to <a href="https://help.github.com/articles/set-up-git">setup Git</a> and <a href="http://jekyllrb.com/docs/installation/">Jekyll</a> on your own computer. This tutorial is all about Git in the web browser, so really it's only the half way point. <strong>You're going to have to do this if you want to be able to upload image or PDF files to your GitHub repo.</strong> GitHub's tutorials and desktop application make local setup easy, and now that you know you're already familiar with many of Git and GitHub's basic concepts, you should be able to get this going. Go do it!</p>
+
+<h2>Next Steps</h2>
+<p>Hopefully this guide has given you the confidence to do many other things with Git, GitHub, Jekyll, and your website or blog. You could go in many different directions at this point, as I'm sure you've already started thinking about, but here are a few other things I think would be worth your time:</p>
 <ul>
-	<li><a href="http://yeswejekyll.com/#_includes">Create <code>_includes</code></a>. They're like <code>_layouts</code>, only smaller snippets of markup. Try creating an <code>_include</code> file that inserts Google Analytics tracking code into your <code><head></code> so you can get stats on the visitors to your website.</li>
-	<li>Don't want github.io in your URL? <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages">Set Up a Custom Domain</a>.</li>
-	<li><a href="http://jekyllrb.com/docs/pagination/">Blogging Pagination</a></li>
+	<li><a href="http://yeswejekyll.com/#_includes">Create <code>_includes</code></a>. They're a lot like <code>_layouts</code>, only smaller snippets of markup and can be injected into your <code>_layouts</code> and pages.
+		<ul><li>Try creating an <code>_include</code> file that inserts Google Analytics tracking code into your <code>&lt;head&gt;</code> so you can get stats on the visitors to your website. Here's an <a href="https://github.com/jmcglone/jmcglone.github.io/blob/master/_includes/analytics.html">example</a>.</li>
+			<li>Want commenting for your blog? Create a <a href="https://github.com/jmcglone/jmcglone.github.io/blob/master/_includes/disqus.html">DISQUS <code>_include</code></a> and <a href="https://github.com/jmcglone/jmcglone.github.io/blob/master/_layouts/post.html">call it in your <code>post.html</code> layout</a>.</li></ul></li>
+	<li>Don't want github.io in your URL? <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages">Set up a custom domain</a>.</li>
+	<li><a href="http://jekyllrb.com/docs/pagination/">Add blogging pagination</a></li>
 	<li>Create a <code>sitemap.xml</code> file for better SEO. See <a href="https://github.com/jmcglone/jmcglone.github.io/blob/master/sitemap.xml">this one</a> I use for my site.</li>
 	<li>Become a coding pro and create a <code>development</code> branch of your site. Each time you want to fix a bug or add a new feature you can create a copy of your master branch, make your changes, and then merge that brance to the master branch. <a href="https://help.github.com/articles/branching-out">The idea is to keep the master branch clean</a>.</li>
 </ul>
@@ -370,6 +377,7 @@ layout: feed
 <li><a href="https://help.github.com/categories/20/articles">GitHub Pages Help</a></li>
 <li><a href="https://help.github.com/">GitHub Help</a></li>
 <li><a href="https://github.com/tiimgreen/github-cheat-sheet">GitHub Cheat Sheet</a></li>
+<li><a href="https://help.github.com/articles/github-glossary">GitHub Glossary</a></li>
 </ul>
 
 <h3>Jekyll</h3>
