@@ -72,6 +72,8 @@ iframe {font-family: 'Merriweather', Georgia, Times; font-size: 16px;}
 .guide .title h1 { font-size: 46px; color: #181818; }
 .guide p { margin: 0 0 1em;  }
 .guide img { border: solid 1px #d5d5d5; border-radius: 4px; margin: 40px auto; display: block; }
+.guide .notes { font-size: 12px; }
+.guide .notes h2 { font-size: 14px; }
 
 /* Code */
 pre.prettyprint { padding: 10px !important; margin: 40px; font-size: 12px;}
