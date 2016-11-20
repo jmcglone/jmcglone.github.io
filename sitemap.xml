@@ -4,7 +4,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     {% for post in site.posts %}
     <url>
-        <loc>http://jmcglone.com{{ post.url | remove: 'index.html' }}</loc>
+        <loc>http://dendibakh.github.com{{ post.url | remove: 'index.html' }}</loc>
     </url>
     {% endfor %}
 
@@ -12,7 +12,7 @@
     {% if page.layout != nil %}
     {% if page.layout != 'feed' %}
     <url>
-        <loc>http://jmcglone.com{{ page.url | remove: 'index.html' }}</loc>
+        <loc>http://dendibakh.github.com{{ page.url | remove: 'index.html' }}</loc>
     </url>
     {% endif %}
     {% endif %}
