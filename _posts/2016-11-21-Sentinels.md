@@ -64,23 +64,26 @@ I ran a benchmark test (search failure) with 1000 elements 1000000 times:
 2. With -O3 sentinels version was 21% faster.
 
 To understand why this works lets look at the assembly.
+
 You can check all assembly output here: [godbolt.org](https://godbolt.org/g/N8oDmZ).
 
 Comparing effective loops of two algoritms we can see that one additional check eliminated:
 
-| Simple find                                 | Find with sentinel                       |
-|:-------------------------------------------:|:----------------------------------------:|
-|Effective loop:                              | Effective loop:                          |
-|```asm  mov     rax, QWORD PTR [rbp-8] ```   |                                          |
-|```asm  cmp     rax, QWORD PTR [rbp-32]```   |                                          |
-|```asm  jnb     .L2```                       |                                          |
-|```asm  mov     rax, QWORD PTR [rbp-8]```    |```asm  mov     rax, QWORD PTR [rbp-8]``` | 
-|```asm  lea     rdx, [0+rax*4]```            |```asm  lea     rdx, [0+rax*4]```         |
-|```asm  mov     rax, QWORD PTR [rbp-24]```   |```asm  mov     rax, QWORD PTR [rbp-24]```|
-|```asm  add     rax, rdx```                  |```asm  add     rax, rdx```               |
-|```asm  mov     eax, DWORD PTR [rax]```      |```asm  mov     eax, DWORD PTR [rax]```   |
-|```asm  cmp     eax, DWORD PTR [rbp-36]```   |```asm  cmp     eax, DWORD PTR [rbp-36]```|
-|```asm  jne     .L3```                       |```asm  jne     .L2```                    |
+```asm
+| Simple find                        | Find with sentinel              |
+|:----------------------------------:|:-------------------------------:|
+|Effective loop:                     | Effective loop:                 |
+|  mov     rax, QWORD PTR [rbp-8]    |                                 |
+|  cmp     rax, QWORD PTR [rbp-32]   |                                 |
+|  jnb     .L2                       |                                 |
+|  mov     rax, QWORD PTR [rbp-8]    |  mov     rax, QWORD PTR [rbp-8] | 
+|  lea     rdx, [0+rax*4]            |  lea     rdx, [0+rax*4]         |
+|  mov     rax, QWORD PTR [rbp-24]   |  mov     rax, QWORD PTR [rbp-24]|
+|  add     rax, rdx                  |  add     rax, rdx               |
+|  mov     eax, DWORD PTR [rax]      |  mov     eax, DWORD PTR [rax]   |
+|  cmp     eax, DWORD PTR [rbp-36]   |  cmp     eax, DWORD PTR [rbp-36]|
+|  jne     .L3                       |  jne     .L2                    |
+```
 
 Complete set of functions as well as the benchmarking tests can be found [here](https://github.com/dendibakh/prep/blob/master/sentinels.cpp).
 
