@@ -29,7 +29,7 @@ We can't put away equality checks, but we can get rid of checking bound by using
 The idea is to insert the number we are looking for at the end of the array.
 This will garanty that in worst case we will look through entire array, but we will always find the number we are looking for.
 
-If so, than we can get rid of checking out of bounds condition, making our loop naturally infinite. We can be sure that our infinite loop will finish, because we know our there is a value we are looking for.
+If so, than we can get rid of checking out of bounds condition, making our loop naturally infinite. We can be sure that our infinite loop will finish, because we know there is a value we are looking for.
 
 ```cpp
 // Assumption made: array has one empty slot for insertion our sentinel.
@@ -53,16 +53,18 @@ bool sentinel_find_benchmark(int* vect, size_t size, int val)
 
 This code is far from ideal, but it shows the idea behind the sentinels.
 In general there are much more concerns you should care about:
+
 1. If the const array is passed, you are not allowed to change it, thus require a copy to be made.
 2. If the non-const vector is passed, inserting a new element can cause reallocation -> invalidating iterators.
 3. Elements of the array can be non default-constructible, preventing for creation of a sentinel. 
 
 I ran a benchmark test (search failure) with 1000 elements 1000000 times:
-With no optimizations -O0 sentinels version was 9% faster.
-With -O3 sentinels version was 21% faster.
+
+1. With no optimizations -O0 sentinels version was 9% faster.
+2. With -O3 sentinels version was 21% faster.
 
 To understand why this works lets look at the assembly.
-You can check all assembly output here: https://godbolt.org/g/N8oDmZ.
+You can check all assembly output here: [godbolt.org](https://godbolt.org/g/N8oDmZ).
 
 Comparing effective loops of two algoritms we can see that one additional check eliminated:
 
