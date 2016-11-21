@@ -5,10 +5,11 @@ tags: default
 ---
 
 Today I would like to show one interesting techique for optimizing your algorithms. This technique is called sentinels.
-Sentinel is a special thing that marks the end of the sequence. The natural example here example is '\0' terminator for a C-string.
+Sentinel is a special thing that marks the end of the sequence. The natural example here example is \'\0\' terminator for a C-string.
 
 Let's consider function that only searches for some value in the array:
 
+```cpp
 bool find_benchmark(int* arr, size_t size, int val)
 {
   for (size_t i = 0; i < size; ++i)
@@ -18,6 +19,7 @@ bool find_benchmark(int* arr, size_t size, int val)
   }
   return false;
 }
+```
 
 1. We check all elements for equality with out target.
 2. At each iteration we check if we reach the end of our array.
@@ -29,6 +31,7 @@ This will garanty that in worst case we will look through entire array, but we w
 
 If so, than we can get rid of checking out of bounds condition, making our loop naturally infinite. We can be sure that our infinite loop will finish, because we know our there is a value we are looking for.
 
+```cpp
 // Assumption made: array has one empty slot for insertion our sentinel.
 bool sentinel_find_benchmark(int* vect, size_t size, int val)
 {
@@ -46,6 +49,7 @@ bool sentinel_find_benchmark(int* vect, size_t size, int val)
   }
   return false;
 }
+```
 
 This code is far from ideal, but it shows the idea behind the sentinels.
 In general there are much more concerns you should care about:
@@ -57,11 +61,12 @@ I ran a benchmark test (search failure) with 1000 elements 1000000 times:
 With no optimizations -O0 sentinels version was 9% faster.
 With -O3 sentinels version was 21% faster.
 
-To understand why this works lets look at the assembly:
-https://godbolt.org/g/N8oDmZ
+To understand why this works lets look at the assembly.
+You can check all assembly output here: https://godbolt.org/g/N8oDmZ.
 
 Comparing effective loops of two algoritms we can see that one additional check eliminated:
 
+```asm
 Effective loop:
         mov     rax, QWORD PTR [rbp-8]
         cmp     rax, QWORD PTR [rbp-32]
@@ -73,7 +78,9 @@ Effective loop:
         mov     eax, DWORD PTR [rax]
         cmp     eax, DWORD PTR [rbp-36]
         jne     .L3
+```
 
+```asm
 Effective loop:
         mov     rax, QWORD PTR [rbp-8]
         lea     rdx, [0+rax*4]
@@ -82,8 +89,7 @@ Effective loop:
         mov     eax, DWORD PTR [rax]
         cmp     eax, DWORD PTR [rbp-36]
         jne     .L2
+```
 
-
-Sentinels could be used even for speed up quicksort. See this great talk by Andrei Alexandrescu on ACCU 2016:
-https://www.google.fi/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiRm_TI0bnQAhVW6WMKHUx1CLgQtwIIGzAA&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DAxnotgLql0k&usg=AFQjCNHczAs076PR3dA15XoDlAtDGxcTwg&sig2=bVVhiEjuICruRhyGkKwH3Q
+Sentinels could be used even for speed up quicksort. See this great [talk by Andrei Alexandrescu on ACCU 2016](https://www.google.fi/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiRm_TI0bnQAhVW6WMKHUx1CLgQtwIIGzAA&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DAxnotgLql0k&usg=AFQjCNHczAs076PR3dA15XoDlAtDGxcTwg&sig2=bVVhiEjuICruRhyGkKwH3Q).
 
