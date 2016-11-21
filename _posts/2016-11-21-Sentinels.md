@@ -60,7 +60,7 @@ In general there are much more concerns you should care about:
 
 I ran a benchmark test (search failure) with 1000 elements 1000000 times:
 
-1. With no optimizations -O0 sentinels version was 9% faster.
+1. With no optimizations (-O0) sentinels version was 9% faster.
 2. With -O3 sentinels version was 21% faster.
 
 To understand why this works lets look at the assembly.
@@ -68,30 +68,21 @@ You can check all assembly output here: [godbolt.org](https://godbolt.org/g/N8oD
 
 Comparing effective loops of two algoritms we can see that one additional check eliminated:
 
-```asm
-Effective loop:
-        mov     rax, QWORD PTR [rbp-8]
-        cmp     rax, QWORD PTR [rbp-32]
-        jnb     .L2
-        mov     rax, QWORD PTR [rbp-8]
-        lea     rdx, [0+rax*4]
-        mov     rax, QWORD PTR [rbp-24]
-        add     rax, rdx
-        mov     eax, DWORD PTR [rax]
-        cmp     eax, DWORD PTR [rbp-36]
-        jne     .L3
-```
+| Simple find                                 | Find with sentinel                       |
+|:-------------------------------------------:|:----------------------------------------:|
+|Effective loop:                              | Effective loop:                          |
+|```asm  mov     rax, QWORD PTR [rbp-8] ```   |                                          |
+|```asm  cmp     rax, QWORD PTR [rbp-32]```   |                                          |
+|```asm  jnb     .L2```                       |                                          |
+|```asm  mov     rax, QWORD PTR [rbp-8]```    |```asm  mov     rax, QWORD PTR [rbp-8]``` | 
+|```asm  lea     rdx, [0+rax*4]```            |```asm  lea     rdx, [0+rax*4]```         |
+|```asm  mov     rax, QWORD PTR [rbp-24]```   |```asm  mov     rax, QWORD PTR [rbp-24]```|
+|```asm  add     rax, rdx```                  |```asm  add     rax, rdx```               |
+|```asm  mov     eax, DWORD PTR [rax]```      |```asm  mov     eax, DWORD PTR [rax]```   |
+|```asm  cmp     eax, DWORD PTR [rbp-36]```   |```asm  cmp     eax, DWORD PTR [rbp-36]```|
+|```asm  jne     .L3```                       |```asm  jne     .L2```                    |
 
-```asm
-Effective loop:
-        mov     rax, QWORD PTR [rbp-8]
-        lea     rdx, [0+rax*4]
-        mov     rax, QWORD PTR [rbp-24]
-        add     rax, rdx
-        mov     eax, DWORD PTR [rax]
-        cmp     eax, DWORD PTR [rbp-36]
-        jne     .L2
-```
+Complete set of functions as well as the benchmarking tests can be found [here](https://github.com/dendibakh/prep/blob/master/sentinels.cpp).
 
 Sentinels could be used even for speed up quicksort. See this great [talk by Andrei Alexandrescu on ACCU 2016](https://www.google.fi/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiRm_TI0bnQAhVW6WMKHUx1CLgQtwIIGzAA&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DAxnotgLql0k&usg=AFQjCNHczAs076PR3dA15XoDlAtDGxcTwg&sig2=bVVhiEjuICruRhyGkKwH3Q).
 
