@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using GitHub to Create and Host a Personal Website
+title: This is an test for my blog on github
 ---
 This is an test for my blog on github
 
