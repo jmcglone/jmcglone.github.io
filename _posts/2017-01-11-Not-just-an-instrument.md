@@ -4,7 +4,7 @@ title: Guitar, Not just an instrument
 date: 2017-01-11
 ---
 <p>
-# Words of wisdom...</font>
+# Words of wisdom...
 I believe that how we play is largely informed by the state of our souls.
 > * Are we generally at peace with life? 
 * Are we feeling in constant conflict?
