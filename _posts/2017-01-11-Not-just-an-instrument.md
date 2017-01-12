@@ -4,7 +4,7 @@ title: Guitar, Not just an instrument
 date: 2017-01-11
 ---
 <p>
-<font size="6">Words of wisdom...</font>
+# Words of wisdom...</font>
 I believe that how we play is largely informed by the state of our souls.
 > * Are we generally at peace with life? 
 * Are we feeling in constant conflict?
@@ -14,9 +14,8 @@ I believe that how we play is largely informed by the state of our souls.
 <font size="4">Think again</font>
 <p> 
 <p>
- <font size="4">
-Want to know what's really going on inside of you? </font>
- <font size="6">
-Record yourself and listen......your soul will tell you instantly.</font>
+
+###Want to know what's really going on inside of you? 
+Record yourself and listen......your soul will tell you instantly.
 
 
