@@ -6,7 +6,8 @@ date: 2017-01-11
 
 # Words of wisdom...
 I believe that how we play is largely informed by the state of our souls.
-> * Are we generally at peace with life? 
+
+* Are we generally at peace with life? 
 * Are we feeling in constant conflict?
 * Are we in rebellion against.....virtually everything?
 * Constantly wound up.....or taking life as it comes? 
