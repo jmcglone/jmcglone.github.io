@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Guitar: Not just an instrument
+title: Guitar, Not just an instrument
 date: 2017-01-11
 ---
 <p>
@@ -14,7 +14,9 @@ I believe that how we play is largely informed by the state of our souls.
 <font size="4">Think again</font>
 <p> 
 <p>
-<font size="4">Want to know what's really going on inside of you? </font>
-<font size="6">Record yourself and listen......your soul will tell you instantly.</font>
+ <font size="4">
+Want to know what's really going on inside of you? </font>
+ <font size="6">
+Record yourself and listen......your soul will tell you instantly.</font>
 
 
