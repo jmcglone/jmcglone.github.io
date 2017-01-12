@@ -11,9 +11,10 @@ I believe that how we play is largely informed by the state of our souls.
 * Are we in rebellion against.....virtually everything?
 * Constantly wound up.....or taking life as it comes? 
 * Think the above doesn't impact how you play? 
-<font size="4">Think again</font>
+
+## Think again
 
 ### Want to know what's really going on inside of you? 
-Record yourself and listen......your soul will tell you instantly.
+ Record yourself and listen......your soul will tell you instantly.
 
 
