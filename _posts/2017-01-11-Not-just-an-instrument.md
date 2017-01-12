@@ -12,6 +12,7 @@ I believe that how we play is largely informed by the state of our souls.
 * Constantly wound up.....or taking life as it comes? 
 * Think the above doesn't impact how you play? 
 <font size="4">Think again</font>
+<p> 
 <p>
 <font size="4">Want to know what's really going on inside of you? </font>
 <font size="6">Record yourself and listen......your soul will tell you instantly.</font>
