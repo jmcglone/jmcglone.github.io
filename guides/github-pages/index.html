@@ -11,10 +11,10 @@ description: A beginner's guide to creating a personal website and blog using Je
 	</div>
   <p>This guide is meant to help Git and GitHub beginners get up and running with <a href="https://pages.github.com/">GitHub Pages</a> and <a href="http://jekyllrb.com/">Jekyll</a> in an afternoon. It assumes you know very little about version control, Git, and GitHub. It is helpful if you know the basics of HTML and CSS since we'll be working directly with these languages. We'll also be using a little bit of <a href="https://daringfireball.net/projects/markdown/">Markdown</a>, but by no means do you need to be an expert with any of these languages. The idea is to learn by doing, so the code we'll be implementing in this tutorial is available in this guide or can be downloaded entirely at <a href="https://github.com/hankquinlan/hankquinlan.github.io/archive/master.zip">this GitHub repo</a>. Feel free to copy and paste or type this code directly into your project's files.</p>
 
-<p>For a little background on <em>why</em> I chose GitHub and GitHub Pages for my personal website (and other projects), see <a href="/notes/2014/05/03/using-github-to-create-and-host-a-personal-website/">this note</a>.</p>
+<p>For a little background on <em>why</em> I chose GitHub and GitHub Pages for my personal website (and other projects), see <a href="/notes/2014/05/03/using-github-to-create-and-host-a-personal-website">this note</a>.</p>
 
 <h2>Other Resources You Should Know</h2>
-  <p>In order to make GitHub Pages accessible to a wider audience, this guide focuses on using the web interface on github.com to build your personal website, thereby generalizing and glossing over the standard tools associated with Git and GitHub. To get a lot dirtier wit Git and GitHub (ie, the command line and terminal), there are several other great guides you should also know about, probably bookmark, and read after completing this one, or jump over to if that is more your speed: <a href="http://24ways.org/2013/get-started-with-github-pages/" title="Get Started with GitHub Pages by Anna Debenham">Anna Debenham</a>, <a href="http://www.thinkful.com/learn/a-guide-to-using-github-pages/" title="A Guide To Using GitHub Pages by Thinkful">Thinkful</a>, and even <a href="https://pages.github.com/" title="GitHub Pages">GitHub</a> itself go above and beyond making the command line or local workflow of GitHub hosting and Jekyll templates accessible to a wider audience.</p>
+  <p>In order to make GitHub Pages accessible to a wider audience, this guide focuses on using the web interface on github.com to build your personal website, thereby generalizing and glossing over the standard tools associated with Git and GitHub. To get a lot dirtier with Git and GitHub (ie, the command line and terminal), there are several other great guides you should also know about, probably bookmark, and read after completing this one, or jump over to if that is more your speed: <a href="http://24ways.org/2013/get-started-with-github-pages/" title="Get Started with GitHub Pages by Anna Debenham">Anna Debenham</a>, <a href="http://www.thinkful.com/learn/a-guide-to-using-github-pages/" title="A Guide To Using GitHub Pages by Thinkful">Thinkful</a>, and even <a href="https://pages.github.com/" title="GitHub Pages">GitHub</a> itself go above and beyond making the command line or local workflow of GitHub hosting and Jekyll templates accessible to a wider audience.</p>
 
 <p>Also, at <a href="#resources">the end of this document</a>, there is a pretty good list of resources related to Git, GitHub/Pages, Jekyll, and Markdown that can help you dive deeper into these tools. I'll do my best to keep this list updated as I find new ones.</p> 
 
@@ -29,7 +29,7 @@ description: A beginner's guide to creating a personal website and blog using Je
 
 <img class="img-responsive" src="/img/guides/git-basics.png"/>
 
-<p>With Git, the flow is multidirectional. Each change that is significant is marked as important in a version, and you proceed. If you you need to get back to earlier stages, you can without any loss of data. Presently, Google Docs “revision history” or Wikipedia’s “edit history” work in this sort of fashion. Git is just a lot more detailed and can get a lot more complex if needed.<sup><a href="#n1">1</a></sup></p>
+<p>With Git, the flow is multidirectional. Each change that is significant is marked as important in a version, and you proceed. If you need to get back to earlier stages, you can without any loss of data. Presently, Google Docs “revision history” or Wikipedia’s “edit history” work in this sort of fashion. Git is just a lot more detailed and can get a lot more complex if needed.<sup><a href="#n1">1</a></sup></p>
 
 <p>When you have the chance, I <strong>highly recommend</strong> this <a href="https://try.github.io/levels/1/challenges/1">15 minute, hands-on web tutorial on using Git</a>.</p>
 
@@ -194,7 +194,7 @@ ul.posts li &lbrace;
 		&lt;/footer&gt;
 	&lt;/body&gt;
 &lt;/html&gt;</code></pre>
-<p>Visit <a href="#">http://username.github.io</a> to see your styled website. It should look at like <a href="http://hankquinlan.github.io">http://hankquinlan.github.io</a>.</p>
+<p>Visit <a href="#">http://username.github.io</a> to see your styled website. It should look like the page at <a href="http://hankquinlan.github.io">http://hankquinlan.github.io</a>.</p>
 
 <h2>Using Jekyll with GitHub Pages</h2>
 <p>Like GitHub Pages, Jekyll is self-aware, so if you add folders and files following specific naming conventions, when you commit to GitHub, Jekyll will magically build your website.</p>
@@ -254,7 +254,7 @@ ul.posts li &lbrace;
 
 <p>Take note of the <code>&lbrace;&lbrace; page.title &rbrace;&rbrace;</code> and <code>&lbrace;&lbrace; content &rbrace;&rbrace;</code> tags in there. They're what Jekyll calls liquid tags, and these are used to inject content into the final web page. More on this in a bit.</p> 
 
-<p><span class="step">10</span> Now update your <code>index.html</code> to use your default layout:</p>
+<p><span class="step">10</span> Now update your <code>index.html</code> to use your default layout. Replace the entire contents of that file with this:</p>
 <pre class="prettyprint pre-scrollable"><code>---
 layout: default
 title: Hank Quinlan, Horrible Cop
@@ -320,7 +320,7 @@ title: Hank Quinlan's Blog
 		
 		<pre class="prettyprint pre-scrollable"><code>permalink: /blog/:year/:month/:day/:title</code></pre>
 	
-	<p>Now you're blog posts will live at <a href="#">http://username.github.io/<strong>blog/</strong>YYYY/MM/DD/name-of-your-post</a>.</p>
+	<p>Now your blog posts will live at <a href="#">http://username.github.io/<strong>blog/</strong>YYYY/MM/DD/name-of-your-post</a>.</p>
 	
 	<p>It is also very easy to setup an RSS feed for your blog. Every time you publish a new post, it will get added to this RSS file.</a>
 	<p><span class="step">15</span> Inside your <code>blog/</code> directory create a file and name it <code>atom.xml</code>. Add this to file:
@@ -345,7 +345,7 @@ layout: feed
 			&lt;title&gt;&lbrace;&lbrace; post.title &rbrace;&rbrace;&lt;/title&gt;
 			&lt;link href="http://hankquinlan.github.io&lbrace;&lbrace; post.url &rbrace;&rbrace;"/&gt;
 			&lt;updated&gt;&lbrace;&lbrace; post.date | date_to_xmlschema &rbrace;&rbrace;&lt;/updated&gt;
-			&lt;id&gt;http://hankquinlan.github.io/&lbrace;&lbrace; post.id &rbrace;&rbrace;&lt;/id&gt;
+			&lt;id&gt;http://hankquinlan.github.io&lbrace;&lbrace; post.id &rbrace;&rbrace;&lt;/id&gt;
 			&lt;content type="html"&gt;&lbrace;&lbrace; post.content | xml_escape &rbrace;&rbrace;&lt;/content&gt;
 		&lt;/entry&gt;
 	&lbrace;&percnt; endfor &percnt;&rbrace;
@@ -369,7 +369,7 @@ layout: feed
 	<li>Don't want github.io in your URL? <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages">Set up a custom domain</a>.</li>
 	<li><a href="http://jekyllrb.com/docs/pagination/">Add blogging pagination</a></li>
 	<li>Create a <code>sitemap.xml</code> file for better SEO. <a href="https://help.github.com/articles/sitemaps-for-github-pages">You can have one automatically generated by GitHub Pages</a>. See <a href="https://github.com/jmcglone/jmcglone.github.io/blob/master/sitemap.xml">this one</a> I use for my site.</li>
-	<li>Become a coding pro and create a <code>development</code> branch of your site. Each time you want to fix a bug or add a new feature you can create a copy of your master branch, make your changes, and then merge that brance to the master branch. <a href="https://help.github.com/articles/branching-out">The idea is to keep the master branch clean</a>.</li>
+	<li>Become a coding pro and create a <code>development</code> branch of your site. Each time you want to fix a bug or add a new feature you can create a copy of your master branch, make your changes, and then merge that branch to the master branch. <a href="https://help.github.com/articles/branching-out">The idea is to keep the master branch clean</a>.</li>
 	<li>Need more inspiration? Check out how <a href="http://jekyllrb.com/docs/sites/">the sites from the developers of Jekyll</a> are setup or browse this <a href="https://github.com/jekyll/jekyll/wiki/Sites">huge list of sites using Jekyll</a>.</li>
 </ul>
 <h2 id="resources">Resources</h2>
