@@ -2,8 +2,6 @@
 layout: post
 title: This is an test for my blog on github
 author: Guodong
-category: test
-tags: [test]
 use_math: true
 ---
 This is an test for my blog on github
