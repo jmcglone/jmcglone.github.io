@@ -6,8 +6,10 @@ use_math: true
 ---
 This is an test for my blog on github
 
-Let's test some inline math $x$, $y$, $x_1$, $y_1$.
+Let's test some inline math $x$, $y$, $x\_1$, $y\_1$.
 
+Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block rendering: 
+\\[ \frac{1}{n^{2}} \\]
 
 * simplicity
 * good performance and reliability

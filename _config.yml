@@ -1,2 +1,2 @@
 permalink: /notes/:year/:month/:day/:title
-markdown: maruku
+markdown: kramdown
