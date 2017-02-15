@@ -19,4 +19,8 @@
 	<![endif]-->
 	<!-- google analytics - i will not share this data with google -->
 	<!--{% include analytics.html %}	-->
+
+	 {% if page.use_math %}
+      {% include mathjax_support.html %}
+    {% endif %}
 </head>
