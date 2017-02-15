@@ -13,6 +13,8 @@ Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block
 
 \\[ E(v,h \\theta) = \\sum\_i \\]
 
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+
 * simplicity
 * good performance and reliability
 * no databases
