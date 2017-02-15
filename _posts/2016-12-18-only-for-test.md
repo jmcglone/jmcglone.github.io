@@ -17,6 +17,10 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 
 $$ p(\mathbf{y})=\prod_{s=1}^{S}p(y_s|\mathbf{y}_{\pi(s)}) $$ 
 
+$$ p(x|\theta) &= \frac{\tilde{p}(x)}{Z(\theta)} \\
+			  &= \frac{\sum\limits_{h} e^{-E(v,h|\theta)}}{Z(\theta)} \\
+			  &= \frac{\sum\limits_{h} e^{-E(v,h|\theta)}}{\sum_{v}\sum_{h} e^{-E(v,h|\theta) }} $$
+
 * simplicity
 * good performance and reliability
 * no databases
