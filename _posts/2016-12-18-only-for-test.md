@@ -15,6 +15,8 @@ Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block
 
 $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 
+$$ p(\mathbf{y})=\prod_{s=1}^{S}p(y_s|\mathbf{y}_{\pi(s)}) $$ 
+
 * simplicity
 * good performance and reliability
 * no databases
