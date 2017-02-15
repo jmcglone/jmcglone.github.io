@@ -11,7 +11,7 @@ Let's test some inline math $x$, $y$, $x\_1$, $y\_1$.
 Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block rendering: 
 \\[ \frac{1}{n^{2}} \\]
 
-\\[ E(v,h|\\theta) = \\sum_i \\]
+\\[ E(v,h \\theta) = \\sum\_i \\]
 
 * simplicity
 * good performance and reliability
