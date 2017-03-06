@@ -4,8 +4,8 @@
 ## Sommaire
 <!--[**SEE GITHUB PAGE VIEW**](http://ashleymcnamara.github.io/learn_to_code/)-->
 - [Introduction](#introduction)
-    - [Objectifs](#Goals)
-    - [Où est-ce que je commence?](#where-do-i-start)
+    - [Objectifs](#Objectifs)
+    - [Par où commencer?](#Par où commencer?)
     - [Comment cette page est organisée?](#how-this-page-is-organized)
     - [Quelle ressource dois-je choisir?](#which-resource-should-i-pick)
     - [Attention](#warning)
@@ -46,13 +46,13 @@
 
  La programmation et l'informatique sont de plus en plus populaires que jamais - des initiatives comme [Une heure de code](https://hourofcode.com/fr) rendent l'apprentissage de la programmation plus populaire à travers le monde.
 
-As a consequence, there are an increasingly huge number of resources and tutorials being produced for beginners who want to learn to code, ranging from books to online tutorials to interactive websites to massive open online courses _(MOOCS)_ like [Codecademy](https://www.codecademy.com/) and [Coursera](https://www.coursera.org/).
+En conséquence, il ya un nombre de plus en plus important de ressources et de tutoriels produites pour les débutants qui veulent apprendre à coder, allant des livres aux tutoriels en ligne aux sites Web interactifs aux cours en ligne massifs ouverts _(MOOCS)_ comme [Codecademy](https://www.codecademy.com/fr) et [Coursera](https://www.coursera.org/).
 
-While this is great, it can also be overwhelming for beginners -- there are almost too _many_ resources available, and it's difficult to figure out where to start.
+Bien que cela soit merveilleux, il peut également être un problème pour les débutants - il ya presque trop de ressources _many_ disponibles, et il est difficile de savoir par où commencer.
 
-This page is meant to help solve that problem -- to present a **curated** list of resources for people who are either new to programming, new to a particular topic, or want to advance their skills past the beginner stage. This page doesn't try and list every single resource available, but instead links to resources that are guaranteed to be high-quality.
+Cette page est destinée à aider à résoudre ce problème - pour présenter une liste de ressources pour les personnes qui sont soit nouvelles à la programmation, nouvelles à un sujet particulier, ou veulent faire progresser leurs compétences au-delà du stade débutant. Cette page n'essaie pas de répertorier toutes les ressources disponibles, mais plutôt des liens vers des ressources qui sont **garantis** d'être de haute qualité.
 
-### Where do I start?
+### Par où commencer?
 
 If you know what you want to learn about, great! Jump to that section, start browsing the links, and find something which works for you.
 
