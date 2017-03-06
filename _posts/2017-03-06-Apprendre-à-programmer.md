@@ -5,7 +5,7 @@
 <!--[**SEE GITHUB PAGE VIEW**](http://ashleymcnamara.github.io/learn_to_code/)-->
 - [Introduction](#introduction)
     - [Objectifs](#objectifs)
-    - [Par où commencer?](#par-où-commencer?)
+    - [Par où commencer?](#par-ou-commencer?)
     - [Comment cette page est organisée?](#how-this-page-is-organized)
     - [Quelle ressource dois-je choisir?](#which-resource-should-i-pick)
     - [Attention](#warning)
