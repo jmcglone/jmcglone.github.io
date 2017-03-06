@@ -52,18 +52,17 @@ Bien que cela soit merveilleux, il peut également être un problème pour les d
 
 Cette page est destinée à aider à résoudre ce problème - pour présenter une liste de ressources pour les personnes qui sont soit nouvelles à la programmation, nouvelles à un sujet particulier, ou veulent faire progresser leurs compétences au-delà du stade débutant. Cette page n'essaie pas de répertorier toutes les ressources disponibles, mais plutôt des liens vers des ressources qui sont **garantis** d'être de haute qualité.
 
-### Par où commencer?
+### Par ou commencer?
 
 Si vous savez ce que vous voulez apprendre, c'est génial! Commencez à parcourir les liens dans cette section et trouvez quelque chose qui fonctionne pour vous.
 
 Si vous ne savez pas par où commencer et quelle language apprendre, quelques bons langages pour débutants sont:
 
-- [Golang](#golang) (Go is an attempt to combine the ease of programming of an interpreted, dynamically typed language, with the efficiency and safety of a statically typed, compiled language.
-Go tente de combiner la facilité de programmation d'un langage interprété, dynamiquement typé, avec l'efficacité et la sécurité d'un langage statiquement typé, compilé.)
-- [Python](#python) (general-purpose; scientific and mathematical computing)
-- [Java](#java) (general-purpose; Android development)
-- [HTML/CSS/JavaScript](#html-css-and-javascript) (websites and webapps)
-- [Scratch](#scratch) (for younger children)
+- [Golang](#golang) (Go tente de combiner la facilité de programmation d'un langage interprété, dynamiquement typé, avec l'efficacité et la sécurité d'un langage statiquement typé, compilé.)
+- [Python](#python) (À usage général; Informatique scientifique et mathématique.)
+- [Java](#java) (À usage général; Développement Android)
+- [HTML/CSS/JavaScript](#html-css-and-javascript) (Sites web et Applications web)
+- [Scratch](#scratch) (pour les enfants)
 
 Python and Java are both languages that are [commonly used](http://www.codingdojo.com/blog/9-most-in-demand-programming-languages-of-2016/) to teach programming to beginners in schools and universities, and there are a wide variety of resources available to help you learn. They're also widely used in the industry which makes them useful languages to have in your toolbelt.
 
