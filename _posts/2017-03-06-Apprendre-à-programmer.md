@@ -42,7 +42,7 @@
 
 ## Introduction
 
-### Goals
+### Objectifs
 
  La programmation et l'informatique sont de plus en plus populaires que jamais - des initiatives comme [Une heure de code](https://hourofcode.com/fr) rendent l'apprentissage de la programmation plus populaire à travers le monde.
 
