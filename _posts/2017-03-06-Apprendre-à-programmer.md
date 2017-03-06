@@ -5,7 +5,7 @@
 <!--[**SEE GITHUB PAGE VIEW**](http://ashleymcnamara.github.io/learn_to_code/)-->
 - [Introduction](#introduction)
     - [Objectifs](#objectifs)
-    - [Par ou commencer?](#par-ou-commencer?)
+    - [Par où commencer?](#par-ou-commencer?)
     - [Comment cette page est organisée?](#how-this-page-is-organized)
     - [Quelle ressource dois-je choisir?](#which-resource-should-i-pick)
     - [Attention](#warning)
@@ -54,11 +54,12 @@ Cette page est destinée à aider à résoudre ce problème - pour présenter un
 
 ### Par où commencer?
 
-If you know what you want to learn about, great! Jump to that section, start browsing the links, and find something which works for you.
+Si vous savez ce que vous voulez apprendre, c'est génial! Commencez à parcourir les liens dans cette section et trouvez quelque chose qui fonctionne pour vous.
 
-If you're not sure where to start and which language to learn, some good beginner languages are:
+Si vous ne savez pas par où commencer et quelle language apprendre, quelques bons langages pour débutants sont:
 
-- [Golang](#golang) (Go is an attempt to combine the ease of programming of an interpreted, dynamically typed language, with the efficiency and safety of a statically typed, compiled language.)
+- [Golang](#golang) (Go is an attempt to combine the ease of programming of an interpreted, dynamically typed language, with the efficiency and safety of a statically typed, compiled language.
+Go tente de combiner la facilité de programmation d'un langage interprété, dynamiquement typé, avec l'efficacité et la sécurité d'un langage statiquement typé, compilé.)
 - [Python](#python) (general-purpose; scientific and mathematical computing)
 - [Java](#java) (general-purpose; Android development)
 - [HTML/CSS/JavaScript](#html-css-and-javascript) (websites and webapps)
