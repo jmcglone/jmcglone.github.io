@@ -1,18 +1,18 @@
-# Introduction to Programming
-**Curated list of resources for budding developers**
+# Introduction à la programmation
+**Liste de ressources pour les développeurs en herbe**
 
-## Table of contents
-[**SEE GITHUB PAGE VIEW**](http://ashleymcnamara.github.io/learn_to_code/)
+## Sommaire
+<!--[**SEE GITHUB PAGE VIEW**](http://ashleymcnamara.github.io/learn_to_code/)-->
 - [Introduction](#introduction)
-    - [Goals](#Goals)
-    - [Where do I start?](#where-do-i-start)
-    - [How this page is organized](#how-this-page-is-organized)
-    - [Which resource should I pick?](#which-resource-should-i-pick)
-    - [Warning](#warning)
-- [General resources](#general-resources)
-    - [Links to other big lists](#links-to-other-big-lists)
-    - [Online courses](#online-courses)
-- [Programming Languages](#programming-languages)
+    - [Objectifs](#Goals)
+    - [Où est-ce que je commence?](#where-do-i-start)
+    - [Comment cette page est organisée?](#how-this-page-is-organized)
+    - [Quelle ressource dois-je choisir?](#which-resource-should-i-pick)
+    - [Attention](#warning)
+- [Ressources générales](#general-resources)
+    - [Liens vers d'autres grandes listes](#links-to-other-big-lists)
+    - [Cours en ligne](#online-courses)
+- [Les Langages de programmation](#programming-languages)
     - [C](#c)
     - [C++](#c-1)
     - [C#](#c-sharp)
@@ -26,17 +26,17 @@
     - [Golang](#golang)
     - [Ruby](#ruby)
     - [Scratch](#scratch)
-- [Data](#data)
+- [Données](#data)
     - [Neo4j & Graph Databases](#neo4j-and-graph-databases)
     - [MongoDB](#mongodb)
-- [Other topics](#other-topics)
-    - [Developing on specific platforms](#developing-on-specific-platforms)
+- [Autres sujets](#other-topics)
+    - [Développer sur des plateformes spécifiques](#developing-on-specific-platforms)
         - [Android](#android)
-        - [Mac and iOS](#mac-and-ios)
-        - [Windows and Windows Phones](#windows-and-windows-phones)
-    - [Data structures and algorithms](#data-structures-and-algorithms)
-- [Tools](#tools)
-    - [Version control](#version-control)
+        - [Mac et iOS](#mac-and-ios)
+        - [Windows et Windows Phones](#windows-and-windows-phones)
+    - [Structures de données et algorithmes](#data-structures-and-algorithms)
+- [Outils](#tools)
+    - [Contrôle de version](#version-control)
         - [Git](#git)
         - [Mercurial](#mercurial)
 
@@ -44,7 +44,7 @@
 
 ### Goals
 
- Programming and computer science are becoming more popular than ever -- major initiatives like the [Hour of Code](http://hourofcode.com/us) are popularizing learning  programming across the world.
+ La programmation et l'informatique sont de plus en plus populaires que jamais - des initiatives comme [Une heure de code](https://hourofcode.com/fr) rendent l'apprentissage de la programmation plus populaire à travers le monde.
 
 As a consequence, there are an increasingly huge number of resources and tutorials being produced for beginners who want to learn to code, ranging from books to online tutorials to interactive websites to massive open online courses _(MOOCS)_ like [Codecademy](https://www.codecademy.com/) and [Coursera](https://www.coursera.org/).
 
