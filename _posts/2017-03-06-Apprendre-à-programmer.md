@@ -67,17 +67,15 @@ Si vous ne savez pas par où commencer et quelle language apprendre, quelques bo
 Python et Java sont les deux langages les [plus utilisés](http://www.lemondeinformatique.fr/actualites/lire-python-passe-en-tete-des-langages-d-apprentissage-et-detrone-java-58055.html) 
 pour enseigner la programmation aux débutants dans les écoles et les universités, et il existe une grande variété de ressources disponibles pour vous aider à apprendre. Ils sont aussi largement utilisés dans l'industrie qui font d'eux des langages utiles à connaître.
 
-Web development has been very popular lately, so there are many resources for learning HTML, CSS, and JavaScript, also making it suitable for learning. It requires little to no installation and configuration on your computer. All you need is a text editor to write code -- the code will run on your web browser.
-
 Le développement Web a été très populaire ces derniers temps, il y'a donc de nombreuses ressources pour l'apprentissage du HTML, CSS et JavaScript, ce qui rend également l'apprentissage plus simple et éfficace. Il nécessite peu ou pas d'installation et de configuration sur votre ordinateur. Tout ce dont vous avez besoin est un éditeur de texte pour écrire du code -- le code sera exécuté sur votre navigateur Web.
 
-[Scratch](https://www.youtube.com/watch?v=4y6J2jXjU34) is a little different from other languages. It was designed from the ground up to be easy to use and learn -- instead of typing text, you drag and connect together "blocks" to form programs, making it a very visual language. As a result, Scratch is a good language especially for younger children _(elementary schoolers, middle school)_ or for people who dislike typing.
+[Scratch](https://www.youtube.com/watch?v=4y6J2jXjU34) est un peu différent des autres langages. Il a été conçu à dès la base pour être facile à utiliser et à apprendre -- au lieu de taper du texte, vous faites glisser et connecter un ensemble "blocs" pour former des programmes, ce qui en fait un langage très visuel. En conséquence, Scratch est une bon langage surtout pour les enfants plus jeunes _(élèves du primaire, collège)_ ou pour les gens qui n'aiment pas taper.
 
-### How this page is organized...
+### Comment cette page est organisée?
 
-This page is subdivided into three parts -- first, a _"General resources"_ section that links to sites that tend to deliver high-quality content about a variety of topics, and a _"Specific resources"_ section that provides resources on specific programming languages or topics.
+Cette page est subdivisée en trois parties: premièrement, une section _"Ressources générales"_ qui relie des sites qui offrent des contenus de haute qualité sur une variété de sujets et une section _"Ressources spécifiques"_ qui fournit des ressources sur des langages de programmation ou des sujets spécifiques.
 
-In general, most resources available will fall between two categories -- online courses, and books + tutorials. Online courses tend to teach using video lectures, try and be more interactive, and try and emulate the structure of a course similar to ones you might take in college. In contrast, books and tutorials teach via written text and allow you to set your own pace.
+En général, la plupart des ressources disponibles se situent entre deux catégories -- les cours en ligne, et les livres + didacticiels(tutoriels). Les cours en ligne ont tendance à enseigner en utilisant des conférences vidéo, essayant d'être interactif, essayant d'imiter la structure d'un cours semblable à ceux que vous pourriez prendre au collège. En revanche, les livres et les didacticiels enseignent par écrit et vous permettent de définir votre propre rythme.
 
 ### Where should I start?
 
