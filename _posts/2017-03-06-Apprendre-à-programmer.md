@@ -8,11 +8,11 @@
     - [Par où commencer?](#par-ou-commencer)
     - [Comment cette page est organisée?](#comment-cette-page-est-organisee)
     - [Quelle ressource dois-je choisir?](#Quelle-ressource-dois-je-choisir)
-    - [Attention](#warning)
+    - [Attention](#attention)
 - [Ressources générales](#general-resources)
-    - [Liens vers d'autres grandes listes](#links-to-other-big-lists)
-    - [Cours en ligne](#online-courses)
-- [Les Langages de programmation](#programming-languages)
+    - [Liens vers de plus grandes listes](#liens-vers-de-plus-grandes-listes)
+    - [Cours en ligne](#cours-en-ligne)
+- [Les Langages de programmation](#les-langages-de-programmation)
     - [C](#c)
     - [C++](#c-1)
     - [C#](#c-sharp)
@@ -110,7 +110,7 @@ Vous pouvez trouver une énorme [Liste des livres de programmation gratuits et d
 Vous pouvez également trouver une méta _"liste des ressources de programmation"_ agrégateur ici: http://resrc.io/
 
 
-### Les cours en ligne
+### Cours en ligne
 
 Online courses are an increasingly popular way for universities and professionals to teach programming and computer science in a structured format. As a result, new online courses will pop up all the time, so it's worth checking these resources periodically to see what's new.
 
