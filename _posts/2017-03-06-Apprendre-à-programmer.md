@@ -3,7 +3,7 @@
 
 ## Sommaire
 - [Introduction](#introduction)
-    - [Objectifs](#objectifs)
+   - [Objectifs](#objectifs)
     - [Par où commencer?](#par-ou-commencer)
     - [Comment cette page est organisée?](#comment-cette-page-est-organisee)
     - [Quelle ressource dois-je choisir?](#Quelle-ressource-dois-je-choisir)
