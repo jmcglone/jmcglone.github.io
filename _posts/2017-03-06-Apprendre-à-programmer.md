@@ -7,7 +7,7 @@
    - [Objectifs](#objectifs)
    - [Par où commencer?](#par-où-commencer)
    - [Comment cette page est organisée?](#comment-cette-page-est-organisée)
-   - [Quelle ressource dois-je choisir?](#Quelle-ressource-dois-je-choisir)
+   - [Quelle ressource dois-je choisir?](#quelle-ressource-dois-je-choisir)
    - [Attention](#attention)
 - [Ressources générales](#general-resources)
     - [Liens vers de plus grandes listes](#liens-vers-de-plus-grandes-listes)
