@@ -4,7 +4,7 @@
 ## Sommaire
 - [Introduction](#introduction)
    - [Objectifs](#objectifs)
-   <!--- [Par où commencer?](#par-où-commencer)-->
+   - [Par où commencer?](#par-où-commencer)
    - [Comment cette page est organisée?](#comment-cette-page-est-organisée)
    - [Quelle ressource dois-je choisir?](#Quelle-ressource-dois-je-choisir)
    - [Attention](#attention)
