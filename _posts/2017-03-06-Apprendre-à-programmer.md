@@ -4,7 +4,7 @@
 ## Sommaire
 [**SEE GITHUB PAGE VIEW**](http://ashleymcnamara.github.io/learn_to_code/)
 - [Introduction](#introduction)
-   - [Objectifs](#Objectifs)
+   - [Objectifs](#objectifs)
    - [Par où commencer?](#par-où-commencer)
    - [Comment cette page est organisée?](#comment-cette-page-est-organisée)
    - [Quelle ressource dois-je choisir?](#Quelle-ressource-dois-je-choisir)
@@ -118,53 +118,53 @@ Les cours en ligne sont des moyens de plus en plus populaire pour les universit�
 - **[Coursera](https://www.coursera.org/)** - Offre des cours gratuits en ligne dans de nombreux domaines différents de plusieurs universités bien connues. De nouveaux cours sont ajoutés tous les trimestres et le contenu des anciens cours est généralement archivé. Parce que beaucoup de cours semblent être nouveaux / peuvent être une chose ponctuelle, cette page ne liera pas aux cours sur Coursera à moins qu'il ne semble être stable.
 - **[Udacity](http://www.udacity.com/)** - Offre des cours gratuits d'informatique dispensés par des experts de l'industrie. Udacity offre deux types de cours - cours réguliers et nanodégres. Les cours réguliers sont gratuits. Les cours réguliers avec un tutorat individuel / examen de code nécessite des frais mensuels. Les nanodégres sont généralement pour les personnes ayant une certaine expérience de codage préalable, et coûtent plus d'argent.
 - **[edX](https://www.edx.org/)** - Un effort conjoint entre le MIT, Harvard et Berkeley pour fournir gratuitement des versions en ligne de certains de leurs cours.
-- **[OpenCulture](http://www.openculture.com/computer_science_free_courses)** - similar to all of the above. Video lectures are typically available on iTunes or Youtube. Typically does **not** require you to complete assignments, unlike many other online courses.
-- **[MIT OpenCourseWare](http://ocw.mit.edu/index.htm)** - static course materials taught at MIT. Unless otherwise noted, most content from this website tends to be very rigorous and fast-paced.
-- **[Khan Academy](https://www.khanacademy.org/)** - contains a few courses on programming and computer science; does contain many more courses on all kinds of topics (especially math).
-- **[Stanford Engineering Everywhere](http://see.stanford.edu/see/courses.aspx)** - static course materials taught at Stanford.
+- **[OpenCulture](http://www.openculture.com/computer_science_free_courses)** - Semblable à tout ce qui précède. Les conférences vidéo sont généralement disponibles sur iTunes ou Youtube. Généralement ** n'exigent ** pas que vous faites des devoirs, contrairement à de nombreux autres cours en ligne.
+- **[MIT OpenCourseWare](http://ocw.mit.edu/index.htm)** - Offre des matériels de cours statique enseigné au MIT. Sauf indication contraire, la plupart du contenu de ce site Web tend à être très rigoureux et rapide.
+- **[Khan Academy](https://www.khanacademy.org/)** - Contient quelques cours sur la programmation et l'informatique; Contient beaucoup plus de cours sur toutes sortes de sujets (en particulier les mathématiques).
+- **[Stanford Engineering Everywhere](http://see.stanford.edu/see/courses.aspx)** - Offre des matériels de cours statique enseigné a Stanford.
 
-The following websites also contain a wide variety of tutorials for many different topics, but require payment and registration before you can access their courses.
+Les sites Web suivants contiennent également une grande variété de didacticiels pour de nombreux sujets différents, mais nécessitent un paiement et un enregistrement avant d'accéder à leurs cours.
 
-- **[Team Treehouse](http://teamtreehouse.com/)** - focuses on web and iOS development.
-- **[Lynda](http://www.lynda.com/)** - also includes courses on design, animation, video, business, and more.
-- **[PluralSight](http://www.pluralsight.com/)** - similar to Lynda, but with a focus on developer and IT courses.
--  **[General Assembly](https://generalassemb.ly/)** - also includes courses on design, animation, video, business, and more.
+- **[Team Treehouse](http://teamtreehouse.com/)** - Se concentre sur le développement web et iOS.
+- **[Lynda](http://www.lynda.com/)** - Comprend des cours sur la conception, l'animation, la vidéo, les affaires et bien plus encore.
+- **[PluralSight](http://www.pluralsight.com/)** - Similaire à Lynda, mais avec un accent sur les développeurs et les cours IT.
+-  **[General Assembly](https://generalassemb.ly/)** - Comprend également des cours sur la conception, l'animation, la vidéo, les affaires et bien plus encore.
 
-In general, edX, OpenCulture, MIT OpenCourseware, and Stanford Engineering Everywhere tend to contain more rigorous, thorough, and demanding courses, whereas Codecademy and Khan Academy tend to focus on giving a more gentle introduction to programming. Coursera and Udacity tend to vary between these two extremes.
+En général, edX, OpenCulture, MIT OpenCourseware et Stanford Engineering Everywhere ont tendance à contenir des cours plus rigoureux, approfondis et exigeants, tandis que Codecademy et Khan Academy ont tendance à se concentrer sur une introduction plus douce à la programmation. Coursera et Udacity ont tendance à varier entre ces deux extrêmes.
 
 
-## Programming Languages
+## Les Langages de programmation
 
 ### C
 
-Note: C can be a difficult-to-teach language. Although the online courses and books are a good starting point and can take you a long way, the general consensus is that the best way to learn is through reading an actual book.
+NB: C peut être un langage difficile à enseigner. Bien que les cours en ligne et les livres soient un bon point de départ et peuvent vous prendre un long chemin, le consensus général est que la meilleure façon d'apprendre est de lire un livre réel.
 
-- **Online courses:**
-    - MIT Open Courseware has a few:
-        - [Practical Programming in C][c-mit-practical]
-          For beginners.
-        - [Introduction to C Memory Management and C++ Object-Oriented Programming][c-mit-intro]
-          Geared towards people with prior experience in a programming language that is not C or C++.
-        - [Effective Programming in C and C++][c-mit-effective]
-          Similar to the above.
-- **Video tutorials:** N/A
-- **Interactive tutorials:**
+- **Cours en ligne:**
+    - MIT Open Courseware a quelques:
+        - [Programmation pratique en C][c-mit-practical]
+          Pour débutants.
+        - [Introduction à la gestion de la mémoire en C et à la programmation orientée objet C ++][c-mit-intro]
+          Adapté aux personnes ayant une expérience antérieure dans un langage de programmation qui n'est pas C ou C ++.
+        - [Programmation efficace en C et C ++][c-mit-effective]
+         Similaire à ceux qui précèdent.
+- **tutoriels Videos:** N/A
+- **tutoriels Interactifs:**
     - [Learn-C][c-learn-c]
-      An interactive online guide that teaches you basic C step-by-step.
-- **Books and tutorials (online):**
-   -  [Learn C The Hard Way][c-lcthw]
-      Part of the "Learn X the Hard Way" series. Assumes you have prior programming experience. Currently incomplete, in progress.
-   -  [C Programming][c-c-programming]
-      One of Wikibooks' featured books. Tends to focus on teaching mainly syntax. A good starting point and reference.
-   -  [Build Your Own Lisp][c-lisp]
-      Walks you through how to write a Lisp interpreter in C, teaching both languages simultaneously.
-    - [More free books][c-more]
-- **Books (paper):**
+      Un guide en ligne interactif qui vous enseigne le C de base étape par étape.
+- **Livres et didacticiels (en ligne):**
+   -  [Apprendre C, Le Hard Way][c-lcthw]
+      Partie de la série "Apprenez X le Hard Way". Supposant que vous avez déjà une expérience de programmation antérieure. Actuellement incomplet, en cours.
+   -  [Programmation C][c-c-programming]
+      Un des livres vedettes de Wikibooks. Il se concentre  principalement sur l'enseignement de la syntaxe. Un bon point de départ et de référence.
+   -  [Construisez votre propre Lisp][c-lisp]
+      Vous explique comment écrire un interprèteur Lisp en C, en enseignant simultanément les deux langages.
+    - [Plus de livres gratuits][c-more]
+- **Livres (papier):**
     - [The C Programming Language][c-c-lang]
-      The definitive guide to C. Also known as K&R, after the authors.
+      Le guide définitif de C. Aussi connu sous le nom de K&R, dédicace aux auteurs.
     - [The Definitive C Book Guide and List][c-so-definitive]
-A very well-maintained list of recommended books and resources on StackOverflow. Every book listed on this page is highly-recommended.
-- **Exercises:** N/A
+Une liste très bien entretenue de livres et de ressources recommandés sur StackOverflow. Tous les livres énumérés sur cette page sont fortement recommandés.
+- **Exercices:** N/A
 
   [c-mit-practical]: http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-087-practical-programming-in-c-january-iap-2010/
   [c-mit-intro]: http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-088-introduction-to-c-memory-management-and-c-object-oriented-programming-january-iap-2010/
@@ -181,7 +181,7 @@ A very well-maintained list of recommended books and resources on StackOverflow.
 
 ### C++
 
-Note: Similar to C, C++ can be a difficult-to-teach language. Although the online courses and books are a good starting point and can take you a long way, the general consensus is that the best way to learn is through reading an actual book.
+NB: Similar to C, C++ can be a difficult-to-teach language. Although the online courses and books are a good starting point and can take you a long way, the general consensus is that the best way to learn is through reading an actual book.
 
 - **Online courses:**
     - MIT Open Courseware has a few:
