@@ -52,7 +52,7 @@ Bien que cela soit merveilleux, il peut également être un problème pour les d
 
 Cette page est destinée à aider à résoudre ce problème - pour présenter une liste de ressources pour les personnes qui sont soit nouvelles à la programmation, nouvelles à un sujet particulier, ou veulent faire progresser leurs compétences au-delà du stade débutant. Cette page n'essaie pas de répertorier toutes les ressources disponibles, mais plutôt des liens vers des ressources qui sont **garantis** d'être de haute qualité.
 
-### Par ou commencer?
+### Par où commencer?
 
 Si vous savez ce que vous voulez apprendre, c'est génial! Commencez à parcourir les liens dans cette section et trouvez quelque chose qui fonctionne pour vous.
 
@@ -77,25 +77,26 @@ Cette page est subdivisée en trois parties: premièrement, une section _"Ressou
 
 En général, la plupart des ressources disponibles se situent entre deux catégories -- les cours en ligne, et les livres + didacticiels(tutoriels). Les cours en ligne ont tendance à enseigner en utilisant des conférences vidéo, essayant d'être interactif, essayant d'imiter la structure d'un cours semblable à ceux que vous pourriez prendre au collège. En revanche, les livres et les didacticiels enseignent par écrit et vous permettent de définir votre propre rythme.
 
-### Where should I start?
+### Quelle ressource dois-je choisir?
 
-Whether you prefer learning by watching a video or reading text is really a matter of personal preference. _I_ personally prefer visual, but your learning style might be completely different. You may need to explore and browse several different resources before you discover how you best learn.
+Que vous préfériez apprendre en regardant une vidéo ou en lisant du texte est vraiment une question de préférence personnelle. _Moi_ personnellement, c'est le visuel, mais votre style d'apprentissage pourrait être complètement différent. Vous devrez peut-être explorer et parcourir plusieurs ressources différentes avant de découvrir comment vous apprenez le mieux.
 
-In addition, you'll find that most links, whether they're online courses, tutorials, or books, tend to focus on either one of three things:
+De plus, vous constaterez que la plupart des liens, qu'il s'agisse de cours en ligne, de didacticiels ou de livres, ont tendance à se concentrer sur l'un ou l'autre des trois éléments suivants:
 
-  1. Some resources focus on _programming_, _semantics_, or _computer science theory_ -- in other words, how to use a programming language to write something that works.
-  2. Other resources will focus more on _coding_ and _syntax_ -- the particular details and rules about how a programming language works.
-  3. Other resources focus on teaching _idioms_ -- teaching best practices specific to that language, the underlying philosophy of that language, or teaching you about the different libraries available to you: the broader ecosystem.
-
-If you're new to programming, the first model will be the best. Programming is all about applied problem solving: being able to take a problem, and break it up into smaller and smaller pieces until they're small enough to translate into computer code. Simply memorizing a collection of rules will not be very useful to you. You also need to learn how to _apply_ those rules.
+  1. Certaines ressources se concentrent sur la _programmation_, la _sémantique_ ou la _théorie de l'informatique_ -- en d'autres termes,      comment utiliser un langage de programmation pour écrire quelque chose qui fonctionne.
+  2. D'autres ressources se concentreront plus sur le _codage_ et la _syntaxe_ -- les détails particuliers et les règles sur le                fonctionnement d'un langage de programmation.
+  3. D'autres ressources se concentrent sur l'enseignement _idioms_ -- l'enseignement des meilleures pratiques spécifiques à ce langage,        la philosophie sous-jacente de ce dernier, ou vous faire découvrir les différentes bibliothèques à votre disposition: l'écosystème        large.
+  
+Si vous êtes nouveau dans la programmation, le premier modèle sera le meilleur. La programmation concerne la résolution de problèmes appliqués: être en mesure de prendre un problème, et le briser en petits et petits morceaux jusqu'à ce qu'ils soient assez petits pour  traduction en code informatique. Simplement mémoriser une collection de règles ne sera pas très utile pour vous. Vous devez également apprendre à appliquer ces règles.
 
 However, if you already know how to program, then you most likely already know how to do this. In that case, you're going to want to use the second kind since it'll be easier to learn about the differences between the language you're learning and ones you already know.
 
-Once you've moved past the beginning phase, then it would be a good idea to try and move on to the third kind of resource, which will help teach you how to actually use and apply that language on a practical and professional level.
+Toutefois, si vous savez déjà comment programmer, alors vous savez très probablement déjà comment faire. Dans ce cas, vous allez vouloir utiliser le deuxième type, car il sera plus facile d'apprendre les différences entre le langage que vous apprenez et celles que vous connaissez déjà.
 
 When I say that a resource is _"heavy in theory"_ or _"is rigorous"_, I mean that it leans towards the first category. When I say that a resource _"focuses on syntax"_, I mean that it leans towards the second. And when I say a resource _"focuses on idioms"_ or _"on practical applications"_, I mean that it leans towards the third.
+Quand je dis qu'une ressource est _"lourde en théorie"_ ou _"rigide"_, c'est qu'elle se penche vers la première catégorie. Quand je dis qu'une ressource _"se concentre sur la syntaxe"_, je veux dire qu'elle se penche vers la seconde. Et quand je dis une ressource _"se concentre sur des idiomes"_ ou _"sur des applications pratiques"_, je veux dire qu'il se penche vers le troisième.
 
-### WARNING!
+### ATTENTION!
 
 This page is still a **work-in-progress**! Some sections may currently be incomplete, and some links may not yet be fully vetted.
 
