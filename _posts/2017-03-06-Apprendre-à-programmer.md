@@ -52,7 +52,7 @@ Bien que cela soit merveilleux, il peut également être un problème pour les d
 
 Cette page est destinée à aider à résoudre ce problème - pour présenter une liste de ressources pour les personnes qui sont soit nouvelles à la programmation, nouvelles à un sujet particulier, ou veulent faire progresser leurs compétences au-delà du stade débutant. Cette page n'essaie pas de répertorier toutes les ressources disponibles, mais plutôt des liens vers des ressources qui sont **garantis** d'être de haute qualité.
 
-### Par où commencer?
+### Par ou commencer?
 
 Si vous savez ce que vous voulez apprendre, c'est génial! Commencez à parcourir les liens dans cette section et trouvez quelque chose qui fonctionne pour vous.
 
