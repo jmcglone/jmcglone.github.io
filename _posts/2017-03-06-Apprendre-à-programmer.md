@@ -105,19 +105,19 @@ Si vous souhaitez contribuer, veuillez consulter ** [CONTRIBUTING.md] [contrib] 
 
 ### Liens vers de plus grandes listes
 
-Vous pouvez trouver une énorme [Liste des livres de programmation gratuits et des ressources sur github](https://github.com/vhf/free-programming-books/blob/master/free-programming-books.md). (C'était hébergé sur StackOverflow, mais a été déplacé vers Github en octobre 2013).
+Vous pouvez trouver une énorme [Liste de livres de programmation gratuits et des ressources sur github](https://github.com/vhf/free-programming-books/blob/master/free-programming-books.md). (C'était hébergé sur StackOverflow, mais a été déplacé vers Github en octobre 2013).
 
 Vous pouvez également trouver une méta _"liste des ressources de programmation"_ agrégateur ici: http://resrc.io/
 
 
 ### Cours en ligne
 
-Online courses are an increasingly popular way for universities and professionals to teach programming and computer science in a structured format. As a result, new online courses will pop up all the time, so it's worth checking these resources periodically to see what's new.
+Les cours en ligne sont des moyens de plus en plus populaire pour les universités et les professionnels d'enseigner la programmation et l'informatique dans un format structuré. En conséquence, de nouveaux cours en ligne apparaîtront tout le temps, il est donc utile de vérifier périodiquement ces ressources pour voir les nouveautés.
 
-- **[Codecademy](http://www.codecademy.com/)** - offers free online courses in several different languages. However, Codecademy does have a tendency to teach only basic syntax, so you may need work through more tutorials after finishing Codecademy. Focuses mainly on web development, Ruby, and Python.
-- **[Coursera](https://www.coursera.org/)** - offers free online courses in many different fields from several different well-known universities. New courses are added every quarter, and content from old courses is typically archived. Because many courses appear to be new/may be a one-time thing, this page will not link to courses on Coursera unless it appears to be stable.
-- **[Udacity](http://www.udacity.com/)** - offers free computer science courses taught by industry experts. Udacity offers two kinds of courses -- regular courses and nanodegrees. Regular courses are free. Regular courses with one-on-one tutoring/code review requires a monthly fee. Nanodegrees are typically for people with some prior coding experience, and cost more money.
-- **[edX](https://www.edx.org/)** - a joint effort between MIT, Harvard, and Berkeley to provide free online versions of some of their courses.
+- **[Codecademy](http://www.codecademy.com/fr)** - Offre des cours gratuits en ligne dans plusieurs langages différents. Cependant, Codecademy a tendance à enseigner uniquement la syntaxe de base, donc vous pouvez avoir besoin de travail grâce à plus de tutoriels après avoir fini avec Codecademy. Il se concentre principalement sur le développement web, Ruby et Python.
+- **[Coursera](https://www.coursera.org/)** - Offre des cours gratuits en ligne dans de nombreux domaines différents de plusieurs universités bien connues. De nouveaux cours sont ajoutés tous les trimestres et le contenu des anciens cours est généralement archivé. Parce que beaucoup de cours semblent être nouveaux / peuvent être une chose ponctuelle, cette page ne liera pas aux cours sur Coursera à moins qu'il ne semble être stable.
+- **[Udacity](http://www.udacity.com/)** - Offre des cours gratuits d'informatique dispensés par des experts de l'industrie. Udacity offre deux types de cours - cours réguliers et nanodégres. Les cours réguliers sont gratuits. Les cours réguliers avec un tutorat individuel / examen de code nécessite des frais mensuels. Les nanodégres sont généralement pour les personnes ayant une certaine expérience de codage préalable, et coûtent plus d'argent.
+- **[edX](https://www.edx.org/)** - Un effort conjoint entre le MIT, Harvard et Berkeley pour fournir gratuitement des versions en ligne de certains de leurs cours.
 - **[OpenCulture](http://www.openculture.com/computer_science_free_courses)** - similar to all of the above. Video lectures are typically available on iTunes or Youtube. Typically does **not** require you to complete assignments, unlike many other online courses.
 - **[MIT OpenCourseWare](http://ocw.mit.edu/index.htm)** - static course materials taught at MIT. Unless otherwise noted, most content from this website tends to be very rigorous and fast-paced.
 - **[Khan Academy](https://www.khanacademy.org/)** - contains a few courses on programming and computer science; does contain many more courses on all kinds of topics (especially math).
