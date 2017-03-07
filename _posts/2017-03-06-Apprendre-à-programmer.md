@@ -70,7 +70,7 @@ Le développement Web a été très populaire ces derniers temps, il y'a donc de
 
 [Scratch](https://www.youtube.com/watch?v=4y6J2jXjU34) est un peu différent des autres langages. Il a été conçu à dès la base pour être facile à utiliser et à apprendre -- au lieu de taper du texte, vous faites glisser et connecter un ensemble "blocs" pour former des programmes, ce qui en fait un langage très visuel. En conséquence, Scratch est une bon langage surtout pour les enfants plus jeunes _(élèves du primaire, collège)_ ou pour les gens qui n'aiment pas taper.
 
-### Comment cette page est organisée?
+### Comment cette page est organisee?
 
 Cette page est subdivisée en trois parties: premièrement, une section _"Ressources générales"_ qui relie des sites qui offrent des contenus de haute qualité sur une variété de sujets et une section _"Ressources spécifiques"_ qui fournit des ressources sur des langages de programmation ou des sujets spécifiques.
 
