@@ -89,31 +89,28 @@ De plus, vous constaterez que la plupart des liens, qu'il s'agisse de cours en l
   
 Si vous êtes nouveau dans la programmation, le premier modèle sera le meilleur. La programmation concerne la résolution de problèmes appliqués: être en mesure de prendre un problème, et le briser en petits et petits morceaux jusqu'à ce qu'ils soient assez petits pour  traduction en code informatique. Simplement mémoriser une collection de règles ne sera pas très utile pour vous. Vous devez également apprendre à appliquer ces règles.
 
-However, if you already know how to program, then you most likely already know how to do this. In that case, you're going to want to use the second kind since it'll be easier to learn about the differences between the language you're learning and ones you already know.
-
 Toutefois, si vous savez déjà comment programmer, alors vous savez très probablement déjà comment faire. Dans ce cas, vous allez vouloir utiliser le deuxième type, car il sera plus facile d'apprendre les différences entre le langage que vous apprenez et celles que vous connaissez déjà.
 
-When I say that a resource is _"heavy in theory"_ or _"is rigorous"_, I mean that it leans towards the first category. When I say that a resource _"focuses on syntax"_, I mean that it leans towards the second. And when I say a resource _"focuses on idioms"_ or _"on practical applications"_, I mean that it leans towards the third.
 Quand je dis qu'une ressource est _"lourde en théorie"_ ou _"rigide"_, c'est qu'elle se penche vers la première catégorie. Quand je dis qu'une ressource _"se concentre sur la syntaxe"_, je veux dire qu'elle se penche vers la seconde. Et quand je dis une ressource _"se concentre sur des idiomes"_ ou _"sur des applications pratiques"_, je veux dire qu'il se penche vers le troisième.
 
 ### ATTENTION!
 
-This page is still a **work-in-progress**! Some sections may currently be incomplete, and some links may not yet be fully vetted.
+Cette page est toujours un **travail en cours**! Certaines sections peuvent actuellement être incomplètes, et certains liens peuvent ne pas encore être complètement vérifiés.
 
-If you would like to contribute, please see **[CONTRIBUTING.md][contrib]** for details.
+Si vous souhaitez contribuer, veuillez consulter ** [CONTRIBUTING.md] [contrib] ** pour plus de détails.
 
   [contrib]: https://github.com/ashleymcnamara/learn_to_code/blob/master/Contributing.md
 
-## General resources
+## Ressources générales
 
-### Links to other big lists
+### Liens vers de plus grandes listes
 
-You can find a huge and utterly massive compendium of [list of free programming books and resources on github](https://github.com/vhf/free-programming-books/blob/master/free-programming-books.md). (It used to be hosted on StackOverflow, but was moved over to Github on October 2013).
+Vous pouvez trouver une énorme [Liste des livres de programmation gratuits et des ressources sur github](https://github.com/vhf/free-programming-books/blob/master/free-programming-books.md). (C'était hébergé sur StackOverflow, mais a été déplacé vers Github en octobre 2013).
 
-You can also find a meta _"list of programming resources"_ aggregator here: http://resrc.io/
+Vous pouvez également trouver une méta _"liste des ressources de programmation"_ agrégateur ici: http://resrc.io/
 
 
-### Online courses
+### Les cours en ligne
 
 Online courses are an increasingly popular way for universities and professionals to teach programming and computer science in a structured format. As a result, new online courses will pop up all the time, so it's worth checking these resources periodically to see what's new.
 
