@@ -9,7 +9,7 @@
     - [Comment cette page est organisée?](#comment-cette-page-est-organisée)
     - [Quelle ressource dois-je choisir?](#quelle-ressource-dois-je-choisir)
     - [Attention](#attention)
-- [Ressources générales](#general-resources)
+- [Ressources générales](#resources-générales)
     - [Liens vers de plus grandes listes](#liens-vers-de-plus-grandes-listes)
     - [Cours en ligne](#cours-en-ligne)
 - [Les Langages de programmation](#les-langages-de-programmation)
