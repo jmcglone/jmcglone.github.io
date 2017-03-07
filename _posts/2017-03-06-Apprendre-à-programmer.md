@@ -2,6 +2,7 @@
 **Liste de ressources pour les développeurs en herbe**
 
 ## Sommaire
+[**SEE GITHUB PAGE VIEW**](http://ashleymcnamara.github.io/learn_to_code/)
 - [Introduction](#introduction)
    - [Objectifs](#Objectifs)
    - [Par où commencer?](#par-où-commencer)
