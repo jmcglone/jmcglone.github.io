@@ -5,7 +5,7 @@
 [**SEE GITHUB PAGE VIEW**](http://ashleymcnamara.github.io/learn_to_code/)
 - [Introduction](#introduction)
     - [Objectifs](#objectifs)
-    - [Par où commencer?](#par-où-commencer)
+    -  [Par où commencer?](#par-où-commencer)
     - [Comment cette page est organisée?](#comment-cette-page-est-organisée)
     - [Quelle ressource dois-je choisir?](#quelle-ressource-dois-je-choisir)
     - [Attention](#attention)
@@ -181,37 +181,37 @@ Une liste très bien entretenue de livres et de ressources recommandés sur Stac
 
 ### C++
 
-NB: Similar to C, C++ can be a difficult-to-teach language. Although the online courses and books are a good starting point and can take you a long way, the general consensus is that the best way to learn is through reading an actual book.
+NB: Semblable à C, C ++ peut être un langage difficile à enseigner. Bien que les cours en ligne et les livres sont un bon point de départ et peuvent vous prendre un long chemin, le consensus général est que la meilleure façon d'apprendre est de lire un livre réel.
 
-- **Online courses:**
-    - MIT Open Courseware has a few:
-        - [Introduction to C++][cpp-mit-intro]
-          For beginners, is fast-paced.
-        - [Introduction to C Memory Management and C++ Object-Oriented Programming][cpp-mit-intro-2]
-          Geared towards people with prior experience in a programming language that is not C or C++.
-        - [Effective Programming in C and C++][cpp-mit-effective]
-        Similar to the above.
-    - **Stanford's 3-part "Introduction to Computer Science" series for beginners.** The first course teaches Java, the latter two teaches C and C++.
-        - [Programming Methodology][cpp-stan-methodology]
-        - [Programming Abstractions][cpp-stan-abstractions]
-        - [Programming Paradigms][cpp-stan-paradigms]
-    - Coursera's [C++ for C Programmers][cpp-coursera-c-for-cpp]
-      May also be helpful for programmers with prior experience in another language besides C or C++.
-- **Interactive tutorials:**
-    - [C++ Interactive Exercises][cpp-interactive]
-      An introduction to basic C++. Is a cross between an interactive tutorial and an online book.
-- **Video tutorials:** N/A
-- **Books and tutorials (online):**
+- **Cours en ligne**
+    - MIT Open Courseware a quelques uns:
+        - [Introduction à C++][cpp-mit-intro]
+          Pour les débutants, avec un rythme assez rapide.
+        - [Introduction à la gestion de la mémoire en C et à la programmation orientée objet C ++][cpp-mit-intro-2]
+          Adapté aux personnes ayant une expérience antérieure dans un langage de programmation qui n'est pas C ou C ++.
+        - [Programmation efficace en C et C ++][c-mit-effective]
+         Similaire à ceux qui précèdent.
+    - **"Introduction à l'informatique" par Stanford en 3 parties, série pour les débutants.** Le premier cours enseigne Java, les deux derniers enseignent C et C ++.
+        - [Méthodologie de la programmation][cpp-stan-methodology]
+        - [Programmation: Abstractions][cpp-stan-abstractions]
+        - [Les paradigmes de programmation][cpp-stan-paradigms]
+    - Coursera [C ++ pour les programmeurs C][cpp-coursera-c-for-cpp]
+      Peut également être utile pour les programmeurs ayant une expérience préalable dans un autre langage en dehors de C ou C ++.
+- **Tutoriels interactifs:**
+    - [Exercices interactifs C ++][cpp-interactive]
+      Une introduction au C ++ de base. c'est un croisement entre un didacticiel interactif et un livre en ligne.
+- **tutoriels videos:** N/A
+- **Livres et tutoriels (en ligne):**
     - [How to Think Like a Computer Scientist][cpp-think-cs]
-      A good introduction to basic C++.
+      Une bonne introduction au C ++ de base.
     - [Learncpp.com][cpp-learn]
-      Tends to focus more on syntax, and less on programming. Might be useful for beginners, but as a reference, not a tutorial.
+      se concentre davantage sur la syntaxe, et moins sur la programmation. Peut-être utile pour les débutants, mais comme une référence, pas un tutoriel.
     - [Linear C++][cpp-linear]
-      A tutorial on C++ for people with some prior programming experience. Teaches by presenting and explaining a series of programs.
-   - [More free books][cpp-more]
-- **Books (paper):**
+      Un tutoriel sur C ++ pour les personnes ayant une certaine expérience de programmation préalable. Enseigne en présentant et en expliquant une série de programmes.
+   - [Plus de livres gratuit][cpp-more]
+- **Livres (papier):**
    - [The Definitive C++ Book Guide and List][cpp-so-definitive]
-     A very well-maintained list of recommended books and resources on StackOverflow. Every book listed on this page is highly-recommended.
+     Une liste très bien entretenue de livres et de ressources recommandés sur StackOverflow. Tous les livres énumérés sur cette page sont fortement recommandés.
 - **Exercises:** N/A
 
   [cpp-google-class]: https://developers.google.com/edu/c++/
@@ -233,35 +233,34 @@ NB: Similar to C, C++ can be a difficult-to-teach language. Although the online 
   [cpp-so-definitive]: http://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list
 
 ### C-Sharp
- (pronounced as see sharp) is a multi-paradigm programming language encompassing strong typing, imperative, declarative, functional, generic, object-oriented (class-based), and component-oriented programming disciplines.
-
-- **Online courses:**
-    - Microsoft Virtual Academy has a few free courses:
-      - [C# Fundamentals for Absolute Beginners][csharp-fundamentals]
-        A series of videos produced by Microsoft on learning C#. For beginners.
-      - [Programming in C# Jump Start][csharp-jump-start]
-        Another series of videos produced by Microsoft. Assumes some prior knowledge of C#.
-- **Interactive tutorials:** N/A
-- **Video tutorials:** N/A
-- **Books and tutorials (online):**
+C'est un langage de programmation multi-paradigme englobant des disciplines de typage forte, impérative, déclarative, fonctionnelle, générique, orientée objet (basé sur les class) et orientée composants.
+- **Cours en ligne:**
+    - Microsoft Virtual Academy propose quelques cours gratuits:
+      - [C# Fondamentaux pour les débutants absolus][csharp-fundamentals]
+       Une série de vidéos produites par Microsoft sur l'apprentissage de C# pour les débutants.
+      - [Programmation en C#][csharp-jump-start]
+        Une autre série de vidéos produites par Microsoft. Assume quelques connaissances antérieures de C #.
+- **Tutoriels interactifs:** N/A
+- **tutoriels videos:** N/A
+- **Livres tutoriels (online):**
     - [C# Programming][csharp-programming]
-      One of Wikibook's featured books. For beginners. Tends to focus on syntax, and would also make a good reference.
+      Un des livres vedettes de Wikibook. Pour les débutants. Il se concentrer sur la syntaxe, et ferait également une bonne référence.
     - [The C# Yellow Book][csharp-yellow]
-      The introductory text used by the University of Hull.
+      Le texte introductif utilisé par l'Université de Hull.
     - [C# Essentials][csharp-essentials]
-      An introductory text on C#. Also includes information on Windows Forms, Visual Studios, and making GUIs.
+      Un texte d'introduction sur C #.Il  comprend également des informations sur Windows Forms, Visual Studios et la création d'interfaces graphiques.
     - [Visual C# resources][csharp-visual]
-      Microsoft's official series of tutorials and guides on C# and .NET.
-    - [More free books][csharp-more]
-- **Books (paper):**
-    - [Sam's Teach Yourself C# 5.0 in 24 Hours]() by Scott Dorman
-      A good introduction for beginners.
+      Séries officielles de tutoriels et de guides Microsoft sur C# et .NET.
+    - [Plus de livres gratuit][csharp-more]
+- **Livres (papier):**
+    - [Sam's Teach Yourself C# 5.0 in 24 Hours]() par Scott Dorman
+      Une bonne introduction pour les débutants.
     - [Essential C# 5.0][csharp-essential-book]
-      Very comprehensive, and intended more for intermediate programmers/programmings coming from another language.
+      Très complet, et destiné davantage aux programmateurs / programmateurs intermédiaires venant d'une autre langage.
     - [C# in Depth, 3rd Edition][csharp-in-depth]
-      Also very comprehensive, and covers how to write idiomatic and clean C# code. Assumes the reader already knows some C#.
+      Aussi très complet, couvre la façon d'écrire idiomatique et propre code C#. Suppose que le lecteur connaît déjà C#.
     - [Effective C#][csharp-effective] and [More Effective C#][csharp-more-effective]
-      A collection of tips and tricks to improve your C# code. Not for beginners.
+      Une collection de trucs et astuces pour améliorer votre code C #. Pas pour les débutants.
 - **Exercises:** N/A
 
   [csharp-fundamentals]: http://channel9.msdn.com/Series/C-Fundamentals-for-Absolute-Beginners
