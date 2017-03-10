@@ -52,6 +52,7 @@ Bien que cela soit merveilleux, il peut également être un problème pour les d
 
 Cette page est destinée à aider à résoudre ce problème - pour présenter une liste de ressources pour les personnes qui sont soit nouvelles à la programmation, nouvelles à un sujet particulier, ou veulent faire progresser leurs compétences au-delà du stade débutant. Cette page n'essaie pas de répertorier toutes les ressources disponibles, mais plutôt des liens vers des ressources qui sont **garantis** d'être de haute qualité.
 
+
 ### Par où commencer?
 
 Si vous savez ce que vous voulez apprendre, c'est génial! Commencez à parcourir les liens dans cette section et trouvez quelque chose qui fonctionne pour vous.
@@ -279,28 +280,28 @@ C'est un langage de programmation multi-paradigme englobant des disciplines de t
   [csharp-more-effective]: http://www.amazon.com/More-Effective-Specific-Ways-Improve/dp/0321485890
 
 ### Haskell
-Haskell is a [polymorphically](https://wiki.haskell.org/Polymorphism) [statically typed](https://wiki.haskell.org/Typing), [lazy, purely functional](https://wiki.haskell.org/Lazy_evaluation) language, quite different from most other programming languages. The language is named for [Haskell Brooks Curry](https://wiki.haskell.org/Haskell_Brooks_Curry), whose work in mathematical logic serves as a foundation for functional languages. Haskell is based on the [lambda calculus](https://wiki.haskell.org/Lambda_calculus), hence the lambda they use as a logo.
-- **Online courses:**
-    - edX's [Introduction to Functional Programming][haskell-intro-func]
-      Assumes familiarity with a non-functional programming language (Java, Python, C#, C++, etc).
-- **Interactive tutorials:**
-    - [Try Haskell][haskell-try]
-      An interactive guide that teaches basic Haskell.
-- **Video tutorials:** N/A
-- **Books and tutorials (online):**
-    - [Getting started with Haskell][haskell-getting-started]
-      A comprehensive meta-guide that suggests the recommended order for following Haskell tutorials from beginning to advanced.
+Haskell est un langage [polymorphiques](https://wiki.haskell.org/Polymorphism) [statiquement tapé](https://wiki.haskell.org/Typing), [purement fonctionnel](https://wiki.haskell.org/Lazy_evaluation), un peu different de la plupart des autres langages de programmation. La langue est nommée [Haskell Brooks Curry](https://wiki.haskell.org/Haskell_Brooks_Curry), dont le travail en logique mathématique sert de fondement aux langages fonctionnels. Haskell est basé sur le [lambda calculus](https://wiki.haskell.org/Lambda_calculus), par consequent ils utilisent lambda comme logo.
+- **Cours en ligne:**
+    - [Introduction à la programmation fonctionnelle d'edX][haskell-intro-func]
+      nécessite une familiarité avec un langage de programmation non fonctionnel (Java, Python, C #, C ++, etc.).
+- **Tutoriels interactifs**
+    - [Essayez Haskell][haskell-try]
+      Un guide interactif qui enseigne Haskell de base.
+- **tutoriels videos:** N/A
+- **Livres et tutoriels (online):**
+    - [Commencer avec Haskell][haskell-getting-started]
+      Un méta-guide complet qui suggère l'ordre recommandé pour suivre les didacticiels Haskell du début à la fin.
     - [Learn You a Haskell for Great Good][haskell-great-good]
-      A beginner's introduction to Haskell. Tends to focus on syntax.
+      Une introduction de débutant à Haskell. Tente de se concentrer sur la syntaxe.
     - [Haskell][haskell-wikibooks]
-      One of Wikibook's featured books. Covers basic to advanced Haskell. Very comprehensive.
+      Un des livres vedettes de Wikibook, du basic à avancé Haskell. Très complet.
     - [Real World Haskell][haskell-real-world]:
-      Covers how to use Haskell for practical applications. This is a good second book to read, after completing one of the above tutorials.
-    - [More free books][haskell-more]
-- **Books (paper):** N/A
-- **Exercises:**
+      Couvre comment utiliser Haskell pour des applications pratiques. C'est un bon deuxième livre à lire, après avoir terminé l'un des tutoriels ci-dessus.
+    - [Plus de livres gratuit][haskell-more]
+- **Livre (papier):** N/A
+- **Exercices:**
     - [H-99][haskell-h-99]
-      A collection of 99 problems designed to increase your proficiency in Haskell.
+      Une collection de 99 problèmes conçus pour augmenter votre compétence dans Haskell.
 
   [haskell-intro-func]: https://www.edx.org/course/introduction-functional-programming-delftx-fp101x#.VJw54f-kAA
 
