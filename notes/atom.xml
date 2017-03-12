@@ -4,22 +4,22 @@ layout: feed
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>Notes from Jonathan McGlone</title>
- <link href="http://jmcglone.com/notes/atom.xml" rel="self"/>
- <link href="http://jmcglone.com/notes/"/>
+ <title>Notes from Kante Mahamadou</title>
+ <link href="http://mkantem.github.io/notes/atom.xml" rel="self"/>
+ <link href="http://mkantem.github.io/notes/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>http://jmcglone.com/notes/</id>
+ <id>http://mkantem.github.io/notes/</id>
  <author>
-   <name>Jonathan McGlone</name>
-   <email>jwmcglone@gmail.com</email>
+   <name>Mahamadou KANTE</name>
+   <email>mkantem@yahoo.fr</email>
  </author>
 
  {% for post in site.posts %}
  <entry>
    <title>{{ post.title }}</title>
-   <link href="http://jmcglone.com{{ post.url }}"/>
+   <link href="http://mkantem.github.io{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>http://jmcglone.com/notes{{ post.id }}</id>
+   <id>http://mkantem.github.io/notes{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
  {% endfor %}
