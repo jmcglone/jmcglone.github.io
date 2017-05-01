@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+h1 {
+  font-size: 2.5rem; }
+
+h2 {
+  font-size: 2rem; }
+
+h3 {
+  font-size: 1.7rem; }
+
+h4 {
+  font-size: 1.4rem; }
+
+h5 {
+  font-size: 1.2rem; }
+
+height, body {
+  height: 100%; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333; }
+
+.left {
+  background-color: #E4E4E4;
+  padding: 3rem 2rem;
+  display: block;
+  position: relative; }
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0; }
+
+.right {
+  display: block;
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: 0 auto; }
+
+.article {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0; }
+
+.left {
+  font-size: 1rem; }
+  .left a {
+    text-decoration: none; }
+  .left a.brand {
+    font-size: 1.5rem; }
+    .left a.brand span {
+      display: block;
+      font-size: initial; }
+  .left nav a {
+    margin: .5rem 0; }
+  .left nav a:hover, .left nav a:active, .left nav a:focus {
+    text-decoration: underline; }
+  .left ul {
+    list-style: none; }
+    .left ul li {
+      display: inline; }
+
+.right header {
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #E3E3E3; }
+  .right header h1 {
+    margin-bottom: .2rem; }
+.right .content h2, .right .content h3 {
+  margin-bottom: 1rem; }
+.right .content h4, .right .content h5 {
+  margin-bottom: 1rem; }
+.right .content p {
+  margin-bottom: 1rem; }
+
+@media only screen and (min-width: 768px) {
+  body {
+    margin-left: 15rem; }
+
+  .container {
+    flex-direction: row; }
+
+  .left {
+    padding: 3rem;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    margin-bottom: 0;
+    width: 9rem; }
+
+  .right {
+    padding: 3rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column; } }
+
+/*# sourceMappingURL=main.css.map */

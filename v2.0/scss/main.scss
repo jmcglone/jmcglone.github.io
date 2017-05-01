@@ -1,0 +1,169 @@
+// http://flexible-boxes.wstone.io/#~(1~(c~(~2)~t~'body~d~'column)~2~(t~'main~g~1~c~(~5~3))~3~(g~1~c~(~4)~t~'right~d~'column)~4~(g~1~t~'article~c~(~9~11~10)~d~'column)~5~(c~(~6)~t~'left~d~'column)~6~(t~'navigation~c~(~7~8)~d~'column)~7~(t~'home)~8~(t~'pages)~9~(t~'header)~10~(t~'footer)~11~(t~'content))
+////////////////////////////////////
+// imports
+////////////////////////////////////
+@import url('https://fonts.googleapis.com/css?family=Lato');
+////////////////////////////////////
+// reset
+////////////////////////////////////
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+////////////////////////////////////
+// typography
+////////////////////////////////////
+@mixin lato {
+  font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+// headings
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.7rem;
+}
+h4 {
+  font-size: 1.4rem;
+}
+h5 {
+  font-size: 1.2rem;
+}
+// links
+a {
+
+}
+////////////////////////////////////
+// layout
+////////////////////////////////////
+height, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  @include lato;
+  color: #333;
+}
+
+.left {
+  background-color: #E4E4E4;
+  padding: 3rem 2rem;
+  display: block;
+  position: relative;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+}
+
+.right {
+  display: block;
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.article {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+}
+////////////////////////////////////
+// formatting
+////////////////////////////////////
+.left {
+  font-size: 1rem;
+  a {
+    text-decoration: none;
+  }
+  a.brand {
+    font-size: 1.5rem;
+    span {
+      display: block;
+      font-size: initial;
+    }
+  }
+  nav {
+    a {
+      margin: .5rem 0;
+    }
+    a:hover, a:active, a:focus {
+      text-decoration: underline;
+    }
+  }
+  ul {
+    list-style: none;
+    li {
+      display: inline;
+    }
+  }
+}
+
+.right {
+  header {
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #E3E3E3;
+
+    h1 {
+      margin-bottom: .2rem;
+    }
+  }
+  .content {
+    h2, h3 {
+      margin-bottom: 1rem;
+    }
+    h4, h5 {
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+}
+////////////////////////////////////
+// screens
+////////////////////////////////////
+@media only screen and (min-width: 768px) {
+
+  body {
+    margin-left: 15rem;
+  }
+
+  .container {
+    flex-direction: row;
+  }
+
+  .left {
+    padding: 3rem;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    margin-bottom: 0;
+    width: 9rem;
+  }
+
+  .right {
+    padding: 3rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+}
