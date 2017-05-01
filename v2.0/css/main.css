@@ -79,11 +79,21 @@ body {
   .right header h1 {
     margin-bottom: .2rem; }
 .right .content h2, .right .content h3 {
-  margin-bottom: 1rem; }
+  margin: 1rem 0; }
 .right .content h4, .right .content h5 {
-  margin-bottom: 1rem; }
+  margin: 1rem 0; }
 .right .content p {
-  margin-bottom: 1rem; }
+  margin: 1rem 0; }
+.right .content ul, .right .content ol {
+  margin: 1rem 0; }
+.right .content li {
+  margin-left: 2rem; }
+.right .content figure {
+  margin: 1rem 0; }
+.right .content blockquote {
+  margin: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid #e3e3e3; }
 
 @media only screen and (min-width: 768px) {
   body {
