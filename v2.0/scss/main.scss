@@ -3,6 +3,8 @@
 // imports
 ////////////////////////////////////
 @import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Overpass+Mono:300,400,600');
 ////////////////////////////////////
 // reset
 ////////////////////////////////////
@@ -19,6 +21,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 ////////////////////////////////////
 @mixin lato {
   font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+@mixin rubik {
+  font-family: 'Rubik', sans-serif;
+}
+@mixin overpass-mono {
+  font-family: 'Overpass Mono', monospace;
 }
 // headings
 h1 {
@@ -41,16 +49,16 @@ a {
 
 }
 ////////////////////////////////////
-// layout
+// layout *mobile first*
 ////////////////////////////////////
 height, body {
   height: 100%;
 }
 
 body {
+  @include rubik;
   display: flex;
   flex-direction: column;
-  @include lato;
   color: #333;
 }
 
@@ -59,12 +67,21 @@ body {
   padding: 3rem 2rem;
   display: block;
   position: relative;
+
+  ul {
+    list-style: none;
+    display: flex;
+
+    li {
+      margin-right: 1rem;
+    }
+  }
 }
 
 .navigation {
   display: flex;
   flex-direction: column;
-  margin: 2rem 0;
+  margin: 2rem 0 .5rem;
 }
 
 .right {
@@ -91,22 +108,19 @@ body {
   a.brand {
     font-size: 1.5rem;
     span {
+      @include overpass-mono;
       display: block;
-      font-size: initial;
+      font-size: .9rem;
+      font-weight: 300;
     }
   }
   nav {
     a {
       margin: .5rem 0;
+      text-transform: uppercase;
     }
     a:hover, a:active, a:focus {
       text-decoration: underline;
-    }
-  }
-  ul {
-    list-style: none;
-    li {
-      display: inline;
     }
   }
 }
@@ -119,6 +133,11 @@ body {
 
     h1 {
       margin-bottom: .2rem;
+    }
+
+    p {
+      @include overpass-mono;
+      font-weight: 300;
     }
   }
   .content {
@@ -150,6 +169,7 @@ body {
 ////////////////////////////////////
 // screens
 ////////////////////////////////////
+// screens larger than iphone landscape
 @media only screen and (min-width: 768px) {
 
   body {
@@ -171,6 +191,20 @@ body {
     display: flex;
     margin-bottom: 0;
     width: 9rem;
+
+    ul {
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: space-around;
+
+      li {
+        margin: 0;
+      }
+    }
+  }
+
+  .navigation {
+    margin: 2rem 0;
   }
 
   .right {

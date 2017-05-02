@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Rubik:300,400,400i,700,700i");
+@import url("https://fonts.googleapis.com/css?family=Overpass+Mono:300,400,600");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -26,9 +28,9 @@ height, body {
   height: 100%; }
 
 body {
+  font-family: 'Rubik', sans-serif;
   display: flex;
   flex-direction: column;
-  font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333; }
 
 .left {
@@ -36,11 +38,16 @@ body {
   padding: 3rem 2rem;
   display: block;
   position: relative; }
+  .left ul {
+    list-style: none;
+    display: flex; }
+    .left ul li {
+      margin-right: 1rem; }
 
 .navigation {
   display: flex;
   flex-direction: column;
-  margin: 2rem 0; }
+  margin: 2rem 0 .5rem; }
 
 .right {
   display: block;
@@ -61,16 +68,15 @@ body {
   .left a.brand {
     font-size: 1.5rem; }
     .left a.brand span {
+      font-family: 'Overpass Mono', monospace;
       display: block;
-      font-size: initial; }
+      font-size: .9rem;
+      font-weight: 300; }
   .left nav a {
-    margin: .5rem 0; }
+    margin: .5rem 0;
+    text-transform: uppercase; }
   .left nav a:hover, .left nav a:active, .left nav a:focus {
     text-decoration: underline; }
-  .left ul {
-    list-style: none; }
-    .left ul li {
-      display: inline; }
 
 .right header {
   padding-bottom: 1rem;
@@ -78,6 +84,9 @@ body {
   border-bottom: 1px solid #E3E3E3; }
   .right header h1 {
     margin-bottom: .2rem; }
+  .right header p {
+    font-family: 'Overpass Mono', monospace;
+    font-weight: 300; }
 .right .content h2, .right .content h3 {
   margin: 1rem 0; }
 .right .content h4, .right .content h5 {
@@ -113,6 +122,15 @@ body {
     display: flex;
     margin-bottom: 0;
     width: 9rem; }
+    .left ul {
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: space-around; }
+      .left ul li {
+        margin: 0; }
+
+  .navigation {
+    margin: 2rem 0; }
 
   .right {
     padding: 3rem;
