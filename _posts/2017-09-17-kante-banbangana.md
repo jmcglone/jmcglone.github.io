@@ -1,8 +1,7 @@
-
 ---
 layout: post
 title: Point d’histoire : Le Royaume de Sosso ou Kaniaga : KANTE banbangana (ceux qui refusent)
-date: 2017-09-16
+date: 2017-09-17
 ---
 Où était Sosso ? Ce royaume n’était pas en Guinée, contrairement à ce que beaucoup de gens croient. Il s’est développé plutôt au Mali, dans la direction de Bamako, au sud de Nara, entre Banamba et Mourdiah. Le village de Sosso existe encore et se situe à douze kilomètres de Boron CISSE.
 
