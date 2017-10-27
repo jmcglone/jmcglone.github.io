@@ -51,6 +51,8 @@ Historically, Intel has 3 instruction sets for vectorization: [MMX](https://en.w
 
 Vector registers for those instruction sets are described [here](https://en.wikipedia.org/wiki/X86#/media/File:Table_of_x86_Registers_svg.svg).
 
+In general, not only loops can be vectorized. There is also linear vectorizer (in llvm it is called [SLP vectorizer](https://llvm.org/docs/Vectorizers.html#slp-vectorizer)) which is searching for similar independent scalar instructions and tries to combine them.
+
 To check vector capabilities of your CPU you can type `lscpu`. For my Intel Core i5-7300U filtered output is:
 ```
 Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm 3dnowprefetch rdseed clflushopt
@@ -60,8 +62,9 @@ For us the most interesting is that this CPU supports `sse4_2` and `avx` instruc
 
 That's all for now. In later articles I'm planing to cover following topics:
 1. Vectorization intro (this article).
-2. Checking compiler vectorization report.
-3. Vectorization width.
-4. Multiversioning by data dependency (DD).
-5. Multiversioning by trip counts.
-6. General tips for writing vectorizable code.
+2. Vectorization warmup.
+3. Checking compiler vectorization report.
+4. Vectorization width.
+5. Multiversioning by data dependency (DD).
+6. Multiversioning by trip counts.
+7. General tips for writing vectorizable code.
