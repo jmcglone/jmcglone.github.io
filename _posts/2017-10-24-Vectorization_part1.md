@@ -62,7 +62,7 @@ For us the most interesting is that this CPU supports `sse4_2` and `avx` instruc
 
 That's all for now. In later articles I'm planing to cover following topics:
 1. Vectorization intro (this article).
-2. Vectorization warmup.
+2. [Vectorization warmup](https://dendibakh.github.io/blog/2017/10/27/Vectorization_warmup).
 3. Checking compiler vectorization report.
 4. Vectorization width.
 5. Multiversioning by data dependency (DD).

@@ -147,10 +147,10 @@ Note, that at this stage we have both branches of if statement computed (in `ymm
 
 `vpsubw ymm0,ymm1,ymm0` simply negates all the values in `ymm0`, completing final steps of computation.
 
-`vpblendvb ymm0,ymm0,ymm3,ymm4` selects values from `ymm0` and `ymm3` according to the control in `ymm4`.
+`vpblendvb ymm0,ymm0,ymm3,ymm4` selects values from `ymm0` and `ymm3` according to the control in `ymm4` and stores them into `ymm0`.
 
 And finally, `vmovdqu YMMWORD PTR [rdi],ymm0` stores values from `ymm0` back to memory (in `a[]`).
-What is left is calculate the return value (`agg`), bit I will leave this excercize for the reader. 
+What is left is calculate the return value (`agg`), bit I will leave this exercise for the reader. 
 
 ### Conclusions
 
