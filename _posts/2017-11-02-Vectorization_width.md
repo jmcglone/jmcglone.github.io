@@ -50,13 +50,13 @@ Let's check assembly to see if it matches the report:
   add r10, -32
   jne .LBB0_12
 ```
-This is not super complicated peace of assembly, but it is interesting in a couple of ways. 
+This is not super complicated piece of assembly, but it is interesting in a couple of ways. 
 Basic observations:
 1. We can spot how compiler do array indexing: `rax - 96`, `rax - 64`, etc. Natural way is to do forward indexing: `rax + 0`, `rax + 32`, etc. But okay, I actually don't know what is the reason behind this.
 2. Addition is done in a weird way: `sub rax, -128`. But it is done for having more compact code. `-128` fits in one byte (two's complement), but 128 needs two bytes. Thanks for @simonask at [cpplang.slack.com](https://cpplang.slack.com).
 3. `r10` is just a counter, not used in offsets or computation. `rax` indexes `b[]` and `rcx` indexes `a[]`.
 
-Besides that we see that this loop is adding 32 unsigned integers on every iteration. Loop is unrolled by a factor of 4. Vectorization width of 8 is calculated like this: `256 (size of ymm register in bits) / 32 (size of unsigned in bits) = 8`. 
+Besides that we see that this loop is adding 32 unsigned integers on every iteration. Loop is unrolled by a factor of 4. **Vectorization width** of 8 is calculated like this: `256 (size of ymm register in bits) / 32 (size of unsigned in bits) = 8`. So in this case it tells us how many elements fits in one vector register that was chosen by th e compiler. Not super fancy, but keep on reading, its not all. **Vectorization width** has another quite interesting property.
 
 ### Interleaving
 
@@ -73,7 +73,7 @@ Interleaving in some cases makes better utilization of a CPU resources, however 
 
 ### Why we care about vectorization width?
 
-Now, lets see how good compiler did for this code. We will fall into vectorized version of a loop if we have at least 32 loop iterations. If the trip count for this loop is always 16, but compiler does not know that (say, it comes from configuration file) then we will fall down to the scalar version. And if it is the hot place in our application, than this will cause us significant performance hit. This is actually a call why you should use library functions like `memset`, `memcpy`, and STL algorithms - because they are heavily optimized and give reasonable performance for most of the cases.
+Now, lets see how good compiler did for this code. We will fall into vectorized version of a loop if we have at least 32 loop iterations. If the trip count for this loop is always 16, but compiler does not know that (say, it comes from configuration file) then we will fall down to the scalar version. And if it is the hot place in our application, than this will cause us significant performance hit. This is actually a call why you should use library functions like `memset`, `memcpy`, and STL algorithms - because they are heavily optimized for such cases.
 
 If you know that your function will always has the same trip count, say 16, then you can specifically tune it with the method I will describe further. If you have multiple trip counts, say 8 and 16, you can tune it as well, but I will leave this for the future article, namely "Multiversioning by trip counts".
 
