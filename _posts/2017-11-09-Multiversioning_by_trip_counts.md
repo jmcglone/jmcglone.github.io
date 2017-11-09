@@ -134,17 +134,21 @@ Our final version is almost 2 times faster than the baseline. Let's figure out w
 - Vectorization width = 16 : scalar code is hot for trip counts 4,8. We are executing vector version only for trip count = 16. That's still ~30% better than the baseline, but still not quite super optimal.
 - Multiversioning by trip count : scalar code is cold. All 3 possible trip counts use it's own (specifically optimized) vector version of the loop, which gives us the most performance in this case.
 
-### Conclusion
+### Caveat
 
-As a caveat I should say: please don't optimize every routine like this - optimize only hot functions. Also this optimization doesn't make much sense when you have big arrays. Compiler already prepared the code for it (remember that there is autovectorized version that processes 128 bytes at a time - see in the beginning of the article).
+This post is not to encourage you to optimize every routine like this - please don't do that. Do this only if your measurements show significant benefit of such change. If your compiler is not doing the best job for your hot function probably someday it will. It's not always beneficial to vectorize loops with small trip count, sometimes it's better to do full unrolling. Compiler will be many times better than you at figuring out such things.
 
-Another thing worth to mention is that in the fastest version there are at least 6 versions of the same loop (3 handwritten + 1 autovectorized + 1 unrolled + 1 fallback). This increases code size significantly!
+Also this optimization doesn't make much sense when you have big arrays. Compiler already prepared the code for it (remember that there is autovectorized version that processes 128 bytes at a time - see in the beginning of the article).
+
+Another thing worth to mention is that in the fastest attempt there are at least 6 versions of the same loop (3 handwritten + 1 autovectorized + 1 unrolled + 1 fallback). This increases code size significantly!
 
 In this case enabling LTO doesn't make much of a difference (results are mostly the same). 
 
 However, if you replace the trip count arguments with constant values (`4,8,16`) and enable LTO (pass `-flto` flag), then compiler will propagate this constant into the function and scalar version will beat all the others! I profiled this case and noticed that compiler recognized my dirty trick with processing array by chunks and realized that in the nutshell there is no difference between those 3 function calls - they all do the same thing.
 
-As a final note I want to share a great talk from CppCon 2014 by Mike Acton: [Data-Oriented Design and C++](https://www.youtube.com/watch?v=rX0ItVEVjHc). 
+### Final note
+
+I want to share a great talk from CppCon 2014 by Mike Acton: [Data-Oriented Design and C++](https://www.youtube.com/watch?v=rX0ItVEVjHc). 
 
 Want performance - know your data.
 
