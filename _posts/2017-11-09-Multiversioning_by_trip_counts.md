@@ -128,7 +128,7 @@ Multiver_by_trip_counts  44 ns  44 ns  157490466  601.103MB/s (+62.1%)
 
 ### Justification
 
-Our final version is almost 2 times faster than the baseline. Let's figure out why. I profiled case by case to understand what is going on in each case:
+Our final version is 62% faster than the baseline. Let's figure out why. I profiled case by case to understand what is going on in each case:
 - Vectorization width = 4 : scalar code is cold, which is good, but we are processing only 4 bytes per iteration (utilizing only `1/4` of the xmm register capacity). We can do better for trip counts 8,16.
 - Vectorization width = 8 : scalar code is hot for trip count = 4. For trip counts 8,16 vectorized version is used. We missed using vector version for the trip count with the highest weight (`n = 4`). However, it was a surprise to me that this version outperforms the version optimized for `n = 4`.
 - Vectorization width = 16 : scalar code is hot for trip counts 4,8. We are executing vector version only for trip count = 16. That's still ~30% better than the baseline, but still not quite super optimal.
