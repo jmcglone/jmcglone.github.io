@@ -152,6 +152,8 @@ I want to share a great talk from CppCon 2014 by Mike Acton: [Data-Oriented Desi
 
 Want performance - know your data.
 
+UPD: one more article related to the topic of multiversioning: [Function multi-versioning in GCC 6](https://lwn.net/Articles/691932/).
+
 ### All posts from this series:
 1. [Vectorization intro](https://dendibakh.github.io/blog/2017/10/24/Vectorization_part1).
 2. [Vectorization warmup](https://dendibakh.github.io/blog/2017/10/27/Vectorization_warmup).
