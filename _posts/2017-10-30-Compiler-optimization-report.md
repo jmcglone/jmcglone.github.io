@@ -69,11 +69,11 @@ For gcc you need to pass `-ftree-vectorize -ftree-vectorizer-verbose=X`, where X
 
 I find the most usable opt reports from Intel Compiler (icc). It shows if the loop was multiversioned, it has filter by the line of the code, etc. Also the issue with LTO (like in clang) works with no additional steps from the user. It remembers that user requested opt report on compilation stage and it will generate output in the text file on the linking stage (in icc it is called IPO - Inter Procedural Optimization). More links for icc [here](https://software.intel.com/en-us/node/590464) and [here](https://software.intel.com/en-us/node/522949).
 
-All posts from this series:
+### All posts from this series:
 1. [Vectorization intro](https://dendibakh.github.io/blog/2017/10/24/Vectorization_part1).
 2. [Vectorization warmup](https://dendibakh.github.io/blog/2017/10/27/Vectorization_warmup).
 3. Checking compiler vectorization report (this article).
-4. Vectorization width.
-5. Multiversioning by data dependency (DD).
-6. Multiversioning by trip counts.
-7. General tips for writing vectorizable code.
+4. [Vectorization width](https://dendibakh.github.io/blog/2017/11/02/Vectorization_width).
+5. [Multiversioning by data dependency](https://dendibakh.github.io/blog/2017/11/03/Multiversioning_by_DD).
+6. [Multiversioning by trip counts](https://dendibakh.github.io/blog/2017/11/09/Multiversioning_by_trip_counts).
+7. [Tips for writing vectorizable code](https://dendibakh.github.io/blog/2017/11/10/Tips_for_writing_vectorizable_code).

@@ -161,4 +161,4 @@ UPD: one more article related to the topic of multiversioning: [Function multi-v
 4. [Vectorization width](https://dendibakh.github.io/blog/2017/11/02/Vectorization_width).
 5. [Multiversioning by data dependency](https://dendibakh.github.io/blog/2017/11/03/Multiversioning_by_DD).
 6. Multiversioning by trip counts (this article).
-7. General tips for writing vectorizable code.
+7. [Tips for writing vectorizable code](https://dendibakh.github.io/blog/2017/11/10/Tips_for_writing_vectorizable_code).
