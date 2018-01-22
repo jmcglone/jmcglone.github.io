@@ -52,15 +52,16 @@ Here are the results:
 ```
 $ ./baseline.sh 
 ---------------------------------------------------------
-Benchmark                  Time           CPU Iterations
+Benchmark          CPU   Iterations  Throughput   Clockticks/iter
 ---------------------------------------------------------
-func_bench_median          4 ns          4 ns  191481954   32.5626GB/s
+func_bench_median  4 ns  191481954   32.5626GB/s  74.73
 $ ./no_foo.sh                     
 ---------------------------------------------------------
-Benchmark                  Time           CPU Iterations
+Benchmark          CPU   Iterations  Throughput   Clockticks/iter
 ---------------------------------------------------------
-func_bench_median          4 ns          4 ns  173214907   29.5699GB/s
+func_bench_median  4 ns  173214907   29.5699GB/s  84.54
 ```
+I calculated `Clockticks/iter` metric myself by dividing total number of clockticks for `benchmark_func` by the number of iterations.
 
 Suddenly, just because I removed `foo` before(!) `benchmark_func`, performance goes down by ~10%.
 
@@ -88,7 +89,7 @@ $ objdump -d a.out -M intel | grep "<_Z14benchmark_funcPi>:" -A15
 
 We can see that code is aligned at the i-cache line boundary (`0x406c0 mod 0x40 == 0x0`), that's good. However there is something more we need to know about the Intel Architecture (IA) front-end. 
 
-For Skylake family there is MITE (Micro-instruction Translation Engine) which fetches instructions 32 bytes each cycle. Important note here is that those 32 bytes are always represent 32B aligned window, meaning you can't fetch instructions from different 32B aligned windows. After we fetch the decoder decodes those instructions into the sequence of smaller operations (uops). And then it feeds them into the rest of the pipeline.
+For Skylake family there is MITE (Micro-instruction Translation Engine) which fetches instructions 16 bytes each cycle. Important note here is that those 16 bytes are always represent 16B aligned window, meaning you can't fetch instructions from different 16B aligned windows. After we fetch the decoder decodes those instructions into the sequence of smaller operations (uops). And then it feeds them into the rest of the pipeline.
 
 But also there is another HW unit called DSB (Decoded Stream Buffer), which is essentially the uops cache. If we want to execute something that was already executed before we first look into the DSB. If it happens to be there we are not fetching it from memory, we feed the back-end with already decoded uops. However there are some constraints about how uops can land in the DSB, we will discuss it further.
 
@@ -108,7 +109,11 @@ no_foo:
 
 Thick boxes in those tables represent 32B aligned windows and I highlighted with yellow instructions which are hot (the body of the loop).
 
-First observation is that second layout is better than the baseline, because all the hot code fits directly into one 32B aligned window. And indeed, second case has twice as less DSB misses (`DSB_MISS_PS` 1800M vs 888M) and exactly 0 DSB-MITE switches penalty (`DSB2MITE_SWITCHES,PENALTY_CYCLES` 888M vs 0). But why it performes 10% worse? This is probably some other architectural subtle detail that I don't know about. I made several attempts of proving some hypothesis by predicting how decoded instructions will land in DSB, but still not sure if I got it right. Profiles and performance counters don't show any anomaly. But second case is much more front-end bound than the baseline (`IDQ_UOPS_NOT_DELIVERED,CYCLES_0_UOPS_DELIV` 4100M vs 5200M). I present all the collected counters as well as explanation for them in the end of this post.
+First observation is that second layout is better than the baseline, because all the hot code fits directly into one 32B aligned window. And indeed, second case has twice as less DSB misses (`DSB_MISS_PS` 1800M vs 888M) and exactly 0 DSB-MITE switches penalty (`DSB2MITE_SWITCHES,PENALTY_CYCLES` 888M vs 0). But why it performes 10% worse? This is probably some other architectural subtle detail that I don't know about. 
+
+I made several attempts of proving some hypothesis by predicting how decoded instructions will land in DSB, however I'm not 100% sure if I got it right. My take on this can be found [DSB layout.pdf](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/CodeAlignment/DSB_layout.pdf).
+
+Profiles and performance counters don't show any anomaly. But second case is much more front-end bound than the baseline (`IDQ_UOPS_NOT_DELIVERED,CYCLES_0_UOPS_DELIV` 4100M vs 5200M). I present all the collected counters as well as explanation for them in the end of this post.
 
 ### To make things even more funny 
 
@@ -117,14 +122,14 @@ I did 2 more experiments with explicitly specified alignment: `-mllvm -align-all
 ```
 $ ./aligned_functions.sh 
 ---------------------------------------------------------
-Benchmark                  Time           CPU Iterations
+Benchmark          CPU   Iterations   Throughput   Clockticks/iter
 ---------------------------------------------------------
-func_bench_median          3 ns          3 ns  218294614   36.8538GB/s
+func_bench_median  3 ns  218294614    36.8538GB/s  63.37
 $ ./aligned_blocks.sh            
 ---------------------------------------------------------
-Benchmark                  Time           CPU Iterations
+Benchmark          CPU   Iterations   Throughput   Clockticks/iter
 ---------------------------------------------------------
-func_bench_median          3 ns          3 ns  262104631   44.3106GB/s
+func_bench_median  3 ns  262104631    44.3106GB/s  46.25
 ```
 
 With aligning `benchmark_func` at the boundary of 32 bytes I had +13% improvement and by aligning all basic blocks (including the beginning of the function) inside `benchmark_func` at the 32-byte boundary I had +36% improvement. Funny, ain't it?
@@ -163,4 +168,9 @@ Aligning the code means compiler will insert NOPs before the code you want to al
 
 ### Conclusions
 
-As you can see, even with such a small amount of code things may get incredibly complicated. I'm not saying we all should be experts in the hardware we are coding for, but at least be informed about such issues. Don't take the first measured value as a final one. Collect profiles and check that you didn't hit some architectural performance hit.
+As you can see, even with such a small amount of code things may get incredibly complicated. I'm not saying we all should be experts in the hardware we are coding for, but at least be informed about such issues. Don't take the first measured value as a final one. Collect profiles and check that you wasn't hit by some architectural performance issue.
+
+**UPD 23.01.2018**: 
+- Fixed MITE description (thanks to Travis). 
+- Added clockticks per iteration metric.
+- Added my prediction of DSB layout.
