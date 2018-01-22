@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Factors affecting the use of ICTs on agricultural input information by farmers in developing countries
-date: 2017-02-10
+title: A Review of Big Data Security and Privacy Issues
+date: 2018-01-22
 ---
 
 # Abstract
@@ -16,4 +16,4 @@ challenges. This paper reviewed the recent research and development on the trend
 the field of Big Data. First, the characteristics and value of big data are presented. Then, topics and issues on security
 and privacy are discussed and, finally we have made some recommendations for future possible research.
 
-<a href="https://www.researchgate.net/publication/304253473_Factors_affecting_the_use_of_ICTs_on_agricultural_input_information_by_farmers_in_developing_countries"> Find the full article here</a>
+<a href="https://www.researchgate.net/publication/320409081_A_Review_of_Big_Data_Security_and_Privacy_Issues"> Find the full article here</a>
