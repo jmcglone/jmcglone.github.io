@@ -1,0 +1,45 @@
+0000000000000090 <_Z4funcPi>:
+  90:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 nop WORD PTR cs:[rax+rax*1+0x0]
+  97:	0f 1f 84 00 00 00 00 
+  9e:	00 
+  9f:	90                   	nop
+  a0:	53                   	push   rbx
+  a1:	48 89 fb             	mov    rbx,rdi
+  a4:	48 c7 c0 80 ff ff ff 	mov    rax,0xffffffffffffff80
+  ab:	c5 fd 76 c0          	vpcmpeqd ymm0,ymm0,ymm0
+  af:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 nop WORD PTR cs:[rax+rax*1+0x0]
+  b6:	0f 1f 84 00 00 00 00 
+  bd:	00 
+  be:	66 90                	xchg   ax,ax
+  c0:	c5 fe 6f 8c 03 80 00 	vmovdqu ymm1,YMMWORD PTR [rbx+rax*1+0x80]
+  c7:	00 00 
+  c9:	c5 f5 fa c8          	vpsubd ymm1,ymm1,ymm0
+  cd:	c5 fe 7f 8c 03 80 00 	vmovdqu YMMWORD PTR [rbx+rax*1+0x80],ymm1
+  d4:	00 00 
+  d6:	48 83 c0 20          	add    rax,0x20
+  da:	75 e4                	jne    c0 <_Z4funcPi+0x30>
+  dc:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+  e0:	83 3b 01             	cmp    DWORD PTR [rbx],0x1
+  e3:	75 3b                	jne    120 <_Z4funcPi+0x90>
+  e5:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 nop WORD PTR cs:[rax+rax*1+0x0]
+  ec:	0f 1f 84 00 00 00 00 
+  f3:	00 
+  f4:	66 66 66 2e 0f 1f 84 	data16 data16 nop WORD PTR cs:[rax+rax*1+0x0]
+  fb:	00 00 00 00 00 
+ 100:	c5 f8 77             	vzeroupper 
+ 103:	e8 00 00 00 00       	call   108 <_Z4funcPi+0x78>
+ 108:	eb 36                	jmp    140 <_Z4funcPi+0xb0>
+ 10a:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 nop WORD PTR cs:[rax+rax*1+0x0]
+ 111:	0f 1f 84 00 00 00 00 
+ 118:	00 
+ 119:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+ 120:	c5 f8 77             	vzeroupper 
+ 123:	e8 00 00 00 00       	call   128 <_Z4funcPi+0x98>
+ 128:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 nop WORD PTR cs:[rax+rax*1+0x0]
+ 12f:	0f 1f 84 00 00 00 00 
+ 136:	00 
+ 137:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+ 13e:	00 00 
+ 140:	01 03                	add    DWORD PTR [rbx],eax
+ 142:	5b                   	pop    rbx
+ 143:	c3                   	ret    

@@ -1,0 +1,23 @@
+0000000000000080 <_Z4funcPi>:
+  80:	53                   	push   rbx
+  81:	48 89 fb             	mov    rbx,rdi
+  84:	48 c7 c0 80 ff ff ff 	mov    rax,0xffffffffffffff80
+  8b:	c5 fd 76 c0          	vpcmpeqd ymm0,ymm0,ymm0
+  8f:	90                   	nop
+  90:	c5 fe 6f 8c 03 80 00 	vmovdqu ymm1,YMMWORD PTR [rbx+rax*1+0x80]
+  97:	00 00 
+  99:	c5 f5 fa c8          	vpsubd ymm1,ymm1,ymm0
+  9d:	c5 fe 7f 8c 03 80 00 	vmovdqu YMMWORD PTR [rbx+rax*1+0x80],ymm1
+  a4:	00 00 
+  a6:	48 83 c0 20          	add    rax,0x20
+  aa:	75 e4                	jne    90 <_Z4funcPi+0x10>
+  ac:	83 3b 01             	cmp    DWORD PTR [rbx],0x1
+  af:	75 0a                	jne    bb <_Z4funcPi+0x3b>
+  b1:	c5 f8 77             	vzeroupper 
+  b4:	e8 00 00 00 00       	call   b9 <_Z4funcPi+0x39>
+  b9:	eb 08                	jmp    c3 <_Z4funcPi+0x43>
+  bb:	c5 f8 77             	vzeroupper 
+  be:	e8 00 00 00 00       	call   c3 <_Z4funcPi+0x43>
+  c3:	01 03                	add    DWORD PTR [rbx],eax
+  c5:	5b                   	pop    rbx
+  c6:	c3                   	ret    
