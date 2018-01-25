@@ -1,0 +1,27 @@
+---
+layout: feed
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Notes from Jonathan McGlone</title>
+ <link href="http://jmcglone.com/notes/atom.xml" rel="self"/>
+ <link href="http://jmcglone.com/notes/"/>
+ <updated>{{ site.time | date_to_xmlschema }}</updated>
+ <id>http://jmcglone.com/notes/</id>
+ <author>
+   <name>Jonathan McGlone</name>
+   <email>jwmcglone@gmail.com</email>
+ </author>
+
+ {% for post in site.posts %}
+ <entry>
+   <title>{{ post.title }}</title>
+   <link href="http://jmcglone.com{{ post.url }}"/>
+   <updated>{{ post.date | date_to_xmlschema }}</updated>
+   <id>http://jmcglone.com/notes{{ post.id }}</id>
+   <content type="html">{{ post.content | xml_escape }}</content>
+ </entry>
+ {% endfor %}
+ 
+</feed>
