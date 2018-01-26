@@ -2,6 +2,7 @@ permalink: /blog/:year/:month/:day/:title
 markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 name:         Denis Bakhvalov
 description:  Performance optimizations and analysis in C/C++
 url:          https://dendibakh.github.io
