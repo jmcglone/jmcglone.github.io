@@ -174,3 +174,8 @@ As you can see, even with such a small amount of code things may get incredibly 
 - Fixed MITE description (thanks to Travis). 
 - Added clockticks per iteration metric.
 - Added my prediction of DSB layout.
+
+**UPD 27.01.2018**: 
+- @fernzeit on [Reddit](https://www.reddit.com/r/cpp/comments/7s5rnn/code_alignment_issues/) shared amazing paper "[Producing Wrong Data Without Doing Anything Obviously Wrong!](http://cis.upenn.edu/%7Ecis501/papers/producing-wrong-data.pdf)". 
+  It shows how linking order may affect performance and even how `-O2` can be better than `-O3`. True gem!
+
