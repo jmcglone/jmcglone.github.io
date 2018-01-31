@@ -146,7 +146,7 @@ Again I'm sorry for not having the explanation for those things, but maybe I wil
 
 ###  Collected performance counters
 Once again all the code as well as the building scripts are located [here](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/CodeAlignment). Note, that you need [google benchmark library](https://github.com/google/benchmark) to compile the code.
-![](/img/posts/CodeAlignment/counters.png){: .center-image }
+![](/img/posts/CodeAlignment/counters.png){: .center-image-width-100 }
 
 Description for all the counters for Skylake architecture can be found [here](https://download.01.org/perfmon/index/skylake.html):
 * **FRONTEND_RETIRED.DSB_MISS_PS** - Counts retired Instructions that experienced DSB (Decode Stream Buffer) miss.
