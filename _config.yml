@@ -1,5 +1,9 @@
 permalink: /blog/:year/:month/:day/:title
 markdown: kramdown
+highlighter: rouge
+kramdown:
+    input: GFM
+    hard_wrap: false
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -8,3 +12,4 @@ description:  Performance optimizations and analysis in C/C++
 url:          https://dendibakh.github.io
 author:
   twitter: dendibakh
+timezone: Europe/Warsaw
