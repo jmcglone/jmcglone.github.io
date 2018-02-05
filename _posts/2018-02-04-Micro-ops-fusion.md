@@ -38,6 +38,10 @@ If we look closer at the fused instruction it actually consists of a three opera
 
 Before I present the benchmark I want to say a few words about MicroFusion feature that exists in Intel Architecture Front End starting from "Sandy Bridge". Execution engine (back-end) inside the cpu can only execute so-called "micro-ops" (uops), that were provided by the front-end. So, back-end can't execute fused instruction but only a simple ones. There are some limitations to which operations can be fused and which not, more about this feature you can read in [Intel® 64 and IA-32 Architectures Optimization Reference Manual](https://software.intel.com/sites/default/files/managed/9e/bc/64-ia-32-architectures-optimization-manual.pdf), section "2.4.2.1 Legacy Decode Pipeline".
 
+Please do not be confused about the difference between MicroFusion and MacroFusion. According Intel documentation: 
+- **MicroFusion** is when multiple RISC-like assembly instructions are merged into CISC-like one assembly instruction (see example above). This is made by the compiler / asm developer.
+- **MacroFusion** is when multiple assembly instruction are merged into one uop. This is made by the decoding pipeline inside CPU.
+
 ### Benchmark
 
 I decided to use [uarch-bench](https://github.com/travisdowns/uarch-bench) for my experiments as it allows quite precise collection of performance counters for the snippet of assembly you provide.
@@ -87,10 +91,14 @@ Encoding of fused instructions in my example takes 4 bytes, when unfused version
 I was also trying to expose the gain from better utilization of fetch bandwidth, but looks like it's not so straightforward. I tried manually unrolling the loop and doing other sort of things, but as what I understand in my toy examples latency of the memory operations (even though data should be in the L1-cache) are big enough to hide the inefficiencies in fetch and decode bandwidth. According to Agner Fog's [instruction tables](http://www.agner.org/optimize/instruction_tables.pdf) fused load-op-store operation takes 6 cycles. If anyone will have a good example where fused version is significantly faster - please share it with me.
 
 Another interesting thing which can cause difference in performance for the cases mentioned in the post is connected with decoders. From the Intel Optimization Manual:
-> Instruction Decode
-
-> There are four decoding units that decode instruction into micro-ops. The first can decode all IA-32 and Intel 64 instructions up to four micro-ops in size. The remaining three decoding units handle single-micro-op instructions. All four decoding units support the common cases of single micro-op flowsincluding micro-fusion and macro-fusion.
+> There are four decoding units that decode instruction into micro-ops. The first can decode all IA-32 and Intel 64 instructions up to four micro-ops in size. The remaining three decoding units handle single-micro-op instructions. All four decoding units support the common cases of single micro-op flows including micro-fusion and macro-fusion.
 
 However, I haven't tried to write a microbenchmark for that.
 
 Unfused instructions also add register pressure to the compiler, because it needs to find the free register to load the value from the memory.
+
+##### UPD 05.02.2018:
+
+I found that in the comments that there were lots of confusion in terminology between MicroFusion and MacroFusion.
+
+I tried to use the same terminology as in Intel documentation. Please see updated "MicroFusion in x86" chapter.
