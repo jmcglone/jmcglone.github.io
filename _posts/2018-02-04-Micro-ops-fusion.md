@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Micro-op fusion in x86.
+title: Microbenchmarking fused instruction.
 tags: default
 ---
 
@@ -32,15 +32,16 @@ Performance delta was not that big: around 5%. I checked profiles - no other sig
 
 I revisited that case after a few days when my colleague pointed out to me that this shoudn't be the source of the problem. I did more experiments just to find out that it was yet another code alignment problem (check out my [recent post](https://dendibakh.github.io/blog/2018/01/18/Code_alignment_issues) on this topic). With adding one of the code alignment options to the compilation yielded the same performance for both cases.
 
-### MicroFusion in x86
+### Fusion features in x86
 
 If we look closer at the fused instruction it actually consists of a three operations: load from memory, increments the value and store it back. There is no magic here, CPU will execute those operations either way. 
 
-Before I present the benchmark I want to say a few words about MicroFusion feature that exists in Intel Architecture Front End starting from "Sandy Bridge". Execution engine (back-end) inside the cpu can only execute so-called "micro-ops" (uops), that were provided by the front-end. So, back-end can't execute fused instruction but only a simple ones. There are some limitations to which operations can be fused and which not, more about this feature you can read in [Intel® 64 and IA-32 Architectures Optimization Reference Manual](https://software.intel.com/sites/default/files/managed/9e/bc/64-ia-32-architectures-optimization-manual.pdf), section "2.4.2.1 Legacy Decode Pipeline".
+Before I present the benchmark I want to say a few words about fusion features that exist in Intel Architecture Front End starting from "Sandy Bridge". Execution engine (back-end) inside the cpu can only execute so-called "micro-ops" (uops), that were provided by the front-end. So, back-end can't execute fused instruction but only a simple ones. There are some limitations to which operations can be fused and which not, more about this feature you can read in [Intel® 64 and IA-32 Architectures Optimization Reference Manual](https://software.intel.com/sites/default/files/managed/9e/bc/64-ia-32-architectures-optimization-manual.pdf), section "2.4.2.1 Legacy Decode Pipeline".
 
-Please do not be confused about the difference between MicroFusion and MacroFusion. According Intel documentation: 
-- **MicroFusion** is when multiple RISC-like assembly instructions are merged into CISC-like one assembly instruction (see example above). This is made by the compiler / asm developer.
-- **MacroFusion** is when multiple assembly instruction are merged into one uop. This is made by the decoding pipeline inside CPU.
+Please do not be confused about the difference between InstructionFusion, MicroFusion and MacroFusion. According Intel documentation: 
+- **InstructionFusion** is when multiple RISC-like assembly instructions are merged into CISC-like one assembly instruction (see example above). This is made by the compiler / asm developer.
+- **MicroFusion** is when multiple uops from the same assembly instruction are merged into one uop. This is made by the decoding pipeline inside CPU.
+- **MacroFusion** is when multiple uops from different assembly instructions are merged into one uop. This is made by the decoding pipeline inside CPU.
 
 ### Benchmark
 
@@ -67,7 +68,7 @@ Here are the results I received:
 | fused     | 2.32   | 3.05                 | 5.36        | 5.36         | 4.80     |
 | unfused   | 2.32   | 5.05                 | 5.36        | 5.36         | 4.88     |
 ```
-"Cycles" shows how many cycles were executed per one loop teration. So, essentially, harness calls the function, measures performance counter that you requested and then devides it by the number of iterations. i
+"Cycles" shows how many cycles were executed per one loop iteration. So, essentially, harness calls the function, measures performance counter that you requested and then devides it by the number of iterations.
 
 If we do the calculation for `INSTRUCTIONS_RETIRED`:
 - fused: `INSTRUCTIONS_RETIRED = 3 (function header) + 1024 * 3 (loop) + 2 (function footer) / 1024 = 3.005`
@@ -81,8 +82,8 @@ One more interesting thing I want to mention is that both of those 2 loops run a
 
 ### Conclusion
 
-Intel Optimization Manual, that I mentioned several times already says the following:
-> Micro-fusion improves instruction bandwidth delivered from decode to retirement and saves power. Coding an instruction sequence by using single-uop instructions will increases the code size, which can decrease fetch bandwidth from the legacy pipeline. 
+Intel Optimization Manual (that I mentioned several times already) says the following:
+> Coding an instruction sequence by using single-uop instructions will increases the code size, which can decrease fetch bandwidth from the legacy pipeline. 
 
 Out of all runs that I did unfused version was never faster then the fused one.
 
@@ -99,6 +100,10 @@ Unfused instructions also add register pressure to the compiler, because it need
 
 ##### UPD 05.02.2018:
 
-I found that in the comments that there were lots of confusion in terminology between MicroFusion and MacroFusion.
+I found that in the comments that there were lots of confusion in terminology between Instruction fusion, MicroFusion and MacroFusion.
 
-I tried to use the same terminology as in Intel documentation. Please see updated "MicroFusion in x86" chapter.
+I tried to use the same terminology as in Intel documentation. Please see updated "Fusion features in x86" chapter.
+
+##### UPD 09.02.2018:
+
+Title of the post was changed. I used it by a mistake and it caused a lot of confusion.
