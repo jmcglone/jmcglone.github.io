@@ -1,0 +1,61 @@
+mov     rax, rdi
+shl     rax, 2
+sub     rsp, rax
+
+inc     DWORD [rsp]
+inc     DWORD [rsp + 4]
+inc     DWORD [rsp + 8]
+inc     DWORD [rsp + 12]
+inc     DWORD [rsp + 16]
+inc     DWORD [rsp + 20]
+inc     DWORD [rsp + 24]
+inc     DWORD [rsp + 28]
+inc     DWORD [rsp + 32]
+inc     DWORD [rsp + 36]
+
+inc     DWORD [rsp + 40]
+inc     DWORD [rsp + 44]
+inc     DWORD [rsp + 48]
+inc     DWORD [rsp + 52]
+inc     DWORD [rsp + 56]
+inc     DWORD [rsp + 60]
+inc     DWORD [rsp + 64]
+inc     DWORD [rsp + 68]
+inc     DWORD [rsp + 72]
+inc     DWORD [rsp + 76]
+
+inc     DWORD [rsp + 80]
+inc     DWORD [rsp + 84]
+inc     DWORD [rsp + 88]
+inc     DWORD [rsp + 92]
+inc     DWORD [rsp + 96]
+inc     DWORD [rsp + 100]
+inc     DWORD [rsp + 104]
+inc     DWORD [rsp + 108]
+inc     DWORD [rsp + 112]
+inc     DWORD [rsp + 116]
+
+inc     DWORD [rsp + 120]
+inc     DWORD [rsp + 124]
+inc     DWORD [rsp + 128]
+inc     DWORD [rsp + 132]
+inc     DWORD [rsp + 136]
+inc     DWORD [rsp + 140]
+inc     DWORD [rsp + 144]
+inc     DWORD [rsp + 148]
+inc     DWORD [rsp + 152]
+inc     DWORD [rsp + 156]
+
+inc     DWORD [rsp + 160]
+inc     DWORD [rsp + 164]
+inc     DWORD [rsp + 168]
+inc     DWORD [rsp + 172]
+inc     DWORD [rsp + 176]
+inc     DWORD [rsp + 180]
+inc     DWORD [rsp + 184]
+inc     DWORD [rsp + 188]
+inc     DWORD [rsp + 192]
+inc     DWORD [rsp + 196]
+
+add     rsp, rax
+ret
