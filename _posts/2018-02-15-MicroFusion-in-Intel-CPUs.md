@@ -65,6 +65,8 @@ Description of the counters mentioned can be found [here](https://download.01.or
 
 As of my knowledge, if the instruction stays fused in the Retire Unit we can count retired instruction both in fused and unfused domain. But if it is split in Retire Unit, those two counters will show the same number. If you don't understand it - keep on reading, hope it will be clear when we will discuss `un-lamination`.
 
+**I did all experiments on Intel Core i3-3220T (Ivy bridge), however most of the examples will behave similar on later architectures (will be specifically mentioned).**
+
 ### Example 1: double fusion
 
 ```asm
