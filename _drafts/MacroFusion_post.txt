@@ -1,0 +1,33 @@
+Macro-fusion of a cmp/jcc or dec/jcc creates a uop that stays as a single uop even in the unfused-domain. dec / nop / jge can still run in a single cycle but is three uops instead of one.
+
+const int macroFusion_iters = 1000;
+
+static int a[macroFusion_iters + 10];
+for (int i = 0; i < macroFusion_iters + 10; ++i)
+{
+a[i] = i;
+}
+define_bench dendibakh_MacroFusion_simple
+.loop:
+dec rdi
+jnz .loop
+ret
+
+define_bench dendibakh_MacroFusion_nop_in_between
+.loop:
+dec rdi
+nop
+jnz .loop
+ret
+
+define_bench dendibakh_MacroFusion_micro_macro
+.loop:
+add rsi, 4
+cmp DWORD [rsi], edi
+jnz .loop
+ret
+
+                     Benchmark   Cycles   INSTRU   UOPS_R   UOPS_R
+                        simple     1.02     2.00     1.00     1.00
+                not in between     1.02     3.00     3.00     3.00
+                + micro fusion     1.10     3.00     2.00     3.00
