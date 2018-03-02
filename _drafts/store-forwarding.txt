@@ -1,0 +1,35 @@
+Nehalem: The processor can forward a memory write to a subsequent read from the same address under certain conditions. A failed store forwarding will delay the subsequent read by approximately 10 clock cycles.
+
+Store forwarding works if a write to memory is followed by a read from the same address when the read has the same operand size and the operand has its natural alignment:
+
+try 1 iteration
+; Example 8.9. Successful store-to-load forwarding
+.loop
+mov dword ptr [esi], eax ; 
+mov ebx, dword ptr [esi] ; No stall
+inc eax
+dec rdi
+jnz .loop
+
+; Example 6.25. Store-to-load forwarding stall (Big read after small write)
+mov byte ptr [esi], al	 : small write
+mov ebx, dword ptr [esi] ; big read (stall)
+
+Pentium:The large read after a small write prevents store-to-load forwarding, and the penalty for this is approximately 7 - 8 clock cycles.
+
+Unlike the partial register stalls, you also get a store forwarding stall when you write a bigger operand to memory and then read part of it, if the smaller part doesn't start at the same address:
+
+; Example 6.26. Store-to-load forwarding stall
+mov dword ptr [esi], eax	; big write
+mov bl, byte ptr [esi] 		; same start address (no stall).
+mov bh, byte ptr [esi+1] 	; not same start address (stall). 
+
+SandyBridge: The penalty for a failed store forwarding is approximately 12 clock cycles in most cases.
+
+IvyBridge:
+LD_BLOCKS.STORE_FORWARD
+LSD.UOPS
+UOPS_RETIRED.CORE_STALL_CYCLES	Cycles without actually retired uops.
+UOPS_RETIRED.STALL_CYCLES	Cycles without actually retired uops.
+
+Why is the penalty?
