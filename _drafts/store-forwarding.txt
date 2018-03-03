@@ -33,3 +33,77 @@ UOPS_RETIRED.CORE_STALL_CYCLES	Cycles without actually retired uops.
 UOPS_RETIRED.STALL_CYCLES	Cycles without actually retired uops.
 
 Why is the penalty?
+
+
+
+define_bench dendibakh_StoreForwarding_success
+.loop:
+mov DWORD [esi + edi * 4], edi
+mov eax, DWORD [esi + edi * 4] 
+dec edi
+jnz .loop
+ret
+
+define_bench dendibakh_StoreForwarding_big_read_after_small_write
+.loop:
+mov WORD [esi + edi * 4], di   ; small write
+mov eax, DWORD [esi + edi * 4] ; big read (stall)
+dec edi
+jnz .loop
+ret
+
+define_bench dendibakh_StoreForwarding_different_start_addr
+.loop:
+mov DWORD [esi + edi * 4], edi
+mov eax, DWORD [esi + edi * 4 + 1]
+dec edi
+jnz .loop
+ret
+
+
+
+Event 'LD_BLOCKS.STORE_FORWARD' resolved to 'ivb::LD_BLOCKS:STORE_FORWARD:k=1:u=1:e=0:i=0:c=0:t=0, short name: 'LD_BLO' with code 0x530203
+Event 'UOPS_RETIRED.STALL_CYCLES' resolved to 'ivb::UOPS_RETIRED:ALL:k=1:u=1:e=0:i=1:c=1:t=0, short name: 'UOPS_R' with code 0x1d301c2
+Event 'LSD.UOPS' resolved to 'ivb::LSD:UOPS:k=1:u=1:e=0:i=0:c=0:t=0, short name: 'LSD:UO' with code 0x5301a8
+Pinned to CPU 0
+lipfc init OK
+Running benchmarks groups using timer libpfc
+
+** Running benchmark group StoreForwarding tests from dendibakh blog **
+                     Benchmark   Cycles   LD_BLO   UOPS_R   LSD:UO
+                        simple     1.02     0.00     0.02     3.87
+    big read after small write    15.00     1.00    14.00     3.88
+       different start address    15.33     1.00    14.33     3.84
+
+
+
+    std::shared_ptr<BenchmarkGroup> dendibakh_StoreForwarding_group = std::make_shared<BenchmarkGroup>("dendibakh_StoreForwarding", "StoreForwarding tests from dendibakh blog");
+
+    const int StoreForwarding_iters = 1000;
+
+	class pr
+	{
+	public:
+		int StoreForwarding_ptr[StoreForwarding_iters + 10];
+		~pr()
+		{
+		    /*for (int i = 0; i < StoreForwarding_iters; ++i)
+		    {
+			std::cout << StoreForwarding_ptr[i] << " ";
+		    }*/
+		}
+	};
+
+static pr p;
+
+    for (int i = 0; i < StoreForwarding_iters + 10; ++i)
+    {
+	p.StoreForwarding_ptr[i] = 0;
+    }
+
+    dendibakh_StoreForwarding_group->add(std::vector<Benchmark> {
+        default_maker::template make_bench<dummy_bench,dendibakh_StoreForwarding_success>  (dendibakh_StoreForwarding_group.get(),   "StoreForwarding",  "simple",  1, []{ return p.StoreForwarding_ptr; }, StoreForwarding_iters),
+        default_maker::template make_bench<dummy_bench,dendibakh_StoreForwarding_big_read_after_small_write>  (dendibakh_StoreForwarding_group.get(),   "StoreForwarding",  "big read after small write",  1, []{ return p.StoreForwarding_ptr; }, StoreForwarding_iters),
+        default_maker::template make_bench<dummy_bench,dendibakh_StoreForwarding_different_start_addr>  (dendibakh_StoreForwarding_group.get(),   "StoreForwarding",  "different start address",  1, []{ return p.StoreForwarding_ptr; }, StoreForwarding_iters),
+    });
+    list.push_back(dendibakh_StoreForwarding_group);
