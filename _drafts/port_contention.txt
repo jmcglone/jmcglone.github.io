@@ -1,0 +1,129 @@
+define_bench dendibakh_PortContention
+.loop:
+mov eax, DWORD [esi] 
+mov eax, DWORD [esi + 4]
+mov eax, DWORD [esi + 8] 
+mov eax, DWORD [esi + 12] 
+mov eax, DWORD [esi + 16] 
+mov eax, DWORD [esi + 20] 
+mov eax, DWORD [esi + 24] 
+mov eax, DWORD [esi + 28] 
+mov eax, DWORD [esi + 32] 
+mov eax, DWORD [esi + 36] 
+mov eax, DWORD [esi + 40] 
+mov eax, DWORD [esi + 44] 
+mov eax, DWORD [esi + 48] 
+mov eax, DWORD [esi + 52] 
+mov eax, DWORD [esi + 56]
+mov eax, DWORD [esi + 60]    
+dec edi
+jnz .loop
+ret
+
+define_bench dendibakh_PortContention_math_ops
+push rcx
+push rbx
+ALIGN 16
+.loop:
+mov eax, DWORD [esi] 
+mov eax, DWORD [esi + 4]
+bswap ebx
+mov eax, DWORD [esi + 8] 
+mov eax, DWORD [esi + 12] 
+bswap ebx
+mov eax, DWORD [esi + 16] 
+mov eax, DWORD [esi + 20] 
+bswap ebx
+mov eax, DWORD [esi + 24] 
+mov eax, DWORD [esi + 28] 
+bswap ebx
+mov eax, DWORD [esi + 32] 
+mov eax, DWORD [esi + 36] 
+bswap ebx
+mov eax, DWORD [esi + 40] 
+mov eax, DWORD [esi + 44] 
+bswap ebx
+mov eax, DWORD [esi + 48] 
+mov eax, DWORD [esi + 52] 
+bswap ebx
+mov eax, DWORD [esi + 56]
+mov eax, DWORD [esi + 60]    
+bswap ebx
+dec edi
+jnz .loop
+pop rbx
+pop rcx
+ret
+
+define_bench dendibakh_PortContention_math_ops_bottleneck
+push rcx
+push rbx
+ALIGN 16
+.loop:
+mov eax, DWORD [esi] 
+mov eax, DWORD [esi + 4]
+bswap ebx
+bswap ecx
+mov eax, DWORD [esi + 8] 
+mov eax, DWORD [esi + 12] 
+bswap ebx
+bswap ecx
+mov eax, DWORD [esi + 16] 
+mov eax, DWORD [esi + 20] 
+bswap ebx
+bswap ecx
+mov eax, DWORD [esi + 24] 
+mov eax, DWORD [esi + 28] 
+bswap ebx
+bswap ecx
+mov eax, DWORD [esi + 32] 
+mov eax, DWORD [esi + 36] 
+bswap ebx
+bswap ecx
+mov eax, DWORD [esi + 40] 
+mov eax, DWORD [esi + 44] 
+bswap ebx
+bswap ecx
+mov eax, DWORD [esi + 48] 
+mov eax, DWORD [esi + 52] 
+bswap ebx
+bswap ecx
+mov eax, DWORD [esi + 56]
+mov eax, DWORD [esi + 60]    
+bswap ebx
+bswap ecx
+dec edi
+jnz .loop
+pop rbx
+pop rcx
+ret
+
+Event 'UOPS_DISPATCHED_PORT.PORT_2' resolved to 'ivb::UOPS_DISPATCHED_PORT:PORT_2:k=1:u=1:e=0:i=0:c=0:t=0, short name: 'UOPS_D' with code 0x530ca1
+Event 'UOPS_DISPATCHED_PORT.PORT_3' resolved to 'ivb::UOPS_DISPATCHED_PORT:PORT_3:k=1:u=1:e=0:i=0:c=0:t=0, short name: 'UOPS_D' with code 0x5330a1
+Event 'UOPS_DISPATCHED_PORT.PORT_5' resolved to 'ivb::UOPS_DISPATCHED_PORT:PORT_5:k=1:u=1:e=0:i=0:c=0:t=0, short name: 'UOPS_D' with code 0x5380a1
+Event 'UOPS_DISPATCHED_PORT.PORT_1' resolved to 'ivb::UOPS_DISPATCHED_PORT:PORT_1:k=1:u=1:e=0:i=0:c=0:t=0, short name: 'UOPS_D' with code 0x5302a1
+Pinned to CPU 0
+lipfc init OK
+Running benchmarks groups using timer libpfc
+
+** Running benchmark group PortContention tests from dendibakh blog **
+                     Benchmark   Cycles   UOPS_D   UOPS_D   UOPS_D   UOPS_D
+             max load capacity     8.02     8.00     8.00     1.00    -0.00
+  max load capacity + math ops     8.03     8.01     8.01     1.00     8.00
+           math ops bottleneck    16.00     8.01     8.01     1.00    16.00
+
+Event 'UOPS_EXECUTED.STALL_CYCLES' resolved to 'ivb::UOPS_EXECUTED:STALL_CYCLES:k=1:u=1:e=0:i=1:c=1:t=0, short name: 'UOPS_E' with code 0x1d301b1
+Event 'UOPS_EXECUTED.CYCLES_GE_1_UOP_EXEC' resolved to 'ivb::UOPS_EXECUTED:CYCLES_GE_1_UOP_EXEC:k=1:u=1:e=0:i=0:c=1:t=0, short name: 'UOPS_E' with code 0x15301b1
+Event 'UOPS_EXECUTED.CYCLES_GE_2_UOPS_EXEC' resolved to 'ivb::UOPS_EXECUTED:CYCLES_GE_2_UOPS_EXEC:k=1:u=1:e=0:i=0:c=2:t=0, short name: 'UOPS_E' with code 0x25301b1
+Event 'UOPS_EXECUTED.CYCLES_GE_3_UOPS_EXEC' resolved to 'ivb::UOPS_EXECUTED:CYCLES_GE_3_UOPS_EXEC:k=1:u=1:e=0:i=0:c=3:t=0, short name: 'UOPS_E' with code 0x35301b1
+Pinned to CPU 0
+lipfc init OK
+Running benchmarks groups using timer libpfc
+
+** Running benchmark group PortContention tests from dendibakh blog **
+                     Benchmark   Cycles   UOPS_E   UOPS_E   UOPS_E   UOPS_E
+             max load capacity     8.02     0.01     8.00     8.00     1.00
+  max load capacity + math ops     8.02     0.01     8.01     8.00     8.00
+           math ops bottleneck    16.00     0.00    16.00     9.00     8.01
+
+
