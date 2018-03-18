@@ -20,6 +20,57 @@ dec edi
 jnz .loop
 ret
 
+$ ./iaca.sh -arch IVB a.out
+Intel(R) Architecture Code Analyzer Version - 2.3 build:246dfea (Thu, 6 Jul 2017 13:38:05 +0300)
+Analyzed File - a.out
+Binary Format - 64Bit
+Architecture  - IVB
+Analysis Type - Throughput
+
+Throughput Analysis Report
+--------------------------
+Block Throughput: 8.00 Cycles       Throughput Bottleneck: Backend. PORT2_AGU, Port2_DATA, PORT3_AGU, Port3_DATA
+
+Port Binding In Cycles Per Iteration:
+-------------------------------------------------------------------------
+|  Port  |  0   -  DV  |  1   |  2   -  D   |  3   -  D   |  4   |  5   |
+-------------------------------------------------------------------------
+| Cycles | 0.0    0.0  | 0.0  | 8.0    8.0  | 8.0    8.0  | 0.0  | 1.0  |
+-------------------------------------------------------------------------
+
+N - port number or number of cycles resource conflict caused delay, DV - Divider pipe (on port 0)
+D - Data fetch pipe (on ports 2 and 3), CP - on a critical path
+F - Macro Fusion with the previous instruction occurred
+* - instruction micro-ops not bound to a port
+^ - Micro Fusion happened
+# - ESP Tracking sync uop was issued
+@ - SSE instruction followed an AVX256/AVX512 instruction, dozens of cycles penalty is expected
+X - instruction not supported, was not accounted in Analysis
+
+| Num Of |              Ports pressure in cycles               |    |
+|  Uops  |  0  - DV  |  1  |  2  -  D  |  3  -  D  |  4  |  5  |    |
+---------------------------------------------------------------------
+|   1    |           |     | 1.0   1.0 |           |     |     | CP | mov eax, dword ptr [rsp]
+|   1    |           |     |           | 1.0   1.0 |     |     | CP | mov eax, dword ptr [rsp+0x4]
+|   1    |           |     | 1.0   1.0 |           |     |     | CP | mov eax, dword ptr [rsp+0x8]
+|   1    |           |     |           | 1.0   1.0 |     |     | CP | mov eax, dword ptr [rsp+0xc]
+|   1    |           |     | 1.0   1.0 |           |     |     | CP | mov eax, dword ptr [rsp+0x10]
+|   1    |           |     |           | 1.0   1.0 |     |     | CP | mov eax, dword ptr [rsp+0x14]
+|   1    |           |     | 1.0   1.0 |           |     |     | CP | mov eax, dword ptr [rsp+0x18]
+|   1    |           |     |           | 1.0   1.0 |     |     | CP | mov eax, dword ptr [rsp+0x1c]
+|   1    |           |     | 1.0   1.0 |           |     |     | CP | mov eax, dword ptr [rsp+0x20]
+|   1    |           |     |           | 1.0   1.0 |     |     | CP | mov eax, dword ptr [rsp+0x24]
+|   1    |           |     | 1.0   1.0 |           |     |     | CP | mov eax, dword ptr [rsp+0x28]
+|   1    |           |     |           | 1.0   1.0 |     |     | CP | mov eax, dword ptr [rsp+0x2c]
+|   1    |           |     | 1.0   1.0 |           |     |     | CP | mov eax, dword ptr [rsp+0x30]
+|   1    |           |     |           | 1.0   1.0 |     |     | CP | mov eax, dword ptr [rsp+0x34]
+|   1    |           |     | 1.0   1.0 |           |     |     | CP | mov eax, dword ptr [rsp+0x38]
+|   1    |           |     |           | 1.0   1.0 |     |     | CP | mov eax, dword ptr [rsp+0x3c]
+|   1    |           |     |           |           |     | 1.0 |    | dec rdi
+|   0F   |           |     |           |           |     |     |    | jnz 0xffffffffffffffbe
+Total Num Of Uops: 17
+
+
 define_bench dendibakh_PortContention_math_ops
 push rcx
 push rbx
