@@ -52,6 +52,12 @@ dec edi
 jnz .loop
 ret
 
+Only one blocked load can execute at a time and perhaps the subsequent stores are blocked from committing to preserve memory ordering (since load-store reordering is not allowed in x86, even though store-load is).
+
+But according to Agner's Fog [microarchitecture.pdf](http://www.agner.org/optimize/microarchitecture.pdf) on the SandyBridge family the penalty for a failed store forwarding is approximately 12 clock cycles in most cases. But we see 14 cycles difference.
+
+Because load-store reordering is not allowed in x86 (even though store-load is) only one blocked load can execute at a time and perhaps the subsequent stores (on next iterations) are also blocked from committing to preserve memory ordering. I think that explains why why we might have additional 2 cycles penalty, although I'm not 100% sure in that.
+
 define_bench dendibakh_StoreForwarding_different_start_addr
 .loop:
 mov DWORD [esi + edi * 4], edi
