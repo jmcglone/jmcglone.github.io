@@ -137,4 +137,6 @@ Results:
 
 From this experiment you can see that in "full unroll" case every time we experience store forwarding stall we stop right there. But in the second case we were almost fully able to hide all the store forwarding penalty. But notice that the number of `LD_BLOCKS.STORE_FORWARD` is the same in both cases.
 
+### Conclusion
 
+I hope that now you understand what store forwarding is and you will be able to detect issues with it in a real case.
