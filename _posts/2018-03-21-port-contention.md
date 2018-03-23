@@ -264,3 +264,12 @@ More detailed information about execution ports of your processor can be found i
 
 All the assembly examples that I showed in this article are available on my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PortContention).
 
+**UPD 23.03.2018**
+
+Several people mentioned that load instructions can't have 2 cycles latency on modern Intel Architectures. Agner's tables seems to be not accurate there.
+
+I will not redo the diagrams as it will be difficult to understand them, and they will shift the focus from the actual thing I wanted to explain. Again, I didn't want to reconstruct how the pipeline diagram will look in reality, but rather to explain the notion of port contention. However, I totally accept the comment and it should mentioned.
+
+But also if we assume that load instruction takes 4 cycles latency in those examples, all the conclusions in the post are still valid, because the throughput is what matters (as Travis mentioned in his comment). There will be still 2 retired load instructions per cycle.
+
+Another important thing to mention is that hyperthreading helps utilize execution "slots". See more details in [HackerNews comments](https://news.ycombinator.com/item?id=16647143).
