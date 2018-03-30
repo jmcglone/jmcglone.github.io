@@ -106,7 +106,7 @@ F - Macro Fusion with the previous instruction occurred
 Total Num Of Uops: 17
 ```
 ### Why we have 8 cycles per iteration?
-According to Agner's [instruction_tables.pdf](http://www.agner.org/optimize/optimizing_assembly.pdf) load instruction that I use has 2 cycles latency. We have `(16 [loads] * 2 [cycles]) / 2 [ports] = 16`. According to this calculations we should receive 16 cycles per iteration. But we are running at 8 cycles per iteration. Why this happens?
+On modern x86 processors load instruction takes at least 4 cycles to execute even the data is in the L1-cache. Although according to Agner's [instruction_tables.pdf](http://www.agner.org/optimize/optimizing_assembly.pdf) it has 2 cycles latency. Even if we would have latency of 2 cycles we would have `(16 [loads] * 2 [cycles]) / 2 [ports] = 16 cycles`. According to this calculations we should receive 16 cycles per iteration. But we are running at 8 cycles per iteration. Why this happens?
 
 Well, like most of execution units, load units are also pipelined, meaning that we can start second load while first load is in progress on the same port. Let's draw a simplified [pipeline diagram](https://en.wikipedia.org/wiki/Instruction_pipelining) and see what's going on.
 ![](/img/posts/PortContention/Pipeline1.png){: .center-image }
@@ -121,9 +121,11 @@ This is simplified MIPS-like pipeline diagram, where we usually have 5 pipeline 
 It is far from real execution diagram of my CPU, however, I preserved some important constraints for IvyBridge architecture (IVB):
 - IVB front-end fetches 16B block of instructions in a 16B aligned window in 1 cycle.
 - IVB has 4 decoders, each of them can decode instructions that consist at least of a single uop.
-- IVB has 2 pipelined units for doing load operations. Load operation takes 2 cycles (when everything is in the cache). M1 and M2 stage reflect that in the diagram.
+- IVB has 2 pipelined units for doing load operations. Just to simplify the diagrams I assume load operation takes 2 cycles. M1 and M2 stage reflect that in the diagram.
 
-Drawing such kind of diagrams usually helps me to undertand what is going on inside the processor and finding different sorts of hazards.
+It just need to be said that I omitted one important constraint. Instructions always retire in program order, in my later diagrams it's broken (I simply forgot about it when I was making those diagrams).
+
+Drawing such kind of diagrams usually helps me to understand what is going on inside the processor and finding different sorts of hazards.
 
 ### Some explanations for this pipeline diagram
 
@@ -141,6 +143,8 @@ I made additional experiment to prove this theory. I collected some more perform
 ```
 
 Results above show that in each of 8 cycles (that it took to execute one iteration) at least 2 uops were issued (two loads issued per cycle). And in one cycle we were able to issue 3 uops (last 2 loads + dec-jnz pair). Conditional branches are executed on PORT5, so nothing prevents us from scheduling it in parrallel with 2 loads.
+
+What is even more interesting is that if we do simulation with assumption that load instruction takes 4 cycles latency, all the conclusions in this example will be still valid, because the throughput is what matters (as Travis mentioned in his comment). There will be still 2 retired load instructions each cycle. And that would mean that our 16 loads (inside each iteration) will retire in 8 cycles.
 
 ### Utilizing other available ports in parallel 
 
