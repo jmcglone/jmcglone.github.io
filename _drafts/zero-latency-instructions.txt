@@ -1,0 +1,42 @@
+The processor recognizes that certain instructions are
+independent of the prior value of the register if the two operand registers are the same
+
+This register is set to zero at the rename stage by these instructions. The throughput is four
+of these zeroing instructions per clock cycle, because no execution unit is used
+
+An eliminated move has zero latency and does not use any execution port. But is does
+consume bandwidth in the decoders
+
+Zero latency instructions (for example NOP instructions) don't consume scheduler
+resources.  However, those instructions still reserve a number of slots in the
+reorder buffer.
+
+Move elimination is not always successful. It fails when the necessary operands are not
+ready. But typically, move elimination succeeds in more than 80% of the possible cases.
+Chained moves can also be eliminated
+Move elimination is possible with all 32-bit and 64-bit general purpose registers and all 128-
+bit and 256-bit vector registers.
+
+Experiments:
+
+NOP
+
+mov eax, 0
+xor eax, eax
+
+; Example 9.3. Move elimintaion
+add eax,4
+mov ebx,eax ; this move can be eliminated128
+sub ebx,ecx
+
+
+mov eax, 1 ; will be eliminated?
+mov eax, 2 
+
+xor eax, eax 
+sub ebx, eax ; will be eliminated? (eax is 0)
+vs
+xor eax, eax 
+sub ebx, 0 ; will be eliminated?
+
+

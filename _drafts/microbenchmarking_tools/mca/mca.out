@@ -1,0 +1,97 @@
+Iterations:     70
+Instructions:   210
+Total Cycles:   143
+Dispatch Width: 4
+IPC:            1.47
+
+
+Instruction Info:
+[1]: #uOps
+[2]: Latency
+[3]: RThroughput
+[4]: MayLoad
+[5]: MayStore
+[6]: HasSideEffects
+
+[1]    [2]    [3]    [4]    [5]    [6]	Instructions:
+ 1      5     0.50    *               	mov	eax, dword ptr [esp]
+ 1      5     0.50    *               	mov	ebx, dword ptr [esp + 4]
+ 2      2     1.00                    	bswap	ecx
+
+
+Resources:
+[0] - SBDivider
+[1] - SBPort0
+[2] - SBPort1
+[3] - SBPort4
+[4] - SBPort5
+[5.0] - SBPort23
+[5.1] - SBPort23
+
+
+Resource pressure per iteration:
+[0]    [1]    [2]    [3]    [4]    [5.0]  [5.1]  
+ -     0.50   1.00    -     0.50   1.00   1.00   
+
+Resource pressure by instruction:
+[0]    [1]    [2]    [3]    [4]    [5.0]  [5.1]  	Instructions:
+ -      -      -      -      -     0.50   0.50   	mov	eax, dword ptr [esp]
+ -      -      -      -      -     0.50   0.50   	mov	ebx, dword ptr [esp + 4]
+ -     0.50   1.00    -     0.50    -      -     	bswap	ecx
+
+
+Timeline view:
+     	          0123456789   
+Index	0123456789          012
+
+[0,0]	DeeeeeER  .    .    . .	mov	eax, dword ptr [esp]
+[0,1]	DeeeeeER  .    .    . .	mov	ebx, dword ptr [esp + 4]
+[0,2]	DeeE---R  .    .    . .	bswap	ecx
+
+[1,0]	.DeeeeeER .    .    . .	mov	eax, dword ptr [esp]
+[1,1]	.DeeeeeER .    .    . .	mov	ebx, dword ptr [esp + 4]
+[1,2]	.D=eeE--R .    .    . .	bswap	ecx
+
+[2,0]	. DeeeeeER.    .    . .	mov	eax, dword ptr [esp]
+[2,1]	. DeeeeeER.    .    . .	mov	ebx, dword ptr [esp + 4]
+[2,2]	. D==eeE-R.    .    . .	bswap	ecx
+
+[3,0]	.  DeeeeeER    .    . .	mov	eax, dword ptr [esp]
+[3,1]	.  DeeeeeER    .    . .	mov	ebx, dword ptr [esp + 4]
+[3,2]	.  D===eeER    .    . .	bswap	ecx
+
+[4,0]	.   DeeeeeER   .    . .	mov	eax, dword ptr [esp]
+[4,1]	.   DeeeeeER   .    . .	mov	ebx, dword ptr [esp + 4]
+[4,2]	.   D====eeER  .    . .	bswap	ecx
+
+[5,0]	.    DeeeeeER  .    . .	mov	eax, dword ptr [esp]
+[5,1]	.    DeeeeeER  .    . .	mov	ebx, dword ptr [esp + 4]
+[5,2]	.    D=====eeER.    . .	bswap	ecx
+
+[6,0]	.    .DeeeeeE-R.    . .	mov	eax, dword ptr [esp]
+[6,1]	.    .DeeeeeE-R.    . .	mov	ebx, dword ptr [esp + 4]
+[6,2]	.    .D======eeER   . .	bswap	ecx
+
+[7,0]	.    . DeeeeeE--R   . .	mov	eax, dword ptr [esp]
+[7,1]	.    . DeeeeeE--R   . .	mov	ebx, dword ptr [esp + 4]
+[7,2]	.    . D=======eeER . .	bswap	ecx
+
+[8,0]	.    .  DeeeeeE---R . .	mov	eax, dword ptr [esp]
+[8,1]	.    .  DeeeeeE---R . .	mov	ebx, dword ptr [esp + 4]
+[8,2]	.    .  D========eeER .	bswap	ecx
+
+[9,0]	.    .   DeeeeeE----R .	mov	eax, dword ptr [esp]
+[9,1]	.    .   DeeeeeE----R .	mov	ebx, dword ptr [esp + 4]
+[9,2]	.    .   D=========eeER	bswap	ecx
+
+
+Average Wait times (based on the timeline view):
+[0]: Executions
+[1]: Average time spent waiting in a scheduler's queue
+[2]: Average time spent waiting in a scheduler's queue while ready
+[3]: Average time elapsed from WB until retire stage
+
+      [0]    [1]    [2]    [3]
+0.     10    1.0    1.0    1.0  	mov	eax, dword ptr [esp]
+1.     10    1.0    1.0    1.0  	mov	ebx, dword ptr [esp + 4]
+2.     10    5.5    0.1    0.6  	bswap	ecx

@@ -1,0 +1,61 @@
+llvm-mca
+
+The tool only models the out-of-order portion of a processor. Therefore, the
+instruction fetch and decode stages are not modeled. Performance bottlenecks in
+the frontend are not diagnosed by this tool.  The tool assumes that instructions
+have all been decoded and placed in a queue.  Also, the tool doesn't know
+anything about branch prediction.
+
+LSUnit implements a relaxed consistency model for memory loads and stores. The
+rules are:
+1) A younger load is allowed to pass an older load only if there is no
+   intervening store in between the two loads.
+2) An younger store is not allowed to pass an older store.
+3) A younger store is not allowed to pass an older load.
+4) A younger load is allowed to pass an older store provided that the load does
+   not alias with the store.
+
+By default, this class conservatively (i.e. pessimistically) assumes that loads
+always may-alias store operations.  Essentially, this LSUnit doesn't perform any
+sort of alias analysis to rule out cases where loads and stores don't overlap
+with each other.  The downside of this approach however is that younger loads are
+never allowed to pass older stores.
+
+Other limitations are:
+ * LSUnit doesn't know when store-to-load forwarding may occur.
+ * LSUnit doesn't know anything about the cache hierarchy and memory types.
+ * LSUnit doesn't know how to identify serializing operations and memory fences.
+
+LSUnit doesn't attempt to predict whether a load or store hits or misses the L1
+cache
+
+The tool doesn't know about simultaneous mutithreading.
+
+$ cat a.asm
+movl (%esp), %eax
+movl 4(%esp), %ebx
+bswapl %ecx
+$ llvm-mca -march=x86-64 -mcpu=ivybridge -output-asm-variant=1 -timeline ./a.asm -o mca.out
+
+1. AT&T syntax input only.
+2. Cmd line options are screwed.
+
+https://groups.google.com/forum/#!msg/llvm-dev/QwoBh1EXv60/F57decl9AwAJ;context-place=forum/llvm-dev
+https://llvm.org/docs/CommandGuide/llvm-mca.html
+http://www.nersc.gov/users/software/performance-and-debugging-tools/likwid/
+
+Good things about llvm-mca and iaca that they don't need access rights for the machine, because they don't run actual code.
+
+iaca
+uarch-bench
+
+likwid
+https://code.google.com/archive/p/likwid/
+
+https://github.com/andikleen/pmu-tools/tree/master/jevents
+
+https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/ia-32-ia-64-benchmark-code-execution-paper.pdf
+https://software.intel.com/en-us/forums/software-tuning-performance-optimization-platform-monitoring/topic/595214
+
+
+
