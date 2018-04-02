@@ -42,7 +42,7 @@ $ llvm-mca -march=x86-64 -mcpu=ivybridge -output-asm-variant=1 -timeline ./a.asm
 
 https://groups.google.com/forum/#!msg/llvm-dev/QwoBh1EXv60/F57decl9AwAJ;context-place=forum/llvm-dev
 https://llvm.org/docs/CommandGuide/llvm-mca.html
-http://www.nersc.gov/users/software/performance-and-debugging-tools/likwid/
+
 
 Good things about llvm-mca and iaca that they don't need access rights for the machine, because they don't run actual code.
 
@@ -51,7 +51,7 @@ uarch-bench
 
 likwid
 https://code.google.com/archive/p/likwid/
-
+http://www.nersc.gov/users/software/performance-and-debugging-tools/likwid/
 https://github.com/andikleen/pmu-tools/tree/master/jevents
 
 https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/ia-32-ia-64-benchmark-code-execution-paper.pdf

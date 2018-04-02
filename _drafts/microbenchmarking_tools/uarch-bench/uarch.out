@@ -1,0 +1,18 @@
+$ ./uarch-bench --test-name="PortContention" --timer=libpfc --extra-events=UOPS_DISPATCHED_PORT.PORT_1,UOPS_DISPATCHED_PORT.PORT_2,UOPS_DISPATCHED_PORT.PORT_3,UOPS_DISPATCHED_PORT.PORT_5
+
+USE_LIBPFC=1
+make: Nothing to be done for 'all'.
+Welcome to uarch-bench (c75eeb8-dirty)
+libpfm4 initialized successfully
+Event 'UOPS_DISPATCHED_PORT.PORT_1' resolved to 'ivb::UOPS_DISPATCHED_PORT:PORT_1:k=1:u=1:e=0:i=0:c=0:t=0, short name: 'UOPS_D' with code 0x5302a1
+Event 'UOPS_DISPATCHED_PORT.PORT_2' resolved to 'ivb::UOPS_DISPATCHED_PORT:PORT_2:k=1:u=1:e=0:i=0:c=0:t=0, short name: 'UOPS_D' with code 0x530ca1
+Event 'UOPS_DISPATCHED_PORT.PORT_3' resolved to 'ivb::UOPS_DISPATCHED_PORT:PORT_3:k=1:u=1:e=0:i=0:c=0:t=0, short name: 'UOPS_D' with code 0x5330a1
+Event 'UOPS_DISPATCHED_PORT.PORT_5' resolved to 'ivb::UOPS_DISPATCHED_PORT:PORT_5:k=1:u=1:e=0:i=0:c=0:t=0, short name: 'UOPS_D' with code 0x5380a1
+Pinned to CPU 0
+lipfc init OK
+Running benchmarks groups using timer libpfc
+
+** Running benchmark group PortContention tests from dendibakh blog **
+                     Benchmark   Cycles   UOPS_D   UOPS_D   UOPS_D   UOPS_D
+                PortContention     2.00     2.00     1.01     1.01     1.00
+
