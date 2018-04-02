@@ -1,0 +1,345 @@
+it|in|Dissasembly                                       :01234567890123456789012345678901234567890123456789
+ 0| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+ 0| 0|    TYPE_LOAD (1 uops)                            :s---deeeew----R-------p       |         |         
+ 0| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+ 0| 1|    TYPE_LOAD (1 uops)                            :s---deeeew----R-------p       |         |         
+ 0| 2|bswap ebx                                         :          |         |         |         |         
+ 0| 2|    TYPE_OP (2 uops)                              :sdew----------R-------p       |         |         
+ 0| 3|bswap ecx                                         :          |         |         |         |         
+ 0| 3|    TYPE_OP (2 uops)                              : sdew----------R-------p      |         |         
+ 0| 4|dec rdi                                           :          |         |         |         |         
+ 0| 4|    TYPE_OP (1 uops)                              : sdw-----------R-------p      |         |         
+ 0| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+ 0| 5|    TYPE_OP (0 uops)                              : w-------------R-------p      |         |         
+ 1| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+ 1| 0|    TYPE_LOAD (1 uops)                            : s---deeeew----R-------p      |         |         
+ 1| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+ 1| 1|    TYPE_LOAD (1 uops)                            :  s---deeeew----R-------p     |         |         
+ 1| 2|bswap ebx                                         :          |         |         |         |         
+ 1| 2|    TYPE_OP (2 uops)                              :  sdew----------R-------p     |         |         
+ 1| 3|bswap ecx                                         :          |         |         |         |         
+ 1| 3|    TYPE_OP (2 uops)                              :  Asdew---------R-------p     |         |         
+ 1| 4|dec rdi                                           :          |         |         |         |         
+ 1| 4|    TYPE_OP (1 uops)                              :   w-------------R-------p    |         |         
+ 1| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+ 1| 5|    TYPE_OP (0 uops)                              :   w-------------R-------p    |         |         
+ 2| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+ 2| 0|    TYPE_LOAD (1 uops)                            :   s---deeeew----R-------p    |         |         
+ 2| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+ 2| 1|    TYPE_LOAD (1 uops)                            :   s---deeeew----R-------p    |         |         
+ 2| 2|bswap ebx                                         :          |         |         |         |         
+ 2| 2|    TYPE_OP (2 uops)                              :    sdew---------R-------p    |         |         
+ 2| 3|bswap ecx                                         :          |         |         |         |         
+ 2| 3|    TYPE_OP (2 uops)                              :    Asdew---------R-------p   |         |         
+ 2| 4|dec rdi                                           :          |         |         |         |         
+ 2| 4|    TYPE_OP (1 uops)                              :     w------------R-------p   |         |         
+ 2| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+ 2| 5|    TYPE_OP (0 uops)                              :     w------------R-------p   |         |         
+ 3| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+ 3| 0|    TYPE_LOAD (1 uops)                            :     s---deeeew----R-------p  |         |         
+ 3| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+ 3| 1|    TYPE_LOAD (1 uops)                            :     s---deeeew----R-------p  |         |         
+ 3| 2|bswap ebx                                         :          |         |         |         |         
+ 3| 2|    TYPE_OP (2 uops)                              :     Asdew---------R-------p  |         |         
+ 3| 3|bswap ecx                                         :          |         |         |         |         
+ 3| 3|    TYPE_OP (2 uops)                              :      Asdew---------R-------p |         |         
+ 3| 4|dec rdi                                           :          |         |         |         |         
+ 3| 4|    TYPE_OP (1 uops)                              :      w-------------R-------p |         |         
+ 3| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+ 3| 5|    TYPE_OP (0 uops)                              :      w-------------R-------p |         |         
+ 4| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+ 4| 0|    TYPE_LOAD (1 uops)                            :       s---deeeew----R-------p|         |         
+ 4| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+ 4| 1|    TYPE_LOAD (1 uops)                            :       s---deeeew----R-------p|         |         
+ 4| 2|bswap ebx                                         :          |         |         |         |         
+ 4| 2|    TYPE_OP (2 uops)                              :       Asdew---------R-------p|         |         
+ 4| 3|bswap ecx                                         :          |         |         |         |         
+ 4| 3|    TYPE_OP (2 uops)                              :        Asdew---------R-------p         |         
+ 4| 4|dec rdi                                           :          |         |         |         |         
+ 4| 4|    TYPE_OP (1 uops)                              :        w-------------R-------p         |         
+ 4| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+ 4| 5|    TYPE_OP (0 uops)                              :        w-------------R-------p         |         
+ 5| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+ 5| 0|    TYPE_LOAD (1 uops)                            :        s---deeeew----R-------p         |         
+ 5| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+ 5| 1|    TYPE_LOAD (1 uops)                            :         s---deeeew----R-------p        |         
+ 5| 2|bswap ebx                                         :          |         |         |         |         
+ 5| 2|    TYPE_OP (2 uops)                              :         Asdew---------R-------p        |         
+ 5| 3|bswap ecx                                         :          |         |         |         |         
+ 5| 3|    TYPE_OP (2 uops)                              :         A-sdew--------R-------p        |         
+ 5| 4|dec rdi                                           :          |         |         |         |         
+ 5| 4|    TYPE_OP (1 uops)                              :          w-------------R-------p       |         
+ 5| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+ 5| 5|    TYPE_OP (0 uops)                              :          w-------------R-------p       |         
+ 6| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+ 6| 0|    TYPE_LOAD (1 uops)                            :          s---deeeew----R-------p       |         
+ 6| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+ 6| 1|    TYPE_LOAD (1 uops)                            :          s---deeeew----R-------p       |         
+ 6| 2|bswap ebx                                         :          |         |         |         |         
+ 6| 2|    TYPE_OP (2 uops)                              :          |Asdew--------R-------p       |         
+ 6| 3|bswap ecx                                         :          |         |         |         |         
+ 6| 3|    TYPE_OP (2 uops)                              :          |A-sdew--------R-------p      |         
+ 6| 4|dec rdi                                           :          |         |         |         |         
+ 6| 4|    TYPE_OP (1 uops)                              :          | w------------R-------p      |         
+ 6| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+ 6| 5|    TYPE_OP (0 uops)                              :          | w------------R-------p      |         
+ 7| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+ 7| 0|    TYPE_LOAD (1 uops)                            :          | s---deeeew----R-------p     |         
+ 7| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+ 7| 1|    TYPE_LOAD (1 uops)                            :          | s---deeeew----R-------p     |         
+ 7| 2|bswap ebx                                         :          |         |         |         |         
+ 7| 2|    TYPE_OP (2 uops)                              :          | A-sdew--------R-------p     |         
+ 7| 3|bswap ecx                                         :          |         |         |         |         
+ 7| 3|    TYPE_OP (2 uops)                              :          |  A-sdew--------R-------p    |         
+ 7| 4|dec rdi                                           :          |         |         |         |         
+ 7| 4|    TYPE_OP (1 uops)                              :          |  w-------------R-------p    |         
+ 7| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+ 7| 5|    TYPE_OP (0 uops)                              :          |  w-------------R-------p    |         
+ 8| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+ 8| 0|    TYPE_LOAD (1 uops)                            :          |   s---deeeew----R-------p   |         
+ 8| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+ 8| 1|    TYPE_LOAD (1 uops)                            :          |   s---deeeew----R-------p   |         
+ 8| 2|bswap ebx                                         :          |         |         |         |         
+ 8| 2|    TYPE_OP (2 uops)                              :          |   A-sdew--------R-------p   |         
+ 8| 3|bswap ecx                                         :          |         |         |         |         
+ 8| 3|    TYPE_OP (2 uops)                              :          |    A-sdew--------R-------p  |         
+ 8| 4|dec rdi                                           :          |         |         |         |         
+ 8| 4|    TYPE_OP (1 uops)                              :          |    w-------------R-------p  |         
+ 8| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+ 8| 5|    TYPE_OP (0 uops)                              :          |    w-------------R-------p  |         
+ 9| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+ 9| 0|    TYPE_LOAD (1 uops)                            :          |    s---deeeew----R-------p  |         
+ 9| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+ 9| 1|    TYPE_LOAD (1 uops)                            :          |     s---deeeew----R-------p |         
+ 9| 2|bswap ebx                                         :          |         |         |         |         
+ 9| 2|    TYPE_OP (2 uops)                              :          |     A-sdew--------R-------p |         
+ 9| 3|bswap ecx                                         :          |         |         |         |         
+ 9| 3|    TYPE_OP (2 uops)                              :          |     A--sdew-------R-------p |         
+ 9| 4|dec rdi                                           :          |         |         |         |         
+ 9| 4|    TYPE_OP (1 uops)                              :          |      w-------------R-------p|         
+ 9| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+ 9| 5|    TYPE_OP (0 uops)                              :          |      w-------------R-------p|         
+10| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+10| 0|    TYPE_LOAD (1 uops)                            :          |      s---deeeew----R-------p|         
+10| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+10| 1|    TYPE_LOAD (1 uops)                            :          |      s---deeeew----R-------p|         
+10| 2|bswap ebx                                         :          |         |         |         |         
+10| 2|    TYPE_OP (2 uops)                              :          |       A-sdew-------R-------p|         
+10| 3|bswap ecx                                         :          |         |         |         |         
+10| 3|    TYPE_OP (2 uops)                              :          |       A--sdew-------R-------p         
+10| 4|dec rdi                                           :          |         |         |         |         
+10| 4|    TYPE_OP (1 uops)                              :          |        w------------R-------p         
+10| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+10| 5|    TYPE_OP (0 uops)                              :          |        w------------R-------p         
+11| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+11| 0|    TYPE_LOAD (1 uops)                            :          |        s---deeeew----R-------p        
+11| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+11| 1|    TYPE_LOAD (1 uops)                            :          |        s---deeeew----R-------p        
+11| 2|bswap ebx                                         :          |         |         |         |         
+11| 2|    TYPE_OP (2 uops)                              :          |        A--sdew-------R-------p        
+11| 3|bswap ecx                                         :          |         |         |         |         
+11| 3|    TYPE_OP (2 uops)                              :          |         A--sdew-------R-------p       
+11| 4|dec rdi                                           :          |         |         |         |         
+11| 4|    TYPE_OP (1 uops)                              :          |         w-------------R-------p       
+11| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+11| 5|    TYPE_OP (0 uops)                              :          |         w-------------R-------p       
+12| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+12| 0|    TYPE_LOAD (1 uops)                            :          |         |s---deeeew----R-------p      
+12| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+12| 1|    TYPE_LOAD (1 uops)                            :          |         |s---deeeew----R-------p      
+12| 2|bswap ebx                                         :          |         |         |         |         
+12| 2|    TYPE_OP (2 uops)                              :          |         |A--sdew-------R-------p      
+12| 3|bswap ecx                                         :          |         |         |         |         
+12| 3|    TYPE_OP (2 uops)                              :          |         | A--sdew-------R-------p     
+12| 4|dec rdi                                           :          |         |         |         |         
+12| 4|    TYPE_OP (1 uops)                              :          |         | w-------------R-------p     
+12| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+12| 5|    TYPE_OP (0 uops)                              :          |         | w-------------R-------p     
+13| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+13| 0|    TYPE_LOAD (1 uops)                            :          |         | s---deeeew----R-------p     
+13| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+13| 1|    TYPE_LOAD (1 uops)                            :          |         |  s---deeeew----R-------p    
+13| 2|bswap ebx                                         :          |         |         |         |         
+13| 2|    TYPE_OP (2 uops)                              :          |         |  A--sdew-------R-------p    
+13| 3|bswap ecx                                         :          |         |         |         |         
+13| 3|    TYPE_OP (2 uops)                              :          |         |  A---sdew------R-------p    
+13| 4|dec rdi                                           :          |         |         |         |         
+13| 4|    TYPE_OP (1 uops)                              :          |         |   w-------------R-------p   
+13| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+13| 5|    TYPE_OP (0 uops)                              :          |         |   w-------------R-------p   
+14| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+14| 0|    TYPE_LOAD (1 uops)                            :          |         |   s---deeeew----R-------p   
+14| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+14| 1|    TYPE_LOAD (1 uops)                            :          |         |   s---deeeew----R-------p   
+14| 2|bswap ebx                                         :          |         |         |         |         
+14| 2|    TYPE_OP (2 uops)                              :          |         |    A--sdew------R-------p   
+14| 3|bswap ecx                                         :          |         |         |         |         
+14| 3|    TYPE_OP (2 uops)                              :          |         |    A---sdew------R-------p  
+14| 4|dec rdi                                           :          |         |         |         |         
+14| 4|    TYPE_OP (1 uops)                              :          |         |     w------------R-------p  
+14| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+14| 5|    TYPE_OP (0 uops)                              :          |         |     w------------R-------p  
+15| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+15| 0|    TYPE_LOAD (1 uops)                            :          |         |     s---deeeew----R-------p 
+15| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+15| 1|    TYPE_LOAD (1 uops)                            :          |         |     s---deeeew----R-------p 
+15| 2|bswap ebx                                         :          |         |         |         |         
+15| 2|    TYPE_OP (2 uops)                              :          |         |     A---sdew------R-------p 
+15| 3|bswap ecx                                         :          |         |         |         |         
+15| 3|    TYPE_OP (2 uops)                              :          |         |      A---sdew------R-------p
+15| 4|dec rdi                                           :          |         |         |         |         
+15| 4|    TYPE_OP (1 uops)                              :          |         |      w-------------R-------p
+15| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+15| 5|    TYPE_OP (0 uops)                              :          |         |      w-------------R-------p
+16| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+16| 0|    TYPE_LOAD (1 uops)                            :          |         |       s---deeeew----R-------
+16| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+16| 1|    TYPE_LOAD (1 uops)                            :          |         |       s---deeeew----R-------
+16| 2|bswap ebx                                         :          |         |         |         |         
+16| 2|    TYPE_OP (2 uops)                              :          |         |       A---sdew------R-------
+16| 3|bswap ecx                                         :          |         |         |         |         
+16| 3|    TYPE_OP (2 uops)                              :          |         |        A---sdew------R------
+16| 4|dec rdi                                           :          |         |         |         |         
+16| 4|    TYPE_OP (1 uops)                              :          |         |        w-------------R------
+16| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+16| 5|    TYPE_OP (0 uops)                              :          |         |        w-------------R------
+17| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+17| 0|    TYPE_LOAD (1 uops)                            :          |         |        s---deeeew----R------
+17| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+17| 1|    TYPE_LOAD (1 uops)                            :          |         |         s---deeeew----R-----
+17| 2|bswap ebx                                         :          |         |         |         |         
+17| 2|    TYPE_OP (2 uops)                              :          |         |         A---sdew------R-----
+17| 3|bswap ecx                                         :          |         |         |         |         
+17| 3|    TYPE_OP (2 uops)                              :          |         |         A----sdew-----R-----
+17| 4|dec rdi                                           :          |         |         |         |         
+17| 4|    TYPE_OP (1 uops)                              :          |         |         |w-------------R----
+17| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+17| 5|    TYPE_OP (0 uops)                              :          |         |         |w-------------R----
+18| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+18| 0|    TYPE_LOAD (1 uops)                            :          |         |         |s---deeeew----R----
+18| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+18| 1|    TYPE_LOAD (1 uops)                            :          |         |         |s---deeeew----R----
+18| 2|bswap ebx                                         :          |         |         |         |         
+18| 2|    TYPE_OP (2 uops)                              :          |         |         | A---sdew-----R----
+18| 3|bswap ecx                                         :          |         |         |         |         
+18| 3|    TYPE_OP (2 uops)                              :          |         |         | A----sdew-----R---
+18| 4|dec rdi                                           :          |         |         |         |         
+18| 4|    TYPE_OP (1 uops)                              :          |         |         |  w------------R---
+18| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+18| 5|    TYPE_OP (0 uops)                              :          |         |         |  w------------R---
+19| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+19| 0|    TYPE_LOAD (1 uops)                            :          |         |         |  s---deeeew----R--
+19| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+19| 1|    TYPE_LOAD (1 uops)                            :          |         |         |  s---deeeew----R--
+19| 2|bswap ebx                                         :          |         |         |         |         
+19| 2|    TYPE_OP (2 uops)                              :          |         |         |  A----sdew-----R--
+19| 3|bswap ecx                                         :          |         |         |         |         
+19| 3|    TYPE_OP (2 uops)                              :          |         |         |   A----sdew-----R-
+19| 4|dec rdi                                           :          |         |         |         |         
+19| 4|    TYPE_OP (1 uops)                              :          |         |         |   w-------------R-
+19| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+19| 5|    TYPE_OP (0 uops)                              :          |         |         |   w-------------R-
+20| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+20| 0|    TYPE_LOAD (1 uops)                            :          |         |         |    s---deeeew----R
+20| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+20| 1|    TYPE_LOAD (1 uops)                            :          |         |         |    s---deeeew----R
+20| 2|bswap ebx                                         :          |         |         |         |         
+20| 2|    TYPE_OP (2 uops)                              :          |         |         |    A----sdew-----R
+20| 3|bswap ecx                                         :          |         |         |         |         
+20| 3|    TYPE_OP (2 uops)                              :          |         |         |     A----sdew-----
+20| 4|dec rdi                                           :          |         |         |         |         
+20| 4|    TYPE_OP (1 uops)                              :          |         |         |     w-------------
+20| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+20| 5|    TYPE_OP (0 uops)                              :          |         |         |     w-------------
+21| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+21| 0|    TYPE_LOAD (1 uops)                            :          |         |         |     s---deeeew----
+21| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+21| 1|    TYPE_LOAD (1 uops)                            :          |         |         |      s---deeeew---
+21| 2|bswap ebx                                         :          |         |         |         |         
+21| 2|    TYPE_OP (2 uops)                              :          |         |         |      A----sdew----
+21| 3|bswap ecx                                         :          |         |         |         |         
+21| 3|    TYPE_OP (2 uops)                              :          |         |         |      A-----sdew---
+21| 4|dec rdi                                           :          |         |         |         |         
+21| 4|    TYPE_OP (1 uops)                              :          |         |         |       w-----------
+21| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+21| 5|    TYPE_OP (0 uops)                              :          |         |         |       w-----------
+22| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+22| 0|    TYPE_LOAD (1 uops)                            :          |         |         |       s---deeeew--
+22| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+22| 1|    TYPE_LOAD (1 uops)                            :          |         |         |       s---deeeew--
+22| 2|bswap ebx                                         :          |         |         |         |         
+22| 2|    TYPE_OP (2 uops)                              :          |         |         |        A----sdew--
+22| 3|bswap ecx                                         :          |         |         |         |         
+22| 3|    TYPE_OP (2 uops)                              :          |         |         |        A-----sdew-
+22| 4|dec rdi                                           :          |         |         |         |         
+22| 4|    TYPE_OP (1 uops)                              :          |         |         |         w---------
+22| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+22| 5|    TYPE_OP (0 uops)                              :          |         |         |         w---------
+23| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+23| 0|    TYPE_LOAD (1 uops)                            :          |         |         |         s---deeeew
+23| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+23| 1|    TYPE_LOAD (1 uops)                            :          |         |         |         s---deeeew
+23| 2|bswap ebx                                         :          |         |         |         |         
+23| 2|    TYPE_OP (2 uops)                              :          |         |         |         A-----sdew
+23| 3|bswap ecx                                         :          |         |         |         |         
+23| 3|    TYPE_OP (2 uops)                              :          |         |         |         |A-----sde
+23| 4|dec rdi                                           :          |         |         |         |         
+23| 4|    TYPE_OP (1 uops)                              :          |         |         |         |w--------
+23| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+23| 5|    TYPE_OP (0 uops)                              :          |         |         |         |w--------
+24| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+24| 0|    TYPE_LOAD (1 uops)                            :          |         |         |         | s---deee
+24| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+24| 1|    TYPE_LOAD (1 uops)                            :          |         |         |         | s---deee
+24| 2|bswap ebx                                         :          |         |         |         |         
+24| 2|    TYPE_OP (2 uops)                              :          |         |         |         | A-----sd
+24| 3|bswap ecx                                         :          |         |         |         |         
+24| 3|    TYPE_OP (2 uops)                              :          |         |         |         |  A-----s
+24| 4|dec rdi                                           :          |         |         |         |         
+24| 4|    TYPE_OP (1 uops)                              :          |         |         |         |  w------
+24| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+24| 5|    TYPE_OP (0 uops)                              :          |         |         |         |  w------
+25| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+25| 0|    TYPE_LOAD (1 uops)                            :          |         |         |         |  s---dee
+25| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+25| 1|    TYPE_LOAD (1 uops)                            :          |         |         |         |   s---de
+25| 2|bswap ebx                                         :          |         |         |         |         
+25| 2|    TYPE_OP (2 uops)                              :          |         |         |         |   A-----
+25| 3|bswap ecx                                         :          |         |         |         |         
+25| 3|    TYPE_OP (2 uops)                              :          |         |         |         |   A-----
+25| 4|dec rdi                                           :          |         |         |         |         
+25| 4|    TYPE_OP (1 uops)                              :          |         |         |         |    w----
+25| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+25| 5|    TYPE_OP (0 uops)                              :          |         |         |         |    w----
+26| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+26| 0|    TYPE_LOAD (1 uops)                            :          |         |         |         |    s---d
+26| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+26| 1|    TYPE_LOAD (1 uops)                            :          |         |         |         |    s---d
+26| 2|bswap ebx                                         :          |         |         |         |         
+26| 2|    TYPE_OP (2 uops)                              :          |         |         |         |     A---
+26| 3|bswap ecx                                         :          |         |         |         |         
+26| 3|    TYPE_OP (2 uops)                              :          |         |         |         |     A---
+26| 4|dec rdi                                           :          |         |         |         |         
+26| 4|    TYPE_OP (1 uops)                              :          |         |         |         |      w--
+26| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+26| 5|    TYPE_OP (0 uops)                              :          |         |         |         |      w--
+27| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+27| 0|    TYPE_LOAD (1 uops)                            :          |         |         |         |      s--
+27| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+27| 1|    TYPE_LOAD (1 uops)                            :          |         |         |         |      s--
+27| 2|bswap ebx                                         :          |         |         |         |         
+27| 2|    TYPE_OP (2 uops)                              :          |         |         |         |      A--
+27| 3|bswap ecx                                         :          |         |         |         |         
+27| 3|    TYPE_OP (2 uops)                              :          |         |         |         |       A-
+27| 4|dec rdi                                           :          |         |         |         |         
+27| 4|    TYPE_OP (1 uops)                              :          |         |         |         |       w-
+27| 5|jnz 0xfffffffffffffff2                            :          |         |         |         |         
+27| 5|    TYPE_OP (0 uops)                              :          |         |         |         |       w-
+28| 0|mov eax, dword ptr [rsp]                          :          |         |         |         |         
+28| 0|    TYPE_LOAD (1 uops)                            :          |         |         |         |        s
+28| 1|mov eax, dword ptr [rsp+0x4]                      :          |         |         |         |         
+28| 1|    TYPE_LOAD (1 uops)                            :          |         |         |         |        s
+28| 2|bswap ebx                                         :          |         |         |         |         
+28| 2|    TYPE_OP (2 uops)                              :          |         |         |         |        A
+Loop Count:31
+Block throughput: 1.785714
