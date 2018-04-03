@@ -4,11 +4,9 @@ title: Tools for microarchitectural benchmarking.
 tags: default
 ---
 
-I did a fair amount of low level experiments during the recent months and I tried different tools for making such experiments.
+I did a fair amount of low level experiments during the recent months and I tried different tools for making such experiments. In this post I just want to bring everything that I know in one common place.
 
-*Disclaimer:*
-In this post I just want to bring everything that I know in one common place. **I don't want to compare different tools.**
-I came up with a term "microarchitectural benchmarking" and it maybe not very accurate, so I'm open for comments here.
+**Disclaimer: I don't want to compare different tools.**
 
 ### What do I mean by microarchitectural benchmarking?
 
@@ -16,7 +14,9 @@ Modern computers are so complicated that it's really hard to measure something i
 
 What would you do if you want just to benchmark two assembly sequences? Or you want to experiment with some HW feature to see how it works?
 
-Even if my benchmark is a simple loop inside `main` and I measure execution time of the whole binary - that's not a benchmark that I want. There is a lot of code that runs before main, so it will add a lot of noise. Also if I will collect performance counters with `perf stat -e` it will add a lot of noise in the results. What I want is have a fine-grained analysis for some specific code region, not the whole execution time. Microarchitectural benchmarking without collecting performance counters is a must, so I want to have that as well.
+Even if my benchmark is a simple loop inside `main` and I measure execution time of the whole binary - that's not a benchmark that I want. There is a lot of code that runs before main, so it will add a lot of noise. Also if I will collect performance counters with `perf stat -e` it will add a lot of noise in the results. 
+
+What I want is to have a fine-grained analysis for some specific code region, not the whole execution time. Microarchitectural benchmarking without collecting performance counters is a must, so I want to have that as well. For describing such kind of experiments I came up with a term "microarchitectural benchmarking" and it maybe not very accurate, so I'm open for suggestions/comments here.
 
 In this post I will quickly give you a taste of the tools available without going to much into the details. Also we need to distinguish between static and dynamic tools.
 
@@ -26,7 +26,7 @@ Dynamic tools are based on running the code on the real HW and collecting all so
 
 ### Benchmark kernel
 
-Microarchitectural benchmarking is often used when you want to stress some particular CPU feature or find the bottleneck in some small piece of code. I decided to come up with a assembly example that should be equally handled by all the tools.
+Microarchitectural benchmarking is often used when you want to stress some particular CPU feature or find the bottleneck in some small piece of code. I decided to come up with an assembly example that wouyld be handled equally good by all the tools.
 
 I will try to run the same experiment under each of those tools and show the output. I will try to stress my IvyBridge CPU with example from my previous article about [port contention](https://dendibakh.github.io/blog/2018/03/21/port-contention). 
 
@@ -34,7 +34,7 @@ I will try to run the same experiment under each of those tools and show the out
 mov eax, DWORD [rsp]     ; goes to port 2 or 3
 mov eax, DWORD [rsp + 4] ; port 2 or 3
 bswap ebx		 ; goes to port 1
-bswap ecx		 ; goes to port 1 (contention)
+bswap ecx		 ; goes to port 1 (port contention)
 ```
 
 ### IACA
@@ -55,7 +55,7 @@ mov ebx, 222 		; End marker bytes
 db 0x64, 0x67, 0x90 	; End marker bytes
 ```
 
-Complete code can be found on my [github]().
+Complete code can be found on my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/Tools_for_microarchitectural_benchmarking/iaca/port_contention.asm).
 
 Then we run the binary under IACA. 
 
@@ -63,7 +63,7 @@ Then we run the binary under IACA.
 ./iaca -arch HSW -trace iaca.log -trace-cycle-count 50 ./a.out
 ```
 
-Here is the output that it produces:
+Unfortunately, in latest version (3.0) support for IVB was dropped, and previos version (2.3) showed some really wierd results, so I decided to simulate it on HSW. Here is the output that it produces:
 ```
 Intel(R) Architecture Code Analyzer Version -  v3.0-28-g1ba2cbb build date: 2017-10-23;16:42:45
 Analyzed File -  ./a.out
@@ -103,6 +103,13 @@ X - instruction not supported, was not accounted in Analysis
 Total Num Of Uops: 7
 ```
 
+IACA helps in finding bottlenecks of a loop body:
+- It provides throughput of the whole analyzed block (counted in cycles).
+- It predicts what would be the bottleneck source that will limit the throughput.
+- It tells what ports are under the biggest pressure.
+
+More detailed description of the output can be found in the [IACA Users Guide](https://software.intel.com/sites/default/files/m/d/4/1/d/8/Intel_Architecture_Code_Analyzer_2.0_Users_Guide.pdf).
+
 But the most interesting part is in the pipeline traces (generated by `-trace` option):
 ```
 it|in|Dissasembly                                       :01234567890123456789012345678901234567890123456789
@@ -132,7 +139,9 @@ it|in|Dissasembly                                       :01234567890123456789012
  1| 5|    TYPE_OP (0 uops)                              :   w-------------R-------p    |         |
 ```
 
-Complete output of it can be found [here]().
+Complete output of it can be found on my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/Tools_for_microarchitectural_benchmarking/iaca/iaca.log).
+
+I haven't found any complete information about limitations of that tool, but I tried to run binaries with inserted markers from my [Code Alignment](https://dendibakh.github.io/blog/2018/01/18/Code_alignment_issues) post and IACA showed no difference. But I know that there is significant performance difference between them.
 
 ### llvm-mca
 
