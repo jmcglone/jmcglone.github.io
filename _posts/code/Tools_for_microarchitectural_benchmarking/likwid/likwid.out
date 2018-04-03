@@ -1,0 +1,27 @@
+$ likwid-perfctr -C S0:0 -g UOPS_DISPATCHED_PORT_PORT_1:PMC0,UOPS_DISPATCHED_PORT_PORT_2:PMC1,UOPS_DISPATCHED_PORT_PORT_3:PMC2,UOPS_DISPATCHED_PORT_PORT_5:PMC3 -m ./a.out
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Core(TM) i3-3220T CPU @ 2.80GHz
+CPU type:	Intel Core IvyBridge processor
+CPU clock:	2.79 GHz
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Region foo, Group 1: Custom
++-------------------+----------+
+|    Region Info    |  Core 0  |
++-------------------+----------+
+| RDTSC Runtime [s] | 0.000014 |
+|     call count    |        1 |
++-------------------+----------+
+
++-----------------------------+---------+--------------+
+|            Event            | Counter |    Core 0    |
++-----------------------------+---------+--------------+
+|     Runtime (RDTSC) [s]     |   TSC   | 1.399020e-05 |
+| UOPS_DISPATCHED_PORT_PORT_1 |   PMC0  |        21010 |
+| UOPS_DISPATCHED_PORT_PORT_2 |   PMC1  |        11035 |
+| UOPS_DISPATCHED_PORT_PORT_3 |   PMC2  |        11169 |
+| UOPS_DISPATCHED_PORT_PORT_5 |   PMC3  |        12097 |
+|      INSTR_RETIRED_ANY      |  FIXC0  |        64462 |
+|    CPU_CLK_UNHALTED_CORE    |  FIXC1  |        36128 |
+|     CPU_CLK_UNHALTED_REF    |  FIXC2  |        63224 |
++-----------------------------+---------+--------------+
