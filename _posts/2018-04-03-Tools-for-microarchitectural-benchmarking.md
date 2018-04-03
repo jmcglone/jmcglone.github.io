@@ -398,7 +398,7 @@ $ gcc -c -DLIKWID_PERFMON -I$LIKWID_INCLUDE test.c -o test.o
 $ gcc benchmark.o test.o -o a.out -L$LIKWID_LIB -llikwid
 ```
 
-### *what is the output*
+#### what is the output
 
 Run it:
 
