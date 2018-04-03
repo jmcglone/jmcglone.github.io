@@ -1,0 +1,36 @@
+Intel(R) Architecture Code Analyzer Version -  v3.0-28-g1ba2cbb build date: 2017-10-23;16:42:45
+Analyzed File -  ./a.out
+Binary Format - 64Bit
+Architecture  -  HSW
+Analysis Type - Throughput
+
+Throughput Analysis Report
+--------------------------
+Block Throughput: 1.79 Cycles       Throughput Bottleneck: FrontEnd
+Loop Count:  31
+Port Binding In Cycles Per Iteration:
+--------------------------------------------------------------------------------------------------
+|  Port  |   0   -  DV   |   1   |   2   -  D    |   3   -  D    |   4   |   5   |   6   |   7   |
+--------------------------------------------------------------------------------------------------
+| Cycles |  1.0     0.0  |  1.0  |  1.0     1.0  |  1.0     1.0  |  0.0  |  1.0  |  1.0  |  0.0  |
+--------------------------------------------------------------------------------------------------
+
+DV - Divider pipe (on port 0)
+D - Data fetch pipe (on ports 2 and 3)
+F - Macro Fusion with the previous instruction occurred
+* - instruction micro-ops not bound to a port
+^ - Micro Fusion occurred
+# - ESP Tracking sync uop was issued
+@ - SSE instruction followed an AVX256/AVX512 instruction, dozens of cycles penalty is expected
+X - instruction not supported, was not accounted in Analysis
+
+| Num Of   |                    Ports pressure in cycles                         |      |
+|  Uops    |  0  - DV    |  1   |  2  -  D    |  3  -  D    |  4   |  5   |  6   |  7   |
+-----------------------------------------------------------------------------------------
+|   1      |             |      | 1.0     1.0 |             |      |      |      |      | mov eax, dword ptr [rsp]
+|   1      |             |      |             | 1.0     1.0 |      |      |      |      | mov eax, dword ptr [rsp+0x4]
+|   2      |             | 1.0  |             |             |      |      | 1.0  |      | bswap ebx
+|   2      | 1.0         |      |             |             |      | 1.0  |      |      | bswap ecx
+|   1*     |             |      |             |             |      |      |      |      | dec rdi
+|   0*F    |             |      |             |             |      |      |      |      | jnz 0xfffffffffffffff2
+Total Num Of Uops: 7

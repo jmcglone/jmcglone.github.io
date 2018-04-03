@@ -11,19 +11,16 @@ likwid-bench -t copy -w S0:1GB:1
 
 # building my own benchmark
 /bin/bash -c "echo LIKWID_LIB=$(dirname $(which likwid-perfctr))/../lib/"
-export
+export LIKWID_LIB=/usr/local/bin/../lib/
 
 /bin/bash -c "echo LIKWID_INCLUDE=$(dirname $(which likwid-perfctr))/../include/"
-export
+export LIKWID_INCLUDE=/usr/local/bin/../include/
 
-nasm -f elf64 benchmark.asm
-gcc -c -DLIKWID_PERFMON -I$LIKWID_INCLUDE test.c -o test.o
-gcc benchmark.o test.o -o a.out -L$LIKWID_LIB -llikwid
-
+nasm -f elf64 benchmark.asm && gcc -c -DLIKWID_PERFMON -I$LIKWID_INCLUDE test.c -o test.o && gcc benchmark.o test.o -o a.out -L$LIKWID_LIB -llikwid
 
 # running my own benchmark
 export LD_LIBRARY_PATH="$LIKWID_LIB:$LD_LIBRARY_PATH"
-likwid-perfctr -C S0:0 -g L3 -m a.out
+likwid-perfctr -C S0:0 -g L3 -m ./a.out
 
 # running benchmark under likwid-perfctr
 likwid-perfctr -c 0 -g L3CACHE likwid-bench -t copy -w S0:1GB:1
