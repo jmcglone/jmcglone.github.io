@@ -42,7 +42,7 @@ bswap ecx		 ; goes to port 1 (port contention)
 
 [IACA](https://software.intel.com/en-us/articles/intel-architecture-code-analyzer) stands for Intel® Architecture Code Analyzer. IACA helps you statically analyze the data dependency, throughput and latency of code snippets on Intel® microarchitectures.
 
-### *how to use it*
+#### how to use it
 
 It has API for C, C++ and assembly languages. In order to use it you just need to wrap the code that you want to analyze with special markers. Then you need to run your binary under IACA and it will analyze the region of the code that you specified.
 
@@ -66,7 +66,7 @@ Then we run the binary under IACA.
 
 Unfortunately, in latest version (3.0) support for IVB was dropped, and previous version (2.3) showed some really wierd results, so I decided to simulate it on HSW. 
 
-### *what is the output*
+#### what is the output
 
 Here is the output that it produces:
 ```
@@ -166,7 +166,7 @@ I think this is really cool! It allows you to see how instructions progress thro
 
 I showed only first two iterations, but complete output of this run can be found on my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/Tools_for_microarchitectural_benchmarking/iaca/iaca.log).
 
-### *limitations*
+#### limitations
 
 I tried to run binaries from my [Code Alignment](https://dendibakh.github.io/blog/2018/01/18/Code_alignment_issues) post with inserted IACA markers and the tool showed no difference. Meaning that this tool doen't take into account how hot piece of code is placed in the binary. I would be good to have complete list of limitations of that tool, but I haven't found this information (would be glad if someone will provide it).
 
@@ -178,7 +178,7 @@ I tried to run binaries from my [Code Alignment](https://dendibakh.github.io/blo
 
 It was fairly recently [announced on llvm-dev mailing list](https://groups.google.com/forum/#!msg/llvm-dev/QwoBh1EXv60/F57decl9AwAJ;context-place=forum/llvm-dev) (March 2018) and checked into llvm trunk. So, documentation for it is not yet mature enough, so the best source of information for now is this email thread.
 
-### *how to use it*
+#### how to use it
 
 What this tool needs is just assembly code, you don't need to compile it. However, it accepts only AT&T assembly syntax which is sad but there are assembly converters out there. Another thing is that options are a little bit misleading and I spent some time digging into the sources to understand what I should put into them. Usually `-march` identifies the CPU architecture, but OK...
 
@@ -191,7 +191,7 @@ bswapl %ecx
 $ llvm-mca -march=x86-64 -mcpu=ivybridge -output-asm-variant=1 -timeline ./a.asm -o mca.out
 ```
 
-### *what is the output*
+#### what is the output
 
 The output was mostly inspired by IACA tool, so it looks really familiar to IACA users. Here is reduced output for my assembly code:
 
@@ -271,7 +271,7 @@ Resource pressure view doesn't seem right, as we know that `bswap` instruction c
 
 Complete output of this run can be found on my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/Tools_for_microarchitectural_benchmarking/mca/mca.out).
 
-### *limitations*
+#### limitations
 
 This tool is really fresh and has significant restrictions. From this email thread:
 > The tool only models the out-of-order portion of a processor. Therefore, the instruction fetch and decode stages are not modeled. Performance bottlenecks in the frontend are not diagnosed by this tool. The tool assumes that instructions have all been decoded and placed in a queue. Also, the tool doesn't know anything about branch prediction and simultaneous mutithreading.
@@ -285,7 +285,7 @@ I made quite big amount of experiments with [uarch-bench](https://github.com/tra
 
 > Uarch-bench is a fine-grained micro-benchmark intended to investigate micro-architectural details of a target CPU, or to precisely benchmark small functions in a repeatable manner.
 
-### *how to use it*
+#### how to use it
 
 All the benchmarks are integrated in the main binary, so in order to write your own benchmark in assembly code you need to insert it into [x86_methods.asm](https://github.com/travisdowns/uarch-bench/blob/master/x86_methods.asm) and register it in [misc-benches.cpp](https://github.com/travisdowns/uarch-bench/blob/master/misc-benches.cpp):
 
@@ -311,7 +311,7 @@ pop rcx
 ret
 ```
 
-### *what is the output*
+#### what is the output
 
 I compiled and run it:
 
@@ -344,7 +344,7 @@ Notice, how I specified the performance counters that I want to collect with `--
 
 Here are the [instructions](https://github.com/RRZE-HPC/likwid/wiki/Build) how to build likwid tools. We will only use `likwid-perfctr` which allows to configure and read out hardware performance counters.
 
-### *how to use it*
+#### how to use it
 
 Likwid has marker API but only for C/C++, so in order to write a benchmark I wrote a function in assembly and invoked it from C:
 
@@ -399,8 +399,6 @@ $ gcc benchmark.o test.o -o a.out -L$LIKWID_LIB -llikwid
 ```
 
 #### what is the output
-
-Run it:
 
 ```
 $ export LD_LIBRARY_PATH="$LIKWID_LIB:$LD_LIBRARY_PATH"
