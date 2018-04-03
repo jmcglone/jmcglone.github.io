@@ -435,6 +435,8 @@ Region foo, Group 1: Custom
 
 Notice, that again I was able to specify the counters I want to measure using `-g` option. Keeping in mind that we did 10000 iterations, results somewhat match with uarch-bench (see above).
 
+Sources and output of this experiment can be found on my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/Tools_for_microarchitectural_benchmarking/likwid).
+
 ## Benchmarking using assembly instructions
 ------
 
