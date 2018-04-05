@@ -1,0 +1,65 @@
+NOP
+
+Move elimination
+
+An eliminated move has zero latency and does not use any execution port. But is does consume bandwidth in the decoders
+Zero latency instructions (for example NOP instructions) don't consume scheduler resources.  However, those instructions still reserve a number of slots in the reorder buffer.
+Move elimination is not always successful. It fails when the necessary operands are not ready. But typically, move elimination succeeds in more than 80% of the possible cases. Chained moves can also be eliminated Move elimination is possible with all 32-bit and 64-bit general purpose registers and all 128-bit and 256-bit vector registers.
+
+Experiments:
+
+
+; Example 9.3. Move elimintaion
+add eax,4
+mov ebx,eax ; this move can be eliminated
+sub ebx,ecx
+
+intel manual: IVB: Zero-latency register move operation: A subset of register-to-register MOV instructions are executed at the front end, conserving scheduling and execution resource in the out-of-order engine.
+
+
+
+Zero Idiom
+
+The processor recognizes that certain instructions are independent of the prior value of the register if the two operand registers are the same
+This register is set to zero at the rename stage by these instructions. The throughput is four of these zeroing instructions per clock cycle, because no execution unit is used
+
+Experiments:
+mov eax, 0
+xor eax, eax
+
+Agner blog:
+Zeroing instructions
+An instruction that subtracts a register from itself will always give zero, regardless of the previous value of the register. This is traditionally a common way of setting a register to zero. Many modern processors recognize that this instruction doesn't have to wait for the previous value of the register. What is new in the Sandy Bridge is that it doesn't even execute this instruction. The register allocater simply allocates a new empty register for the result without even sending it to the execution units. This means that you can do four zeroing instructions per clock cycle without using any execution resources. NOPs are treated in the same efficient way without using any execution unit.
+  
+This technique is not new, actually. It has been used for many years with the FXCH instruction (exchange floating point registers). There are special reasons for resolving the FXCH instruction in the register allocater/renamer, but it is funny that this technique hasn't been extended to other uses until now. It would be obvious to use this technique for register-to-register moves too, but so far we have not seen such an application.
+
+
+
+Other experiments
+
+
+mov eax, 1 ; will be eliminated?
+mov eax, 2 
+
+xor eax, eax 
+sub ebx, eax ; will be eliminated? (eax is 0)
+vs
+xor eax, eax 
+sub ebx, 0 ; will be eliminated?
+
+; comparison 1
+mov eax, 0
+mov ebx, 0
+cmp eax, ebx
+jne .exit
+
+exit:
+
+; comparison 2
+mov eax, 0
+mov ebx, 1
+cmp eax, ebx
+jne .exit
+
+exit:
+
