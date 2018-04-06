@@ -4,7 +4,7 @@ title: Tools for microarchitectural benchmarking.
 tags: default
 ---
 
-I did a fair amount of low level experiments during the recent months and I tried different tools for making such experiments. In this post I just want to bring everything that I know in one common place.
+I did a fair amount of low level experiments during the recent months and I tried different tools for making such experiments. In this post I just want to bring a qiuck summary for those tools in one place.
 
 **Disclaimer: I have no intention to compare different tools.**
 
@@ -180,7 +180,7 @@ It was fairly recently [announced on llvm-dev mailing list](https://groups.googl
 
 #### how to use it
 
-What this tool needs is just assembly code, you don't need to compile it. However, it accepts only AT&T assembly syntax which is sad but there are assembly converters out there. Another thing is that options are a little bit misleading and I spent some time digging into the sources to understand what I should put into them. Usually `-march` identifies the CPU architecture, but OK...
+What this tool needs is just assembly code, you don't need to compile it. However, it accepts only AT&T assembly syntax which is sad but there are assembly converters out there. Another thing is that options are a little bit misleading and I spent some time digging into the sources to understand what I should put into them. Usually `-march` identifies the CPU architecture (like ivybridge, skylake, etc.), but OK...
 
 ```
 $ cat a.asm
@@ -267,13 +267,13 @@ R : Instruction retired.
 - : Instruction executed, waiting to be retired.
 ```
 
-Resource pressure view doesn't seem right, as we know that `bswap` instruction can be executed only on PORT1 on Ivy Bridge. However, reciprocal throughput is correct (equals to 1). Because throughput is correct, timeline view also seems to be correct. On later iterations (see iteration #9) we can spot that execution starts to be limited by `bswap` instructions. You can observe the same picture in my previous post [Understanding CPU port contention](https://dendibakh.github.io/blog/2018/03/21/port-contention).
+Resource pressure view doesn't seem right, as we know that `bswap` instruction can be executed only on PORT1 on Ivy Bridge (**UPD 06.04.2018:** issue has been fixed [r329211](http://llvm.org/viewvc/llvm-project?view=revision&revision=329211)). However, reciprocal throughput is correct (equals to 1). Because throughput is correct, timeline view also seems to be correct. On later iterations (see iteration #9) we can spot that execution starts to be limited by `bswap` instructions. You can observe the same picture in my previous post [Understanding CPU port contention](https://dendibakh.github.io/blog/2018/03/21/port-contention).
 
 Complete output of this run can be found on my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/Tools_for_microarchitectural_benchmarking/mca/mca.out).
 
 #### limitations
 
-This tool is really fresh and has significant restrictions. From this email thread:
+This tool is really fresh and has significant restrictions. From this [email thread](https://groups.google.com/forum/#!msg/llvm-dev/QwoBh1EXv60/F57decl9AwAJ;context-place=forum/llvm-dev):
 > The tool only models the out-of-order portion of a processor. Therefore, the instruction fetch and decode stages are not modeled. Performance bottlenecks in the frontend are not diagnosed by this tool. The tool assumes that instructions have all been decoded and placed in a queue. Also, the tool doesn't know anything about branch prediction and simultaneous mutithreading.
 >
 > Also the tool has very relaxed model for LSUnit (load and store unit). It doesn't know when store-to-load forwarding may occur and doesn't attempt to predict whether a load or store hits or misses the L1 cache.
