@@ -63,3 +63,138 @@ jne .exit
 
 exit:
 
+
+
+
+
+
+
+define_bench dendibakh_Move_Elimination
+push rbx
+ALIGN 16
+
+.loop:
+add eax,4
+mov ebx,eax ; this move can be eliminated
+sub ebx,ecx
+dec edi
+jnz .loop
+
+pop rbx
+ret
+
+define_bench dendibakh_Move_Elimination_no
+push rbx
+push rdx
+ALIGN 16
+
+.loop:
+add eax,4
+mov edx,eax ; this move can be eliminated
+sub ebx,ecx
+dec edi
+jnz .loop
+
+pop rdx
+pop rbx
+ret
+
+define_bench dendibakh_mov_eax_0
+ALIGN 16
+
+.loop:
+mov eax, 0
+dec edi
+jnz .loop
+
+ret
+
+define_bench dendibakh_mov_mov_eax
+ALIGN 16
+
+.loop:
+mov eax, 1 ; will be eliminated?
+mov eax, 2 
+dec edi
+jnz .loop
+
+ret
+
+define_bench dendibakh_sub_0
+push rbx
+ALIGN 16
+
+.loop:
+xor eax, eax 
+sub ebx, eax ; will be eliminated? (eax is always 0)
+dec edi
+jnz .loop
+
+pop rbx
+ret
+
+define_bench dendibakh_sub_0_explicit
+push rbx
+ALIGN 16
+
+.loop:
+xor eax, eax 
+sub ebx, 0 ; will be eliminated?
+dec edi
+jnz .loop
+
+pop rbx
+ret
+
+
+define_bench dendibakh_known_comparison_1
+push rbx
+ALIGN 16
+
+.loop:
+mov eax, 0
+mov ebx, 0
+cmp eax, ebx
+jne .exit
+
+dec edi
+jnz .loop
+
+.exit:
+pop rbx
+ret
+
+
+
+
+
+define_bench dendibakh_xor_eax_eax
+ALIGN 16
+
+.loop:
+xor eax, eax
+dec edi
+jnz .loop
+
+ret
+
+
+
+Event 'UOPS_EXECUTED.CORE' resolved to 'ivb::UOPS_EXECUTED:CORE:k=1:u=1:e=0:i=0:c=0:t=0, short name: 'UOPS_E' with code 0x5302b1
+Event 'UOPS_ISSUED.ANY' resolved to 'ivb::UOPS_ISSUED:ANY:k=1:u=1:e=0:i=0:c=0:t=0, short name: 'UOPS_I' with code 0x53010e
+Event 'UOPS_RETIRED.ALL' resolved to 'ivb::UOPS_RETIRED:ALL:k=1:u=1:e=0:i=0:c=0:t=0, short name: 'UOPS_R' with code 0x5301c2
+Pinned to CPU 0
+lipfc init OK
+Running benchmarks groups using timer libpfc
+
+** Running benchmark group HwOpt tests from dendibakh blog **
+                     Benchmark   Cycles   UOPS_E   UOPS_I   UOPS_R
+              move elimination     1.03     3.02     4.04     4.01
+           move elimination no     1.02     3.02     4.05     4.02
+                  xor eax, eax     1.02     1.01     2.04     2.00
+                    mov eax, 0     1.02     2.02     2.04     2.00
+        mov eax, 1; mov eax, 2     1.02     3.02     3.05     3.00
+                implicit sub 0     1.02     2.01     3.04     3.01
+                explicit sub 0     1.02     2.01     3.04     3.01
+            known comparison 1     2.02     4.05     4.10     4.01
+
