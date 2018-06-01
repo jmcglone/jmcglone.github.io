@@ -45,6 +45,24 @@ ul.listnotes li {line-height: 30px; }
     display: block;
     width: 100%;
 }
+.center-image-width-20
+{
+    margin: 0 auto;
+    display: block;
+    width: 20%;
+}
+.center-image-width-30
+{
+    margin: 0 auto;
+    display: block;
+    width: 30%;
+}
+.center-image-width-40
+{
+    margin: 0 auto;
+    display: block;
+    width: 40%;
+}
 .center-image-width-50
 {
     margin: 0 auto;
