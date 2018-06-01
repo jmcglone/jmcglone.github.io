@@ -1,3 +1,9 @@
+---
+layout: post
+title: PMU counters and profiling basics.
+tags: default
+---
+
 One way of analyzing performance of an application is instrumenting it and run. Theoretically, with this approach we can profile our application right within the application itself. However, it is not really the desired way to do it, because it is very time consuming, require recompilation each time we want to collect new metrics, and brings runtime overhead and noise in the measurements.
 
 We all know that, no surprise. The other way is to use profiling tools like perf and Vtune that will collect statistics without instrumenting the binary. I'm using those profiling tools very extensively but understanding how they work came to me not so long time ago. In this article I will try to uncover some basic principles of how those tools work.
@@ -40,7 +46,7 @@ Usually there is also one global register that controls all the other counters. 
 
 In practice most of the CPUs have PMU (Performance Monitoring Unit) with fixed and programmable counters. Fixed PMC (Performance Monitoring Counter) always measures the same thing of the core. With programmable counter it's up to user to choose what he wants to measure.
 
-I believe for the most Intel Core processors, number of fully programmable counters is 8 per logical core and 4 per HW thread (in case of Hyper Threading is turned on), and a number of fixed function counters is 3 (per logical core). Fixed counters usually are set to count core clocks, reference clocks, instructions retired.
+I believe for the most Intel Core processors, number of fully programmable counters is 8 per logical core or 4 per HW thread (in case of Hyper Threading is turned on). Number of fixed function counters is usually 3 (per logical core). Fixed counters usually are set to count core clocks, reference clocks, instructions retired.
 
 My IvyBridge processor ...
 
