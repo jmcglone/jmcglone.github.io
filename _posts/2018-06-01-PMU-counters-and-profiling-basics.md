@@ -46,19 +46,43 @@ Usually there is also one global register that controls all the other counters. 
 
 In practice most of the CPUs have PMU (Performance Monitoring Unit) with fixed and programmable counters. Fixed PMC (Performance Monitoring Counter) always measures the same thing inside the core. With programmable counter it's up to user to choose what he wants to measure.
 
-I believe for the most Intel Core processors, number of fully programmable counters is 8 per logical core or 4 per HW thread (in case of Hyper Threading is turned on). Number of fixed function counters is usually 3 (per logical core). Fixed counters usually are set to count core clocks, reference clocks, instructions retired.
+I believe for the most Intel Core processors, number of fully programmable counters is 4 (per logical core) and usually 3 fixed function counters (per logical core). Fixed counters usually are set to count core clocks, reference clocks, instructions retired.
 
-My IvyBridge processor ...
+For my IvyBridge processor here is the output of `cpuid` command:
 
 ```
-output from dmesg and cpuid
+$ cpuid
+...
+   Architecture Performance Monitoring Features (0xa/eax):
+      version ID                               = 0x3 (3)
+      number of counters per logical processor = 0x4 (4)
+      bit width of counter                     = 0x30 (48)
+...
+   Architecture Performance Monitoring Features (0xa/edx):
+      number of fixed counters    = 0x3 (3)
+      bit width of fixed counters = 0x30 (48)
+...
+```
+Similar information can be grepped out from the kernel message buffer right after the system is booted:
+```
+$ dmesg
+...
+[    0.061530] Performance Events: PEBS fmt1+, IvyBridge events, 16-deep LBR, full-width counters, Intel PMU driver.
+[    0.061550] ... version:                3
+[    0.061550] ... bit width:              48
+[    0.061551] ... generic registers:      4
+[    0.061551] ... value mask:             0000ffffffffffff
+[    0.061552] ... max period:             00007fffffffffff
+[    0.061552] ... fixed-purpose events:   3
+[    0.061553] ... event mask:             000000070000000f
+...
 ```
 
 ### MSRs - model specific registers
 
 PMU counters and configuration registers are implemented as MSR (Model Specific Registers) registers. What that means is that number of counters and their width can vary from model to model and you can't rely on the same number of counters in your CPU, you should always query that first, using cpuid.
 
-MSRs are accessed via the RDMSR and WRMSR instruction. Certain counter registers can be accessed via the RDPMC instruction. More information and details are available in Volume 2B of the Programmer’s Reference Manual.
+MSRs are accessed via the `RDMSR` and `WRMSR` instruction. Certain counter registers can be accessed via the `RDPMC` instruction. More information and details are available in Volume 2B of the Programmer’s Reference Manual.
 
 ### Counting vs. Sampling
 
@@ -74,14 +98,25 @@ Typical use case for such a counter would be:
 ```
 This process is also called characterizing, and this is what such tools do!
 
-This method allows you to collect overall statistics about execution of the application. This is, for example, what `perf stat` will output:
+This method allows you to collect overall statistics about execution of the application. This is, for example, what `perf stat` will output if I will run it on `ls` and try to additionally collect 3 advanced counters:
 
 ```
- 'perf stat -e r5301b1,r53010e,r5301c2,instructions,cycles,branches -- ls'
- #UOPS_EXECUTED.CORE
- #UOPS_ISSUED.ANY
- #UOPS_RETIRED.ALL
+$ perf stat -e r5301b1,r53010e,r5301c2,instructions,cycles,ref-cycles -- ls
+<output of ls command>
+
+ Performance counter stats for 'ls':
+
+           2142223      r5301b1                   # UOPS_EXECUTED.CORE                                  
+           2217291      r53010e                   # UOPS_ISSUED.ANY                                  
+           2084935      r5301c2                   # UOPS_RETIRED.ALL                                  
+           1553280      instructions              #    0,75  insn per cycle                                            
+           2078230      cycles                                                      
+           3062668      ref-cycles                                                  
+
+       0,001497400 seconds time elapsed
 ```
+
+Note, that some data was collected "for free", based on fixed PMCs (see above). Also perf is not showing the name of the counter in the output, it was added by me. Codes for the counters (that I put in parameters to perf) can be obtained with the method described [here](http://www.bnikolic.co.uk/blog/hpc-prof-events.html).
 
 As you can see, there are no details about the hottest functions or the line of code which caused the biggest amount of cache misses, etc. It just raw statistics for the whole runtime. Basically, during the whole runtime each counter measured only one thing. There were no multiplexing between them.
 
