@@ -1,3 +1,9 @@
+---
+layout: post
+title: PEBS and LBR.
+tags: default
+---
+
 In my [previous post]() I made an overview of what PMU (Performance Monitoring Unit) is and what is PMU counter (PMC). We learned that there are fixed and programmable PMCs inside each PMU. We explored basics of counting and sampling mechanisms and left off on the advanced techniques and features for sampling. But before going into the main topic, let's discuss one common thing for counting and sampling. It's called multiplexing.
 
 ### Multiplexing and scaling events
@@ -34,33 +40,58 @@ Let's take a look at the example:
 ![](/img/posts/PEBS_LBR/Interrupt-base-sampling.png){: .center-image }
 Let's assume that on retirement of `instr1` we have an overflow of the counter that samples "instruction retired" events. Because of latency in the microarchitecture between the generation of events and the generation of interrupts on overflow, it is sometimes difficult to generate an interrupt close to an event that caused it. So by the time the interrupt is generated our IP has gone further by a number of instructions. When we reconstruct register state in interrupt service routine, we have slightly inaccurate data.
 
-[Taken from here](https://perf.wiki.kernel.org/index.php/Tutorial#Sampling_with_perf_record)
+### Processor Event-Based Sampling (PEBS)
 
 This is possible to mitigate by having the processor itself store the instruction pointer (along with other information) in a designated buffer in memory – no interrupts are issued for each sample and the instruction pointer is off only by a single instruction, at most. This needs to be supported by the hardware, and is typically available only for a subset of supported events – this capability is called Processor Event-Based Sampling (PEBS) on Intel processors. You can also see people call it Precise Event-Based Sampling, but according to Intel manuals, first word is "Processor" not "Precise". But it basically means the same thing.
 
-![](/img/posts/PEBS_LBR/Event-base-sampling.png){: .center-image }
+![](/img/posts/PEBS_LBR/Event_Based_Sampling.png){: .center-image }
 
-### Processor Event-Based Sampling (PEBS)
+When a counter is enabled to capture machine state, the processor will write machine state information to a memory buffer specified by software. When the counter overflows from maximum count to zero, the PEBS hardware is armed. Upon occurrence of the next PEBS event, the PEBS hardware triggers an assist and causes a PEBS record to be written into the PEBS buffer. This record contains the architectural state of the processor (state of the general purpose registers, EIP register, and EFLAGS register). With PEBS, the format of the samples is mandated by the processor, so the best way to know it is to look into the [Intel® 64 and IA-32 Architectures Software Developer’s Manual Volume 3B, Chapter 18](https://software.intel.com/sites/default/files/managed/7c/f1/253669-sdm-vol-3b.pdf).
 
-Why it is only one instruction away?
+You can check if PEBS are enabled by executing `dmesg` right after startup:
+```
+TODO: Show output from dmesg
+```
 
-from CERN:
-An important thing to note is the skid of the instruction pointer – by the time the interrupt is issued and caught, the instruction pointer is likely to have progressed and thus give a slightly inaccurate location of the code that triggered the event. This is possible to mitigate by having the processor itself store the instruction pointer (along with other information) in a designated buffer in memory – no interrupts are issued for each sample and the instruction pointer is off only by a single instruction, at most. This needs to be supported by the hardware, and is typically available only for a subset of supported events – this capability is called Precise Event-Based Sampling (PEBS) on Intel processors. The skid will generate a shadow, which will “hide” any occurring events. Such behaviour can be a particular problem in regular loops, where a recurring scenario could mask a large portion of events.
+Not all events support PEBS. For example, on Sandy Bridge there are 7 PEBS events supported:
+- INST_RETIRED
+- UOPS_RETIRED
+- BR_INST_RETIRED
+- BR_MISP_RETIRED
+- MEM_UOPS_RETIRED
+- MEM_LOAD_UOPS_RETIRED
+- MEM_LOAD_UOPS_LLC_HIT_RETIRED
 
-PEBS is used with perf by adding :p and :pp suffix to the event specifier record -e event:pp
+PEBS events for patricular architecture can be checked in [Intel® 64 and IA-32 Architectures Software Developer’s Manual Volume 3B, Chapter 18](https://software.intel.com/sites/default/files/managed/7c/f1/253669-sdm-vol-3b.pdf). 
 
-Capture beginning from Brendan's article, then from SDM B.3.3
+PEBS buffer consists of records.  Each sample contains the machine state of the processor at the time the counter overflowed. 
 
-When a performance counter is configured for PEBS, a PEBS record is stored in the PEBS 
-buffer in the DS save area after the counter overflow occurs. This record contains the architectural state of the 
-processor (state of the 8 general purpose registers, EIP register, and EFLAGS register) at the next occurrence 
-of the PEBS event that caused the counter to overflow
+You can use PEBS with perf by adding :p and :pp suffix to the event specifier:
+```
+perf record -e event:pp
+```
 
-With PEBS, the format of the samples is mandated by the processor. Each samples contains the machine state of the processor at the time the counter overflowed. The precision of PEBS comes from the fact that the instruction pointer recorded in each sample is at most one instruction away from where the counter actually overflowed. The skid is mimized compared to regular interrupted instruction pointer. Another key advantage of PEBS is that is minimizes the overhead because the Linux kernel is only involved when the PEBS buffer fills up, i.e., there is no interrupt until a lot of samples are available.
+Benefits of using PEBS:
+- The skid is mimized compared to regular interrupted instruction pointer. 
+- Reduce the overhead because the Linux kernel is only involved when the PEBS buffer fills up, i.e., there is no interrupt until a lot of samples are available.
 
 ### LBR
 
-References:
+There is a great series on the topic of LBR and it's applications on [lwm.net](https://lwn.net/Articles/680985/):
+> Intel CPUs have a feature called last branch records (LBR) where the CPU can continuously log branches to a set of model-specific registers (MSRs). The CPU hardware can do this in parallel while executing the program without causing any slowdown. There is some performance penalty for reading these registers, however.
+> 
+>The LBRs log the "from" and "to" address of each branch along with some additional metadata. The registers act like a ring buffer that is continuously overwritten and provides only the most recent entries. There is also a TOS (top of stack) register to provide a pointer to the most recent branch. With LBRs we can sample branches, but during each sample look at the previous 8-32 branches that were executed. This gives reasonable coverage of the control flow in the hot code paths, but does not overwhelm us with too much information, as only a smaller number of the total branches are examined.
+> 
+> Once we are able to sample LBRs it is possible to set up sampling of branch events at a frequency that does not slow down the workload unduly, and still create an useful histogram of hot branches. It is important to keep in mind that this is still sampling, so not every executed branch can be examined. CPUs generally execute too fast for that to be feasible. 
+
+The last branch recording mechanism tracks not only branch instructions (like JMP, Jcc, LOOP and CALL instructions), but also other operations that cause a change in the instruction pointer (like external interrupts, traps and faults). The branch recording mechanisms generally employs a set of MSRs (Model Specific Registers), referred to as last branch record (LBR) stack. The size and exact locations of the LBR stack are generally model-specific.
+
+Last Branch Record (LBR) Stack — The LBR consists of N pairs of MSRs (N is, again, model specific) that store source and destination address of recent branches. 
+Last Branch Record Top-of-Stack (TOS) Pointer — contains a pointer to the MSR in the LBR stack that contains the most recent branch, interrupt, or exception recorded.
+
+Also LBR can be used for collecting call-graph information even if you compiled your app without frame pointers (controlled by compiler option '-f-omit-fram-pointer').
+
+### References:
   CERN - overhead of counting and sampling
   http://www.brendangregg.com/perf.html
   SDM v3 - chapters 18,19

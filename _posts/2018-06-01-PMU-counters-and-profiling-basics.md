@@ -46,7 +46,7 @@ Usually there is also one global register that controls all the other counters. 
 
 In practice most of the CPUs have PMU (Performance Monitoring Unit) with fixed and programmable counters. Fixed PMC (Performance Monitoring Counter) always measures the same thing inside the core. With programmable counter it's up to user to choose what he wants to measure.
 
-I believe for the most Intel Core processors, number of fully programmable counters is 4 (per logical core) and usually 3 fixed function counters (per logical core). Fixed counters usually are set to count core clocks, reference clocks, instructions retired.
+I believe for the most Intel Core processors, number of fully programmable counters is 4 (per logical core) and usually 3 fixed function counters (per logical core). Fixed counters usually are set to count core clocks, reference clocks, instructions retired. More details can be found in [Intel® 64 and IA-32 Architectures Software Developer’s Manual, Volume 3B, Part2, Chapter 18.2.2](https://software.intel.com/sites/default/files/managed/7c/f1/253669-sdm-vol-3b.pdf).
 
 For my IvyBridge processor here is the output of `cpuid` command:
 
