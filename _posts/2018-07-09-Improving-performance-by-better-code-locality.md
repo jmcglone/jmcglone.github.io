@@ -160,6 +160,8 @@ Here is documentation for [inline attributes](https://clang.llvm.org/docs/Attrib
 
 With those hints compiler will not make any guesses and will do what you asked for.
 
+Another disclaimer I want to make is that I'm not advocating for inserting those hints for every branch in your source code. It reduces readability of the code. Only put them in the places where it's proven to improve performance.
+
 ### PGO (profile-guided optimizations)
 
 If it's possible to use PGO in your case, it's the best option you can choose. PGO will help compiler tune the generated code exactly for your workload. The problem here is that some applications do not have single workload or set of workloads, so it makes impossible to tune for the general case. But if you have such a single hot workload, you've better compile your code with PGO.
