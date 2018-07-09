@@ -98,7 +98,7 @@ int main()
   return 0;
 }
 ```
-Now let's run them:
+Now let's run them (my measurements are for Skylake, but I think it holds for most modern architectures):
 ```
 $ perf stat -e r53019c,instructions,cycles,L1-icache-load-misses -- ./a_jmp
  Performance counter stats for './a_jmp':
