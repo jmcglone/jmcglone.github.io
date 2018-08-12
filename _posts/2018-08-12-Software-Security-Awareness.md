@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Software Security Awareness: A forgotten tactical and strategic weapon
-date: 2018-05-18
+date: 2018-08-12
 ---
 
 # Abstract
