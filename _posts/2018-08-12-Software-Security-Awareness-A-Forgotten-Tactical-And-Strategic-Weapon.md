@@ -22,4 +22,4 @@ software security awareness delivery then we finally concluded the paper and pro
 to take towards software security awareness. 
 
 
-href="https://www.researchgate.net/publication/325114897_Software_Security_Awareness_A_forgotten_tactical_and_strategic_weapon"> Find the pre-print of the article here</a>
+href="https://www.researchgate.net/publication/325114897_Software_Security_Awareness_A_forgotten_tactical_and_strategic_weapon">Find the pre-print of the article here</a>
