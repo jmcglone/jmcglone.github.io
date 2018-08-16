@@ -107,7 +107,7 @@ int main()
   return 0;
 }
 ```
-Now let's run them. My measurements are for Skylake, but I think it holds for most modern architectures. I did multiple runs and combined measurements:
+Now let's run them. My measurements are for Skylake, but I think it holds for most modern architectures. I measured hardware events in several separated runs. Here are the results:
 ```
 $ perf stat -e <events> -- ./a_jmp
  Performance counter stats for './a_jmp':
