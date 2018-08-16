@@ -49,12 +49,21 @@ ret
 If we vizualize it we will see the picture how our hot code is layed out in memory:
 ![](/img/posts/BlockOrdering/Jumps.png){: .center-image-width-20 }
 
-On the picture above I highlithed typical hot path over `foo` function with yellow and cold path with blue. You can clearly see, that we make one long jump from the block "if (criticalFailure)" to "hot path". **And this will typically yield an I-cache miss.**
-
-The code that is placed right after the instruction that we execute is called *fall through*. Usually we can assume that fall through code is already prefetched and seats in the cache. So, we need to leverage that. There are 2 issues in this example: error handling function was inlined into the body of foo, hot code was not placed in a fall through position. Let's try to fix that. This is the ideal picture we want to have:
+On the picture above I highlithed typical hot path over `foo` function with yellow and cold path with blue. You can clearly see, that we make one long jump from the block "if (criticalFailure)" to "hot path". Without justification (for now) let's take a look at another way of placing the blocks inside the function:
 ![](/img/posts/BlockOrdering/Fall_through.png){: .center-image-width-20 }
 
-If we do so, we would have sequential hot path, which is great for our I-cache. The code that will be executed will be prefetched before CPU will start executing it.
+### Why latter case is better?
+
+**(updated, thanks to comments by Travis)**
+
+There are a number of reasons for the second case to perform better:
+1. If we would have sequential hot path, it will be better for our I-cache. The code that will be executed will be prefetched before CPU will start executing it. It is not always the case for the original block placement. In the presented example it doesn't make significant impact.
+
+2. It makes better *use* of the instruction and uop-cache: with all hot code contiguous, you don't get cache line fragmentation: all the cache lines in the i-cache are used by hot code. This same is true for the uop-cache since it cached based on the underlying code layout as well.
+
+3. Taken branches are fundamentally more expensive that untaken: recent Intel CPUs can handle 2 untaken branches per cycle, but only 0.5 taken branches per cycle in the general case (there is a special small loop optimization that allows very small loops to have 1 taken branch/cycle). They are also more expensive for the fetch unit: the fetch unit fetches contiguous chunks of 16 bytes, so every taken jump means the bytes after the jump are useless and reduces the maximum effective fetch throughput. Same for the uop cache: cache lines from only one 32B region (64B on Skylake, I think) are accessed per cycle, so jumps reduce the max delivery rate from the uop cache.
+
+So, how we can make the second case happen? Well, there are 2 issues to fix: error handling function was inlined into the body of foo, hot code was not placed in a fall through position. 
 
 ### Enough theory, show me the benchmark
 
@@ -98,32 +107,47 @@ int main()
   return 0;
 }
 ```
-Now let's run them:
+Now let's run them (I did multiple runs and combined measurements):
 ```
-$ perf stat -e r53019c,instructions,cycles,L1-icache-load-misses -- ./a_jmp
+$ perf stat -e <events> -- ./a_jmp
  Performance counter stats for './a_jmp':
 
       124623459202      r53019c			  # IDQ_UOPS_NOT_DELIVERED.CORE
       105451915136      instructions              # 1,62  insn per cycle
        64987538427      cycles
-           1293787      L1-icache-load-misses                                       
+           1293787      L1-icache-load-misses  
+        1000146958      branch-misses          
+           1259211      DSB2MITE_SWITCHES.PENALTY_CYCLES                                   
+       38001539159      IDQ.DSB_CYCLES
+       68002930233      IDQ.DSB_UOPS
 
       16,346708137 seconds time elapsed
 ```
 
 ```
-$ perf stat -e r53019c,instructions,cycles,L1-icache-load-misses -- ./a_fall
+$ perf stat -e <events> -- ./a_fall
  Performance counter stats for './a_fall':
 
       109388366740      r53019c			  # IDQ_UOPS_NOT_DELIVERED.CORE
       105443845060      instructions              # 1,92  insn per cycle
        55019003815      cycles
-            825560      L1-icache-load-misses                                       
+            825560      L1-icache-load-misses
+          33546707      branch-misses      
+            648816      DSB2MITE_SWITCHES.PENALTY_CYCLES                                   
+       41742394288      IDQ.DSB_CYCLES                                              
+       71971516976      IDQ.DSB_UOPS                                       
 
       13,821951438 seconds time elapsed
 ```
 
-We can see that by reordering basic blocks we have 36% less I-cache misses, and "Front-end bound" metric decreased by 12% (calculated from IDQ_UOPS_NOT_DELIVERED.CORE counter). Overall performance improved by ~15%, which is pretty attractive.
+Overall performance improved by ~15%, which is pretty attractive.
+
+**UPD**: 
+
+Travis (in the comments) showed me that it was the edge case for branch misprediction. You can clearly see that in the good case we have 30 times (!) less branch mispredictions.
+
+Additionally, we see that by reordering basic blocks we have 36% less I-cache misses (but it's impact is miscroscopic), and DSB coverage is 6% better (calculated from IDQ.DSB_UOPS, but not precisly).
+Overall, "Front-end bound" metric decreased by 12% (calculated from IDQ_UOPS_NOT_DELIVERED.CORE). 
 
 > Disclaimer: From my experience, this doesn't usually give impressive boost in performance. I usually see around 1-2%%, so don't expect miracles from this optimization. See more information in PGO section.
 
@@ -135,7 +159,7 @@ So, we can make two improtant points from this benchmark:
 
 Compilers also try to make use of this and thus introduced heuristics for better block placement. I'm not sure they are documented anywhere, so the best way is to dig into the source code. Those heuristics try to calculate cost of inlining the function call and probabilities of branch being taken. For example, gcc treats function calls guarded under condition as an error handling code (cold). Both gcc and llvm when they see a check for a pointer against null pointer: `if (ptr == nullptr)`, they decide that pointer unlikely to be null, and put "else" branch as a fall through.
 
-It's quite frequent that compilers do different inlining decisions for the same code because they have different heuristics and cost models. But in general, I think when compilers can't decide which branch has bigger probability, they will leave the original order as they appear in the source code. I haven't reliably tested that, but that's my feeling. So, I think it's a good idea to put your hot branch (most frequent) in a fall through position by default.
+It's quite frequent that compilers do different inlining decisions for the same code because they have different heuristics and cost models. But in general, I think when compilers can't decide which branch has bigger probability, they will leave the original order as they appear in the source code. I haven't thoroughly tested that though. So, I think it's a good idea to put your hot branch (most frequent) in a fall through position by default.
 
 ### Built-in expect and attributes for inlining
 
