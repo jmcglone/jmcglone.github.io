@@ -107,7 +107,7 @@ int main()
   return 0;
 }
 ```
-Now let's run them (I did multiple runs and combined measurements):
+Now let's run them. My measurements are for Skylake, but I think it holds for most modern architectures. I did multiple runs and combined measurements:
 ```
 $ perf stat -e <events> -- ./a_jmp
  Performance counter stats for './a_jmp':
@@ -183,6 +183,8 @@ void bar() __attribute__((noinline)) // won't be inlined
 Here is documentation for [inline attributes](https://clang.llvm.org/docs/AttributeReference.html) and [Built-in expect](https://llvm.org/docs/BranchWeightMetadata.html#builtin-expect).
 
 With those hints compiler will not make any guesses and will do what you asked for.
+
+Another disclaimer I want to make is that I'm not advocating for inserting those hints for every branch in your source code. It reduces readability of the code. Only put them in the places where it's proven to improve performance.
 
 ### PGO (profile-guided optimizations)
 
