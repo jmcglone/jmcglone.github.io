@@ -24,22 +24,29 @@ https://software.intel.com/en-us/forums/software-tuning-performance-optimization
 
 The hardware event for "reference cycles not halted" counts at the same rate as the TSC, but only counts while the processor core is not halted (while the TSC always counts).  This makes it very convenient to compute the number of cycles (or the fraction of the cycles) that the processor *is* halted.
 
-$ perf stat -e bus-cycles,ref-cycles,cycles,cpu_clk_unhalted.thread,cpu_clk_thread_unhalted.ref_xclk,cpu_clk_unhalted.ref_xclk,msr/tsc/,cpu_clk_unhalted.ref_tsc ./a.out
+$ perf stat -e cycles,ref-cycles,bus-cycles -a sleep 5
+ Performance counter stats for 'system wide':
 
- Performance counter stats for './a.out':
+         145444295      cycles                                                      
+         175726000      ref-cycles                                                  
+           2052531      bus-cycles                                                  
 
-         389976107      bus-cycles                                                    (71,39%)
-       10911609726      ref-cycles                                                    (28,66%)
-       10851574526      cycles                                                        (43,06%)
-       10863829734      cpu_clk_unhalted.thread                                       (57,34%)
-         389724926      cpu_clk_thread_unhalted.ref_xclk                                     (71,59%)
-         389907637      cpu_clk_unhalted.ref_xclk                                     (71,45%)
-       10936438767      msr/tsc/
-       10919350665      cpu_clk_unhalted.ref_tsc                                      (71,35%)
+       5,003911237 seconds time elapsed
 
-       3,932958896 seconds time elapsed
+$ perf stat -e cycles,ref-cycles,bus-cycles -a ls
+ Performance counter stats for 'system wide':
 
-Check the same counters in VTune
+         115316881      cycles                                                      
+         112140700      ref-cycles                                                  
+           1332049      bus-cycles                                                  
+
+       0,017348524 seconds time elapsed
+
+You can also make an interesing experiment: open 3 terminals and run corresponding commands:
+1. perf stat -e cycles -a -I 1000
+2. perf stat -e ref-cycles -a -I 1000
+3. perf stat -e bus-cycles -a -I 1000
+Place them in such a way that all 3 will be visible. Then open another terminal in which start to do some work. You will notice how the collected values will be changing over time. It will give you an idea how the state of the CPU is changing.
 
 ### Clock_unhalted 
 
