@@ -28,7 +28,7 @@ $ perf record -F 100 ./a_out
 ```
 But the interesting thing is that perf doesn't just stop your application after equal time intervals. If it would be so, there will be no difference for sampling on various events. Would we sample on cycles or instructions, there will be no difference, as perf will still stop the app after equal time intervals.
 
-To understand what is it doing, we'll take look inside perf.data. If we do so we will be able to see raw samples:
+To understand what is it doing, we'll take a look inside perf.data. If we do so we will be able to see raw samples:
 ```
 $ perf report -D
 ...
@@ -44,7 +44,7 @@ $ perf report -D
 .  0020:  3c 65 ee 01 00 00 00 00                          <e......        
 ```
 
-This is just one out of many samples collected during the whole runtime. First thing we'll take a look at is `0x40090b`. It is the instruction adress on which this sample was collected. On the time when sample was captured IP (instruction pointer) was set to this instruction. If we grep all the samples by this address:
+This is just one out of many samples collected during the whole runtime. First thing we'll take a look at is `0x40090b`. It is the instruction address on which this sample was collected. At the time when sample was captured, IP (instruction pointer) was set to this instruction. If we grep all the samples by this address:
 ```
 $ perf report -D | grep 0x40090b -c
 16
@@ -61,7 +61,7 @@ Which matches with what we see in `perf report`:
 
 The second interesting thing is `period: 32287405` the number of occurrences of the event between two samples. Here things start to get interesting. So, between sample N-1 and N (that's presented) there were 32287405 cycles executed. Perf, when preparing for capturing next sample, set the value of one of the PMU counters to -3228740, then start incrementing it with every cycle (because we sample on cycles) and wait until it overflows (from -1 to 0). You can read more about this in my article about [PMU counters and profiling basics](https://dendibakh.github.io/blog/2018/06/01/PMU-counters-and-profiling-basics).
 
-Now, remember that by default we sample on cycles (equivalent to `perf record -e cycles`). With latest run we collected 247 samples. For simplicity let's assume average period for all samples is 32300000 events. Based on that number of cycles it took to execute this workload is 247 * 32300000 = 7978100000 cycles.
+Now, remember that by default we sample on cycles (equivalent to `perf record -e cycles`). With latest run we collected 247 samples. For simplicity let's assume average period for all samples is 32300000 events. Based on that, the number of cycles it took to execute this workload is: 247 * 32300000 = 7978100000 cycles.
 If we compare this number with the number of counted cycles:
 ```
 $ perf stat -e cycles ./a_out                                                                                                           
@@ -86,7 +86,7 @@ $ perf stat -e branch-misses ./a_out
 ```
 Here we have 2417 (samples collected) * 55804 (period for each sample) = 134757418 (total branch-misses). Which again is not that far off from the measured value.
 
-The opposite of setting frequency of collecting samples is configure period:
+The opposite of setting frequency of collecting samples is to configure period:
 ```
 $ perf record -e instructions -c 1000000 ./a_out
 [ perf record: Woken up 1 times to write data ]
