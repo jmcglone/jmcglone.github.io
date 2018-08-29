@@ -99,7 +99,7 @@ Notice, that all collected samples correspond to the wrong instruction! To under
 
 ### What we can do about it?
 
-Skid makes it difficult to discover the instruction which is actually causing the performance issue. But hopefully, there is a special mechanism called PEBS (Precise Event-Based Sampling) which is dedicated to solve the problem. More on this topic I wrote in already mentioned blog post. Here is how the things changed when using it (notice `pp` suffix in the event declaration):
+Skid makes it difficult to discover the instruction which is actually causing the performance issue. But fortunately, there is a special mechanism called PEBS (Precise Event-Based Sampling) which is dedicated to solve the problem. More on this topic I wrote in already mentioned blog post. Here is how the things changed when using it (notice `pp` suffix in the event declaration):
 ```
 $ perf record -e cpu/event=0xc4,umask=0x4,name=BR_INST_RETIRED.ALL_BRANCHES/pp ./a.out
 [ perf record: Woken up 1 times to write data ]
@@ -155,6 +155,6 @@ $ perf annotate --stdio -M intel main.loop
     0.00 :        40068e:       ud2
 ```
 
-Now we have clear picture of the event that we sample on and the instruction that caused it. However, keep in mind, that only since HSW precise events tag the same instruction, but on SNB processors family they skid to the next IP (see the listing above).
+Now we have clear picture of the event that we sample on and the instruction that caused it. However, keep in mind, that only since Haswell precise events tag the same instruction, but on SandyBridge processor family they skid to the next IP (see the listing above).
 
-Precise events is a very important tool for [top-down analysis](http://www.intel.com/content/www/us/en/architecture-and-technology/64-ia-32-architectures-optimization-manual.html) (look at Appendix B.1). It's idea that you first identify the source of the performance problems, than you locate the exact place in the code using precise event. For more details and examples take a look at [TMA metrics](https://download.01.org/perfmon/TMA_Metrics.xlsx).
+Precise events is a very important tool for [top-down analysis](http://www.intel.com/content/www/us/en/architecture-and-technology/64-ia-32-architectures-optimization-manual.html) (look at Appendix B.1). It's idea that you first identify the source of the performance problems. You basically do this by counting a lot of events at once (not necessary precise). You understand what is causing problems and than you locate the exact place in the code using precise event. For more details and examples take a look at [TMA metrics](https://download.01.org/perfmon/TMA_Metrics.xlsx).
