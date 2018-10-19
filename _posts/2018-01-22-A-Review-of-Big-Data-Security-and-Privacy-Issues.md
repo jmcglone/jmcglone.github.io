@@ -1,19 +1,16 @@
 ---
 layout: post
-title: A Review of Big Data Security and Privacy Issues
+title: Big Data Security and Privacy Issues
 date: 2018-01-22
 ---
 
-# Abstract
+Over the past several years, data has increased in a large scale in various fields. According to a report from the International Data Corporation (IDC), in 2011, the overall created and copied data volume in the world was 1.8ZB (1021B).
+The term that has emerged to refer to this new type of data is “Big Data”. It refers to the process of managing huge amount of data that comes from several sources like database management system (DBMS), log files, posting to social media, and sensor data. Simply speaking, big data relates to large volumes of computer-readable data. Big data is a part of most of our everyday lives and is essential in the current information age we are living in. The ability to discover trends and analyse relationships has given big data a strong presence in the many industries. However, big data exceeds existing computational, storage and communication capabilities of conventional methods or systems. Now a team of researchers tried to identify major issues facing Big Data in terms of security and privacy.
 
-Recent developments in the Web, Social Media, Sensors and Mobile devices have resulted in the explosion of data set
-sizes. That has resulted in the emergence of Big Data. It has applications in industry ranging from retail, healthcare,
-financial services, government, agriculture, customer service among others. Nowadays, business depends on
-customers’ data protection; however, due to the large size of data it has become very difficult to perform effective
-analysis using the existing traditional techniques. Thus, the big data opportunities come with the challenge of security.
-The flourishing of big data also hinges on fully understanding and managing newly arising security and privacy
-challenges. This paper reviewed the recent research and development on the trending issues in security and privacy in
-the field of Big Data. First, the characteristics and value of big data are presented. Then, topics and issues on security
-and privacy are discussed and, finally we have made some recommendations for future possible research.
+“The limitation of the current technology has made it impossible to deal with the problem of insecurity of data, since they were not developed to deal with enormous data”, says M. Kante, researcher in data security and privacy in the report.
+
+In the study, the recent research and development on the trending issues in security and privacy in the field of Big Data were reviewed. An exhaustive literature search was performed following the guidelines provided by Webster & Jane, (2002) in their article on how to do a proper literature review. An exploratory review has been selected because big data security is relatively a new area of research.  As source in order to get accurate and efficient papers, appropriate sources were used: Researchgate, Webofscience and Google scholar.
+The results suggest that the most challenging and concerned problem in Big Data is security and privacy. Data rights and security have also been identify as risks, which users have to recognize and mitigate when using big data. Many facts reveal that the phenomenon of Big Data will harm the user’s privacy if it is not properly handled. On the other hand, security, regarding big data, can be broken into two parts posited the author: internal security and external security. Internal security deals with people and inter-company issues, best practices and protocols while external security deals with the system itself, its vulnerabilities and structural risks. 
+Protection of personal information has long been subject to research, especially in this era of Big Data. “This study shows the biggest issues that need to be tackle in a near future in order for all to benefit from different advantages of Big Data” says the author.
 
 <a href="https://www.researchgate.net/publication/320409081_A_Review_of_Big_Data_Security_and_Privacy_Issues"> Find the full article here</a>
