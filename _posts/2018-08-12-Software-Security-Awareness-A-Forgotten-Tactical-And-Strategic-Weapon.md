@@ -24,4 +24,3 @@ to take towards software security awareness.
 
 <a href="https://www.researchgate.net/publication/325114897_Software_Security_Awareness_A_forgotten_tactical_and_strategic_weapon">Find the pre-print of the article here</a>
 
-a0f27ac0dbc534dd848533d49cfaa190aa49ae6d6b3cc5f6b8
