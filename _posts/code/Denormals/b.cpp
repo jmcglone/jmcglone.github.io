@@ -1,10 +1,10 @@
 template <class Tp>
-inline void DoNotOptimize(Tp const& value) {
+inline void DoNotOpt(Tp const& value) {
     asm volatile("" : : "r,m"(value) : "memory");
 }
 
 template <class Tp>
-inline void DoNotOptimize(Tp& value) {
+inline void DoNotOpt(Tp& value) {
 #if defined(__clang__)
     asm volatile("" : "+r,m"(value) : : "memory");
 #else
@@ -18,7 +18,7 @@ int bench(volatile float x, volatile float y)
   for (int i = 0; i < 100000000; i++)
   {
     sum = x / y;
-    DoNotOptimize(sum);
+    DoNotOpt(sum);
     sum = 0.0f;
   }
   return (int)sum;
