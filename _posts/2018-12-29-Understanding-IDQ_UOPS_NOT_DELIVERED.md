@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Understanding one of the most important performance counters.
+title: Understanding IDQ_UOPS_NOT_DELIVERED performance counter.
 tags: default
 ---
 
