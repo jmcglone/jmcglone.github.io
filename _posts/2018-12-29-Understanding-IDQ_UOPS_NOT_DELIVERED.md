@@ -30,9 +30,9 @@ Here is the workflow:
 
 Because we have multiple execution units we can execute multiple uops in parallel. Most of modern Intel CPUs are 4-wide, meaning that we can schedule 4 uops each cycle. But it usually happens that due to some hazards (data dependency/execution unit occupied/lack of uops to schedule) we can't fully utilize all available slots and, say, issue only 3 uops.
 
-PMC `IDQ_UOPS_NOT_DELIVERED.CORE` counts how many slots we failed to utilize. So if, let’s say, we deliver only 1 uop this counter will be increased by 3 (it’s basically 4 – 1 is 3). If we deliver 4 uops in one cycle it will not be increased because we did a good job of filling all available slots. As you already guessed the lower the value for this counter, the better.
+We can have a counter that will keep track of how many slots we failed to utilize. So if, let’s say, we deliver only 1 uop this counter will be increased by 3 (it’s basically 4 – 1 is 3). If we deliver 4 uops in one cycle it will not be increased because we did a good job of filling all available slots. As you already guessed the lower the value for this counter, the better.
 
-In reality CPU is much more complicated than this and there is IDQ (Instruction Decode Queue) and RAT (Resource Allocation Table). Our PMC counts the number of uops not delivered from IDQ to RAT and RAT is not stalled. But this goes beyond the topic of this article, so i won't dive deeper. For us it's just important to understand that there is a "bridge" from CPUs front end to the back end and we have a mean to monitor it.
+In reality CPU is much more complicated than this and there is IDQ (Instruction Decode Queue) and RAT (Resource Allocation Table). Our PMC `IDQ_UOPS_NOT_DELIVERED.CORE` counts the number of uops not delivered from IDQ to RAT and **RAT is not stalled**. I hope it will become more clear once you'll go through examples (see below). I will not describe how IDQ and RAT interoperate because this goes beyond the topic of this article. For us it's just important to understand that there is a "bridge" from CPUs front end to the back end and we have means to monitor it.
 
 ### Example 1
 
@@ -116,6 +116,8 @@ According to our mental model we should be wasting 3 slots to deliver uops to RA
 We can see that half of the time RAT was stalled (likely because it was full) and another half of the time LSD was active and delivered some amount of uops. We can already guess that number because we know how much total slots we waisted (`IDQ_UOPS_NOT_DELIVERED.CORE`). Each second cycle LSD delivered 2 uops which also means that each second cycle `IDQ_UOPS_NOT_DELIVERED.CORE` was increased by 2. Given that the number of cycles the backend was requesting uops is 5 * 10^8 and we waisted 2 slots on each of them, we confirmed the number for `IDQ_UOPS_NOT_DELIVERED.CORE` (10^9).
 
 I must say that I expected to see one uop delivered each cycle instead of 2 uops each second cycle. I'm not entirely sure why that's the case. It proves that real CPU design is much more complicated than my mental model. :)
+
+**UPD:** *Travis Downs in the comments provided his measurements when LSD is disabled. There he shows that if the loops is served out of DSB we have 3 "uops not delivered" per cycle. See comments for more details.*
 
 Another way to do this is to use subcounters of `IDQ_UOPS_NOT_DELIVERED`:
 - **IDQ_UOPS_NOT_DELIVERED.CYCLES_0_UOP_DELIV.CORE** - Cycles which 4 issue pipeline slots had no uop delivered from the front end to the back end when there is no back-end stall.
