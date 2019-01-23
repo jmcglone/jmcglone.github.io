@@ -16,18 +16,14 @@ As you may imagine, in LaTeX there is not only one quoting environment. There ar
 
 ```Latex
   \documentclass{article}
-    \usepackage[utf8]{inputenc}
-    \usepackage{dirtytalk}
- 
-  \begin{document}
-    \section{Introduction}
- 
-      Typing quotations with this package is quite easy:
- 
-      \say{Here, a quotation is written and even some \say{nested} quotations 
-      are possible}
- 
-  \end{document}
+ \usepackage{lipsum}
 
+\begin{document}
 
+[...] Before quote 
+    \begin{quote}
+        \lipsum[1]
+    \end{quote}
+After quote [...]
+\end{document}
 ```
