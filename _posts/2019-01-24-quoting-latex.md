@@ -28,4 +28,5 @@ As you may imagine, in LaTeX there is not only one quoting environment. There ar
   
   \end{document}
 ```
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+<img class="img-circle avatar" alt="Output using Env Quote" src="img/quote.PNG">
