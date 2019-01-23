@@ -61,4 +61,14 @@ After quotation [...]
 
 ```
 ### Output
-<img alt="Output using Env Quote" src="../img/quotation.PNG">
+<img alt="Output using Env Quote" src="../img/quotation.PNG"> 
+
+
+For further environments, you can chexk out packages like dirtytalk, csquotes, epigraph etc...
+They are all available on the Comprehensive TeX Archives Network [CTAN]{https://ctan.org/}.
+
+
+```bash
+Thanks for stopping by, I might write about some of the packages cited above in the future. 
+Feel free to use the comment box!
+```
