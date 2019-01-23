@@ -64,7 +64,7 @@ After quotation [...]
 <img alt="Output using Env Quote" src="../img/quotation.PNG"> 
 
 
-For further environments, you can chexk out packages like dirtytalk, csquotes, epigraph etc...
+For further environments, you can chexk out packages like dirtytalk, csquotes or epigraph.
 They are all available on the Comprehensive TeX Archives Network [CTAN](https://ctan.org/).
 
 
