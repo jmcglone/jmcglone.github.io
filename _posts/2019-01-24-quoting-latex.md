@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quoting in LaTeX: How to?
+title: Quoting in LaTeX
 date: 2019-01-24
 ---
 
