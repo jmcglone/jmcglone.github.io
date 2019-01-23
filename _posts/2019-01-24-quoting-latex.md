@@ -15,7 +15,7 @@ Quoting effectively is vital as a result of the correct quotation given properly
 As you may imagine, in LaTeX there is not only one quoting environment. There are several environments for different purposes and different outputs. However, in this post we will focus on the fundamental classes for quoting.
 
 
-| Env           | When?      | 
+| Env           | When?       | 
 | ------------- |:-------------:| 
 | Quote         | quote for a short quotation, or a series of small quotes,|    
 |               | separated by blank lines. |             
