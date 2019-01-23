@@ -60,3 +60,5 @@ After quotation [...]
 \end{document}
 
 ```
+### Output
+<img alt="Output using Env Quote" src="../img/quotation.PNG">
