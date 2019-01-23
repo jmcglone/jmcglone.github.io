@@ -42,8 +42,9 @@ As you may imagine, in LaTeX there is not only one quoting environment. There ar
   \end{document}
 ```
 ### Output
-
+<div
 <img alt="Output using Env Quote" src="../img/quote.PNG"> 
+</div>
 
 ### Quotation, e.g.
 
@@ -62,8 +63,9 @@ After quotation [...]
 
 ```
 ### Output
+<div
 <img alt="Output using Env Quote" src="../img/quotation.PNG"> 
-
+</div>
 
 For further environments, you can chexk out packages like dirtytalk, csquotes or epigraph.
 They are all available on the Comprehensive TeX Archives Network [CTAN](https://ctan.org/).
