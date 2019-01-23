@@ -14,12 +14,16 @@ Quoting effectively is vital as a result of the correct quotation given properly
 ## Quoting environments in Latex 
 As you may imagine, in LaTeX there is not only one quoting environment. There are several environments for different purposes and different outputs. However, in this post we will focus on the fundamental classes for quoting.
 
+
 | Env           | When?      | 
 | ------------- |:-------------:| 
 | Quote         | quote for a short quotation, or a series of small quotes,|    
 |               | separated by blank lines. |             
 | Quotation     | quotation for use with longer quotations, of more than one| 
 |               |   paragraph, because it indents the first line of each paragraph. |
+
+
+### Quote, e.g.
 
 
 
@@ -37,5 +41,22 @@ As you may imagine, in LaTeX there is not only one quoting environment. There ar
   
   \end{document}
 ```
-
+### Output
 <img alt="Output using Env Quote" src="../img/quote.PNG">
+
+### Quotation, e.g.
+
+```Latex
+\documentclass{article}
+ \usepackage{lipsum}
+
+\begin{document}
+
+[...] Before quotation
+    \begin{quotation}
+        \lipsum[1-2]
+    \end{quotation}
+After quotation [...]
+\end{document}
+
+```
