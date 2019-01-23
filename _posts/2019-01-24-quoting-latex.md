@@ -14,7 +14,7 @@ Quoting effectively is vital as a result of the correct quotation given properly
 ## Quoting environments in Latex 
 As you may imagine, in LaTeX there is not only one quoting environment. There are several environments for different purposes and different outputs. However, in this post we will focus the fundamental classes for quoting.
 
-```latex
+```Latex
   \documentclass{article}
     \usepackage[utf8]{inputenc}
     \usepackage{dirtytalk}
