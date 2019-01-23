@@ -65,7 +65,7 @@ After quotation [...]
 
 
 For further environments, you can chexk out packages like dirtytalk, csquotes, epigraph etc...
-They are all available on the Comprehensive TeX Archives Network [CTAN]{https://ctan.org/}.
+They are all available on the Comprehensive TeX Archives Network [CTAN](https://ctan.org/).
 
 
 ```bash
