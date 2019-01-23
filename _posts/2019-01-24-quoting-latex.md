@@ -12,3 +12,10 @@ It may be a fraction from a book, an article, a speech, a poetry or each alterna
 Quoting effectively is vital as a result of the correct quotation given properly will add spice, interest, thought, effectivenes, support, and relevance your writing. Further reading [here](https://books.openedition.org/obp/927?lang=en), an exellent piece by [Prof Ruth Finnegan](http://www.open.ac.uk/people/rhf2) I recommend.
 
 ## Quoting environments in Latex 
+As you may imagine, in LaTeX there is not only one quoting environment. There are several environments for different purposes and different outputs. However, in this post we will focus the fundamental classes for quoting.
+
+```
+function test() {
+  console.log("notice the blank line before this function?");
+}
+```
