@@ -43,7 +43,7 @@ As you may imagine, in LaTeX there is not only one quoting environment. There ar
 ```
 ### Output
 
-![alt text](https://github.com/mkantem/mkantem.github.io/master/img/quote.PNG "Output using Env Quote1")
+<img alt="Output using Env Quote" src="../img/quote.PNG"> 
 
 ### Quotation, e.g.
 
