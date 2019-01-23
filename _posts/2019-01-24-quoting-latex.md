@@ -70,7 +70,10 @@ For further environments, you can chexk out packages like dirtytalk, csquotes or
 They are all available on the Comprehensive TeX Archives Network [CTAN](https://ctan.org/).
 
 
-```
+
+
+```ruby
 Thanks for stopping by, I might write about some of the packages cited above in the future. 
 Feel free to use the comment box!
 ```
+
