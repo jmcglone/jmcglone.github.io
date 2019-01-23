@@ -25,5 +25,6 @@ As you may imagine, in LaTeX there is not only one quoting environment. There ar
          \lipsum[1]
      \end{quote}
   After quote [...]
+  
   \end{document}
 ```
