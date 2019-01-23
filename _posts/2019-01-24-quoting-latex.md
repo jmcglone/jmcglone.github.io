@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Quote and Quotation in LaTeX
+title: Quoting in LaTeX: How to?
 date: 2019-01-24
 ---
 
-## Quotation: What and why do?
+## Quotation: What and why?
 
 For each writer or, in any case, serious author (i. e. bloggers, academicians, authors, etc.) it's elementary to possess a decent quoting tool. A quoting tool permits to spotlight text in dedicated environments separated from standard context.
 It may be a fraction from a book, an article, a speech, a poetry or each alternative source to pur in evidence.
