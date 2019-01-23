@@ -42,9 +42,9 @@ As you may imagine, in LaTeX there is not only one quoting environment. There ar
   \end{document}
 ```
 ### Output
-<div
+
 <img alt="Output using Env Quote" src="../img/quote.PNG"> 
-</div>
+![alt text](https://github.com/mkantem/mkantem.github.io/raw/master/img/quote.PNG "Logo Title Text 1")
 
 ### Quotation, e.g.
 
