@@ -43,8 +43,7 @@ As you may imagine, in LaTeX there is not only one quoting environment. There ar
 ```
 ### Output
 
-<img alt="Output using Env Quote" src="../img/quote.PNG"> 
-![alt text](https://github.com/mkantem/mkantem.github.io/raw/master/img/quote.PNG "Logo Title Text 1")
+![alt text](https://github.com/mkantem/mkantem.github.io/raw/master/img/quote.PNG "Output using Env Quote")
 
 ### Quotation, e.g.
 
@@ -63,15 +62,15 @@ After quotation [...]
 
 ```
 ### Output
-<div
-<img alt="Output using Env Quote" src="../img/quotation.PNG"> 
-</div>
+
+![alt text](https://github.com/mkantem/mkantem.github.io/raw/master/img/quotation.PNG "Output using Env Quotation")
+
 
 For further environments, you can chexk out packages like dirtytalk, csquotes or epigraph.
 They are all available on the Comprehensive TeX Archives Network [CTAN](https://ctan.org/).
 
 
-```bash
+```command
 Thanks for stopping by, I might write about some of the packages cited above in the future. 
 Feel free to use the comment box!
 ```
