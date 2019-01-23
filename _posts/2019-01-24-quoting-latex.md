@@ -15,15 +15,15 @@ Quoting effectively is vital as a result of the correct quotation given properly
 As you may imagine, in LaTeX there is not only one quoting environment. There are several environments for different purposes and different outputs. However, in this post we will focus the fundamental classes for quoting.
 
 ```Latex
-  \documentclass{article}
+ \documentclass{article}
  \usepackage{lipsum}
 
-\begin{document}
+ \begin{document}
 
-[...] Before quote 
-    \begin{quote}
-        \lipsum[1]
-    \end{quote}
-After quote [...]
-\end{document}
+  [...] Before quote 
+     \begin{quote}
+         \lipsum[1]
+     \end{quote}
+  After quote [...]
+  \end{document}
 ```
