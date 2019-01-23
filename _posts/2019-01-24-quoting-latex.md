@@ -29,4 +29,4 @@ As you may imagine, in LaTeX there is not only one quoting environment. There ar
   \end{document}
 ```
 
-<img alt="Output using Env Quote" src="img/quote.png">
+<img alt="Output using Env Quote" src="../img/quote.png">
