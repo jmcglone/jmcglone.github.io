@@ -6,7 +6,7 @@
 	<!-- favicon
 	<link rel="shortcut icon" href="/img/ico/favicon.png">
 	-->
-	<title>{{ page.title }} | Mahamadou Kanté | Developer | Guitarist |</title>		
+	<title>{{ page.title }} | Mahamadou Kanté | Researcher | Developer | Guitarist |</title>		
 	<!-- styles -->
 	<link href="/css/bootstrap.css" rel="stylesheet">
 	<link href="/css/jumbotron-narrow.css" rel="stylesheet">
@@ -19,11 +19,9 @@
 	<![endif]-->
 	<!-- google analytics - i will not share this data with google -->
 	{% include analytics.html %}	
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-4729293279921640",
-    enable_page_level_ads: true
-  });
-</script>
+
+    {% if site.tags != "" %}
+     {% include collecttags.html %}
+   {% endif %}
+
 </head>
