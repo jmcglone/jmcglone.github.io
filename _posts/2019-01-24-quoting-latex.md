@@ -2,6 +2,7 @@
 layout: post
 title: Quoting in LaTeX
 date: 2019-01-24
+tags: latex quote quotation tex
 ---
 
 ## Quotation: What and why?
