@@ -2,6 +2,7 @@
 layout: post
 title: Quoting in LaTeX
 date: 2019-01-24
+description: How to use the basic quoting environments in Latex, "quote" and "quotation"
 tags: latex quote quotation tex
 ---
 
