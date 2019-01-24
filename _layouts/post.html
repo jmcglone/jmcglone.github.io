@@ -10,6 +10,12 @@ notes: active
 			<h2 class="date"><info datetime="{{ page.date }}">
 				{{ page.date | date_to_string }} {% if page.author %} by {{ page.author }} {% endif %}
 			</info></h2>
+			<span>[
+ 			 {% for tag in page.tags %}
+   			 {% capture tag_name %}{{ tag }}{% endcapture %}
+    			<a href="/tag/{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
+  			{% endfor %}
+			]</span>
 			<!-- Post content -->
 			<div class="notebody">
 				{{ content }}
