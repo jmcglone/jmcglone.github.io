@@ -20,7 +20,6 @@ notes: active
 			<div class="notebody">
 				{{ content }}
 			 	{% include advertisements.html %}
-				{% include affiliatepax.html %}
 			</div>
 			<!-- Post info -->
 			<!--div class="noteinfo">
@@ -30,6 +29,7 @@ notes: active
    			 {% capture tag_name %}{{ tag }}{% endcapture %}
     			<a href="/tag/{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
   			{% endfor %}
+			{% include affiliatepax.html %}
 			]</span>
 			
 			<!--/div>
