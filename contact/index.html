@@ -37,4 +37,33 @@ description: Contact information for Kanté Mahamadou, Music Enthusiast, and Web
 				</div>
 			</div>
 </section>
-
+<script>
+  			$("#form").submit(function(){
+  				sendMessage();
+  				return false;
+function sendMessage(){
+  				var name = document.getElementById("name").value;
+  				var email = document.getElementById("email").value;
+  				var message = document.getElementById("message").value;
+  				
+  				var obj = {"name": name, "_replyto": email, "message": message};
+  				
+  				$.ajax({
+  					url: "//formspree.io/mkantem@yahoo.fr",
+  					type: "POST",
+  					data: obj,
+  					dataType: "json",
+  					success: function(){
+  						console.log("sent email");
+  						notify("Email", "Successfully Sent Message");
+  						clearForm();
+  					},
+  					error: function(jqXHR, textStatus, errorThrown){
+  						console.error("Error sending email: " + textStatus + " " + errorThrown);
+  						notify("Email", "Error Send Message");
+  						clearForm();
+  					}
+  				});
+  				return false;
+  			}
+</script>
