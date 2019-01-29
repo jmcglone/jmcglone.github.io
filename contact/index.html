@@ -66,4 +66,23 @@ function sendMessage(){
   				});
   				return false;
   			}
+				function notify(title, message){
+  				if (!("Notification" in window)) {
+  			    	console.log("Browser doesn't support notifications.");
+  			    	alert(message);
+  			  	}else if (Notification.permission === "granted") {
+  			    	var notification = new Notification(title, {body: message});
+  			  	}else if (Notification.permission !== 'denied') {
+  			    	Notification.requestPermission(function (permission) {
+  			      		if (permission === "granted") {
+  			      			var notification = new Notification(title, {body: message});
+  			      		}
+  			    	});
+  			  	}
+  			}
+				function clearForm(){
+  				document.getElementById("name").value = "";
+  				document.getElementById("email").value = "";
+  				document.getElementById("message").value = "";
+  			}
 </script>
