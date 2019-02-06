@@ -1,0 +1,30 @@
+### Bonus section
+
+In this section I want to share one cool technique that I sometimes might be very useful. In the example in this post we can estimate (with very high precision) the number of cycles between the prefetch instruction and the actual time the request goes to the main memory.
+
+By leveraging LBR (Last Branch Record) we can calculate the number of cycles for the basic block. IMO this is the use case where LBR feature really shines. You might want to read one of my previous [post](https://dendibakh.github.io/blog/2018/06/08/Advanced-profiling-topics-PEBS-and-LBR) where I briefly touched on this feature.
+
+Let's run 
+```
+$ perf record -b -e cycles ./a.out
+$ perf script -F +brstackinsn  | xed -F insn: -A -64 > dump.txt
+$ grep "0000000000400e16" dump.txt 
+// just a small sample:
+	0000000000400e16			retq                        	# PRED 116 cycles 1.16 IPC
+	0000000000400e16			retq                        	# PRED 278 cycles 0.48 IPC
+	0000000000400e16			retq                        	# PRED 88 cycles 1.52 IPC
+	0000000000400e16			retq                        	# PRED 267 cycles 0.50 IPC
+	0000000000400e16			retq                        	# PRED 1104 cycles 0.12 IPC      <==
+	0000000000400e16			retq                        	# PRED 34 cycles 3.94 IPC
+	0000000000400e16			retq                        	# PRED 309 cycles 0.43 IPC
+	0000000000400e16			retq                        	# PRED 34 cycles 3.94 IPC
+	0000000000400e16			retq                        	# PRED 278 cycles 0.48 IPC
+	0000000000400e16			retq                        	# PRED 46 cycles 2.91 IPC
+	0000000000400e16			retq                        	# PRED 620 cycles 0.22 IPC
+	0000000000400e16			retq                        	# PRED 34 cycles 3.94 IPC
+	0000000000400e16			retq                        	# PRED 453 cycles 0.30 IPC
+
+$ grep "0000000000400e16" dump.txt -c
+157046
+gkliclel215:/export/users/dbakhval/top-down$ grep "0000000000400e16" dump.txt | grep "PRED 34 cycles" -c
+31832

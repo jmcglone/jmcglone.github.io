@@ -69,10 +69,20 @@ ul.listnotes li {line-height: 30px; }
     display: block;
     width: 40%;
 }
+.center-image-width-40-no-block
+{
+    margin: 0 auto;
+    width: 40%;
+}
 .center-image-width-50
 {
     margin: 0 auto;
     display: block;
+    width: 50%;
+}
+.center-image-width-50-no-block
+{
+    margin: 0 auto;
     width: 50%;
 }
 .center-image-width-70
