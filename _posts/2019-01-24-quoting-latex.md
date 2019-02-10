@@ -16,7 +16,16 @@ Quoting effectively is vital as a result of the correct quotation given properly
 ## Quoting environments in Latex 
 As you may imagine, in LaTeX there is not only one quoting environment. There are several environments for different purposes and different outputs. However, in this post we will focus on the fundamental classes for quoting.
 
-
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-4729293279921640"
+     data-ad-slot="6265917844"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 | Env           | When?       | 
 | ------------- |:-------------:| 
 | Quote         | quote for a short quotation, or a series of small quotes,|    
