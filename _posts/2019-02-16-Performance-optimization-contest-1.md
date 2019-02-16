@@ -89,6 +89,8 @@ Count: 1028
 
 > __Disclaimer__: Again I think it's worth to say that I will not use your submissions in any commercial purposes.
 
+The baseline that I will be measuring against is 'gcc -O3'.
+
 If you're willing to submit your work please __subscribe to my mailing list__ and then send all you have via email.
 Rules and guidelines for submissions I described earlier in my [initial post](https://dendibakh.github.io/blog/2019/02/02/Performance-optimization-contest) in "*Q6: How should the submission look like?*".
 
