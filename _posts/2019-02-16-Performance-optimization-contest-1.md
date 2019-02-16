@@ -63,7 +63,7 @@ Target machine for this edition of the contest is Haswell CPU with 64-bit Linux.
 2. Find the hotspot (use `perf record`).
 3. Find performance headroom
   * Take a look at the assembly and try to guess how you can do better.
-  * Run through [TMAM]() process.
+  * Run through [TMAM](https://dendibakh.github.io/blog/2019/02/09/Top-Down-performance-analysis-methodology) process.
 4. Build the benchmark, run it and compare against baseline.
 
 I also have a few general advises:
