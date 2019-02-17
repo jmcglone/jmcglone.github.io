@@ -18,7 +18,7 @@ Before I explain it in more details I feel a need of writing disclaimer:
 
 In this contest I try to emulate the situation in performance critical projects on the final stages. When all the functionality is delivered and tested. But before shipping the binary to the customers you were asked to tune the app to it's peak performance. You know the hardware it will be deployed to. You have the sources in your hands and freedom to modify it (without introducing any bugs :) ). You are the build master, so you can add any compiler flags you want. 
 
-For the challenges that I will send I'm not looking for optimizations that fall into the category: "Oh, I just used quicksort instead of bublesort". Expect benchmark to be already optimized to some degree. Your task is to tune it for particular hardware to the peak performance.
+For the challenges that I will send I'm not looking for optimizations that fall into the category: "Oh, I just used quicksort instead of bubblesort". Expect the benchmark to be already optimized to some degree. Your task is to tune it for particular hardware to the peak performance.
 
 ### Q&A
 
