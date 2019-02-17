@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Coimbra Group Short Stay Scholarship Programme
+title: Coimbra Group Short Stay Scholarship Programme 2019
 date: 2019-02-17
 description: Information about the Coimbra group 2019 short stay scholarship program.
 tags: scholarship  africa
