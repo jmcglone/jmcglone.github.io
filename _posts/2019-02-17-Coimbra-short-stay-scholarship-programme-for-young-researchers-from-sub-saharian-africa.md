@@ -47,5 +47,5 @@ PS: Female candidates are encouraged to apply and will be prioritised.
 
 For more information:
 
-[Visit the official website of the Coimbra group scholarship programme 2019](https://www.coimbra-group.eu/scholarships) 
+[Visit the official website of the Coimbra group scholarship programme 2019](https://www.coimbra-group.eu/scholarships/sub-saharan-africa/) 
 
