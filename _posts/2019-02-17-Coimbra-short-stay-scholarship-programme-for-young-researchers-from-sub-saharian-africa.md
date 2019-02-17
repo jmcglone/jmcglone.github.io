@@ -43,6 +43,7 @@ In most universities the language of instruction is that of the country itself,
 but in many universities it is possible to use English as the working language.
 
 Applicants must fill in the on-line application form before 31 March 2019 midnight (Brussels time).
+
 PS: Female candidates are encouraged to apply and will be prioritised.
 
 For more information:
