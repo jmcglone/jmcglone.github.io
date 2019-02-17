@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Coimbra Group Short Stay Scholarship Programme
-for young researchers from Sub-Saharan Africa
 date: 2019-02-17
 description: Information about the Coimbra group 2019 short stay scholarship program.
 tags: scholarship  Africa
