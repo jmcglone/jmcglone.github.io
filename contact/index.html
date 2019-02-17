@@ -23,66 +23,6 @@ description: Contact information for Kanté Mahamadou, Music Enthusiast, and Web
 </div>
 
 
-			<div class="container">
-				<div>	
-					<form id="form">
-						<p class="contact">
-							<span class="sub-contact">Or Get in contact with me using the form below. It'd be great to hear from you!</span>
-						</p>
-						<input type="text" id="name" placeholder="Name" required="required"></input>
-						<input type="email" id="email" placeholder="Email" required="required"></input>
-						<textarea id="message" class="message" placeholder="Message" required="required"></textarea>
-						<button id="submit" class="submit center-block m-btn" type="submit" title="Submit form.">Submit <span class="fa fa-paper-plane"></span></button>
-					</form>
-				</div>
-			</div>
+			
 
-<script>
-  			$("#form").submit(function(){
-  				sendMessage();
-  				return false;
-function sendMessage(){
-  				var name = document.getElementById("name").value;
-  				var email = document.getElementById("email").value;
-  				var message = document.getElementById("message").value;
-  				
-  				var obj = {"name": name, "_replyto": email, "message": message};
-  				
-  				$.ajax({
-  					url: "//formspree.io/mkantem@yahoo.fr",
-  					type: "POST",
-  					data: obj,
-  					dataType: "json",
-  					success: function(){
-  						console.log("sent email");
-  						notify("Email", "Successfully Sent Message");
-  						clearForm();
-  					},
-  					error: function(jqXHR, textStatus, errorThrown){
-  						console.error("Error sending email: " + textStatus + " " + errorThrown);
-  						notify("Email", "Error Send Message");
-  						clearForm();
-  					}
-  				});
-  				return false;
-  			}
-				function notify(title, message){
-  				if (!("Notification" in window)) {
-  			    	console.log("Browser doesn't support notifications.");
-  			    	alert(message);
-  			  	}else if (Notification.permission === "granted") {
-  			    	var notification = new Notification(title, {body: message});
-  			  	}else if (Notification.permission !== 'denied') {
-  			    	Notification.requestPermission(function (permission) {
-  			      		if (permission === "granted") {
-  			      			var notification = new Notification(title, {body: message});
-  			      		}
-  			    	});
-  			  	}
-  			}
-				function clearForm(){
-  				document.getElementById("name").value = "";
-  				document.getElementById("email").value = "";
-  				document.getElementById("message").value = "";
-  			}
-</script>
+
