@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to collect CPU performance counters on Windows.
+title: How to collect CPU performance counters on Windows?
 tags: default
 ---
 

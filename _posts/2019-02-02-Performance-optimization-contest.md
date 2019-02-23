@@ -76,3 +76,7 @@ I know there is a lot more concerns you might have. This is just a first attempt
 All communication (including sending benchmarks and score submissions) will happen through emails, so **make sure to subscribe** using the form at the bottom of the page! I am planning to start first contest in the end of February 2019.
 
 Let me know what you think about it or if you have any ideas or comments. You can also vote if you like it using the buttons below.
+
+### List of contest editions
+
+- [Contest #1](https://dendibakh.github.io/blog/2019/02/16/Performance-optimization-contest-1) - 16 Feb 2019.
