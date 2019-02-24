@@ -77,6 +77,28 @@ All communication (including sending benchmarks and score submissions) will happ
 
 Let me know what you think about it or if you have any ideas or comments. You can also vote if you like it using the buttons below.
 
+### How to get started?
+
+1. Collect the baseline (use `time` or analogs).
+2. Find the hotspot (use `perf record`).
+3. Find performance headroom
+  * Take a look at the assembly and try to guess how you can do better.
+  * Run through [TMAM](https://dendibakh.github.io/blog/2019/02/09/Top-Down-performance-analysis-methodology) process.
+4. Build the benchmark, run it and compare against baseline.
+
+### Hints
+
+- Do not try to understand the whole benchmark. For some people (including me) it's crucial to understand how every peace of code works. For the purposes of optimizing it will be wasted effort. There are CPU benchmarks with thousands LOC (like [SPEC2017](http://spec.org/cpu2017/)) it's absoultely impossible to understand them in a reasonable time. What you need to familiarize yourself with are hotspots. That's it. You most likely need to understand one function/loop which is not more than 100 LOC.
+- You have specific workload for which you optimize the benchmark. You don't need to optimize it for any other input/workload. The main principle behind [Data-oriented design](https://en.wikipedia.org/wiki/Data-oriented_design) is that you know the data of your application.
+
+Information presented in llvm documentation: [Benchmarking tips](https://llvm.org/docs/Benchmarking.html) migth also be helpful.
+
+### What's NOT allowed
+
+1. Do not rewrite the benchmark completely or introduce major changes in algorithms.
+2. Do not manually parallelize the benchmark, e.g converting it from single- to multi-threaded or offload computations to the GPU. I mean, I'm glad that you can do it and I will be happy to take a look what you did, but it's not the intent of the contest.
+3. Using [PGO](https://en.wikipedia.org/wiki/Profile-guided_optimization) is allowed, however you can use it only for driving you optimizations, not for the submission. So, you can check how the benchmark gets better with PGO and understand why. And then make this optimization manually. Again, the purposes is practicing and learning.
+
 ### List of contest editions
 
 - [Contest #1](https://dendibakh.github.io/blog/2019/02/16/Performance-optimization-contest-1) - 16 Feb 2019.
