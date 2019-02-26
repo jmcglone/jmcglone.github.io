@@ -1,0 +1,27 @@
+---
+layout: feed
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Scholarchip Opportunities</title>
+ <link href="http://mkantem.github.io/Scholarships/atom.xml" rel="self"/>
+ <link href="http://mkantem.github.io/Scholarchips/"/>
+ <updated>{{ site.time | date_to_xmlschema }}</updated>
+ <id>http://mkantem.github.io/Scholarships/</id>
+ <author>
+   <name>Mahamadou KANTE</name>
+   <email>mkantem@yahoo.fr</email>
+ </author>
+
+ {% for post in site.posts %}
+ <entry>
+   <title>{{ post.title }}</title>
+   <link href="http://mkantem.github.io{{ post.url }}"/>
+   <updated>{{ post.date | date_to_xmlschema }}</updated>
+   <id>http://mkantem.github.io/Scholarchips{{ post.id }}</id>
+   <content type="html">{{ post.content | xml_escape }}</content>
+ </entry>
+ {% endfor %}
+ 
+</feed>
