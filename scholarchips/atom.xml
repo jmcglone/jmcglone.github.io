@@ -8,7 +8,7 @@ layout: feed
  <link href="http://mkantem.github.io/scholarships/atom.xml" rel="self"/>
  <link href="http://mkantem.github.io/scholarchips/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>http://mkantem.github.io/Scholarships/</id>
+ <id>http://mkantem.github.io/scholarships/</id>
  <author>
    <name>Mahamadou KANTE</name>
    <email>mkantem@yahoo.fr</email>
