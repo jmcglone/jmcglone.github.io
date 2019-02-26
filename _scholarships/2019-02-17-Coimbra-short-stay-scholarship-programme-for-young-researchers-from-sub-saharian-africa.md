@@ -47,7 +47,7 @@ Applicants must fill in the on-line application form before 31 March 2019 midnig
 
 PS: Female candidates are encouraged to apply and will be prioritised.
 
-For more information:
+For more information :
 
 [Visit the official website of the Coimbra group scholarship programme 2019](https://www.coimbra-group.eu/scholarships/sub-saharan-africa/) 
 
