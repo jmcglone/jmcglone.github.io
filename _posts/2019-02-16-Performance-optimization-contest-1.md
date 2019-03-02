@@ -13,7 +13,7 @@ Now it's time to start our first edition. I'm glad to say "Welcome" to every par
 The benchmark for the contest is:
 https://github.com/llvm-mirror/test-suite/blob/master/SingleSource/Benchmarks/Shootout/sieve.c
 
-```cpp
+{% highlight cpp linenos %}
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
     printf("Count: %d\n", count);
     return(0);
 }
-```
+{% endhighlight %}
 
 That's it. Yes, it's really small. I decided to pick single source benchmark for a first contest in order to offer a quick start for everybody.
 
@@ -101,4 +101,53 @@ Good luck and have fun!
 __P.S.__ I have no automation for my contest yet, so if anyone knows any good service or a way to automate it using web interface, please let me know.
 
 __P.P.S.__ I'm also open to your comments and suggestions. If you have any suggestions for the benchmarks for the next edition of contest, please tell me.
+
+---
+
+## _Updated 2nd March 2019_
+
+### Scores
+
+I received 7 submissions for the contest which is quite good. I wrote the script to automate measuring process (you can find it [here](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/run.py)).
+
+The baseline code showed this results:
+```
+time(s)   submission   timings for 10 consecutive runs (s)
+([2.31,   'baseline',  [2.31, 2.32, 2.32, 2.32, 2.32, 2.32, 2.32, 2.32, 2.32, 2.32]])
+```
+
+Here are the best 3 submissions:
+```
+   time(s)   submission         timings for 10 consecutive runs (s)                            speedup
+1. ([0.34,   'Nathan Kurz'    , [0.34, 0.34, 0.34, 0.34, 0.34, 0.34, 0.34, 0.34, 0.34, 0.34]], ' + 6.79x')
+2. ([0.46,   'Hector Grebbell', [0.46, 0.46, 0.46, 0.46, 0.46, 0.46, 0.46, 0.46, 0.47, 0.47]], ' + 5.02x')
+3. ([1.06,   'Hadi Brais'     , [1.06, 1.07, 1.07, 1.07, 1.07, 1.07, 1.07, 1.07, 1.07, 1.07]], ' + 2.18x')
+```
+Congratulations!
+
+### Optimizations found
+
+There were some amount of complaints about the benchmark and I admit it has high-level inefficiencies. So most of the optimizations I will present have algoritmic nature and are not necessary related to CPU microarchitecture. Indeed, it is not smart to look for low-level optimizations when there are high-level ones. However, bear with me, I do have something to offer.
+
+Because things that I will present can be easily found on the web, I will not explain it in very details. Yo can read more about Sieve of Eratosthenes on the [wikipedia](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes).
+
+1. Limit loop16 (loop on the line# 16) to run until sqrt(8192) - 2.6x speedup.
+2. Do not mark even numbers and iterate only through the odd numbers - 2.3x speedup.
+3. Move counting out of the outtermost loop (i.e. put it in a separate loop) - no speedup.
+
+All optimizations combined can be found on my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/1/sieve.c).
+
+And of course there was a [submission](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/1/sieve_constexpr.c) that utilized C++ constexpr feature and just printed correct answer in the runtime.
+
+Other observations made by participants:
+- converting `char flags[]` to bitfields showed negative effect.
+- all the code and all the data fits into L1I and L1D caches. No prefetching opportunities.
+ 
+### Second round
+
+Now when all the low-hanging fruits are found it's not that easy to optimize it further. But it doesn't mean there is absolutely no performance headroom. I briefly tried to optimize the version from my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/1/sieve.c) even more. By adding proper loop unrolling hints to the compiler and adjusting alignment of the loops I was able to reduce the execution time from `0.32s` down to `0.27s`. 
+
+If you wish you can take this as your homework. Take the the code from my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/1/sieve.c) as a baseline. To make results more stable I suggest to increase the number of repetitions from `170000` to `1700000`.
+
+Let me know what you can find.
 
