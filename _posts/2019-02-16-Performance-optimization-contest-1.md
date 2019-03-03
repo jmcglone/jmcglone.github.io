@@ -110,6 +110,8 @@ __P.P.S.__ I'm also open to your comments and suggestions. If you have any sugge
 
 I received 7 submissions for the contest which is quite good. I wrote the script to automate measuring process (you can find it [here](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/run.py)).
 
+My setup: xeon E3-1240 v3 + gcc 7.4 + Red Hat 7.4.
+
 The baseline code showed this results:
 ```
 time(s)   submission   timings for 10 consecutive runs (s)
