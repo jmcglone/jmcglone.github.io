@@ -9,10 +9,11 @@ int main(int argc, char *argv[]) {
     long sqrt_max = sqrt(8192);
 
     while (NUM--) {
-        for (i=2; i <= 8192; i+=2) {
+        for (i=2; i < 8192; i+=2) {
             flags[i] = 0;     // evens are not prime
             flags[i+1] = 1;   // odd numbers might be
         }
+	// flags[8192] doesn't need to be set, because it's even
 
         // since even numbers already crossed out we can:
         //  - start from i=3 
