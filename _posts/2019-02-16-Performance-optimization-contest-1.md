@@ -133,11 +133,10 @@ There were some amount of complaints about the benchmark and I admit it has high
 
 Because things that I will present can be easily found on the web, I will not explain it in very details. Yo can read more about Sieve of Eratosthenes on the [wikipedia](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes).
 
-1. Limit loop16 (loop on the line# 16) to run until sqrt(8192) - 2.6x speedup.
+1. Limit loop16 (loop on the line# 16) to run until sqrt(8192) - 2.6x speedup. That requires to move counting it in a separate loop.
 2. Do not mark even numbers and iterate only through the odd numbers - 2.3x speedup.
-3. Move counting out of the outtermost loop (i.e. put it in a separate loop) - no speedup.
 
-All optimizations combined can be found on my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/1/sieve.c).
+Source code with both optimizations combined can be found on my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/1/sieve.c).
 
 And of course there was a [submission](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/1/sieve_constexpr.c) that utilized C++ constexpr feature and just printed correct answer in the runtime.
 
@@ -147,7 +146,7 @@ Other observations made by participants:
  
 ### Second round
 
-Now when all the low-hanging fruits are found it's not that easy to optimize it further. But it doesn't mean there is absolutely no performance headroom. I briefly tried to optimize the version from my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/1/sieve.c) even more. By adding proper loop unrolling hints to the compiler and adjusting alignment of the loops I was able to reduce the execution time from `0.32s` down to `0.27s`. 
+Now when all the low-hanging fruits are found it's not that easy to optimize it further. But it doesn't mean there is absolutely no performance headroom. I briefly tried to optimize the version from my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/1/sieve.c) even more. By adding proper loop unrolling hints to the compiler and adjusting alignment of the loops I was able to reduce the execution time from `0.32s` down to `0.27s`. If I'll find time I'll write more about it.
 
 If you wish you can take this as your homework. Take the the code from my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/1/sieve.c) as a baseline. To make results more stable I suggest to increase the number of repetitions from `170000` to `1700000`.
 
