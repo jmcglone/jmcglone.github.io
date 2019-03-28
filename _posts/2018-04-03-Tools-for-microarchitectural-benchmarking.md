@@ -4,6 +4,10 @@ title: Tools for microarchitectural benchmarking.
 tags: default
 ---
 
+**Contents:**
+* TOC
+{:toc}
+
 I did a fair amount of low level experiments during the recent months and I tried different tools for making such experiments. In this post I just want to bring a qiuck summary for those tools in one place.
 
 **Disclaimer: I have no intention to compare different tools.**
@@ -20,7 +24,11 @@ What I want is to have a fine-grained analysis for some specific code region, no
 
 In this post I will give you a taste of the tools available without going too much into the details. Also we need to distinguish between static and dynamic tools.
 
+### Static tools
+
 **Static tools** don't run the actual code but try to simulate the execution keeping as much microarchitectural details as they can. Of course they are not capable of doing real measurements (execution time, performance counters) because they don't run the code. The good thing about that is that you don't need to have the real HW. You don't need to have privileged access rights as well. Another benefit is that you don't need to worry about consistency of the results. Static tools will always give you stable output, because simulation (in comparison with execution on a real hardware) is not biased in any way. The downside of static tools is that usually they can't predict and simulate everything inside modern CPUs and thus are useless in some situations. Today we will look into two examples of such tools: [IACA](https://software.intel.com/en-us/articles/intel-architecture-code-analyzer) and [llvm-mca](https://llvm.org/docs/CommandGuide/llvm-mca.html).
+
+### Dynamic tools
 
 **Dynamic tools** are based on running the code on the real HW and collecting all sorts of information about the execution. The good thing about it is that this is the only 100% reliable method of proving things. As a downside, usually you are required to have privileged access rights to collect performance counters. Also, it's not so easy to write a good benchmark and measure what you want to measure. Finally, you need to filter the noise and different kinds of side effects. From dynamic tools, today we will take a look at [uarch-bench](https://github.com/travisdowns/uarch-bench) and [likwid](https://github.com/RRZE-HPC/likwid).
 

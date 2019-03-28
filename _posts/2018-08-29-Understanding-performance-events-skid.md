@@ -4,6 +4,10 @@ title: Understanding performance events skid.
 tags: default
 ---
 
+**Contents:**
+* TOC
+{:toc}
+
 In my previous article I promised to write about retired instructions, reference cycles and other stuff. But one of my readers asked me why he sometimes sees an instruction tagged by an event which was not caused by this instruction? So, today I want to discuss this very important concept, which I think is crucial to understand.
 
 Performance analysis is a hard thing, no question about it. But it becomes even harder when the profile data that you are looking at misleads you. Imagine you have application with big amount of L1D-cache misses and the hot assembly code that look like this:

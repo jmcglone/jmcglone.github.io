@@ -4,6 +4,10 @@ title: Store forwarding by example.
 tags: default
 ---
 
+**Contents:**
+* TOC
+{:toc}
+
 In this post I will discussed another interesting feature of Intel processor that is called *store forwarding*.
 
 ### Store to load forwarding

@@ -4,6 +4,10 @@ title: Understanding IDQ_UOPS_NOT_DELIVERED performance counter.
 tags: default
 ---
 
+**Contents:**
+* TOC
+{:toc}
+
 It is very important to be able to characterize the application to understand it's bottlenecks and how to improve it. By characterizing I mean tell whether we are bound by CPU front-end (we can't fetch and decode instructions efficiently), memory (we have lots of data cache misses) or we are compute bound (say, we have a lot of expensive divisions). Modern tools are able to do this automatically thanks to particular performance monitoring counters (PMC).
 
 PMC that we will discuss today plays very important role in [top-down analysis](http://www.intel.com/content/www/us/en/architecture-and-technology/64-ia-32-architectures-optimization-manual.html) (Intel® 64 and IA-32 Architectures Optimization Reference Manual, Appendix B.1). In this metodology we try to detect what was stalling our execution starting from the high-level components (like Front End, Back End, Retiring, Branch predictor) and narrowing down the source of performance inefficiencies. 

@@ -4,6 +4,10 @@ title: Microbenchmarking fused instruction.
 tags: default
 ---
 
+**Contents:**
+* TOC
+{:toc}
+
 Let me start this post with a question: "Do you think number of executed(retired) instructions is a good metric for measuring performance of your application?".
 
 Well, it is a decent proxy, but not an one-to-one match to the timings of the benchmark. And in this post I will show when it can be the case.

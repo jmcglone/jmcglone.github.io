@@ -4,13 +4,17 @@ title: How to collect CPU performance counters on Windows?
 tags: default
 ---
 
+**Contents:**
+* TOC
+{:toc}
+
 I was asked a couple of times by my subscribers how to do microarchitectural analysis on Windows? To be honest I never had that problem before. Guess why? Because I work at Intel and of course I have the license to use [Intel® VTune™ Amplifier](https://software.intel.com/en-us/vtune). I can't fully feel the pain of the people who are doing performance related work on windows and don't have access to Vtune or [AMD CodeAnalyst](https://en.wikipedia.org/wiki/AMD_CodeAnalyst). Since it wasn't my problem I didn't make any efforts towards it. Finally I was browsing through [Bartek's coding blog](https://www.bfilipek.com/) and found the article [Curious case of branch performance](https://www.bfilipek.com/2017/05/curius-case-of-branch-performance.html). To me that seemed like a case that can be easily proven just by running `perf stat` if we were on Linux. But since we are on Windows... it's not that simple.
 
 In this article I want to present one way how you can collect [PMU counters](https://dendibakh.github.io/blog/2018/06/01/PMU-counters-and-profiling-basics) without Intel® VTune™ Amplifier. I took almost all the info from Bruce Dawson's [blog](https://randomascii.wordpress.com/). He wrote and [article](https://randomascii.wordpress.com/2016/11/27/cpu-performance-counters-on-windows/) which I want to expand and make it more of a step-by-step process. So, all the credit goes to Bruce here, because i didn't invent this. If you want to try it yourself, I suggest you first reproduce the example described in Bruce's article (link to [github](https://github.com/google/UIforETW/tree/master/LabScripts/ETWPMCDemo) with sources and scripts).
 
 Take all that is written in my article with a grain of salt though. I'm not a Windows developer and I'm not spending my time doing performance analysis on Windows. This is just one way to collect [PMU counters](https://dendibakh.github.io/blog/2018/06/01/PMU-counters-and-profiling-basics), but there might be others, more simple and robust. In the end you can purchase [Intel® VTune™ Amplifier](https://software.intel.com/en-us/vtune) which by the way can be quite expensive. But I want to say upfront, that there are no real alternatives to Vtune if you are going to do serious performance analysis and tuning on Windows (this is not an advertisement).
 
-### What you will need
+### What tools you will need?
 
 1. __xperf__. You need to install [Windows Performance Toolkit](https://docs.microsoft.com/en-us/windows-hardware/test/wpt/) which is a part of [Windows Assessment and Deployment Kit (Windows ADK)](https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install). For me xperf was automatically added to PATH.
 

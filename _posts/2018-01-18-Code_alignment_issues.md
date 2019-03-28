@@ -4,6 +4,10 @@ title: Code alignment issues.
 tags: default
 ---
 
+**Contents:**
+* TOC
+{:toc}
+
 ### Introduction
 
 How hard it is to benchmark the simple function like that?

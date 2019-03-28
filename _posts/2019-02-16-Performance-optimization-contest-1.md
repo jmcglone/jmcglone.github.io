@@ -4,11 +4,15 @@ title: Performance optimization contest &#35&#49.
 tags: default
 ---
 
+**Contents:**
+* TOC
+{:toc}
+
 Recently I announced performance optimization contest in my recent [article](https://dendibakh.github.io/blog/2019/02/02/Performance-optimization-contest). If you see this post and haven't read my initial post about the [contest](https://dendibakh.github.io/blog/2019/02/02/Performance-optimization-contest), I recommend that you first read it. 
 
 Now it's time to start our first edition. I'm glad to say "Welcome" to every participant!
 
-#### I'm collecting all your submissions until 25th February 2019 and will announce results on 1st March 2019.
+**I'm collecting all your submissions until 25th February 2019 and will announce results on 1st March 2019.**
 
 The benchmark for the contest is:
 https://github.com/llvm-mirror/test-suite/blob/master/SingleSource/Benchmarks/Shootout/sieve.c
@@ -94,7 +98,7 @@ The baseline that I will be measuring against is 'gcc -O3'.
 If you're willing to submit your work please __subscribe to my mailing list__ and then send all you have via email.
 Rules and guidelines for submissions I described earlier in my [initial post](https://dendibakh.github.io/blog/2019/02/02/Performance-optimization-contest) in "*Q6: How should the submission look like?*".
 
-#### I'm collecting all your submissions until 25th February 2019 and will announce results on 1st March 2019.
+**I'm collecting all your submissions until 25th February 2019 and will announce results on 1st March 2019.**
 
 Good luck and have fun!
 

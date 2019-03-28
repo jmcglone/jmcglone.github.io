@@ -4,6 +4,10 @@ title: How good of a performance optimizer you are? Contest!
 tags: default
 ---
 
+**Contents:**
+* TOC
+{:toc}
+
 Hello everybody!
 
 I decided to try new thing at the beginning of 2019. You probably heard about competitive programming and about popular web-sites like [Topcoder](https://www.topcoder.com/), [Codility](https://www.codility.com/) and others. The idea is that you can try yourself in solving programming puzzles. Usually it's not enough to just solve the puzzle, your solution must qualify for certain criterias such as algorithmic complexity and memory usage. Also on a real challenges it is improtant how fast you solved the problem.

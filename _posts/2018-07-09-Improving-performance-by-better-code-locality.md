@@ -4,6 +4,10 @@ title: Improving performance by better code locality.
 tags: default
 ---
 
+**Contents:**
+* TOC
+{:toc}
+
 Data locality is a known problem and there are lots of information written on that topic. Most of modern CPUs have caches, so it's best to keep the data that we access most frequently in one place (spatial locality). The other side of this problem is not to work on a huge chunk of memory in a given time interval, but work on a small pieces (temporal locality). The most known example of this kind is matrix traversal. And I hope that by now there are no developers who do matrix traversal by columns. 
 
 Similar rules apply to the machine code: if we will do frequent long jumps - it won't be very I-cache efficient. Today I will show one typical example of when it can make a difference.

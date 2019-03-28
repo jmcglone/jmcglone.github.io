@@ -4,6 +4,10 @@ title: Advanced profiling topics. PEBS and LBR.
 tags: default
 ---
 
+**Contents:**
+* TOC
+{:toc}
+
 In my [previous post](https://dendibakh.github.io/blog/2018/06/01/PMU-counters-and-profiling-basics) I made an overview of what PMU (Performance Monitoring Unit) is and what is PMU counter (PMC). We learned that there are fixed and programmable PMCs inside each PMU. We explored basics of counting and sampling mechanisms and left off on the advanced techniques and features for sampling. 
 
 To recap, previously I showed the number of steps which profiling tool does in order to collect statictics for your application. We initialize the counter with some number and wait until it overflows. On counter overflow, the kernel records information, i.e., a sample, about the execution of the program. What gets recorded depends on the type of measurement, but the key information that is common in all samples is the instruction pointer, i.e. where was the program when it was interrupted.
@@ -80,7 +84,7 @@ Benefits of using PEBS:
 - The skid is mimized compared to regular interrupted instruction pointer. 
 - Reduce the overhead because the Linux kernel is only involved when the PEBS buffer fills up, i.e., there is no interrupt until a lot of samples are available.
 
-### LBR
+### Last Branch Record (LBR)
 
 There is a great series on the topic of LBR and it's applications on [lwm.net](https://lwn.net/Articles/680985/) by Andi Kleen:
 > Intel CPUs have a feature called last branch records (LBR) where the CPU can continuously log branches to a set of model-specific registers (MSRs). The CPU hardware can do this in parallel while executing the program without causing any slowdown. There is some performance penalty for reading these registers, however.

@@ -51,16 +51,31 @@ ul.listnotes li {line-height: 30px; }
     display: block;
     width: 10%;
 }
+.center-image-width-10-no-block
+{
+    margin: 0 auto;
+    width: 10%;
+}
 .center-image-width-20
 {
     margin: 0 auto;
     display: block;
     width: 20%;
 }
+.center-image-width-20-no-block
+{
+    margin: 0 auto;
+    width: 20%;
+}
 .center-image-width-30
 {
     margin: 0 auto;
     display: block;
+    width: 30%;
+}
+.center-image-width-30-no-block
+{
+    margin: 0 auto;
     width: 30%;
 }
 .center-image-width-40

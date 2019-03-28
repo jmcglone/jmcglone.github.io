@@ -4,6 +4,10 @@ title: MacroFusion in Intel CPUs.
 tags: default
 ---
 
+**Contents:**
+* TOC
+{:toc}
+
 In my [previous post](https://dendibakh.github.io/blog/2018/02/15/MicroFusion-in-Intel-CPUs) I wrote about MicroFusion which is the thing that happens when multiple uops from the same assembly instruction are fused into one. Another interesting feature of Intel Architecture (IA) that was introduced in Core2 and Nehalem architectures is *MacroFusion*. It names the situation when uops from different assembly instruction fuse together into one uops.
 
 Description of it can be found in [microarchitecture manual](www.agner.org/optimize/microarchitecture.pdf) by Agner Fog:

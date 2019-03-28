@@ -4,6 +4,10 @@ title: Top-Down performance analysis methodology.
 tags: default
 ---
 
+**Contents:**
+* TOC
+{:toc}
+
 This post aims to help people that want to better understand performance bottlenecks in their application. There are many existing [methodolgies to do performance anlysis](http://www.brendangregg.com/methodology.html), but not so many of them are robust and formal. When I was just starting with performance work I usually just profiled the app and tried to grasp through the hotspots of the benchmark hoping to find something there. This often lead to random experiments with unrolling, vectorization, inlining, you name it. I'm not saying it's always a loosing strategy. Sometimes you can be lucky to get big performance boost from random experiments. But usually you need to have very good intuition and luck :).
 
 In this post I show more formal way to do performance analysis. It's called [Top-down Microarchitecture Analysis Method (TMAM)](http://www.intel.com/content/www/us/en/architecture-and-technology/64-ia-32-architectures-optimization-manual.html) (Intel® 64 and IA-32 Architectures Optimization Reference Manual, Appendix B.1). In this metodology we try to detect what was stalling our execution starting from the high-level components (like Front End, Back End, Retiring, Branch predictor) and narrowing down the source of performance inefficiencies. 
@@ -16,7 +20,7 @@ After fixing performance issue you repeat the process again.
 
 If it doesn't make sense to you yet, don't worry, it'll become clear with the example.
 
-### Example
+### TMAM concept
 
 TMAM conceptually works in a "black box" manner, with assumption that we don't know nothing about the benchmark. Let's imagine we have the binary (`a.out`) and it runs for 8.5 sec:
 ```
@@ -26,7 +30,7 @@ real 8.53
 
 TMAM methodology is implemented in [toplev](https://github.com/andikleen/pmu-tools/wiki/toplev-manual) tool that is a part of [pmu-tools](https://github.com/andikleen/pmu-tools) written by Andi Kleen.
 
-# Step 1
+### Step 1
 
 This is the two most important pictures for TMAM (taken from Intel manual, see link above). First is the breakdown of metric levels in TMAM and second shows reasoning for a single [uop](https://dendibakh.github.io/blog/2018/09/04/Performance-Analysis-Vocabulary):
 

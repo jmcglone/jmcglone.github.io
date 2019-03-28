@@ -4,6 +4,10 @@ title: My learning resources in 2018
 tags: default
 ---
 
+**Contents:**
+* TOC
+{:toc}
+
 About a year ago I joined C/C++ compiler team at Intel. And some people asked me how to become a compiler developer, because I assume that for many C++ developers compiler is just a piece of magic. Now, I don't consider myself an expert in this field, but still I decided to share with others what learning resources do I use. And it's not limited to compilers, but in general. I hope that someone will find something useful in this post.
 
 I don't want to advocate for any particular form of learning. It works differently for different people, so I will just place them in the order which works the best for me.

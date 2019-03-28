@@ -4,6 +4,10 @@ title: Using denormal values is slow. How to detect it?
 tags: default
 ---
 
+**Contents:**
+* TOC
+{:toc}
+
 In this short post I want to show the example how denormal values that you can use (unintentionally) in your calculations might slow down your code. And especially how to detect it using [performance counters](https://dendibakh.github.io/blog/2018/06/01/PMU-counters-and-profiling-basics).If you're not familiar with what denormal floats it's now the good time to [read](https://en.wikipedia.org/wiki/Denormal_number) it.
 
 *Disclaimer: In this post I don't touch the topic of how to disable denormal floats at the code/compiler level. There is lots of information in the web.*
