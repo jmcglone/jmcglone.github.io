@@ -172,7 +172,7 @@ Here is combined plot with original (baseline) and improved (prefetched) cases:
 
 ![](/img/posts/TimingBasicBlocks/chart_pref.png){: .center-image }
 
-You see, we lowered the spike around 300 cycles and shifted both spikes to the left which is good (towards lower latencies). Also notice a blue dot for 32 cycles latency which has frequency around 3000 times. That means we now have hits in the cache much more frequently. See more details about cache misses statistics in my previous [article](https://dendibakh.github.io/blog/2019/02/09/Top-Down-performance-analysis-methodology).
+You see, we lowered the spike around 300 cycles and shifted both spikes to the left which is good (towards lower latencies). Also notice the orange dot for 32 cycles latency which has frequency around 3000 times. That means we now have much less cycles that are wasted due to demanding load that misses in caches. See more details about cache misses statistics for this exact case in my previous article about [Top-Down Analysis methodology](https://dendibakh.github.io/blog/2019/02/09/Top-Down-performance-analysis-methodology).
 
 **That's all. Hope you enjoyed and found it useful! Good luck in using this powerful feature!**
 
