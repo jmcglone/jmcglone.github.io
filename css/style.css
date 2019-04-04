@@ -89,6 +89,11 @@ ul.listnotes li {line-height: 30px; }
     margin: 0 auto;
     width: 40%;
 }
+.center-image-width-45-no-block
+{
+    margin: 0 auto;
+    width: 45%;
+}
 .center-image-width-50
 {
     margin: 0 auto;

@@ -137,7 +137,7 @@ Notice we have `3864` samples, but `20536` LBR entries for our branch. On the av
 
 ### Application: estimating prefetch window
 
-Let's see what we can do with this timing information. Let's collect all the timings for this `RET` instruction. Here is the script that creates csv file from the dump:
+Let's see what we can do with this timing information. Let's collect all the timings for this `RET` instruction. Here is the [script](https://github.com/dendibakh/dendibakh.github.io/blob/master/_posts/code/TimingBasicBlocks/parse.sh) that creates csv file from the dump:
 ```bash
 $ grep "0000000000400e0b" dump.txt | grep "cycles" | sort > cycle_lines.txt
 $ sed 's/.*PRED \(.*\) cycles.*/\1/' cycle_lines.txt > cycles.txt
