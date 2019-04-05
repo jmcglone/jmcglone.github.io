@@ -38,14 +38,14 @@ jnz .loop
 ```
 
 For the purpose of the experiment we don't need to have real assembly instructions. We will emulate the workload with NOPs. In my experiment we will sample on the event `branches (BR_INST_RETIRED.ALL_BRANCHES)` and expect all such events to correspond to `jnz .loop` instruction. I made all experiments on Haswell CPU:
-```
+```bash
 $ perf stat -e cpu/event=0xc4,umask=0x4,name=BR_INST_RETIRED.ALL_BRANCHES/ ./a.out
  Performance counter stats for './a.out':
          100338645      BR_INST_RETIRED.ALL_BRANCHES                                   
        0,301300877 seconds time elapsed
 ```
 Total number of branches retired is close to `100'000'000` (1 branch per iteration). Now let's sample on it:
-```
+```bash
 $ perf record -e cpu/event=0xc4,umask=0x4,name=BR_INST_RETIRED.ALL_BRANCHES/ ./a.out
 [ perf record: Woken up 1 times to write data ]
 [ perf record: Captured and wrote 0.062 MB perf.data (1176 samples) ]
@@ -104,7 +104,7 @@ Notice, that all collected samples correspond to the wrong instruction! To under
 ### What we can do about it?
 
 Skid makes it difficult to discover the instruction which is actually causing the performance issue. But fortunately, there is a special mechanism called PEBS (Precise Event-Based Sampling) which is dedicated to solve the problem. More on this topic I wrote in already mentioned blog post. Here is how the things changed when using it (notice `pp` suffix in the event declaration):
-```
+```bash
 $ perf record -e cpu/event=0xc4,umask=0x4,name=BR_INST_RETIRED.ALL_BRANCHES/pp ./a.out
 [ perf record: Woken up 1 times to write data ]
 [ perf record: Captured and wrote 0.064 MB perf.data (1245 samples) ]

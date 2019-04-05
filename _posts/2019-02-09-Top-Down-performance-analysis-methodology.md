@@ -23,7 +23,7 @@ If it doesn't make sense to you yet, don't worry, it'll become clear with the ex
 ### TMAM concept
 
 TMAM conceptually works in a "black box" manner, with assumption that we don't know nothing about the benchmark. Let's imagine we have the binary (`a.out`) and it runs for 8.5 sec:
-```
+```bash
 $ time -p ./a.out
 real 8.53
 ```
@@ -39,7 +39,7 @@ This is the two most important pictures for TMAM (taken from Intel manual, see l
 We will run our app and collect specific metrics that will help us to characterize our application. We will try to detect in which category our application will fall to.
 
 Let's run it, collecting level-1 metrics on our binary:
-```
+```bash
 $ ~/pmu-tools/toplev.py --core S0-C0 -l1 -v --no-desc taskset -c 0 ./a.out
 ...
 S0-C0    FE             Frontend_Bound:          13.81 +-     0.00 % Slots below
@@ -50,7 +50,7 @@ S0-C0-T0                MUX:                    100.00 +-     0.00 %
 S0-C0-T1                MUX:                    100.00 +-     0.00 %            
 ```
 All right, now we know that we are bounded by backend. Let's drill one level down:
-```
+```bash
 $ ~/pmu-tools/toplev.py --core S0-C0 -l2 -v --no-desc taskset -c 0 ./a.out
 ...
 S0-C0    FE             Frontend_Bound:                             13.92 +-     0.00 % Slots below
@@ -67,7 +67,7 @@ S0-C0    RET            Retiring.Base:                              24.83 +-    
 S0-C0    RET            Retiring.Microcode_Sequencer:                7.65 +-     0.00 % Slots                
 ```
 Okay, we see that we are actually bounded by memory. Almost half of the execution time CPU was stalled waiting for memory requests to arrive. Let's try one level deeper:
-```
+```bash
 $ ~/pmu-tools/toplev.py --core S0-C0 -l3 -v --no-desc taskset -c 0 ./a.out
 ...
 S0-C0    FE             Frontend_Bound:                                 13.91 +-     0.00 % Slots below     
@@ -111,7 +111,7 @@ To locate the place in the code where this is happening, we need to refer to the
 
 For Skylake architecture `DRAM_Bound` metric is calculated using `CYCLE_ACTIVITY.STALLS_L3_MISS` performance event. Let's collect it:
 
-```
+```bash
 $ perf stat -e cycles,cpu/event=0xa3,umask=0x6,cmask=0x6,name=CYCLE_ACTIVITY.STALLS_L3_MISS/ ./a.out
        32226253316      cycles                                                      
        19764641315      CYCLE_ACTIVITY.STALLS_L3_MISS                                   
@@ -121,11 +121,11 @@ According to the definition of `CYCLE_ACTIVITY.STALLS_L3_MISS` it counts cycles 
 
 In the `Locate-with` column there is performance event that we can use to locate exact place in the code where the issue occurs. For `DRAM_Bound` metric we should use `MEM_LOAD_RETIRED.L3_MISS_PS` precise event. Let's sample on it:
 
-```
+```bash
 $ perf record -e cpu/event=0xd1,umask=0x20,name=MEM_LOAD_RETIRED.L3_MISS/ppp ./a.out
 ```
 If you don't understand the underlying mechanics of what we just did, I encourage you to read one of my previous posts: [Basics of profiling with perf](https://dendibakh.github.io/blog/2018/08/26/Basics-of-profiling-with-perf) and [Understanding performance events skid](https://dendibakh.github.io/blog/2018/08/29/Understanding-performance-events-skid). Let's look into the profile:
-```
+```bash
 $ perf report -n --stdio
 ...
 # Samples: 33K of event 'MEM_LOAD_RETIRED.L3_MISS'
@@ -142,7 +142,7 @@ $ perf report -n --stdio
 
 All L3 misses are caused by our code. Let's drill down to assembly:
 
-```
+```bash
 $ perf annotate --stdio -M intel foo
 Percent |      Source code & Disassembly of a.out for MEM_LOAD_RETIRED.L3_MISS
 -------------------------------------------------------------------------------
@@ -165,7 +165,7 @@ Percent |      Source code & Disassembly of a.out for MEM_LOAD_RETIRED.L3_MISS
 ```
 
 Just out of curiosity I collected the number of L3 misses:
-```
+```bash
 $ perf stat -e cpu/event=0xd1,umask=0x20,name=MEM_LOAD_RETIRED.L3_MISS/ ./a.out
           71370594      MEM_LOAD_RETIRED.L3_MISS                                    
 ```

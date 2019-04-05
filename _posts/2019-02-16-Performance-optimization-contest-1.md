@@ -53,7 +53,7 @@ That's it. Yes, it's really small. I decided to pick single source benchmark for
 ### Quickstart
 
 Because the benchmark has no external dependancies you can build it as simple as:
-```
+```bash
 $ wget https://raw.githubusercontent.com/llvm-mirror/test-suite/master/SingleSource/Benchmarks/Shootout/sieve.c
 $ gcc sieve.c -O3 -o sieve
 $ time -p ./sieve

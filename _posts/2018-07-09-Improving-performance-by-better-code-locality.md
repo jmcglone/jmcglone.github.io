@@ -112,7 +112,7 @@ int main()
 }
 ```
 Now let's run them. My measurements are for Skylake, but I think it holds for most modern architectures. I measured hardware events in several separated runs. Here are the results:
-```
+```bash
 $ perf stat -e <events> -- ./a_jmp
  Performance counter stats for './a_jmp':
 
@@ -128,7 +128,7 @@ $ perf stat -e <events> -- ./a_jmp
       16,346708137 seconds time elapsed
 ```
 
-```
+```bash
 $ perf stat -e <events> -- ./a_fall
  Performance counter stats for './a_fall':
 

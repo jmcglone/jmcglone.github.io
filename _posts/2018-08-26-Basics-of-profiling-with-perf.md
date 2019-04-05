@@ -15,13 +15,13 @@ real 2.67
 user 2.48
 ```
 Let's run `perf record` on it:
-```
+```bash
 $ perf record ./a.out
 [ perf record: Woken up 1 times to write data ]
 [ perf record: Captured and wrote 0.110 MB perf.data (2451 samples) ] 
 ```
 We have 2451 samples, that's 1 sample per millisecond. And that's a default behaviour: the perf tool defaults the frequency to 1000Hz, or 1000 samples/sec. It's also equivalent to run `perf record -F 1000`. Perf will stop our program 1000 times per second and see where the IP (instruction pointer) is. So, if we don't want that accuracy, we can choose a lower frequency:
-```
+```bash
 $ perf record -F 100 ./a_out
 [ perf record: Woken up 1 times to write data ]
 [ perf record: Captured and wrote 0.026 MB perf.data (247 samples) ] // 1 sample per 10 milliseconds
@@ -29,7 +29,7 @@ $ perf record -F 100 ./a_out
 But the interesting thing is that perf doesn't just stop your application after equal time intervals. If it would be so, there will be no difference for sampling on various events. Would we sample on cycles or instructions, there will be no difference, as perf will still stop the app after equal time intervals.
 
 To understand what is it doing, we'll take a look inside perf.data. If we do so we will be able to see raw samples:
-```
+```bash
 $ perf report -D
 ...
 9253562614198937 0x4d18 [0x28]: PERF_RECORD_SAMPLE(IP, 0x2): 20531/20531: 0x40090b period: 32287405 addr: 0 
@@ -45,7 +45,7 @@ $ perf report -D
 ```
 
 This is just one out of many samples collected during the whole runtime. First thing we'll take a look at is `0x40090b`. It is the instruction address on which this sample was collected. At the time when sample was captured, IP (instruction pointer) was set to this instruction. If we grep all the samples by this address:
-```
+```bash
 $ perf report -D | grep 0x40090b -c
 16
 ```
@@ -63,7 +63,7 @@ The second interesting thing is `period: 32287405` the number of occurrences of 
 
 Now, remember that by default we sample on cycles (equivalent to `perf record -e cycles`). With latest run we collected 247 samples. For simplicity let's assume average period for all samples is 32300000 events. Based on that, the number of cycles it took to execute this workload is: 247 * 32300000 = 7978100000 cycles.
 If we compare this number with the number of counted cycles:
-```
+```bash
 $ perf stat -e cycles ./a_out                                                                                                           
  Performance counter stats for './a_out':
         7805574851      cycles                                                      
@@ -72,7 +72,7 @@ $ perf stat -e cycles ./a_out
 We see that our calculated number 7978100000 is not that far off from the measured 7805574851.
 
 We can do the same experiment with branch-misses:
-```
+```bash
 $ perf record -F 1000 -e branch-misses ./a_out                                                                                                        
 [ perf record: Woken up 1 times to write data ]
 [ perf record: Captured and wrote 0.109 MB perf.data (2417 samples) ]
@@ -87,7 +87,7 @@ $ perf stat -e branch-misses ./a_out
 Here we have 2417 (samples collected) * 55804 (period for each sample) = 134757418 (total branch-misses). Which again is not that far off from the measured value.
 
 The opposite of setting frequency of collecting samples is to configure period:
-```
+```bash
 $ perf record -e instructions -c 1000000 ./a_out
 [ perf record: Woken up 1 times to write data ]
 [ perf record: Captured and wrote 0.436 MB perf.data (13731 samples) ]

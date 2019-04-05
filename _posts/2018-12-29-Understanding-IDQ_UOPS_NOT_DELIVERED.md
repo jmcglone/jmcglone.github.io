@@ -53,7 +53,7 @@ dec rdx
 jnz .loop
 ```
 All measurements were done on Skylake CPU.
-```
+```bash
 $ perf stat -e instructions,cycles,cpu/event=0x9c,umask=0x1,name=IDQ_UOPS_NOT_DELIVERED.CORE/ -- ./a.out
  Performance counter stats for './a.out':
 
@@ -72,7 +72,7 @@ Frontend_Bound = IDQ_UOPS_NOT_DELIVERED.CORE / (4 * cycles) = 1429415 / (4 * 100
 ```
 
 We can say that this case is ideal from the Front End bound point of view. Everything fits nicely in the pipeline and we are able to issue 4 uops each cycle. I also confirmed that by collecting `LSD.CYCLES_ACTIVE` and `LSD.CYCLES_4_UOPS`:
-```
+```bash
 $ perf stat -e cycles,cpu/event=0xA8,umask=0x01,cmask=0x1,name=LSD.CYCLES_ACTIVE/,cpu/event=0xA8,umask=0x01,cmask=0x4,name=LSD.CYCLES_4_UOPS/ -- ./a.out
  Performance counter stats for './a.out':
 
@@ -97,7 +97,7 @@ dec rdx
 jnz .loop
 ```
 
-```
+```bash
 $ perf stat -e instructions,cycles,cpu/event=0x9c,umask=0x1,name=IDQ_UOPS_NOT_DELIVERED.CORE/ -- ./a.out
  Performance counter stats for './a.out':
 
