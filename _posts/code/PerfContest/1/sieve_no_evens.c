@@ -10,15 +10,11 @@ int main(int argc, char *argv[]) {
     int count;
 
     while (NUM--) {
-        for (i=2; i < 8192; i+=2) {
-            flags[i] = 0;     // evens are not prime
-            flags[i+1] = 1;   // odd numbers might be
+        for (i=3; i < 8192; i+=2) {
+            flags[i] = 1;   // odd numbers might be prime
         }
-	// flags[8192] doesn't need to be set, because it's even
 
-        // since even numbers already crossed out we can:
-        //  - start from i=3 
-        //  - iterate over odd numbers (i+=2)
+        // start from i=3 and iterate over odd numbers
 	for (i=3; i <= sqrt_max; i+=2) { 
 	    if (flags[i]) {
                 /* remove all multiples of prime: i */
@@ -30,12 +26,14 @@ int main(int argc, char *argv[]) {
 		}
 	    }
 	}
-        count = 1; // accounting for 2 is prime
-        for (long i = 2; i <= 8192; i++) {
-            if (flags[i])
-                count++;
+	count = 1; // accounting for 2 is prime
+        for (long i = 3; i <= 8192; i+=2) { // skip evens again
+          if (flags[i]) {
+            count++;
+          }
         }
     }
+
     printf("Count: %d\n", count);
     return(0);
 }
