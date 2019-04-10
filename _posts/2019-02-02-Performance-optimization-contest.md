@@ -8,6 +8,8 @@ tags: default
 * TOC
 {:toc}
 
+### About this contest
+
 Hello everybody!
 
 I decided to try new thing at the beginning of 2019. You probably heard about competitive programming and about popular web-sites like [Topcoder](https://www.topcoder.com/), [Codility](https://www.codility.com/) and others. The idea is that you can try yourself in solving programming puzzles. Usually it's not enough to just solve the puzzle, your solution must qualify for certain criterias such as algorithmic complexity and memory usage. Also on a real challenges it is improtant how fast you solved the problem.
@@ -26,53 +28,67 @@ For the challenges that I will send I'm not looking for optimizations that fall 
 
 ### Q&A
 
-**Q0**: *Why ~~the hell~~ on earth I should participate in this contest?*
+#### Q0: *Why ~~the hell~~ on earth I should participate in this contest?*
 
 **A0**: You will learn/practice how to do optimizations for HW. This might include eliminating cache misses by inserting prefetch instructions, getting rid of [Code alignment issues](https://dendibakh.github.io/blog/2018/01/18/Code_alignment_issues), improving performance by helping compiler to vectorize/unroll the loop better. You will learn different techniques as you go.
 
 ------
-**Q1**: *What benchmarks are taken into the contest?*
+#### Q1: *What benchmarks are taken into the contest?*
 
 **A1**: It will be open sourced benchmark written in C/C++. Usually several source files. It should be easy to build, require minimal dependencies. Preferably it should have some form of validation.
 
 ------
-**Q2**: *What is the machine/environment we will be optimizing for?*
+#### Q2: *What is the machine/environment we will be optimizing for?*
 
 **A2**: Most likely it will be 64 bit Linux with Intel x86 CPU (probably Haswell architecture). For a start I will not bother with disabling CPU [dynamic frequency scaling](https://en.wikipedia.org/wiki/Dynamic_frequency_scaling) features or setting [thread affinity](https://en.wikipedia.org/wiki/Processor_affinity). I might do this in future.
 
 ------
-**Q3**: *What if I don't have the environment you are using?*
+#### Q3: *What if I don't have the environment you are using?*
 
 **A3**: It doesn't matter much. If you don't have Intel CPU or you are on Windows/Mac, just optimize for whatever you have. I would be happy to know about optimizations that help other CPUs, operating systems, etc.
 **I don't have real prizes to give, so it's mostly practicing and learning**.
 
 ------
-**Q4**: *How I should find performance headrooms?*
+#### Q4: *How I should find performance headrooms?*
 
 **A4**: Use all of your knowledge. Start with profiling the benchmark. You can browse through posts on this blog. Additionally I will write a separate post that might help begginers.
 
 ------
-**Q5**: *What optimizations are allowed?*
+#### Q5: *What optimizations are allowed?*
 
 **A5**: Good news! **All the dirty tricks allowed**! The goal of this contest is to learn how to squeeze as much performance as possible from the hardware using any means available. You can modify sources and insert any compiler hints like pragmas, builtins, function attributes, etc. Also you can generate assembly listing (`-S` compiler option) and modify it. Finally, you can add some compiler option that might speed up the benchmark.
 
 ------
-**Q6**: *How should the submission look like?*
+#### Q6: *What's NOT allowed*
 
-**A6**: **I will not accept binaries for security reasons**
-You can send patch files that I can apply to the sources of the benchmark or just assembly listing. If you send assembly listing files please do also include diff file from the baseline (what you changed in the assembly). 
-If you provide modified assembly listings it should be genearted only with open-sourced C/C++ compilers like gcc and clang. You can of course cheat and generate assembly with some other compiler that is better for the benchmark, but I will probably easily detect that. And it's not about tricking, it's about learning.
-If you are capable of hacking compiler that's also acceptable. You can send me patches for gcc/llvm compilers which I can apply and use for building the benchmark. Please use the top of tree revisions because it will be easier for me to apply them. We can then use it for improving our open source compilers. Also it would be very nice if you can send me textual description of all the optimizations you made.
+**A6**: 1) Do not rewrite the benchmark completely or introduce major changes in algorithms. The good judging rule is "everything interesting should be calculated in runtime".
 
-------
-**Q7**: *How I will test your solutions?*
+2) Do not manually parallelize the benchmark, e.g converting it from single- to multi-threaded or offload computations to the GPU. I mean, I'm glad that you can do it and I will be happy to take a look what you did, but it's not the intent of the contest.
 
-**A7**: I will take your sources, build them on my machine and run the benchmark. I will run your binary multiple times (depends on the running time) and [take the minimum](http://blog.kevmod.com/2016/06/benchmarking-minimum-vs-average/). I'm thinking about testing all the solutions on some cloud machine, but that's not settled yet. 
+3) Using [PGO](https://en.wikipedia.org/wiki/Profile-guided_optimization) is allowed, however you can use it only for driving you optimizations, not for the submission. So, you can check how the benchmark gets better with PGO and understand why. And then make this optimization manually. Again, the purposes is practicing and learning.
 
 ------
-**Q8**: *How I will select the winner?*
+#### Q7: *How should the submission look like?*
 
-**A8**: I will calculate your score as a ratio between execution time of the binary with your optimizations and the baseline.
+**A7**: 1) I will not accept binaries for security reasons.
+
+2) You can send patch files that I can apply to the sources of the benchmark or just assembly listing. If you did multiple optimizations please split them in separate patches. `git format-patch` is the right tool for that. This will save me a lot of time.
+
+3) If you send assembly listing files please do also include diff file from the baseline (what you changed in the assembly). If you provide modified assembly listings it should be genearted only with open-sourced C/C++ compilers like gcc and clang. You can of course cheat and generate assembly with some other compiler that is better for the benchmark, but I will probably easily detect that. And it's not about tricking, it's about learning.
+
+4) Make sure you specify clearly the compiler options if they are different from the baseline.
+
+5) If you are capable of hacking compiler that's also acceptable. You can send me patches for gcc/llvm compilers which I can apply and use for building the benchmark. Please use the top of tree revisions because it will be easier for me to apply them. We can then use it for improving our open source compilers. Also it would be very nice if you can send me textual description of all the optimizations you made.
+
+------
+#### Q8: *How I will test your solutions?*
+
+**A8**: I will take your sources, build them on my machine and run the benchmark. I will run your binary multiple times (depends on the running time) and [take the minimum](http://blog.kevmod.com/2016/06/benchmarking-minimum-vs-average/). I'm thinking about testing all the solutions on some cloud machine, but that's not settled yet. 
+
+------
+#### Q9: *How I will select the winner?*
+
+**A9**: I will calculate your score as a ratio between execution time of the binary with your optimizations and the baseline.
 
 ------
 I know there is a lot more concerns you might have. This is just a first attempt with focus on learning how to do HW optimizations. In the end I don't have real prizes to give out. :) After each contest I will share all the findings people did, so there is a big opportunity to learn from others! I know that a number of really experienced guys read this blog, so I encourage everyone to participate. Everyone is welcome!
@@ -96,12 +112,6 @@ Let me know what you think about it or if you have any ideas or comments. You ca
 - You have specific workload for which you optimize the benchmark. You don't need to optimize it for any other input/workload. The main principle behind [Data-oriented design](https://en.wikipedia.org/wiki/Data-oriented_design) is that you know the data of your application.
 
 Information presented in llvm documentation: [Benchmarking tips](https://llvm.org/docs/Benchmarking.html) migth also be helpful.
-
-### What's NOT allowed
-
-1. Do not rewrite the benchmark completely or introduce major changes in algorithms.
-2. Do not manually parallelize the benchmark, e.g converting it from single- to multi-threaded or offload computations to the GPU. I mean, I'm glad that you can do it and I will be happy to take a look what you did, but it's not the intent of the contest.
-3. Using [PGO](https://en.wikipedia.org/wiki/Profile-guided_optimization) is allowed, however you can use it only for driving you optimizations, not for the submission. So, you can check how the benchmark gets better with PGO and understand why. And then make this optimization manually. Again, the purposes is practicing and learning.
 
 ### List of contest editions
 
