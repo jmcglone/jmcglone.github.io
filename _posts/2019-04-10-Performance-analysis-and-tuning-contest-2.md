@@ -11,7 +11,7 @@ tags: default
 Welcome to the second edition of my performance analysis and tuning contest. If you see this post and haven't read my initial post about the [contest](https://dendibakh.github.io/blog/2019/02/02/Performance-optimization-contest), I encourage you to read it first. 
 
 ------
-**Subscribe to my [mailing list](https://dendibakh.github.io/blog/2019/04/09/Performance-analysis-and-tuning-contest-2#fn:1) to participate!**
+**Subscribe to my [mailing list](https://dendibakh.github.io/blog/2019/04/09/Performance-analysis-and-tuning-contest-2#fn:1) to participate!**[^1]
 
 ------
 
