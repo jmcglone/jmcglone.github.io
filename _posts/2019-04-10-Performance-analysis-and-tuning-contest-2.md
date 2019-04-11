@@ -11,7 +11,7 @@ tags: default
 Welcome to the second edition of my performance analysis and tuning contest. If you see this post and haven't read my initial post about the [contest](https://dendibakh.github.io/blog/2019/02/02/Performance-optimization-contest), I encourage you to read it first. 
 
 ------
-**Subscribe to my [mailing list](https://dendibakh.github.io/blog/2019/04/09/Performance-analysis-and-tuning-contest-2#fn:1) to participate!**[^1]
+**Subscribe to my [mailing list](https://dendibakh.github.io/blog/2019/04/10/Performance-analysis-and-tuning-contest-2#fn:1) to participate!**[^1]
 
 ------
 
@@ -107,7 +107,7 @@ Decoding Error
 
 The baseline that I will be measuring against is 'clang -O3 -march=core-avx2'. I noticed that enabling [LTO](https://en.wikipedia.org/wiki/Interprocedural_optimization) (`-flto`) doesn't bring any additional improvement, but you may add it if you want. Notice however, that it increases build time of the benchmark which is not good to doing quick experiments.
 
-If you're willing to submit your work __subscribe to my [mailing list](https://dendibakh.github.io/blog/2019/04/09/Performance-analysis-and-tuning-contest-2#fn:1)__ and then send all that you have via email.
+If you're willing to submit your work __subscribe to my [mailing list](https://dendibakh.github.io/blog/2019/04/10/Performance-analysis-and-tuning-contest-2#fn:1)__ and then send all that you have via email.
 
 __See the rules and guidelines for submissions [here](https://dendibakh.github.io/blog/2019/02/02/Performance-optimization-contest#q7-how-should-the-submission-look-like).__
 
