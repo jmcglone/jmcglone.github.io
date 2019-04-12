@@ -229,7 +229,7 @@ This hint improved execution time by 2 seconds (+30% [speedup](https://randomasc
        6,498080824 seconds time elapsed
 ```
 
-Notice 10x less values for `CYCLE_ACTIVITY.STALLS_L3_MISS` and `MEM_LOAD_RETIRED.L3_MISS`. However, it didn't fully go away. There is one technique based on using LBR that can help us to estimate our prefetch window. If there will be interest in it I can write additional post about it. Just leave a comment if you interested. **UPD 3rd April 2019 I wrote this article: [Precise timing of machine code with Linux perf](https://dendibakh.github.io/blog/2019/04/02/Precise-timing-of-machine-code-with-Linux-perf)**.
+Notice 10x less values for `CYCLE_ACTIVITY.STALLS_L3_MISS` and `MEM_LOAD_RETIRED.L3_MISS`. However, it didn't fully go away. There is one technique based on using LBR that can help us to estimate our prefetch window. If there will be interest in it I can write additional post about it. Just leave a comment if you interested. **UPD 3rd April 2019 I wrote this article: [Precise timing of machine code with Linux perf](https://dendibakh.github.io/blog/2019/04/03/Precise-timing-of-machine-code-with-Linux-perf)**.
 
 Remember that TMAM is an iterative process, so we now need to repeat the process from the step #1. Likely it will move the bottleneck into some other bucket, probably Retiring. Ideally we want to be 100% bound by Retirement. Most of the time that means good thing, however not always. There are situations when you have very high retirement, but still app performs slow. This usually happens when Microcode sequencer starts feeding uops to the pipeline, like shown [here](https://dendibakh.github.io/blog/2018/11/08/Using-denormal-floats-is-slow-how-to-detect-it).
 
