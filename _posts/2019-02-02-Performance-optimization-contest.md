@@ -116,3 +116,4 @@ Information presented in llvm documentation: [Benchmarking tips](https://llvm.or
 ### List of contest editions
 
 - [Contest #1](https://dendibakh.github.io/blog/2019/02/16/Performance-optimization-contest-1) - 16 Feb 2019.
+- [Contest #2](https://dendibakh.github.io/blog/2019/04/10/Performance-analysis-and-tuning-contest-2) - 10 Apr 2019.
