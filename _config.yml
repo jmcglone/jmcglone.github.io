@@ -9,7 +9,8 @@ plugins:
   - jekyll-sitemap
 name:         Denis Bakhvalov
 description:  Performance optimizations and analysis in C/C++
-url:          https://dendibakh.github.io
+url:          https://easyperf.net
+enforce_ssl:  easyperf.net
 author:
   twitter: dendibakh
 timezone: America/Los_Angeles
