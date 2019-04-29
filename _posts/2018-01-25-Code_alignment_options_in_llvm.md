@@ -8,7 +8,7 @@ tags: default
 * TOC
 {:toc}
 
-In my [previous post](https://dendibakh.github.io/blog/2018/01/18/Code_alignment_issues) I discussed code alignment issues that could arise when you benchmarking your code. [Simon](https://twitter.com/TartanLlama) in the comments mentioned code alignment option '-align-all-nofallthru-blocks'. If we look at what description says about this option it's not clear what this option is doing. So, I decided to give some clear examples of what it's doing.
+In my [previous post]({{ site.url }}/blog/2018/01/18/Code_alignment_issues) I discussed code alignment issues that could arise when you benchmarking your code. [Simon](https://twitter.com/TartanLlama) in the comments mentioned code alignment option '-align-all-nofallthru-blocks'. If we look at what description says about this option it's not clear what this option is doing. So, I decided to give some clear examples of what it's doing.
 
 In latest llvm (as of 25.01.2018) there are 3 machine-independent option for controling code alignment:
 ```

@@ -36,7 +36,7 @@ In this post I will give you a taste of the tools available without going too mu
 
 Microarchitectural benchmarking is often used when you want to stress some particular CPU feature or find the bottleneck in some small piece of code. I decided to come up with an assembly example that would be handled equally good by all the tools.
 
-I will try to run the same experiment under each of those tools and show the output. I will stress my IvyBridge CPU with example from my previous article about [port contention](https://dendibakh.github.io/blog/2018/03/21/port-contention). 
+I will try to run the same experiment under each of those tools and show the output. I will stress my IvyBridge CPU with example from my previous article about [port contention]({{ site.url }}/blog/2018/03/21/port-contention). 
 
 ```asm
 mov eax, DWORD [rsp]     ; goes to port 2 or 3
@@ -170,13 +170,13 @@ Once again, mode detailed description of the output can be found in the [IACA Us
 [_] – Stalled due to unavailable resources
 ```
 
-I think this is really cool! It allows you to see how instructions progress through the pipeline, which is not only good for educational purposes, but also can give you a hint why your code executes not as fast as you want. Though, on HSW there is no port contention issue for this assembly code, because `bswap` can be also executed at least on 2 ports. For details, take a look at my post [Understanding CPU port contention](https://dendibakh.github.io/blog/2018/03/21/port-contention).
+I think this is really cool! It allows you to see how instructions progress through the pipeline, which is not only good for educational purposes, but also can give you a hint why your code executes not as fast as you want. Though, on HSW there is no port contention issue for this assembly code, because `bswap` can be also executed at least on 2 ports. For details, take a look at my post [Understanding CPU port contention]({{ site.url }}/blog/2018/03/21/port-contention).
 
 I showed only first two iterations, but complete output of this run can be found on my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/Tools_for_microarchitectural_benchmarking/iaca/iaca.log).
 
 #### limitations
 
-I tried to run binaries from my [Code Alignment](https://dendibakh.github.io/blog/2018/01/18/Code_alignment_issues) post with inserted IACA markers and the tool showed no difference. Meaning that this tool doen't take into account how hot piece of code is placed in the binary. I would be good to have complete list of limitations of that tool, but I haven't found this information (would be glad if someone will provide it).
+I tried to run binaries from my [Code Alignment]({{ site.url }}/blog/2018/01/18/Code_alignment_issues) post with inserted IACA markers and the tool showed no difference. Meaning that this tool doen't take into account how hot piece of code is placed in the binary. I would be good to have complete list of limitations of that tool, but I haven't found this information (would be glad if someone will provide it).
 
 ## llvm-mca
 ------
@@ -275,7 +275,7 @@ R : Instruction retired.
 - : Instruction executed, waiting to be retired.
 ```
 
-Resource pressure view doesn't seem right, as we know that `bswap` instruction can be executed only on PORT1 on Ivy Bridge (**UPD 06.04.2018:** issue has been fixed [r329211](http://llvm.org/viewvc/llvm-project?view=revision&revision=329211)). However, reciprocal throughput is correct (equals to 1). Because throughput is correct, timeline view also seems to be correct. On later iterations (see iteration #9) we can spot that execution starts to be limited by `bswap` instructions. You can observe the same picture in my previous post [Understanding CPU port contention](https://dendibakh.github.io/blog/2018/03/21/port-contention).
+Resource pressure view doesn't seem right, as we know that `bswap` instruction can be executed only on PORT1 on Ivy Bridge (**UPD 06.04.2018:** issue has been fixed [r329211](http://llvm.org/viewvc/llvm-project?view=revision&revision=329211)). However, reciprocal throughput is correct (equals to 1). Because throughput is correct, timeline view also seems to be correct. On later iterations (see iteration #9) we can spot that execution starts to be limited by `bswap` instructions. You can observe the same picture in my previous post [Understanding CPU port contention]({{ site.url }}/blog/2018/03/21/port-contention).
 
 Complete output of this run can be found on my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/Tools_for_microarchitectural_benchmarking/mca/mca.out).
 

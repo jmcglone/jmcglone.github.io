@@ -8,7 +8,7 @@ tags: default
 * TOC
 {:toc}
 
-In my [previous post](https://dendibakh.github.io/blog/2018/02/15/MicroFusion-in-Intel-CPUs) I wrote about MicroFusion which is the thing that happens when multiple uops from the same assembly instruction are fused into one. Another interesting feature of Intel Architecture (IA) that was introduced in Core2 and Nehalem architectures is *MacroFusion*. It names the situation when uops from different assembly instruction fuse together into one uops.
+In my [previous post]({{ site.url }}/blog/2018/02/15/MicroFusion-in-Intel-CPUs) I wrote about MicroFusion which is the thing that happens when multiple uops from the same assembly instruction are fused into one. Another interesting feature of Intel Architecture (IA) that was introduced in Core2 and Nehalem architectures is *MacroFusion*. It names the situation when uops from different assembly instruction fuse together into one uops.
 
 Description of it can be found in [microarchitecture manual](www.agner.org/optimize/microarchitecture.pdf) by Agner Fog:
 > The decoders will fuse arithmetic or logic instruction with a subsequent conditional jump instruction into a single compute-and-branch µop in certain cases. The compute-and-branch µop is not split in two at the execution units but executed as a single µop by the branch unit. This means that macro-op fusion saves bandwidth in all stages of the pipeline from decoding to retirement.
@@ -32,7 +32,7 @@ The counters I mentioned above:
 - **UOPS_RETIRED.RETIRE_SLOTS** - Counts the number of retirement slots used each cycle. (fused domain)
 - **UOPS_RETIRED.ALL** - Counts the number of micro-ops retired. (unfused domain)
 
-You can find more detailed description of them in my [MicroFusion post](https://dendibakh.github.io/blog/2018/02/15/MicroFusion-in-Intel-CPUs).
+You can find more detailed description of them in my [MicroFusion post]({{ site.url }}/blog/2018/02/15/MicroFusion-in-Intel-CPUs).
 
 As we can see that the number of instructions retired at each cycle is 2. But they are fused in the decoders into one uop, which is executed as fused. We can state this because number of uops retired is the same in fused and unfused domains.
 
@@ -80,7 +80,7 @@ for (int i = 0; i < 1024; ++i)
 benchmark_func(1024, a);
 ```
 
-In this example `cmp` instruction effectively does a load and compare operations, but due to [Microfusion](https://dendibakh.github.io/blog/2018/02/15/MicroFusion-in-Intel-CPUs) those uops are fused into one. Moreover, this uop is macro-fused with `jnz` instruction.
+In this example `cmp` instruction effectively does a load and compare operations, but due to [Microfusion]({{ site.url }}/blog/2018/02/15/MicroFusion-in-Intel-CPUs) those uops are fused into one. Moreover, this uop is macro-fused with `jnz` instruction.
 
 ```
 Benchmark           Cycles   INSTRUCTIONS_RETIRED   UOPS_RETIRED.RETIRE_SLOTS   UOPS_RETIRED.ALL

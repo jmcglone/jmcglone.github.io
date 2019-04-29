@@ -34,7 +34,7 @@ So, in the latter snippet it's basically the same instruction but split in 3 sim
 
 Performance delta was not that big: around 5%. I checked profiles - no other significant difference, besides... Number of instructions retired in "good" case was ~50% lower than in the "bad" case. Similar patterns can be observed in many different places in the hot path of the benchmark. At that point I considered: "problem solved, there is no sense in splitting instructuions like that". Or rather say, not fusing them. I thought that some pass in the code generation phase failed at combining 3 simple instructions into a fused one.
 
-I revisited that case after a few days when my colleague pointed out to me that this shoudn't be the source of the problem. I did more experiments just to find out that it was yet another code alignment problem (check out my [recent post](https://dendibakh.github.io/blog/2018/01/18/Code_alignment_issues) on this topic). With adding one of the code alignment options to the compilation yielded the same performance for both cases.
+I revisited that case after a few days when my colleague pointed out to me that this shoudn't be the source of the problem. I did more experiments just to find out that it was yet another code alignment problem (check out my [recent post]({{ site.url }}/blog/2018/01/18/Code_alignment_issues) on this topic). With adding one of the code alignment options to the compilation yielded the same performance for both cases.
 
 ### Fusion features in x86
 

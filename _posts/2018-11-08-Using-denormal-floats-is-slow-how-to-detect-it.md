@@ -8,7 +8,7 @@ tags: default
 * TOC
 {:toc}
 
-In this short post I want to show the example how denormal values that you can use (unintentionally) in your calculations might slow down your code. And especially how to detect it using [performance counters](https://dendibakh.github.io/blog/2018/06/01/PMU-counters-and-profiling-basics).If you're not familiar with what denormal floats it's now the good time to [read](https://en.wikipedia.org/wiki/Denormal_number) it.
+In this short post I want to show the example how denormal values that you can use (unintentionally) in your calculations might slow down your code. And especially how to detect it using [performance counters]({{ site.url }}/blog/2018/06/01/PMU-counters-and-profiling-basics).If you're not familiar with what denormal floats it's now the good time to [read](https://en.wikipedia.org/wiki/Denormal_number) it.
 
 *Disclaimer: In this post I don't touch the topic of how to disable denormal floats at the code/compiler level. There is lots of information in the web.*
 
@@ -84,7 +84,7 @@ y isnormal: no
 
 First observation is that divisions on denormal values is `50` times slower. No surprise, but lets understand why that happens.
 
-Whenever CPU see that it's processing denormal value it asks for a microcode assist. Microcode Sequencer (MS) then will feed the pipeline with lots of [UOPs](https://dendibakh.github.io/blog/2018/09/04/Performance-Analysis-Vocabulary) for handling that scenario. We can see that in the slow case we have exactly `100000000` fp assits from MS and in normal case it's zero. Also we can spot that in the slow case major part of UOPs comes from MS.
+Whenever CPU see that it's processing denormal value it asks for a microcode assist. Microcode Sequencer (MS) then will feed the pipeline with lots of [UOPs]({{ site.url }}/blog/2018/09/04/Performance-Analysis-Vocabulary) for handling that scenario. We can see that in the slow case we have exactly `100000000` fp assits from MS and in normal case it's zero. Also we can spot that in the slow case major part of UOPs comes from MS.
 
 So, here are your tools in detecting situations when your programm starts doing calculation with denormal values.
 

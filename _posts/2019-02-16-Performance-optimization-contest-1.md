@@ -8,7 +8,7 @@ tags: default
 * TOC
 {:toc}
 
-Recently I announced performance optimization contest in my recent [article](https://dendibakh.github.io/blog/2019/02/02/Performance-optimization-contest). If you see this post and haven't read my initial post about the [contest](https://dendibakh.github.io/blog/2019/02/02/Performance-optimization-contest), I recommend that you first read it. 
+Recently I announced performance optimization contest in my recent [article]({{ site.url }}/blog/2019/02/02/Performance-optimization-contest). If you see this post and haven't read my initial post about the [contest]({{ site.url }}/blog/2019/02/02/Performance-optimization-contest), I recommend that you first read it. 
 
 Now it's time to start our first edition. I'm glad to say "Welcome" to every participant!
 
@@ -67,7 +67,7 @@ Target machine for this edition of the contest is Haswell CPU with 64-bit Linux.
 2. Find the hotspot (use `perf record`).
 3. Find performance headroom
   * Take a look at the assembly and try to guess how you can do better.
-  * Run through [TMAM](https://dendibakh.github.io/blog/2019/02/09/Top-Down-performance-analysis-methodology) process.
+  * Run through [TMAM]({{ site.url }}/blog/2019/02/09/Top-Down-performance-analysis-methodology) process.
 4. Build the benchmark, run it and compare against baseline.
 
 I also have a few general advises:
@@ -96,7 +96,7 @@ Count: 1028
 The baseline that I will be measuring against is 'gcc -O3'.
 
 If you're willing to submit your work please __subscribe to my mailing list__ and then send all you have via email.
-Rules and guidelines for submissions I described earlier in my [initial post](https://dendibakh.github.io/blog/2019/02/02/Performance-optimization-contest) in "*Q6: How should the submission look like?*".
+Rules and guidelines for submissions I described earlier in my [initial post]({{ site.url }}/blog/2019/02/02/Performance-optimization-contest) in "*Q6: How should the submission look like?*".
 
 **I'm collecting all your submissions until 25th February 2019 and will announce results on 1st March 2019.**
 
@@ -212,7 +212,7 @@ Here is what we can be done:
 
 First is the loop where we mark odd multiples (line 28). Second is the counting loop (line 34).
 
-I also applied [Top-Down Analysis](https://dendibakh.github.io/blog/2019/02/09/Top-Down-performance-analysis-methodology) on it and found that we are 80% bound by Retirement, which means we already are doing quite good. 
+I also applied [Top-Down Analysis]({{ site.url }}/blog/2019/02/09/Top-Down-performance-analysis-methodology) on it and found that we are 80% bound by Retirement, which means we already are doing quite good. 
 
 Let's look at the first hotspot:
 ```cpp
@@ -239,7 +239,7 @@ for (k=i*i; k <= 8192; k+=2*i) {
 ```
 Unrolling this loop gave negative effects for all the factors I tried: 2,4,8,16,32. We didn't increase the amount of instructions executed on each iteration since we need to check if we are inbounds for every write. But unrolling the loop reulted in code bloat which is bad for CPU front-end.
 
-**4)** I decided to check if this is the best what we can do in the first hotspot. I applied the technique I showed [here](https://dendibakh.github.io/blog/2019/04/03/Precise-timing-of-machine-code-with-Linux-perf) (yes, I did that part on Skylake). And found that 99% of the time each iteration of the loop runs in one cycle. This loop is bound by stores and since we have one execution port for doing stores on Haswell and Skylake, we can't do better than that.
+**4)** I decided to check if this is the best what we can do in the first hotspot. I applied the technique I showed [here]({{ site.url }}/blog/2019/04/03/Precise-timing-of-machine-code-with-Linux-perf) (yes, I did that part on Skylake). And found that 99% of the time each iteration of the loop runs in one cycle. This loop is bound by stores and since we have one execution port for doing stores on Haswell and Skylake, we can't do better than that.
 
 There is another (not accurate) way to prove this. It is very simple, but you've better not use it on any kernels that are more complicated than the one in this contest. So, first I got the total number of cycles:
 ```bash
@@ -248,7 +248,7 @@ $ perf stat ./sieve
 ```
 We have `1700000` repetitions of the outermost loop. Dividing total number of cycles by the number of repetitions we get roughly `10000` cycles per repetition. Knowing that we have 50% of the time spent in this loop we can say that we have `5000` for this loop. After that I manually instrumented the code to count the trip count (number of iterations) of the loop where we mark the odd multiples. It turned out that we have `4823` iterations in total. Dividing number of cycles for the loop by the number of iterations of the loop we get ~1 cycle per iteration. This is very inaccurate way, but it works for small kernels.
 
-**5)** I tried [aligning](https://dendibakh.github.io/blog/2018/01/18/Code_alignment_issues) different loops at different boundaries (16 bytes, 32, 64, 128) but that yielded negative effect in all the cases. The reason for this is that NOPs are injected in the execution path.
+**5)** I tried [aligning]({{ site.url }}/blog/2018/01/18/Code_alignment_issues) different loops at different boundaries (16 bytes, 32, 64, 128) but that yielded negative effect in all the cases. The reason for this is that NOPs are injected in the execution path.
 
 **6)** I looked at the other hotspot which was the counting loop:
 ```cpp

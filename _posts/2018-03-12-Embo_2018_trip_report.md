@@ -20,7 +20,7 @@ The conference was made of 2 main days, pre- and post-event.
 
 ![](/img/posts/Embo2018TripReport/Ben.jpg){: .center-image-width-50 }
 
-There were lightning talks at the pre-event, where I presented how compilers can generate multiple assembly code versions for the single piece of code. This talk was basically the essentials of the series of [my posts about vectorization](https://dendibakh.github.io/blog/2017/11/03/Multiversioning_by_DD).
+There were lightning talks at the pre-event, where I presented how compilers can generate multiple assembly code versions for the single piece of code. This talk was basically the essentials of the series of [my posts about vectorization]({{ site.url }}/blog/2017/11/03/Multiversioning_by_DD).
 
 On this pre-event I want to specifically mention guys (Phillip and Benjamin) from Bochum university who reverse engineered AMD microcode. Here is their [paper](https://www.syssec.rub.de/media/emma/veroeffentlichungen/2017/08/16/usenix17-microcode.pdf) presented on Usenix 2017 on August 2017. Also the [video](https://www.youtube.com/watch?v=I6dQfnb3y0I) is available on youtube.
 

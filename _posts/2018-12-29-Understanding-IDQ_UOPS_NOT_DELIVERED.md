@@ -29,7 +29,7 @@ In order to understand what this PMC counts let's look at a simplified diagram:
 
 Here is the workflow:
 1. We fetch assembly instruction and feed it into the decoders. 
-2. Decoders decode assembly instruction into the sequence of [uops](https://dendibakh.github.io/blog/2018/09/04/Performance-Analysis-Vocabulary). It can be one or many uops depending on the instruction.
+2. Decoders decode assembly instruction into the sequence of [uops]({{ site.url }}/blog/2018/09/04/Performance-Analysis-Vocabulary). It can be one or many uops depending on the instruction.
 3. Then scheduler sends them into the back-end for execution.
 
 Because we have multiple execution units we can execute multiple uops in parallel. Most of modern Intel CPUs are 4-wide, meaning that we can schedule 4 uops each cycle. But it usually happens that due to some hazards (data dependency/execution unit occupied/lack of uops to schedule) we can't fully utilize all available slots and, say, issue only 3 uops.
@@ -64,7 +64,7 @@ $ perf stat -e instructions,cycles,cpu/event=0x9c,umask=0x1,name=IDQ_UOPS_NOT_DE
 
 Code and build script are available on my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/IDQ_UOPS_NOT_DELIVERED).
 
-Notice, our loop is 5 instructions/4 uops per iteration, because `dec+jnz` pair was [MacroFused](https://dendibakh.github.io/blog/2018/02/23/MacroFusion-in-Intel-CPUs) into a single uop. Also notice, amount of `IDQ_UOPS_NOT_DELIVERED.CORE` is negligible comparing to the number of cycles executed.
+Notice, our loop is 5 instructions/4 uops per iteration, because `dec+jnz` pair was [MacroFused]({{ site.url }}/blog/2018/02/23/MacroFusion-in-Intel-CPUs) into a single uop. Also notice, amount of `IDQ_UOPS_NOT_DELIVERED.CORE` is negligible comparing to the number of cycles executed.
 
 Our Front-End boundness metric will be:
 ```
@@ -87,7 +87,7 @@ It may look easy when things get ideal but it becomes quite complicated to analy
 
 ### Example 2
 
-The dummy loop of 2 instructions/1 uop per iteration (again, `dec+jnz` pair was [MacroFused](https://dendibakh.github.io/blog/2018/02/23/MacroFusion-in-Intel-CPUs) into a single uop):
+The dummy loop of 2 instructions/1 uop per iteration (again, `dec+jnz` pair was [MacroFused]({{ site.url }}/blog/2018/02/23/MacroFusion-in-Intel-CPUs) into a single uop):
 
 ```asm
 mov rdx, 1000000000
@@ -165,6 +165,6 @@ If we sum up all those numbers we will receive the number of cycles spent. I'm p
 
 Here you have usefull tool which you can use to better understand performance issues you might have. It's very interesting to see sometimes cases where just making small changes makes a huge impact on IDQ_UOPS_NOT_DELIVERED counters.
 
-For big applications it's impossible to reason about the execution pattern of the benchmark just by looking at IDQ_UOPS_NOT_DELIVERED counters, but it might give you some interesting insights and further direction. When you made some changes in your application and want to analyze the effect, it's sometimes fruitful to compare the absolute numbers for IDQ_UOPS_NOT_DELIVERED counters. However, there should be a strong difference, couple of percents do not count. For particular application of using this counter take a look at my post [Code alignment issues](https://dendibakh.github.io/blog/2018/01/18/Code_alignment_issues).
+For big applications it's impossible to reason about the execution pattern of the benchmark just by looking at IDQ_UOPS_NOT_DELIVERED counters, but it might give you some interesting insights and further direction. When you made some changes in your application and want to analyze the effect, it's sometimes fruitful to compare the absolute numbers for IDQ_UOPS_NOT_DELIVERED counters. However, there should be a strong difference, couple of percents do not count. For particular application of using this counter take a look at my post [Code alignment issues]({{ site.url }}/blog/2018/01/18/Code_alignment_issues).
 
 Nowadays, when I'm doing benchmarking I run the binaries by default under `perf stat -e IDQ_UOPS_NOT_DELIVERED.CORE`. Because it not only gives you the execution time, it also collects performance counters and it's almost free (when there is no multiplexing between counters).

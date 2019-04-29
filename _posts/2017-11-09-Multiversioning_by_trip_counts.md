@@ -4,7 +4,7 @@ title: Vectorization part6. Multiversioning by trip counts.
 tags: default
 ---
 
-In this post we will dig deep into the different type of multiversioning. This time we will look at creating multiple versions of the same loop that have different trip counts. If you haven't read [part 4: vectorization width](https://dendibakh.github.io/blog/2017/11/02/Vectorization_width) yet I encourage you to do that, because we will use knowledge form this post a lot.
+In this post we will dig deep into the different type of multiversioning. This time we will look at creating multiple versions of the same loop that have different trip counts. If you haven't read [part 4: vectorization width]({{ site.url }}/blog/2017/11/02/Vectorization_width) yet I encourage you to do that, because we will use knowledge form this post a lot.
 
 In the post that I mentioned above I showed how it can be beneficial to optimize your function if you know the data you are working with. Specifically, in the section "Why we care about vectorization width?" I left off on the case when there are two different trip counts and you can't just optimize for one of it. Let's get back to this case. 
 
@@ -46,7 +46,7 @@ add_arrays_scalar(a, b, tc16); // tc16 = 16 (2 inner loop iters)
 
 Compiler options are: `-O3 -march=core-avx2`.
 
-By default `clang 5.0` autovectorize the inner loop with vectorization width = 32 and interleaved by a factor of 4, so processing 128 bytes in one iteration. Also it does [multiversioning by DD](https://dendibakh.github.io/blog/2017/11/03/Multiversioning_by_DD), i.e. creating two scalar version of the loop unrolled by a factor of 8 with a run-time trip count dispatching. The latter simply means that there are two scalar versions: one is unrolled by a factor of 8 and second is no unrolled, processing one byte at a time (sort of a fallback option).
+By default `clang 5.0` autovectorize the inner loop with vectorization width = 32 and interleaved by a factor of 4, so processing 128 bytes in one iteration. Also it does [multiversioning by DD]({{ site.url }}/blog/2017/11/03/Multiversioning_by_DD), i.e. creating two scalar version of the loop unrolled by a factor of 8 with a run-time trip count dispatching. The latter simply means that there are two scalar versions: one is unrolled by a factor of 8 and second is no unrolled, processing one byte at a time (sort of a fallback option).
 
 All code for the benchmark can be found [here](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/Multiversioning_by_trip_counts).
 
@@ -155,10 +155,10 @@ Want performance - know your data.
 UPD: one more article related to the topic of multiversioning: [Function multi-versioning in GCC 6](https://lwn.net/Articles/691932/).
 
 ### All posts from this series:
-1. [Vectorization intro](https://dendibakh.github.io/blog/2017/10/24/Vectorization_part1).
-2. [Vectorization warmup](https://dendibakh.github.io/blog/2017/10/27/Vectorization_warmup).
-3. [Checking compiler vectorization report](https://dendibakh.github.io/blog/2017/10/30/Compiler-optimization-report).
-4. [Vectorization width](https://dendibakh.github.io/blog/2017/11/02/Vectorization_width).
-5. [Multiversioning by data dependency](https://dendibakh.github.io/blog/2017/11/03/Multiversioning_by_DD).
+1. [Vectorization intro]({{ site.url }}/blog/2017/10/24/Vectorization_part1).
+2. [Vectorization warmup]({{ site.url }}/blog/2017/10/27/Vectorization_warmup).
+3. [Checking compiler vectorization report]({{ site.url }}/blog/2017/10/30/Compiler-optimization-report).
+4. [Vectorization width]({{ site.url }}/blog/2017/11/02/Vectorization_width).
+5. [Multiversioning by data dependency]({{ site.url }}/blog/2017/11/03/Multiversioning_by_DD).
 6. Multiversioning by trip counts (this article).
-7. [Tips for writing vectorizable code](https://dendibakh.github.io/blog/2017/11/10/Tips_for_writing_vectorizable_code).
+7. [Tips for writing vectorizable code]({{ site.url }}/blog/2017/11/10/Tips_for_writing_vectorizable_code).

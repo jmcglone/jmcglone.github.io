@@ -99,7 +99,7 @@ $ perf annotate --stdio -M intel main.loop
     0.00 :        40068d:       ret    
     0.00 :        40068e:       ud2 
 ```
-Notice, that all collected samples correspond to the wrong instruction! To understand why that happens you might want to check one of my previous articles: [Advanced profiling topics PEBS and LBR](https://dendibakh.github.io/blog/2018/06/08/Advanced-profiling-topics-PEBS-and-LBR). But if you want to know the short answer, there is a delay between performance monitoring interrupt issued and capture of instruction pointer (IP). 
+Notice, that all collected samples correspond to the wrong instruction! To understand why that happens you might want to check one of my previous articles: [Advanced profiling topics PEBS and LBR]({{ site.url }}/blog/2018/06/08/Advanced-profiling-topics-PEBS-and-LBR). But if you want to know the short answer, there is a delay between performance monitoring interrupt issued and capture of instruction pointer (IP). 
 
 ### What we can do about it?
 

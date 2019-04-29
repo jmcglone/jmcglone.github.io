@@ -54,13 +54,13 @@ Normally pointer aliasing is rather rare case, but we don't know for sure, so we
 
 Situation gets somewhat complex when there are multiple arrays in the function arguments. This significantly increases the number of runtime checks in the beginning of the function. Gcc even has heuristic for that: `--param vect-max-version-for-alias-checks` which is 10 by default.
 
-Another frequently used runtime check for the compiler is testing number of loop iterations. It should not be negative or lower than the [vectorization width](https://dendibakh.github.io/blog/2017/11/02/Vectorization_width).
+Another frequently used runtime check for the compiler is testing number of loop iterations. It should not be negative or lower than the [vectorization width]({{ site.url }}/blog/2017/11/02/Vectorization_width).
 
 ### All posts from this series:
-1. [Vectorization intro](https://dendibakh.github.io/blog/2017/10/24/Vectorization_part1).
-2. [Vectorization warmup](https://dendibakh.github.io/blog/2017/10/27/Vectorization_warmup).
-3. [Checking compiler vectorization report](https://dendibakh.github.io/blog/2017/10/30/Compiler-optimization-report).
-4. [Vectorization width](https://dendibakh.github.io/blog/2017/11/02/Vectorization_width).
+1. [Vectorization intro]({{ site.url }}/blog/2017/10/24/Vectorization_part1).
+2. [Vectorization warmup]({{ site.url }}/blog/2017/10/27/Vectorization_warmup).
+3. [Checking compiler vectorization report]({{ site.url }}/blog/2017/10/30/Compiler-optimization-report).
+4. [Vectorization width]({{ site.url }}/blog/2017/11/02/Vectorization_width).
 5. Multiversioning by data dependency (this article).
-6. [Multiversioning by trip counts](https://dendibakh.github.io/blog/2017/11/09/Multiversioning_by_trip_counts).
-7. [Tips for writing vectorizable code](https://dendibakh.github.io/blog/2017/11/10/Tips_for_writing_vectorizable_code).
+6. [Multiversioning by trip counts]({{ site.url }}/blog/2017/11/09/Multiversioning_by_trip_counts).
+7. [Tips for writing vectorizable code]({{ site.url }}/blog/2017/11/10/Tips_for_writing_vectorizable_code).

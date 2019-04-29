@@ -8,7 +8,7 @@ tags: default
 * TOC
 {:toc}
 
-My previous post about [Instruction Fusion](https://dendibakh.github.io/blog/2018/02/04/Micro-ops-fusion) spawned lots of comments. What I really wanted to benchmark was fused assembly instructions, but it turned out that some other microarchitectural features were involved in that example, which I was not aware about.
+My previous post about [Instruction Fusion]({{ site.url }}/blog/2018/02/04/Micro-ops-fusion) spawned lots of comments. What I really wanted to benchmark was fused assembly instructions, but it turned out that some other microarchitectural features were involved in that example, which I was not aware about.
 
 With the help of Travis Downs and others on HackerNews I did more investigation on this and I want to summarize it in this post.
 

@@ -11,7 +11,7 @@ tags: default
 Welcome to the second edition of my performance analysis and tuning contest. If you see this post and haven't read my initial post about the [contest]({{ site.url }}/blog/2019/02/02/Performance-optimization-contest), I encourage you to read it first. 
 
 ------
-**Subscribe to my [mailing list](https://dendibakh.github.io/blog/2019/04/10/Performance-analysis-and-tuning-contest-2#mc_embed_signup) to participate!**
+**Subscribe to my [mailing list]({{ site.url }}/blog/2019/04/10/Performance-analysis-and-tuning-contest-2#mc_embed_signup) to participate!**
 
 ------
 
@@ -51,7 +51,7 @@ For building with gcc you need to revert this commit: [7ee8c3b0943f6e6c7d2180c1b
 
 Clang and gcc compilers give roughly the same score[^1], so you can choose whatever is more convenient for you.
 
-Target machine for this edition of the contest is again Haswell CPU with 64-bit Linux. Although you can do your experiments on Windows since `cmake` is used for building the benchmark. If you choose Windows as a platform, here is the article that might be helpful: [How to collect CPU performance counters on Windows?](https://dendibakh.github.io/blog/2019/02/23/How-to-collect-performance-counters-on-Windows).
+Target machine for this edition of the contest is again Haswell CPU with 64-bit Linux. Although you can do your experiments on Windows since `cmake` is used for building the benchmark. If you choose Windows as a platform, here is the article that might be helpful: [How to collect CPU performance counters on Windows?]({{ site.url }}/blog/2019/02/23/How-to-collect-performance-counters-on-Windows).
 
 ### Couple of hints
 
@@ -62,7 +62,7 @@ Here is the workflow that I recommend:
 3. Find performance headroom
   * Take a look at the assembly and try to guess how you can do better.
   * Collect general statistics like branch mispredictions, cache-misses (use `perf stat`).
-  * Run through [TMAM](https://dendibakh.github.io/blog/2019/02/09/Top-Down-performance-analysis-methodology) process.
+  * Run through [TMAM]({{ site.url }}/blog/2019/02/09/Top-Down-performance-analysis-methodology) process.
 4. Fix the issue, build the benchmark, run it and compare against baseline.
 
 I also have a few general advises:
@@ -71,7 +71,7 @@ I also have a few general advises:
 
 If you feel you're stuck, don't hesitate to ask questions or look for support elsewhere. I don't have much time to answer every question promptly, but I will do my best.
 
-__See the Q&A post about what optimizations are [allowed](https://dendibakh.github.io/blog/2019/02/02/Performance-optimization-contest#q5-what-optimizations-are-allowed) and what [not](https://dendibakh.github.io/blog/2019/02/02/Performance-optimization-contest#q6-whats-not-allowed).__
+__See the Q&A post about what optimizations are [allowed]({{ site.url }}/blog/2019/02/02/Performance-optimization-contest#q5-what-optimizations-are-allowed) and what [not]({{ site.url }}/blog/2019/02/02/Performance-optimization-contest#q6-whats-not-allowed).__
 
 ### Validation
 
@@ -107,9 +107,9 @@ Decoding Error
 
 The baseline that I will be measuring against is 'clang -O3 -march=core-avx2'. I noticed that enabling [LTO](https://en.wikipedia.org/wiki/Interprocedural_optimization) (`-flto`) doesn't bring any additional improvement, but you may add it if you want. Notice however, that it increases build time of the benchmark which is not good to doing quick experiments.
 
-If you're willing to submit your work __subscribe to my [mailing list](https://dendibakh.github.io/blog/2019/04/10/Performance-analysis-and-tuning-contest-2#mc_embed_signup)__ and then send all that you have via email.
+If you're willing to submit your work __subscribe to my [mailing list]({{ site.url }}/blog/2019/04/10/Performance-analysis-and-tuning-contest-2#mc_embed_signup)__ and then send all that you have via email.
 
-__See the rules and guidelines for submissions [here](https://dendibakh.github.io/blog/2019/02/02/Performance-optimization-contest#q7-how-should-the-submission-look-like).__
+__See the rules and guidelines for submissions [here]({{ site.url }}/blog/2019/02/02/Performance-optimization-contest#q7-how-should-the-submission-look-like).__
 
 If you are in a position of writing article with description of your findings, I highly encourage you to do so. It will be much better to have the author describe the finding in comparison with me interpreting your submission. 
 

@@ -8,7 +8,7 @@ tags: default
 * TOC
 {:toc}
 
-I feel like writing these days, so powered by this feeling I decided to share another quite useful technique that I sometimes use. Today I will show how you can utilize Intel [LBR](https://dendibakh.github.io/blog/2018/06/08/Advanced-profiling-topics-PEBS-and-LBR) (Last Branch Record) feature to do cycle-based timing of the code blocks. Knowing precisely how much cycles it took to execute certain number of assembly instructions, how great that would be? Want to know how? Keep on reading and you will learn. Just to tease you, look at this desired report:
+I feel like writing these days, so powered by this feeling I decided to share another quite useful technique that I sometimes use. Today I will show how you can utilize Intel [LBR]({{ site.url }}/blog/2018/06/08/Advanced-profiling-topics-PEBS-and-LBR) (Last Branch Record) feature to do cycle-based timing of the code blocks. Knowing precisely how much cycles it took to execute certain number of assembly instructions, how great that would be? Want to know how? Keep on reading and you will learn. Just to tease you, look at this desired report:
 ```
   0000000000400618   movb  $0x0, (%rbp,%rdx,1) 
   000000000040061d   add $0x1, %rdx 
@@ -28,7 +28,7 @@ I want to thank Andi Kleen for showing me this technique.
 
 ### Recap on LBR
 
-The underlying CPU feature that allows this to happen is called LBR(Last Branch Record). I previously wrote an [article about LBR](https://dendibakh.github.io/blog/2018/06/08/Advanced-profiling-topics-PEBS-and-LBR), so I encourage you to visit this blog post if you want to know what it is.
+The underlying CPU feature that allows this to happen is called LBR(Last Branch Record). I previously wrote an [article about LBR]({{ site.url }}/blog/2018/06/08/Advanced-profiling-topics-PEBS-and-LBR), so I encourage you to visit this blog post if you want to know what it is.
 
 LBR feature is used to track control flow of the program. This feature uses MSRs (Model Specific Registers) to store history of last executed branches. Why we are so interested in branches? Well, because this is how we are able to determine the control flow of our program. Since we are interested in branches which are always the last instructions in a basic blocks and all instructions in the basic block are guaranteed to be executed once, we can only focus on branches. Using this control flow statistics we can determine which path of our program (chain of basic blocks) is the hottest. This is sometimes called a Hyper Block. And there are other applications of LBR feature, see [here](https://lwn.net/Articles/680985/).
 
@@ -48,7 +48,7 @@ $ dmesg | grep -i lbr
 [    0.228149] Performance Events: PEBS fmt3+, 32-deep LBR, Skylake events, full-width counters, Intel PMU driver.
 ```
 
-To demonstrate usefulness of this technique I took the example from one my previous articles about [Top-Down Analysis methodology](https://dendibakh.github.io/blog/2019/02/09/Top-Down-performance-analysis-methodology). The code has a loop with a random load that typically will miss in L3-cache and go to main memory:
+To demonstrate usefulness of this technique I took the example from one my previous articles about [Top-Down Analysis methodology]({{ site.url }}/blog/2019/02/09/Top-Down-performance-analysis-methodology). The code has a loop with a random load that typically will miss in L3-cache and go to main memory:
 
 ```cpp
 #include <random>
@@ -172,7 +172,7 @@ Here is combined plot with original (baseline) and improved (prefetched) cases:
 
 ![](/img/posts/TimingBasicBlocks/chart_pref.png){: .center-image }
 
-You see, we lowered the spike around 300 cycles and shifted both spikes to the left which is good (towards lower latencies). Also notice the orange dot for 32 cycles latency which has frequency around 3000 times. That means we now have much less cycles that are wasted due to demanding load that misses in caches. See more details about cache misses statistics for this exact case in my previous article about [Top-Down Analysis methodology](https://dendibakh.github.io/blog/2019/02/09/Top-Down-performance-analysis-methodology).
+You see, we lowered the spike around 300 cycles and shifted both spikes to the left which is good (towards lower latencies). Also notice the orange dot for 32 cycles latency which has frequency around 3000 times. That means we now have much less cycles that are wasted due to demanding load that misses in caches. See more details about cache misses statistics for this exact case in my previous article about [Top-Down Analysis methodology]({{ site.url }}/blog/2019/02/09/Top-Down-performance-analysis-methodology).
 
 **That's all. Hope you enjoyed and found it useful! Good luck in using this powerful feature!**
 

@@ -15,7 +15,7 @@ I think usually those improvements are underestimated and usually end up being o
 
 Before actually going to the core of the article I should say that CPU architects put a lot of efforts in hiding those kind of problems that we will talk about today. There are different structures in the CPU front-end that mitigate code layout inefficiencies, however there is still no free lunch there. 
 
-Everything that we will discuss in this article applies whenever you see a big amount of execution time wasted due to Front-End issues. See my previous article about [Top-Down performance analysis methodology](https://dendibakh.github.io/blog/2019/02/09/Top-Down-performance-analysis-methodology) for examples.
+Everything that we will discuss in this article applies whenever you see a big amount of execution time wasted due to Front-End issues. See my previous article about [Top-Down performance analysis methodology]({{ site.url }}/blog/2019/02/09/Top-Down-performance-analysis-methodology) for examples.
 
 Compilers? Is that what you think? Right, compilers are very smart nowadays and are getting smarter each day. They do the most part of the job of generating the best layout for your binary. In combination with profile guided optimization (see at the end of the article) they will do most of the things that we will talk about today. And I doubt you can do it better than PGO, however there are still some limitations. Keep on reading and you will know.
 
@@ -64,7 +64,7 @@ Here are two different physical layouts we may come up with:
 
 ![](/img/posts/code_layout/DefaultLayout.jpg){: .center-image-width-20-no-block } ![](/img/posts/code_layout/Arrow.jpg){: .center-image-width-10-no-block } ![](/img/posts/code_layout/BetterLayout.jpg){: .center-image-width-20-no-block }
 
-What we did on the right was just invert the condition from `if (cond)` into `if (!cond)`. Arrow suggests that the one on the right is better than the one on the left. But why? **Main reason is because we maintain fall through between hot pieces of the code. Not taken branches are fundamentally cheaper that taken. Additionally second case better utilizes L1 I-cache and uop-cache (DSB)**. See one of my previous [posts](https://dendibakh.github.io/blog/2018/07/09/Improving-performance-by-better-code-locality) for further details.
+What we did on the right was just invert the condition from `if (cond)` into `if (!cond)`. Arrow suggests that the one on the right is better than the one on the left. But why? **Main reason is because we maintain fall through between hot pieces of the code. Not taken branches are fundamentally cheaper that taken. Additionally second case better utilizes L1 I-cache and uop-cache (DSB)**. See one of my previous [posts]({{ site.url }}/blog/2018/07/09/Improving-performance-by-better-code-locality) for further details.
 
 You can make a hint to compiler using `__builtin_expect` construct[^2]: 
 ```cpp
@@ -82,7 +82,7 @@ Facebook in the mid 2018 open-sourced their great peace of work called [BOLT](ht
 
 ### Basic block alignment
 
-I already wrote a complete article on this topic some time ago: [Code alignment issues](https://dendibakh.github.io/blog/2018/01/18/Code_alignment_issues). This is purely microarchitectural optimization which is usually applied to loops. Figure below is the best brief explanation of the matter:
+I already wrote a complete article on this topic some time ago: [Code alignment issues]({{ site.url }}/blog/2018/01/18/Code_alignment_issues). This is purely microarchitectural optimization which is usually applied to loops. Figure below is the best brief explanation of the matter:
 
 ![](/img/posts/code_layout/Defaultalignment.png){: .center-image-width-60 } 
 ![](/img/posts/code_layout/NarrowArrow.jpg){: .center-image } 
@@ -90,7 +90,7 @@ I already wrote a complete article on this topic some time ago: [Code alignment 
 
 Idea here is that **shift the hot code (in yellow) down using NOPs (in blue) so that the whole loop will reside in one cache line**. On the picture below cache line start from `c0` and ends at `ff`. This transformation usually improves I-cache and DSB utilization.
 
-In LLVM it is implemented in the same file as basic block placement algorithms: [lib/CodeGen/MachineBlockPlacement.cpp](http://llvm.org/doxygen/MachineBlockPlacement_8cpp_source.html), look at `MachineBlockPlacement::alignBlocks()`. This topic was so popular that I wrote also article that describes compiler different options in LLVM to manually control alignment of basic blocks: [Code alignment options in llvm](https://dendibakh.github.io/blog/2018/01/25/Code_alignment_options_in_llvm).
+In LLVM it is implemented in the same file as basic block placement algorithms: [lib/CodeGen/MachineBlockPlacement.cpp](http://llvm.org/doxygen/MachineBlockPlacement_8cpp_source.html), look at `MachineBlockPlacement::alignBlocks()`. This topic was so popular that I wrote also article that describes compiler different options in LLVM to manually control alignment of basic blocks: [Code alignment options in llvm]({{ site.url }}/blog/2018/01/25/Code_alignment_options_in_llvm).
 
 For experimental purposes it is also possible to emit assembly listing and then insert `NOP` instructions or `ALIGN`[^4] assembler directives:
 ```

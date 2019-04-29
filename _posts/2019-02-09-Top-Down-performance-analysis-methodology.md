@@ -32,7 +32,7 @@ TMAM methodology is implemented in [toplev](https://github.com/andikleen/pmu-too
 
 ### Step 1
 
-This is the two most important pictures for TMAM (taken from Intel manual, see link above). First is the breakdown of metric levels in TMAM and second shows reasoning for a single [uop](https://dendibakh.github.io/blog/2018/09/04/Performance-Analysis-Vocabulary):
+This is the two most important pictures for TMAM (taken from Intel manual, see link above). First is the breakdown of metric levels in TMAM and second shows reasoning for a single [uop]({{ site.url }}/blog/2018/09/04/Performance-Analysis-Vocabulary):
 
 ![](/img/posts/TMAM/TMAM.png){: .center-image-width-45-no-block } ![](/img/posts/TMAM/TMAM_diag.png){: .center-image-width-45-no-block }
 
@@ -124,7 +124,7 @@ In the `Locate-with` column there is performance event that we can use to locate
 ```bash
 $ perf record -e cpu/event=0xd1,umask=0x20,name=MEM_LOAD_RETIRED.L3_MISS/ppp ./a.out
 ```
-If you don't understand the underlying mechanics of what we just did, I encourage you to read one of my previous posts: [Basics of profiling with perf](https://dendibakh.github.io/blog/2018/08/26/Basics-of-profiling-with-perf) and [Understanding performance events skid](https://dendibakh.github.io/blog/2018/08/29/Understanding-performance-events-skid). Let's look into the profile:
+If you don't understand the underlying mechanics of what we just did, I encourage you to read one of my previous posts: [Basics of profiling with perf]({{ site.url }}/blog/2018/08/26/Basics-of-profiling-with-perf) and [Understanding performance events skid]({{ site.url }}/blog/2018/08/29/Understanding-performance-events-skid). Let's look into the profile:
 ```bash
 $ perf report -n --stdio
 ...
@@ -229,9 +229,9 @@ This hint improved execution time by 2 seconds (+30% [speedup](https://randomasc
        6,498080824 seconds time elapsed
 ```
 
-Notice 10x less values for `CYCLE_ACTIVITY.STALLS_L3_MISS` and `MEM_LOAD_RETIRED.L3_MISS`. However, it didn't fully go away. There is one technique based on using LBR that can help us to estimate our prefetch window. If there will be interest in it I can write additional post about it. Just leave a comment if you interested. **UPD 3rd April 2019 I wrote this article: [Precise timing of machine code with Linux perf](https://dendibakh.github.io/blog/2019/04/03/Precise-timing-of-machine-code-with-Linux-perf)**.
+Notice 10x less values for `CYCLE_ACTIVITY.STALLS_L3_MISS` and `MEM_LOAD_RETIRED.L3_MISS`. However, it didn't fully go away. There is one technique based on using LBR that can help us to estimate our prefetch window. If there will be interest in it I can write additional post about it. Just leave a comment if you interested. **UPD 3rd April 2019 I wrote this article: [Precise timing of machine code with Linux perf]({{ site.url }}/blog/2019/04/03/Precise-timing-of-machine-code-with-Linux-perf)**.
 
-Remember that TMAM is an iterative process, so we now need to repeat the process from the step #1. Likely it will move the bottleneck into some other bucket, probably Retiring. Ideally we want to be 100% bound by Retirement. Most of the time that means good thing, however not always. There are situations when you have very high retirement, but still app performs slow. This usually happens when Microcode sequencer starts feeding uops to the pipeline, like shown [here](https://dendibakh.github.io/blog/2018/11/08/Using-denormal-floats-is-slow-how-to-detect-it).
+Remember that TMAM is an iterative process, so we now need to repeat the process from the step #1. Likely it will move the bottleneck into some other bucket, probably Retiring. Ideally we want to be 100% bound by Retirement. Most of the time that means good thing, however not always. There are situations when you have very high retirement, but still app performs slow. This usually happens when Microcode sequencer starts feeding uops to the pipeline, like shown [here]({{ site.url }}/blog/2018/11/08/Using-denormal-floats-is-slow-how-to-detect-it).
 
 ### Additional resources and links:
 

@@ -37,7 +37,7 @@ Results:
                      Benchmark   Cycles   UOPS_EXECUTED.CORE   UOPS_ISSUED.ANY   UOPS_RETIRED.ALL
                   xor eax, eax     1.02   1.01                 2.04              2.00
 ```
-As always, this tool shows the values for the counters per iteration. Remember, that `dec + jnz` are MacroFused into one uop, which is the only uop that was executed (utilizing execution units). Read more on this in my [blog post about MacroFusion](https://dendibakh.github.io/blog/2018/02/23/MacroFusion-in-Intel-CPUs).
+As always, this tool shows the values for the counters per iteration. Remember, that `dec + jnz` are MacroFused into one uop, which is the only uop that was executed (utilizing execution units). Read more on this in my [blog post about MacroFusion]({{ site.url }}/blog/2018/02/23/MacroFusion-in-Intel-CPUs).
 
 Interestingly enough, that on Ivy Bridge `mov eax, 0` is not recognized:
 ```

@@ -67,7 +67,7 @@ I did my experiments on IvyBridge CPU using [uarch-bench tool](https://github.co
              max load capacity   8.02     8.00         8.00         1.00  
 ```
 
-We can see that our 16 loads were scheduled equally between PORT2 and PORT3, each port takes 8 uops. PORT5 takes [MacroFused](https://dendibakh.github.io/blog/2018/02/23/MacroFusion-in-Intel-CPUs) uop appeared from `dec` and `jnz` instruction.
+We can see that our 16 loads were scheduled equally between PORT2 and PORT3, each port takes 8 uops. PORT5 takes [MacroFused]({{ site.url }}/blog/2018/02/23/MacroFusion-in-Intel-CPUs) uop appeared from `dec` and `jnz` instruction.
 The same picture can be observed if use [IACA](https://software.intel.com/en-us/articles/intel-architecture-code-analyzer) tool ([good explanation](https://stackoverflow.com/questions/26021337/what-is-iaca-and-how-do-i-use-it) how to use IACA):
 ```
 Architecture  - IVB

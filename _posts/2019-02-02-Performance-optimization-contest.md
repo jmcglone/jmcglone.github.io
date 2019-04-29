@@ -30,7 +30,7 @@ For the challenges that I will send I'm not looking for optimizations that fall 
 
 #### Q0: *Why ~~the hell~~ on earth I should participate in this contest?*
 
-**A0**: You will learn/practice how to do optimizations for HW. This might include eliminating cache misses by inserting prefetch instructions, getting rid of [Code alignment issues](https://dendibakh.github.io/blog/2018/01/18/Code_alignment_issues), improving performance by helping compiler to vectorize/unroll the loop better. You will learn different techniques as you go.
+**A0**: You will learn/practice how to do optimizations for HW. This might include eliminating cache misses by inserting prefetch instructions, getting rid of [Code alignment issues]({{ site.url }}/blog/2018/01/18/Code_alignment_issues), improving performance by helping compiler to vectorize/unroll the loop better. You will learn different techniques as you go.
 
 ------
 #### Q1: *What benchmarks are taken into the contest?*
@@ -103,7 +103,7 @@ Let me know what you think about it or if you have any ideas or comments. You ca
 2. Find the hotspot (use `perf record`).
 3. Find performance headroom
   * Take a look at the assembly and try to guess how you can do better.
-  * Run through [TMAM](https://dendibakh.github.io/blog/2019/02/09/Top-Down-performance-analysis-methodology) process.
+  * Run through [TMAM]({{ site.url }}/blog/2019/02/09/Top-Down-performance-analysis-methodology) process.
 4. Build the benchmark, run it and compare against baseline.
 
 ### Hints
@@ -115,5 +115,5 @@ Information presented in llvm documentation: [Benchmarking tips](https://llvm.or
 
 ### List of contest editions
 
-- [Contest #1](https://dendibakh.github.io/blog/2019/02/16/Performance-optimization-contest-1) - 16 Feb 2019.
-- [Contest #2](https://dendibakh.github.io/blog/2019/04/10/Performance-analysis-and-tuning-contest-2) - 10 Apr 2019.
+- [Contest #1]({{ site.url }}/blog/2019/02/16/Performance-optimization-contest-1) - 16 Feb 2019.
+- [Contest #2]({{ site.url }}/blog/2019/04/10/Performance-analysis-and-tuning-contest-2) - 10 Apr 2019.

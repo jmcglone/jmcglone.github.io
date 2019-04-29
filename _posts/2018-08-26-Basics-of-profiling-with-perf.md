@@ -6,7 +6,7 @@ tags: default
 
 In this post I want to go back to the basic things of profiling with perf. I want to show what's happening when you type `perf record`. We all know that it somehow shows us the hotspots and where our application spend most of the time. That's great, but how it's doing it? Let's find out.
 
-Before reading this post I suggest you to familiarize yourself with my two previous posts about [PMU counters and profiling basics](https://dendibakh.github.io/blog/2018/06/01/PMU-counters-and-profiling-basics) and [Advanced profiling topics. PEBS and LBR](https://dendibakh.github.io/blog/2018/06/08/Advanced-profiling-topics-PEBS-and-LBR). Especially with what is *counting* and *sampling*.
+Before reading this post I suggest you to familiarize yourself with my two previous posts about [PMU counters and profiling basics]({{ site.url }}/blog/2018/06/01/PMU-counters-and-profiling-basics) and [Advanced profiling topics. PEBS and LBR]({{ site.url }}/blog/2018/06/08/Advanced-profiling-topics-PEBS-and-LBR). Especially with what is *counting* and *sampling*.
 
 Suppose we have our application "a.out" which runs for approximately 2,5 seconds:
 ```
@@ -59,7 +59,7 @@ Which matches with what we see in `perf report`:
     22 │400910: ↓ jmpq   400a15 <foo.merge>
 ```
 
-The second interesting thing is `period: 32287405` the number of occurrences of the event between two samples. Here things start to get interesting. So, between sample N-1 and N (that's presented) there were 32287405 cycles executed. Perf, when preparing for capturing next sample, set the value of one of the PMU counters to -3228740, then start incrementing it with every cycle (because we sample on cycles) and wait until it overflows (from -1 to 0). You can read more about this in my article about [PMU counters and profiling basics](https://dendibakh.github.io/blog/2018/06/01/PMU-counters-and-profiling-basics).
+The second interesting thing is `period: 32287405` the number of occurrences of the event between two samples. Here things start to get interesting. So, between sample N-1 and N (that's presented) there were 32287405 cycles executed. Perf, when preparing for capturing next sample, set the value of one of the PMU counters to -3228740, then start incrementing it with every cycle (because we sample on cycles) and wait until it overflows (from -1 to 0). You can read more about this in my article about [PMU counters and profiling basics]({{ site.url }}/blog/2018/06/01/PMU-counters-and-profiling-basics).
 
 Now, remember that by default we sample on cycles (equivalent to `perf record -e cycles`). With latest run we collected 247 samples. For simplicity let's assume average period for all samples is 32300000 events. Based on that, the number of cycles it took to execute this workload is: 247 * 32300000 = 7978100000 cycles.
 If we compare this number with the number of counted cycles:
