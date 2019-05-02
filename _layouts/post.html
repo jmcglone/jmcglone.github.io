@@ -13,9 +13,10 @@ notes: active
   {% else %}
     {% assign categories = page.categories %}
   {% endif %}
+  Categories: 
   {% for category in categories %}
-  Categories: <a href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
-  {% unless forloop.last %}&nbsp;{% endunless %}
+  <a href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
+  {% unless forloop.last %};{% endunless %}
   {% endfor %}
 </div>
 			
