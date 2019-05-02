@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Machine code layout optimizations.
-tags: default
+categories: [optimizations, compilers]
 ---
 
 **Contents:**

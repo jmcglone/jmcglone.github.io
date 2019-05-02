@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Code::Dive 2017 trip report.
-tags: default
+categories: [personal]
 ---
 
 This is my third time [Code::dive](http://codedive.pl/) conference and I was really happy to be back to Wroclaw. To be back to this wonderful city, to my Nokia ex-colleagues and friends.

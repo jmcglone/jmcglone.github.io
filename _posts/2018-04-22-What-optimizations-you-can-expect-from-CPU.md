@@ -1,7 +1,7 @@
 ---
 layout: post
 title: What optimizations you can expect from CPU?
-tags: default
+categories: [microarchitecture]
 ---
 
 **Contents:**

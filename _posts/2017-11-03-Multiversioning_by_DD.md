@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vectorization part5. Multiversioning by data dependency.
-tags: default
+categories: [vectorization]
 ---
 
 Vectorization doesn't always come for free. In this post we will see what penalties we have to pay with vectorization.

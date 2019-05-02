@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Small size optimization.
-tags: default
+categories: [C++, optimizations]
 ---
 
 As Chandler Carruth said in his [talk at CppCon 2016](https://www.youtube.com/watch?v=vElZc6zSIXM&list=PLHTh1InhhwT7J5jl4vAhO1WvGHUUFgUQH&index=35), a lot of people underestimate the benefit of [Small Size Optimization](https://www.google.pl/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwimkb-K-cTQAhVIDCwKHfx4CyIQFggdMAA&url=http%3A%2F%2Fnullprogram.com%2Fblog%2F2016%2F10%2F07%2F&usg=AFQjCNGWk5vqGN5Mf0Deu3XtDS98s8dAXA&sig2=ysMLY351GtM-Fw2pdShHAQ)(SSO).

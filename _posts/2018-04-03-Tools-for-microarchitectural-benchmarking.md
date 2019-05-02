@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Tools for microarchitectural benchmarking.
-tags: default
+categories: [tools, performance analysis]
 ---
 
 **Contents:**

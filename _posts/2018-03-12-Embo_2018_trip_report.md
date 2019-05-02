@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Embo 2018 trip report.
-tags: default
+categories: [personal]
 ---
 
 ### It was a great pleasure to be with embo 2018.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Performance analysis vocabulary.
-tags: default
+categories: [beginner friendly, performance analysis]
 ---
 
 **Contents:**

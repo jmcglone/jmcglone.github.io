@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Advanced profiling topics. PEBS and LBR.
-tags: default
+categories: [performance analysis]
 ---
 
 **Contents:**

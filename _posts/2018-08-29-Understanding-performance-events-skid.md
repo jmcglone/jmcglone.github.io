@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Understanding performance events skid.
-tags: default
+categories: [performance analysis]
 ---
 
 **Contents:**

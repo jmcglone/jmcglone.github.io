@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Microbenchmarking fused instruction.
-tags: default
+categories: [microarchitecture]
 ---
 
 **Contents:**

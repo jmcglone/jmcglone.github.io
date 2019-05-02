@@ -1,7 +1,7 @@
 ---
 layout: post
 title: MacroFusion in Intel CPUs.
-tags: default
+categories: [microarchitecture]
 ---
 
 **Contents:**

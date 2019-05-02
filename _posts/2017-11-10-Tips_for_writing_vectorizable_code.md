@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vectorization part7. Tips for writing vectorizable code.
-tags: default
+categories: [vectorization]
 ---
 
 This post is wrapping up the series. We just saw some really simple examples when vectorization either happens or not. But usually you have more complicated code. What to do in this case, how make use of vectorization capabilities of your CPU?

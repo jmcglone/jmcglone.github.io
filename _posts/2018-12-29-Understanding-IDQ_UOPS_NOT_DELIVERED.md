@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Understanding IDQ_UOPS_NOT_DELIVERED performance counter.
-tags: default
+categories: [microarchitecture]
 ---
 
 **Contents:**

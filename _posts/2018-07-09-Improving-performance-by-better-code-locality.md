@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Improving performance by better code locality.
-tags: default
+categories: [tuning]
 ---
 
 **Contents:**

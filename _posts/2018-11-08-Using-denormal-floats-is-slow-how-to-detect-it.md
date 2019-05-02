@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Using denormal values is slow. How to detect it?
-tags: default
+categories: [tuning]
 ---
 
 **Contents:**

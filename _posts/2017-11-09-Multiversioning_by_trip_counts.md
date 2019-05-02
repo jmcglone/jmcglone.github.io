@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vectorization part6. Multiversioning by trip counts.
-tags: default
+categories: [vectorization]
 ---
 
 In this post we will dig deep into the different type of multiversioning. This time we will look at creating multiple versions of the same loop that have different trip counts. If you haven't read [part 4: vectorization width]({{ site.url }}/blog/2017/11/02/Vectorization_width) yet I encourage you to do that, because we will use knowledge form this post a lot.

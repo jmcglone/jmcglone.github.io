@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Code alignment options in llvm.
-tags: default
+categories: [compilers]
 ---
 
 **Contents:**

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: My learning resources in 2018
-tags: default
+categories: [personal]
 ---
 
 **Contents:**

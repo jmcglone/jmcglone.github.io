@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Basics of profiling with perf.
-tags: default
+categories: [beginner friendly, tools]
 ---
 
 In this post I want to go back to the basic things of profiling with perf. I want to show what's happening when you type `perf record`. We all know that it somehow shows us the hotspots and where our application spend most of the time. That's great, but how it's doing it? Let's find out.

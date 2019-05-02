@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to collect CPU performance counters on Windows?
-tags: default
+categories: [tools, performance analysis, windows]
 ---
 
 **Contents:**

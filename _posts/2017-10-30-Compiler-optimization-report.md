@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vectorization part3. Compiler report.
-tags: default
+categories: [vectorization]
 ---
 
 This post will be short but it is quite important to know about compiler optimization reports because it can save you a lot of time.

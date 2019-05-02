@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Performance analysis and tuning contest &#35&#50.
-tags: default
+categories: contest
 ---
 
 **Contents:**

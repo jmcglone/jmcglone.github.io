@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Sentinels.
-tags: default
+categories: [C++, optimizations]
 ---
 
 Today I would like to show one interesting techique for optimizing your algorithms. This technique is called sentinels.

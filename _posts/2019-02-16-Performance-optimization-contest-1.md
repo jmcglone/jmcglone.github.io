@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Performance optimization contest &#35&#49.
-tags: default
+categories: [contest]
 ---
 
 **Contents:**

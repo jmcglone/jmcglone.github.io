@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vectorization part1. Intro.
-tags: default
+categories: [vectorization]
 ---
 
 Recently I was working closely with analyzing different vectorization cases. So I decided to write a series of articles dedicated to this topic.

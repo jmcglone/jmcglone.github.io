@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How good of a performance optimizer you are? Contest!
-tags: default
+categories: [contest]
 ---
 
 **Contents:**

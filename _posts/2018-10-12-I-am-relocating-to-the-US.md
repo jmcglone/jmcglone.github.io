@@ -1,7 +1,7 @@
 ---
 layout: post
 title: I am relocating to the US.
-tags: default
+categories: [personal]
 ---
 
 I'm about to start a new chapter in my career and life. I'm relocating to the US in a few days. Right now I want to say `Thank you` to Poland and say `Hello` to US.

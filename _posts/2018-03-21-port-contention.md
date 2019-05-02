@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Understanding CPU port contention.
-tags: default
+categories: [microarchitecture]
 ---
 
 **Contents:**

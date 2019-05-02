@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Top-Down performance analysis methodology.
-tags: default
+categories: [performance analysis, tools]
 ---
 
 **Contents:**

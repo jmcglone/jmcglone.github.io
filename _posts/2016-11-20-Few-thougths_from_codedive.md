@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Code::Dive 2016 trip report.
-tags: default
+categories: [personal]
 ---
 
 It's my second time I've beed on Code::Dive conference in Wroclaw.

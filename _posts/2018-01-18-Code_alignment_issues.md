@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Code alignment issues.
-tags: default
+categories: [tuning]
 ---
 
 **Contents:**

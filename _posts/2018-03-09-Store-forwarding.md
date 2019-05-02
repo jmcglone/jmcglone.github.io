@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Store forwarding by example.
-tags: default
+categories: [microarchitecture]
 ---
 
 **Contents:**

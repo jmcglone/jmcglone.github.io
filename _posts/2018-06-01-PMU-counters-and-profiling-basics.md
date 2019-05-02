@@ -1,7 +1,7 @@
 ---
 layout: post
 title: PMU counters and profiling basics.
-tags: default
+categories: [beginner friendly, performance analysis]
 ---
 
 **Contents:**

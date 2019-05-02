@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vectorization part4. Vectorization Width.
-tags: default
+categories: [vectorization]
 ---
 
 In my previous posts we have seen somewhat basic examples of loop vectorization. In this post we will go deeper in this fun stuff. In this post I will show multiple ways for the compiler to vectorize the same loop.

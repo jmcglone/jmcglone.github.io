@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Precise timing of machine code with Linux perf.
-tags: default
+categories: [tools, performance analysis]
 ---
 
 **Contents:**
