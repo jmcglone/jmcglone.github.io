@@ -151,6 +151,12 @@ iframe {font-family: 'Merriweather', Georgia, Times; font-size: 16px;}
 /* About me*/
 .about_me { width: 50%; line-height: 30px; margin-left: 30px;}
 
+/* Categories*/
+.archive-header  { font-size: 24px; }
+.archive-group, .category-head  { margin-left: 10px; }
+.archive-item { margin-left: 30px; }
+.post-categories { font-size: 24.5px; font-weight: 300; }
+
 /* Guides */
 .guide { width: 90%; margin: 0 auto 60px auto; line-height: 26px;}
 .guide .title { padding: 100px 30px 0px; width: 100%; height: 60%; margin-bottom: 40px; background: #d5d5d5; color: #428bca; }

@@ -1,0 +1,23 @@
+---
+layout: default
+permalink: /categories/
+title: Categories
+---
+
+<div id="archives" class="archive-header">
+<h2>Categories:</h2><br>
+{% for category in site.categories %}
+  <div class="archive-group">
+    {% capture category_name %}{{ category | first }}{% endcapture %}
+    <div id="#{{ category_name | slugize }}"></div>
+    <u>{{ category_name }}:</u>
+    <a name="{{ category_name | slugize }}"></a>
+    {% for post in site.categories[category_name] %}
+    <article class="archive-item">
+      <span>{{ post.date | date_to_string }} &raquo; </span><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a>
+    </article>
+    {% endfor %}
+  </div>
+{% endfor %}
+<br>
+</div>
