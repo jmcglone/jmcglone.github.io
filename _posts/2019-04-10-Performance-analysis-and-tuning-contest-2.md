@@ -262,7 +262,7 @@ You see, we have taken branch in the hot region. If we invert the control flow w
 
 With this information compiler is able to move the body of `NORMALIZE` macro out of the hot region. The patch that does that is on my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/2/unlikely_normalize.patch).
 
-### Reducing code size of the hot code (+0.5%)
+### Reducing size of the hot code (+0.5%)
 
 I found this somewhat hot loop in `LzmaDec_DecodeReal()`:
 ```cpp
