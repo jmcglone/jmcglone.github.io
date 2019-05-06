@@ -214,7 +214,7 @@ The idea is that we compute both branches and then just select the right answer 
 
 Note, however, there is a threshold for generating cmovs. When there are too much computations in both branches it is better to take the penalty of branch misprediction (~15-20 cycles, depending how deep is the pipeline) than executing both branches. I think this threshold is usually low, meaning that CMOV is only profitable when there are not many computations in both branches and branch is unpredictable. For further reading check this [stackoverflow](https://stackoverflow.com/questions/44754267/how-to-force-the-use-of-cmov-in-gcc-and-vs) question.
 
-There are other similar places where branch misprediction happens inside `LzmaDec_DecodeReal()`. The best place to fix them all is to modify the `GET_BIT2` macro. You can find the patch which does that on my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/2/cmov.patch) and try it yourself.
+There are other similar places where branch misprediction happens inside `LzmaDec_DecodeReal()`. The best place to fix them all is to modify the `GET_BIT2` macro. You can find the patch which does that on my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/2/cmovs.patch) and try it yourself.
 
 ### Improving machine block placement (+1.5%)
 
