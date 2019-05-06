@@ -1,0 +1,25 @@
+From 04e6c53474d4b3e290f54db93ae814bcae89a365 Mon Sep 17 00:00:00 2001
+From: Denis Bakhvalov <denis.bakhvalov@intel.com>
+Date: Mon, 6 May 2019 12:48:07 -0700
+Subject: [PATCH 2/2] Unlikely to normalize
+
+---
+ MultiSource/Benchmarks/7zip/C/LzmaDec.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/MultiSource/Benchmarks/7zip/C/LzmaDec.c b/MultiSource/Benchmarks/7zip/C/LzmaDec.c
+index 86e769b..fa385af 100644
+--- a/MultiSource/Benchmarks/7zip/C/LzmaDec.c
++++ b/MultiSource/Benchmarks/7zip/C/LzmaDec.c
+@@ -14,7 +14,7 @@
+ 
+ #define RC_INIT_SIZE 5
+ 
+-#define NORMALIZE if (range < kTopValue) { range <<= 8; code = (code << 8) | (*buf++); }
++#define NORMALIZE if (__builtin_expect(range < kTopValue, 0)) { range <<= 8; code = (code << 8) | (*buf++); }
+ 
+ #define IF_BIT_0(p) ttt = *(p); NORMALIZE; bound = (range >> kNumBitModelTotalBits) * ttt; if (code < bound)
+ #define UPDATE_0(p) range = bound; *(p) = (CLzmaProb)(ttt + ((kBitModelTotal - ttt) >> kNumMoveBits));
+-- 
+1.8.3.1
+

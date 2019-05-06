@@ -17,19 +17,20 @@ import argparse
 # no modifications, i.e. no patch.
 #
 # Typical workflow: once you modified baseline, create a patch 
-# out of your modifications, name it "src.patch" and put it 
-# in new folder. This will be you new attempt to optimize 
-# the benchmark.
+# out of your modifications and put it in new folder. 
+# This will be your new attempt to optimize the benchmark.
 
 parser = argparse.ArgumentParser(description='test submissions')
 parser.add_argument("-v", help="verbose", action="store_true", default=False)
 parser.add_argument("-build", help="only build", action="store_true", default=False)
+parser.add_argument("-clean", help="do clean build", action="store_true", default=False)
 parser.add_argument("-run", help="only run", action="store_true", default=False)
 parser.add_argument("-submission", type=str, help="do single submission", default="")
 args = parser.parse_args()
 
 verbose = args.v
 buildOnly = args.build
+cleanBuild = args.clean
 runOnly = args.run
 buildAndRun = not runOnly and not buildOnly
 doSubmission = args.submission
@@ -61,25 +62,29 @@ if buildOnly or buildAndRun:
         print ("Building " + submissionName + " ...")
 
       submissionBuildDir = os.path.join(submissionDir, "build")
-      if os.path.exists(submissionBuildDir):
+      if cleanBuild and os.path.exists(submissionBuildDir):
         shutil.rmtree(submissionBuildDir)
  
       submissionSrcDir = os.path.join(submissionDir,"test-suite")
-      if os.path.exists(submissionSrcDir):
+      if cleanBuild and os.path.exists(submissionSrcDir):
         shutil.rmtree(submissionSrcDir)
     
-      shutil.copytree(testSuiteDir, submissionSrcDir)
-      print("  copying sources - OK")
+      if not os.path.exists(submissionSrcDir):
+        shutil.copytree(testSuiteDir, submissionSrcDir)
+        print("  copying sources - OK")
 
       if not submissionName == "baseline":
         os.chdir(submissionSrcDir)    
         try:
-          subprocess.check_call("git apply ../src.patch", shell=True)
-          print("  applying patch - OK")
+          for filename in os.listdir(submissionDir):
+            if filename.endswith(".patch"): 
+              subprocess.check_call("git apply " + os.path.join(submissionDir, filename), shell=True)
+          print("  applying patches - OK")
         except:
-          print("  applying patch - Failed")
+          print("  applying patches - Failed")
 
-      os.mkdir(submissionBuildDir)
+      if not os.path.exists(submissionBuildDir):
+        os.mkdir(submissionBuildDir)
       os.chdir(submissionBuildDir)    
 
       try:

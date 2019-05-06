@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vectorization part2. Warmup.
-tags: default
+categories: [vectorization]
 ---
 
 I want to do this warmup post, just to be sure that we are on the same page. It will also give you the taste of how the vector assembly looks like and how it works.

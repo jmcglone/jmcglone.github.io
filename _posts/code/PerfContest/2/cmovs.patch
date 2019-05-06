@@ -1,0 +1,41 @@
+From 9ce2302414951f26419c18b92dffd8d9e066e108 Mon Sep 17 00:00:00 2001
+From: Denis Bakhvalov <denis.bakhvalov@intel.com>
+Date: Mon, 6 May 2019 12:47:36 -0700
+Subject: [PATCH 1/2] Convert branches into cmovs
+
+---
+ MultiSource/Benchmarks/7zip/C/LzmaDec.c | 18 +++++++++++++++---
+ 1 file changed, 15 insertions(+), 3 deletions(-)
+
+diff --git a/MultiSource/Benchmarks/7zip/C/LzmaDec.c b/MultiSource/Benchmarks/7zip/C/LzmaDec.c
+index 2036761..86e769b 100644
+--- a/MultiSource/Benchmarks/7zip/C/LzmaDec.c
++++ b/MultiSource/Benchmarks/7zip/C/LzmaDec.c
+@@ -19,9 +19,21 @@
+ #define IF_BIT_0(p) ttt = *(p); NORMALIZE; bound = (range >> kNumBitModelTotalBits) * ttt; if (code < bound)
+ #define UPDATE_0(p) range = bound; *(p) = (CLzmaProb)(ttt + ((kBitModelTotal - ttt) >> kNumMoveBits));
+ #define UPDATE_1(p) range -= bound; code -= bound; *(p) = (CLzmaProb)(ttt - (ttt >> kNumMoveBits));
+-#define GET_BIT2(p, i, A0, A1) IF_BIT_0(p) \
+-  { UPDATE_0(p); i = (i + i); A0; } else \
+-  { UPDATE_1(p); i = (i + i) + 1; A1; }
++#define GET_BIT2(p, i, A0, A1) \
++{ \
++ttt = *(p); \
++NORMALIZE; \
++bound = (range >> kNumBitModelTotalBits) * ttt; \
++Bool cond = code < bound ; \
++ range = cond ? bound : (range - bound); \
++ code = cond ? code : code - bound; \
++ UInt16 LHS = (CLzmaProb)(ttt + ((kBitModelTotal - ttt) >> kNumMoveBits)); \
++ UInt16 RHS = (CLzmaProb)(ttt - (ttt >> kNumMoveBits)); \
++ *(p) = cond ? LHS : RHS; \
++ i = (i + i); \
++ i = cond ? i : i + 1; \
++ if (cond) {A0;} else {A1;} \
++}
+ #define GET_BIT(p, i) GET_BIT2(p, i, ; , ;)
+ 
+ #define TREE_GET_BIT(probs, i) { GET_BIT((probs + i), i); }
+-- 
+1.8.3.1
+
