@@ -7,6 +7,7 @@ kramdown:
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
 name:         Denis Bakhvalov
 description:  Performance optimizations and analysis in C/C++
 url:          https://easyperf.net
