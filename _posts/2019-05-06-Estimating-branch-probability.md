@@ -52,7 +52,7 @@ S0-C0    RET            Retiring:                32.80 +-     0.00 % Slots below
 
 All right, let's drill down on the next level:
 ```bash
-$ ~/pmu-tools/toplev.py --core S0-C0 -l1 -v --no-desc taskset -c 0 ./7zip-benchmark b
+$ ~/pmu-tools/toplev.py --core S0-C0 -l2 -v --no-desc taskset -c 0 ./7zip-benchmark b
 S0-C0    FE             Frontend_Bound:                             13.74 +-     0.00 % Slots below
 S0-C0    BAD            Bad_Speculation:                            39.32 +-     0.00 % Slots      
 S0-C0    BE             Backend_Bound:                              15.61 +-     0.00 % Slots      
