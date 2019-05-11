@@ -3,7 +3,7 @@ layout: post
 title:  research fellowship positions
 date: 2019-05-11
 description: Research fellowship positions at the IBS Center for Geometry and Physics (IBS-CGP)
-tags: fellowship research korea
+tags: fellowship research award scholarship korea
 ---
 
 ## About the call
