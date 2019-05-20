@@ -36,6 +36,9 @@ body {
   .container {
     max-width: 1250px;
   }
+  body {
+    font-size:18px !important;
+  }
 }
 .container-narrow > hr {
   margin: 30px 0;
