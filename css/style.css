@@ -1,19 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic,700,700italic);
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
-/* Responsive sizes */
-$screen-sm-min: 768px;
-$screen-md-min: 992px;
-$screen-lg-min: 1200px;
-
-body { padding-top: 20px; padding-bottom: 40px; font-family: 'Merriweather', Georgia, Times; font-size: 18px; width: 100%; height: 100%; }
+body { padding-top: 20px; padding-bottom: 40px; font-family: 'Merriweather', Georgia, Times; font-size: 18px; }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: 'Merriweather', Georgia, Times; font-weight: 700;}
 
 blockquote p { font-size: 16px; line-height: 1.6em; }
 
 /* Masthead */
-.header, .footer, .header h3 { font-family: 'Montserrat', Helvetica, sans-serif; text-transform: uppercase; font-weight: normal; margin-bottom: 10px;}
+.header, .footer, .header h3 { font-family: 'Montserrat', Helvetica, sans-serif; text-transform: uppercase; font-weight: normal; }
 
 /* Navigation */
 h3.text-muted a {text-decoration: none; color: #999999; }
@@ -36,22 +31,9 @@ img.avatar { margin-bottom: 30px; }
 .marketing p.lead { line-height: 30px; }
 
 /* Notes */
-@media screen and (max-width: 500px) {
-.notelist { width: 350px; margin: 0 auto; font-size: 18px;}
-ul.listnotes li {line-height: 20px; }
-}
-
-@media screen and (max-width: 768px) and (min-width: 500px) {
-.notelist { width: 500px; margin: 0 auto; font-size: 18px;}
-ul.listnotes li {line-height: 20px; }
-}
-
-@media screen and (min-width: 768px) {
-.notelist { width: 800px; margin: 0 auto; font-size: 18px;}
+.notelist { width: 800px; margin: 0 auto; }
 ul.listnotes { margin: 0 auto; }
-ul.listnotes li {line-height: 30px; }
-}
- 
+ul.listnotes li {line-height: 30px; } 
 .center-image
 {
     margin: 0 auto;
@@ -135,17 +117,9 @@ ul.listnotes li {line-height: 30px; }
     display: block;
     width: 60%;
 }
-
 /* Note */
-@media screen and (max-width: 768px) {
-.note, .contact, .about, .about_me, .error, .swatches { width: 95%; margin: 0 auto; line-height: 22px; font-size: 18px;}
+.note, .contact, .about, .about_me, .error, .swatches { width: 85%; margin: 0 auto; line-height: 26px; }
 .note h2.date, .swatch-log h2.date { font-size: 24.5px; font-weight: 300; font-style: italic; }
-}
-
-@media screen and (min-width: 768px) {
-.note, .contact, .about, .about_me, .error, .swatches { width: 95%; margin: 0 auto; line-height: 26px; font-size: 18px;}
-.note h2.date, .swatch-log h2.date { font-size: 24.5px; font-weight: 300; font-style: italic; }
-}
 
 /* Swatches */
 .swatch-log h2.date { margin-bottom: 30px; }
@@ -174,23 +148,14 @@ iframe {font-family: 'Merriweather', Georgia, Times; font-size: 16px;}
 /* About */
 .about ul.list-unstyled li { line-height: 30px; text-indent: -30px; margin-left: 30px;}
 
-  @media screen and (max-width: 768px) {
-    .about_me { width: 90%; line-height: 16px; margin-left: 10px; }
-  }
-
 /* About me*/
-  @media screen and (max-width: 768px) {
-    .about_me { width: 90%; line-height: 16px; margin-left: 10px; }
-  }
-  @media screen and (min-width: 768px) {
-    .about_me { width: 50%; line-height: 30px; margin-left: 30px; }
-  }
+.about_me { width: 50%; line-height: 30px; margin-left: 30px;}
 
 /* Categories*/
 .archive-header  { font-size: 24px; }
 .archive-group, .category-head  { margin-left: 10px; }
 .archive-item { margin-left: 30px; }
-.post-categories { font-size: 20px; font-weight: 300; line-height: 26px;}
+.post-categories { font-size: 24.5px; font-weight: 300; }
 
 /* Guides */
 .guide { width: 90%; margin: 0 auto 60px auto; line-height: 26px;}
