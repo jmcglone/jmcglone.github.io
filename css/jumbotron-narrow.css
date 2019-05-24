@@ -33,6 +33,9 @@ body {
 
 /* Customize container */
 @media (min-width: 768px) {
+  .container {
+    max-width: 1250px;
+  }
   body {
     font-size:18px !important;
   }
