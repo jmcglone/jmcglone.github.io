@@ -1,0 +1,1 @@
+set -o pipefail;{ ../../../tools/timeit-target --limit-core 0 --limit-cpu 7200 --timeout 7200 --limit-file-size 104857600 --limit-rss-size 838860800 --append-exitstatus --redirect-output ./Output/lua.test.out --redirect-input /dev/null --chdir ./ --summary ./Output/lua.test.time ./lua alltests.lua; }

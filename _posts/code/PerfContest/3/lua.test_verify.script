@@ -1,0 +1,2 @@
+set -o pipefail;{ ../../../tools/HashProgramOutput.sh ./Output/lua.test.out; } &&
+{ ../../../tools/fpcmp ./Output/lua.test.out lua.reference_output; }
