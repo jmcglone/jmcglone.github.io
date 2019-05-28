@@ -81,6 +81,8 @@ Here is the workflow that I recommend:
 4. Fix the issue, build the benchmark, run it and compare against baseline.
 5. Repeat steps 2-5.
 
+Lua interpreter is a typical parser, where the most time spent in a loop with a big switch. This switch interprets operations as it goes thought the script.
+
 I also have a few general advises:
 - **Do not try to understand the whole benchmark**. For some people (including me) it's crucial to understand how every peace of code works. For the purposes of optimizing it will be wasted effort. There are CPU benchmarks with thousands LOC (like [SPEC2017](http://spec.org/cpu2017/)) it's absolutely impossible to understand them in a reasonable time. What you need to familiarize yourself with are hotspots. That's it. You most likely need to understand one function/loop which is not more than 100 LOC.
 - **You have specific workload for which you optimize the benchmark**. You don't need to optimize it for any other input/workload. The main principle behind [Data-oriented design](https://en.wikipedia.org/wiki/Data-oriented_design) is that you know the data of your application.
