@@ -55,9 +55,9 @@ $ cmake -DTEST_SUITE_COLLECT_CODE_SIZE=OFF -DTEST_SUITE_BENCHMARKING_ONLY=ON -DC
 $ make lua -j6
 ```
 
-To run the benchmark, first copy `lua.test_run.script` and `lua.test_verify.script` from my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/3) and put them into `MultiSource/Benchmarks/lua`:
+To run the benchmark, first copy `lua.test_run.script` and `lua.test_verify.script` from my [github](https://github.com/dendibakh/dendibakh.github.io/tree/master/_posts/code/PerfContest/3) and put them into `MultiSource/Applications/lua`:
 ```bash
-$ cd MultiSource/Benchmarks/lua
+$ cd MultiSource/Applications/lua
 $ mkdir Output
 $ time -p ./lua.test_run.script
 ```
