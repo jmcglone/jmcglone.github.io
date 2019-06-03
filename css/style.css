@@ -31,7 +31,7 @@ img.avatar { margin-bottom: 30px; }
 .marketing p.lead { line-height: 30px; }
 
 /* Notes */
-.notelist { width: 800px; margin: 0 auto; }
+.notelist { width: 98%; margin: 0 auto; }
 ul.listnotes { margin: 0 auto; }
 ul.listnotes li {line-height: 30px; } 
 .center-image
@@ -149,7 +149,7 @@ iframe {font-family: 'Merriweather', Georgia, Times; font-size: 16px;}
 .about ul.list-unstyled li { line-height: 30px; text-indent: -30px; margin-left: 30px;}
 
 /* About me*/
-.about_me { width: 50%; line-height: 30px; margin-left: 30px;}
+.about_me { line-height: 30px; margin-left: 30px;}
 
 /* Categories*/
 .archive-header  { font-size: 24px; }
