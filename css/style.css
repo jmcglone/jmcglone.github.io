@@ -32,8 +32,11 @@ img.avatar { margin-bottom: 30px; }
 
 /* Notes */
 .notelist { width: 98%; margin: 0 auto; }
+.contestlist { width: 98%; margin: 0 auto; }
 ul.listnotes { margin: 0 auto; }
-ul.listnotes li {line-height: 30px; } 
+ul.listnotes li {line-height: 30px; }
+ul.contestlist { margin: 0 auto; }
+ul.contestlist li {line-height: 30px; }  
 .center-image
 {
     margin: 0 auto;
@@ -140,7 +143,7 @@ ul.swatch li:first-child { webkit-border-top-left-radius: 9px; -webkit-border-bo
 .cv h2 { font-size: 26.5px; }
 .cv h1 { font-size: 32.5px; }
 
-.notes, .contact, .about, .about_me, .cv, .error, .swatches { margin-bottom: 30px; }
+.notes, .contests, .contact, .about, .about_me, .cv, .error, .swatches { margin-bottom: 30px; }
 
 /* Contact */
 iframe {font-family: 'Merriweather', Georgia, Times; font-size: 16px;}
