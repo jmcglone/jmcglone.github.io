@@ -117,3 +117,4 @@ Information presented in llvm documentation: [Benchmarking tips](https://llvm.or
 
 - [Contest #1]({{ site.url }}/blog/2019/02/16/Performance-optimization-contest-1) - 16 Feb 2019.
 - [Contest #2]({{ site.url }}/blog/2019/04/10/Performance-analysis-and-tuning-contest-2) - 10 Apr 2019.
+- [Contest #3]({{ site.url }}/blog/2019/05/28/Performance-analysis-and-tuning-contest-3) - 28 May 2019.
