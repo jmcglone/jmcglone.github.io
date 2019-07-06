@@ -1,0 +1,31 @@
+From 2f120a9b7f15c787988200b3a09fed6ebba6fdd5 Mon Sep 17 00:00:00 2001
+From: Denis Bakhvalov <denis.bakhvalov@intel.com>
+Date: Thu, 23 May 2019 22:50:34 -0700
+Subject: [PATCH] builtin_expect
+
+---
+ MultiSource/Applications/lua/lvm.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/MultiSource/Applications/lua/lvm.c b/MultiSource/Applications/lua/lvm.c
+index ee3256a..582798c 100644
+--- a/MultiSource/Applications/lua/lvm.c
++++ b/MultiSource/Applications/lua/lvm.c
+@@ -385,8 +385,12 @@ void luaV_execute (lua_State *L, int nexeccalls) {
+   for (;;) {
+     const Instruction i = *pc++;
+     StkId ra;
+-    if ((L->hookmask & (LUA_MASKLINE | LUA_MASKCOUNT)) &&
+-        (--L->hookcount == 0 || L->hookmask & LUA_MASKLINE)) {
++    if (__builtin_expect(
++	  (
++	   (L->hookmask & (LUA_MASKLINE | LUA_MASKCOUNT)) &&
++           (--L->hookcount == 0 || L->hookmask & LUA_MASKLINE)
++          ), 0)
++	) {
+       traceexec(L, pc);
+       if (L->status == LUA_YIELD) {  /* did hook yield? */
+         L->savedpc = pc - 1;
+-- 
+1.8.3.1
+

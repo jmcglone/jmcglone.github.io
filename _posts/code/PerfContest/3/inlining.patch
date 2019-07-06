@@ -1,0 +1,53 @@
+From 27819bc4e97a91297fbc057b291e53ae8607a4e9 Mon Sep 17 00:00:00 2001
+From: Denis Bakhvalov <denis.bakhvalov@intel.com>
+Date: Thu, 23 May 2019 22:52:20 -0700
+Subject: [PATCH] inlining
+
+---
+ MultiSource/Applications/lua/ldo.h    | 2 +-
+ MultiSource/Applications/lua/ltable.h | 2 +-
+ MultiSource/Applications/lua/lvm.h    | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/MultiSource/Applications/lua/ldo.h b/MultiSource/Applications/lua/ldo.h
+index 98fddac..516bb72 100644
+--- a/MultiSource/Applications/lua/ldo.h
++++ b/MultiSource/Applications/lua/ldo.h
+@@ -39,7 +39,7 @@ typedef void (*Pfunc) (lua_State *L, void *ud);
+ 
+ LUAI_FUNC int luaD_protectedparser (lua_State *L, ZIO *z, const char *name);
+ LUAI_FUNC void luaD_callhook (lua_State *L, int event, int line);
+-LUAI_FUNC int luaD_precall (lua_State *L, StkId func, int nresults);
++__attribute__((always_inline)) LUAI_FUNC int luaD_precall (lua_State *L, StkId func, int nresults);
+ LUAI_FUNC void luaD_call (lua_State *L, StkId func, int nResults);
+ LUAI_FUNC int luaD_pcall (lua_State *L, Pfunc func, void *u,
+                                         ptrdiff_t oldtop, ptrdiff_t ef);
+diff --git a/MultiSource/Applications/lua/ltable.h b/MultiSource/Applications/lua/ltable.h
+index f5b9d5e..f4098c7 100644
+--- a/MultiSource/Applications/lua/ltable.h
++++ b/MultiSource/Applications/lua/ltable.h
+@@ -22,7 +22,7 @@ LUAI_FUNC const TValue *luaH_getnum (Table *t, int key);
+ LUAI_FUNC TValue *luaH_setnum (lua_State *L, Table *t, int key);
+ LUAI_FUNC const TValue *luaH_getstr (Table *t, TString *key);
+ LUAI_FUNC TValue *luaH_setstr (lua_State *L, Table *t, TString *key);
+-LUAI_FUNC const TValue *luaH_get (Table *t, const TValue *key);
++__attribute__((always_inline))  LUAI_FUNC const TValue *luaH_get (Table *t, const TValue *key);
+ LUAI_FUNC TValue *luaH_set (lua_State *L, Table *t, const TValue *key);
+ LUAI_FUNC Table *luaH_new (lua_State *L, int narray, int lnhash);
+ LUAI_FUNC void luaH_resizearray (lua_State *L, Table *t, int nasize);
+diff --git a/MultiSource/Applications/lua/lvm.h b/MultiSource/Applications/lua/lvm.h
+index bfe4f56..681413c 100644
+--- a/MultiSource/Applications/lua/lvm.h
++++ b/MultiSource/Applications/lua/lvm.h
+@@ -26,7 +26,7 @@ LUAI_FUNC int luaV_lessthan (lua_State *L, const TValue *l, const TValue *r);
+ LUAI_FUNC int luaV_equalval (lua_State *L, const TValue *t1, const TValue *t2);
+ LUAI_FUNC const TValue *luaV_tonumber (const TValue *obj, TValue *n);
+ LUAI_FUNC int luaV_tostring (lua_State *L, StkId obj);
+-LUAI_FUNC void luaV_gettable (lua_State *L, const TValue *t, TValue *key,
++__attribute__((always_inline)) LUAI_FUNC void luaV_gettable (lua_State *L, const TValue *t, TValue *key,
+                                             StkId val);
+ LUAI_FUNC void luaV_settable (lua_State *L, const TValue *t, TValue *key,
+                                             StkId val);
+-- 
+1.8.3.1
+
