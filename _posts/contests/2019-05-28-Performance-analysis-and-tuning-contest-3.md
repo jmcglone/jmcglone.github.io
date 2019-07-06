@@ -124,7 +124,7 @@ __P.P.S.__ I'm also open to your comments and suggestions. If you have an propos
 
 ---
 
-## _Updated 5th June 2019_
+## _Updated 5th July 2019_
 
 This benchmark is not an easy one to optimize. It represents a typical parser which often has a hotspot in a big switch inside the loop. The idea is that the lua interpreter reads the next token and depending on it's type perform a special action with this token. This simple implementation usually ends up with a indirect jump through a jump table. I.e. the switch statement is converted into a jump table with code path for every case.
 
