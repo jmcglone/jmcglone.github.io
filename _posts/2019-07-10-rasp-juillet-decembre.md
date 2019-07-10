@@ -2,7 +2,7 @@
 layout: post
 title: Revue Africaine des Sciences Sociales et de la Santé Publique (RASP), Vol 19(1)
 tags: rasp recherche revue 
-description:Revue Africaine des Sciences Sociales et de la Santé Publique (RASP) Volume 19 (1) juillet-décembre 2019 ISSN 1987-071X Présentation 
+description: Revue Africaine des Sciences Sociales et de la Santé Publique (RASP) Volume 19 (1) juillet-décembre 2019 ISSN 1987-071X Présentation 
 date: 2019-07-10
 ---
 
