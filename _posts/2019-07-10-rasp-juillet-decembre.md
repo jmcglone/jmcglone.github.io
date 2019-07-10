@@ -7,7 +7,7 @@ date: 2019-07-10
 ---
 
  <hr>
-Présentation
+Volume 19 (1) juillet-décembre 2019 ISSN 1987-071X Présentation
  <hr>
 La Revue Africaine des Sciences Sociales et de la Santé Publique (RASP) est une publication scientifique à vocation 
 Panafricaine. Elle vise la promotion de la Recherche, de la diffusion des résultats et à la formation des jeunes 
