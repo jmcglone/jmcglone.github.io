@@ -36,7 +36,10 @@ Il a terminé son article en invitant les ouest africains ayant bénéficié de 
 
 Trois (3) des cinq (5) articles sont respectivement relatifs:
 - à la répartition des activités des Assistants Sociaux dans les différents services au Mali;
-- au rôle de la décentralisation dans la mobilisation des acteurs locaux pour le développement de leur quartier en zone urbaine; * au «… rôle socioéconomique du karité dans le cercle de Kangaba », région de Koulikoro, où les auteurs agronomes ont effectué une étude socioéconomique dans cette zone en pays malinké ».
+- au rôle de la décentralisation dans la mobilisation des acteurs locaux pour le développement de leur quartier en zone urbaine;
+
+- au rôle socioéconomique du karité dans le cercle de Kangaba, région de Koulikoro, où les auteurs (agronomes) ont effectué une étude socioéconomique dans cette zone en pays malinké.
+
 Le dernier article de ce numéro de la revue présente l’état nutritionnel des enfants âgés de 0 à 5 ans dans la commune rurale de Pélengana, région de Ségou au Mali.
 
 La rédaction de la Revue Africaine des Sociales et de la Santé Publique saisit cette opportunité pour annoncer, à ses fidèles lecteurs, le décès du regretté **M. Diadie Soumaré**, survenu à Paris, ce dimanche 23 juin 2019. Le Président Soumaré avait 74 ans, Ancien ouvrier, ancien aide comptable, ancien comptable, ancien expert comptable à la retraite, M. Soumaré fut aussi l’ancien président de l’Association pour la Promotion de la langue et de la Culture Soninké en France. 
@@ -52,6 +55,7 @@ Que son âme repose en paix. Amen !
 
 
 Chères lectrices et chers lecteurs, bonne lecture <br>
+
 
 **La rédaction**
 
