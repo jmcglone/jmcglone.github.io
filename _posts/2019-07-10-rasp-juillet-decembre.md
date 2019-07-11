@@ -24,7 +24,7 @@ Durant la période écoulée, la RASP a non seulement parue régulièrement mais
 
 Bientôt, **la RASP aura dix (10) petites « pluies »**. Le dixième anniversaire de l’existence de notre revue à toutes et à tous mérite d’être fêté. Ce, d’autant plus que cet anniversaire coïncide avec le soixantenaire de l’accession de la majorité des Etats africains à l’indépendance. En raison de ce double événement, la rédaction reçoit avec reconnaissance et gratitude de toutes et tous vos articles portant prioritairement sur l’histoire, les défis et les perspectives du continent africain, de sa diaspora et du tiers monde.
 
-Ce dix-neuvième (19ème) numéro de la Revue Africaine des Sciences Sociales et de la Santé Publique (RASP) est composé de ***cinq (5) articles dont quatre (4) basés sur des études de cas réalisées par des enseignants-chercheurs et praticiens maliens***. Le premier (1er) article intitulé « Algérie-Afrique de l’Ouest : un Destin commun issu d’une histoire millénaire commune » est l’œuvre du [Professeur Pierre Philippe Rey](https://fr.wikipedia.org/wiki/Pierre-Philippe_Rey), un théoricien français d’anthropologie. Cet article consacré aux rapports historiques entre l’Afrique du Nord et l’Afrique de l’Ouest, décrit et analyse les relations séculaires entre l’Algérie et l’Afrique de l’Ouest en touchant du doigt les différents aspects sociopolitiques de la révolution algérienne. 
+Ce dix-neuvième (19ème) numéro de la Revue Africaine des Sciences Sociales et de la Santé Publique (RASP) est composé de ***cinq (5) articles dont quatre (4) basés sur des études de cas réalisées par des enseignants-chercheurs et praticiens maliens***. Le premier (1er) article intitulé « Algérie-Afrique de l’Ouest : un Destin commun issu d’une histoire millénaire commune » est l’œuvre du [Professeur Pierre Philippe Rey](https://fr.wikipedia.org/wiki/Pierre-Philippe_Rey){:target="_blank" rel="noopener"}, un théoricien français d’anthropologie. Cet article consacré aux rapports historiques entre l’Afrique du Nord et l’Afrique de l’Ouest, décrit et analyse les relations séculaires entre l’Algérie et l’Afrique de l’Ouest en touchant du doigt les différents aspects sociopolitiques de la révolution algérienne. 
 
 Dans son analyse, l’auteur a mis un accent particulier sur la richesse du Sahara algérien tant en eau douce, en gaz naturel qu’en structures de formation et de recherche sur les énergies renouvelables. A propos de ces dernières, l’auteur écrit : « De 2015 à 2017, 343 MW ont été installés, entièrement en photovoltaïque, répartis entre 19 sites des hauts plateaux et du Sahara. Par comparaison, la centrale Noor 1 de Ouarzazate au Maroc est actuellement à 160 MW installés ». Et l’Algérie tend à en développer des gigantesques chantiers au Sahara.
 
@@ -61,10 +61,10 @@ Chères lectrices et chers lecteurs, bonne lecture <br>
 
 
  Liens Utiles <br>
- [Site Web](http://ibnrushd.ml/) <br>
+ [Site Web](http://ibnrushd.ml/){:target="_blank" rel="noopener"} <br>
  
- [Page Facebook](https://web.facebook.com/revuerasp/) <br>
+ [Page Facebook](https://web.facebook.com/revuerasp/){:target="_blank" rel="noopener"} <br>
  
- [Twitter](http://twitter.com/revuerasp) <br>
+ [Twitter](http://twitter.com/revuerasp){:target="_blank" rel="noopener"} <br>
  
  
