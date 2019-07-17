@@ -2,3 +2,6 @@ permalink: /notes/:year/:month/:day/:title
 markdown: kramdown
 
 theme: jekyll-theme-cayman
+
+plugins:
+  - jekyll-seo-tag
