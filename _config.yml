@@ -4,7 +4,9 @@ markdown: kramdown
 theme: jekyll-theme-cayman
 
 plugins:
+  - jekyll-feed
   - jekyll-seo-tag
+  
   
 title: Kante's website
 
