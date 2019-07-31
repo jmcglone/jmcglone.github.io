@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to get consitent results when benchmarking on Linux?
+title: How to get consistent results when benchmarking on Linux?
 categories: [performance analysis, tools]
 ---
 
@@ -13,7 +13,7 @@ categories: [performance analysis, tools]
 
 ------
 
-Lots of features in HW and SW are intended to increase performance. But some of them have non-deterministic behavior. In fact, today we will only talk about the features which are not permanently active. Since we have litle control over them, it makes sense to disable them to receive more consistent measurements and reduce the noise. Take turbo boost feature, for example: if we start two runs, one right after another on a "cold" processor, first run will possibly work for some time in overclocked mode. I.e. CPU will increase it's frequency to the extent permitted by thermal package ([TDP](https://en.wikipedia.org/wiki/Thermal_design_power)) and then go back somewhere around it's base frequency. However, the second run will operate on base frequency without entering the turbo mode. That's where variation in results might come from. 
+Lots of features in HW and SW are intended to increase performance. But some of them have non-deterministic behavior. In fact, today we will only talk about the features which are not permanently active. Since we have little control over them, it makes sense to disable them to receive more consistent measurements and reduce the noise. Take turbo boost feature, for example: if we start two runs, one right after another on a "cold" processor, first run will possibly work for some time in overclocked mode. I.e. CPU will increase its frequency to the extent permitted by thermal package ([TDP](https://en.wikipedia.org/wiki/Thermal_design_power)) and then go back somewhere around its base frequency. However, the second run will operate on base frequency without entering the turbo mode. That's where variation in results might come from. 
 
 So, ideally when doing benchmarking we try to disable all the potential sources of performance non-determinism in a system. This article is an attempt to bring all the tips together, provide examples and give instructions how to configure your machine properly.
 
@@ -34,9 +34,9 @@ Also you might want to take a look at how it's done in [uarch-bench](https://git
 
 *At the time of writing this article I don't have access to machine with TurboBoost where I have root access, but I will update it later.*
 
-### 2) Disable hyperthreading
+### 2) Disable hyper threading
 
-Modern CPU cores are often made in the simultaneous multithreading ([SMT](https://en.wikipedia.org/wiki/Simultaneous_multithreading)) manner. It means that in one physical core you can have 2 threads of simultaneous execution. Typically, [architectural state](https://en.wikipedia.org/wiki/Architectural_state) is replicated but the execution resources (ALUs, caches, etc.) are not. That means that some other process that is schedulled on the sibling thread might steal cache space from the workload you are measuring.
+Modern CPU cores are often made in the simultaneous multithreading ([SMT](https://en.wikipedia.org/wiki/Simultaneous_multithreading)) manner. It means that in one physical core you can have 2 threads of simultaneous execution. Typically, [architectural state](https://en.wikipedia.org/wiki/Architectural_state) is replicated but the execution resources (ALUs, caches, etc.) are not. That means that some other process that is scheduled on the sibling thread might steal cache space from the workload you are measuring.
 
 The most robust way is to do this through BIOS, for example as shown [here](https://www.pcmag.com/article/314585/how-to-disable-hyperthreading).
 Additionally it can be done programmatically by turning down a sibling thread in each core:
@@ -47,7 +47,7 @@ The pair of cpu N can be found in `/sys/devices/system/cpu/cpuN/topology/thread_
 
 The following example is just to show the effect of disabling HT. Remember, we are not talking about whether one should always disable HT. It is just for make our measurements more stable.
 ```bash
-# when all the 4 HW threads are enabled:
+# all 4 HW threads enabled:
 $ perf stat -r 10 -- git status
         663.659062      task-clock (msec)         #    1.399 CPUs utilized            ( +-  3.05% )
                160      context-switches          #    0.240 K/sec                    ( +-  5.48% )
@@ -120,7 +120,7 @@ cset shield --exec -- perf stat -r 10 <cmd>
 
 In Linux one can increase process priority using `nice` tool (more about the tool [here](https://www.tecmint.com/set-linux-process-priority-using-nice-and-renice-commands)). By increasing priority process gets more CPU time and Linux scheduler favors it more in comparison with processes with normal priority.
 
-For the previous exmaple, if we add `sudo nice -n -N`:
+For the previous example, if we add `sudo nice -n -N`:
 ```bash
 $ perf stat -r 10 -- sudo nice -n -5 taskset -c 1 git status
           0,003217      task-clock (msec)         #    0,000 CPUs utilized            ( +- 12,13% )
@@ -167,7 +167,7 @@ Another important way to reduce the noise is to use statistical methods. Yes, yo
 My favorite article on this topic is ["Benchmarking: minimum vs average"](http://blog.kevmod.com/2016/06/benchmarking-minimum-vs-average/) where the author describes why for most of the benchmarking we better compare minimal values as opposed to averages:
 > Personally, I understand benchmark results to be fairly right-skewed: you will frequently see benchmark results that are much slower than normal (several standard deviations out), but you will never see any that are much faster than normal.  When I see those happen, if I am taking a running average I will get annoyed since I feel like the results are then "messed up" (something that these numbers now give some formality to). So personally I use the minimum when I benchmark.
 
-If you are doing microbenchmarking, then you might find usefull “delta” measurement approach - see this comment [here](https://lemire.me/blog/2018/01/16/microbenchmarking-calls-for-idealized-conditions/#comment-295373):
+If you are doing microbenchmarking, then you might find useful “delta” measurement approach - see this comment [here](https://lemire.me/blog/2018/01/16/microbenchmarking-calls-for-idealized-conditions/#comment-295373):
 
 > The simple way to do this is if your test has a measurement loop and times the entire loop, run it for N iterations and 2N, and then use (run2 – run1)/N as the time. This cancels out all the fixed overhead, such as the clock/rdpmc call, the call to your benchmark method, any loop setup overhead.
 
