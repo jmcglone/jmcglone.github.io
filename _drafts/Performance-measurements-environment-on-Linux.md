@@ -28,7 +28,7 @@ Other very informal and inspiring articles on the subject: [“Microbenchmarking
 ### 1) Disable turboboost
 Intel [Turbo Boost](https://en.wikipedia.org/wiki/Intel_Turbo_Boost) is a feature that automatically raises CPU operating frequency when demanding tasks are running.
 ```bash
-echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo
+echo 1 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo
 ```
 Also you might want to take a look at how it's done in [uarch-bench](https://github.com/travisdowns/uarch-bench/blob/master/uarch-bench.sh#L66).
 
@@ -39,9 +39,36 @@ Modern CPU cores are often made in the simultaneous multithreading ([SMT](https:
 The most robust way is to do this through BIOS as shown [here](https://www.pcmag.com/article/314585/how-to-disable-hyperthreading).
 Additionally it can be done by turning down a sibling thread in each core.
 ```bash
-echo 0 > /sys/devices/system/cpu/cpuX/online
+echo 0 | sudo tee /sys/devices/system/cpu/cpuX/online
 ```
 The pair of cpu N can be found in `/sys/devices/system/cpu/cpuN/topology/thread_siblings_list` ([source](https://llvm.org/docs/Benchmarking.html#linux)).
+
+The following example is just to show that it works:
+```bash
+# when all the threads are enabled:
+$ perf stat -r 10 -- git status
+        663.659062      task-clock (msec)         #    1.399 CPUs utilized            ( +-  3.05% )
+               160      context-switches          #    0.240 K/sec                    ( +-  5.48% )
+                20      cpu-migrations            #    0.030 K/sec                    ( +- 14.61% )
+           0.4744 +- 0.0198 seconds time elapsed  ( +-  4.17% )
+
+# disable all the HW threads besides one:
+$ echo 0 | sudo tee /sys/devices/system/cpu/cpu1/online
+$ echo 0 | sudo tee /sys/devices/system/cpu/cpu2/online
+$ echo 0 | sudo tee /sys/devices/system/cpu/cpu3/online
+$ lscpu
+...
+CPU(s):               4
+On-line CPU(s) list:  0
+Off-line CPU(s) list: 1-3
+...
+$ perf stat -r 10 -- git status
+        527.682446      task-clock (msec)         #    0.464 CPUs utilized            ( +-  2.45% )
+               201      context-switches          #    0.381 K/sec                    ( +-  3.16% )
+                 0      cpu-migrations            #    0.000 K/sec                  
+            1.1370 +- 0.0308 seconds time elapsed  ( +-  2.71% )
+```
+As expected, no cpu-migrations, because only one HW thread available.
 
 ### 3) Set scaling_governor to 'performance'
 
@@ -54,6 +81,38 @@ do
   echo performance > /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 done
 ```
+
+Example:
+```bash
+$ lscpu
+...
+CPU max MHz:         2200.0000
+CPU min MHz:         800.0000
+...
+# scaling_governor is set to powersave
+powersave
+
+$ perf stat -e cycles,task-clock -- ./Shootout-sieve
+    10,434,714,821      cycles                    #    1.950 GHz                    
+       5350.978795      task-clock (msec)         #    1.000 CPUs utilized   
+
+performance
+
+$ perf stat -e cycles,task-clock -- ./Shootout-sieve
+    10,414,782,786      cycles                    #    1.989 GHz                    
+       5236.277630      task-clock (msec)         #    0.999 CPUs utilized          
+
+$ perf stat -e cycles,task-clock -r 10 -- git status
+       932,215,570      cycles                    #    1.936 GHz                      ( +-  0.23% )
+        481.582033      task-clock (msec)         #    0.948 CPUs utilized            ( +-  1.40% )
+           0.50816 +- 0.00642 seconds time elapsed  ( +-  1.26% )
+# scaling_governor is set to performance
+$ perf stat -e cycles,task-clock -r 10 -- git status
+       938,173,282      cycles                    #    2.052 GHz                      ( +-  0.24% )
+        457.173774      task-clock (msec)         #    0.945 CPUs utilized            ( +-  1.16% )
+           0.48383 +- 0.00710 seconds time elapsed  ( +-  1.47% )
+```
+Notice the difference in 
 
 ### 4) Set cpu affinity
 [Processor affinity](https://en.wikipedia.org/wiki/Processor_affinity) enables binding of a process to a certain CPU core(s). In Linux one can do this with [`taskset`](https://linux.die.net/man/1/taskset) tool.
@@ -111,7 +170,7 @@ Notice the number of context-switches gets to `0`, so the process received all t
 Usually some area of main memory is assigned to cache the file system contents including various data. This reduces the need for application to go all the way down to the disk. One can drop current file system cache by running:
 
 ```bash
-echo 3 > /proc/sys/vm/drop_caches
+echo 3 | sudo tee /proc/sys/vm/drop_caches
 sync
 ```
 
@@ -133,7 +192,7 @@ There is one more caveat. I do not recommend drop fs caches if you are analyzing
 > Address space layout randomization (ASLR) is a computer security technique involved in preventing exploitation of memory corruption vulnerabilities. In order to prevent an attacker from reliably jumping to, for example, a particular exploited function in memory, ASLR randomly arranges the address space positions of key data areas of a process, including the base of the executable and the positions of the stack, heap and libraries. ([source](https://en.wikipedia.org/wiki/Address_space_layout_randomization))
 
 ```bash
-echo 0 > /proc/sys/kernel/randomize_va_space
+echo 0 | sudo tee /proc/sys/kernel/randomize_va_space
 ```
 
 ### 8) Use statistical methods to process measurements
