@@ -28,11 +28,32 @@ Other very informal and inspiring articles on the subject: [“Microbenchmarking
 ### 1) Disable turboboost
 Intel [Turbo Boost](https://en.wikipedia.org/wiki/Intel_Turbo_Boost) is a feature that automatically raises CPU operating frequency when demanding tasks are running. It can be permanently disabled in BIOS. Check [FAQ](https://www.intel.com/content/www/us/en/support/articles/000007359/processors/intel-core-processors.html) for more information. To disable turbo in Linux do:
 ```bash
+# Intel
 echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo
+# AMD
+echo 0 > /sys/devices/system/cpu/cpufreq/boost
 ```
 Also you might want to take a look at how it's done in [uarch-bench](https://github.com/travisdowns/uarch-bench/blob/master/uarch-bench.sh#L66).
 
-*At the time of writing this article I don't have access to machine with TurboBoost where I have root access, but I will update it later.*
+Example (single-threaded workload running on Intel® Core™ i5-8259U):
+```bash
+# TurboBoost enabled
+$ cat /sys/devices/system/cpu/intel_pstate/no_turbo
+0
+$ perf stat -e task-clock,cycles -- ./a.out 
+      11984.691958      task-clock (msec)         #    1.000 CPUs utilized          
+    32,427,294,227      cycles                    #    2.706 GHz                    
+      11.989164338 seconds time elapsed
+# TurboBoost disabled
+$ echo 1 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo
+1
+$ perf stat -e task-clock,cycles -- ./a.out 
+      13055.200832      task-clock (msec)         #    0.993 CPUs utilized          
+    29,946,969,255      cycles                    #    2.294 GHz                    
+      13.142983989 seconds time elapsed
+```
+
+You can see the average frequency is much higher when TurboBoost is on.
 
 ### 2) Disable hyper threading
 
@@ -80,7 +101,7 @@ Here is how we can set it for all the cores:
 ```bash
 for i in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 do
-  echo performance > /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+  echo performance > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_governor
 done
 ```
 
@@ -131,6 +152,8 @@ $ perf stat -r 10 -- sudo nice -n -5 taskset -c 1 git status
 ```
 Notice the number of context-switches gets to `0`, so the process received all the computation time uninterrupted.
 
+For OpenMP environment one can set `KMP_AFFINITY` (ICC) or `GOMP_AFFINITY` (GCC). This environment variable is used by OpenMP runtime to set thread affinity.
+
 ### 6) Drop file system cache
 
 Usually some area of main memory is assigned to cache the file system contents including various data. This reduces the need for application to go all the way down to the disk. One can drop current file system cache by running:
@@ -161,6 +184,11 @@ There is one more caveat. I do not recommend drop fs caches if you are analyzing
 echo 0 | sudo tee /proc/sys/kernel/randomize_va_space
 ```
 
+Disable ASLR on a per-process basis:
+```bash
+$ setarch -R ...
+```
+
 ### 8) Use statistical methods to process measurements
 Another important way to reduce the noise is to use statistical methods. Yes, you are reading it right. You can get better comparison by doing better/more measurements.
 
@@ -171,8 +199,31 @@ If you are doing microbenchmarking, then you might find useful “delta” measu
 
 > The simple way to do this is if your test has a measurement loop and times the entire loop, run it for N iterations and 2N, and then use (run2 – run1)/N as the time. This cancels out all the fixed overhead, such as the clock/rdpmc call, the call to your benchmark method, any loop setup overhead.
 
-**Final notes**
+### Other references
+
+Papers:
+* [STABILIZER: Statistically Sound Performance Evaluation](http://www.cs.umass.edu/~emery/pubs/stabilizer-asplos13.pdf).
+* [Robust benchmarking in noisy environments](http://math.mit.edu/~edelman/publications/robust_benchmarking.pdf).
+* [Producing Wrong Data Without Doing Anything Obviously Wrong!](http://users.cs.northwestern.edu/~robby/courses/322-2013-spring/mytkowicz-wrong-data.pdf).
+
+Documentation:
+* [How to Benchmark Code Execution Times on Intel® IA-32 and IA-64 Instruction Set Architectures](https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/ia-32-ia-64-benchmark-code-execution-paper.pdf).
+* [Red Hat Enterprise Linux: Performance tuning guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/performance_tuning_guide/index).
+
+Tools:
+* Tool for setting up an environment for benchmarking: [temci](https://github.com/parttimenerd/temci).
+
+### Final notes
 
 First 3 suggestions are HW related and sometimes it makes sense to configure dedicated machine for benchmarking. Big companies usually have a pool of machines that are specifically tuned for performance measurements.
 
 Finally, I hope it is needless to say that no other process should be running at the time you're benchmarking. Even running 'top' on 12 core machine (typical Haswell Xeon server) will eat up CPU thermal package ([TDP](https://en.wikipedia.org/wiki/Thermal_design_power)) which might affect frequency of the core that is running the benchmark.
+
+### _UPD 09 Aug 2019_
+
+There were lots of comments on [HN](https://news.ycombinator.com/item?id=20607042) and [Reddit](https://www.reddit.com/r/programming/comments/clptsx/how_to_get_consistent_results_when_benchmarking/evywea9/?context=3), here is what I found interesting:
+1. There were debates about how to process the results of benchmarking: whether to take `min`, `avg`, `mean`, etc. The conclusion is that the strategy depends on a distribution of the results, and there is no substitute for **plotting** the data and taking a look at the distribution.
+2. Besides TurboBoots one can also disable [Intel SpeedShift technology](https://www.anandtech.com/show/9751/examining-intel-skylake-speed-shift-more-responsive-processors).
+3. Reducing the number of kernel background processes might reduce the noise. This can be accomplished by booting in `single-user/recovery` mode.
+4. For even better accuracy one can put the benchmark body into the kernel module to guarantee the exclusive ownership of the CPU. More details in whitepaper: [How to Benchmark Code Execution Times on Intel® IA-32 and IA-64 Instruction Set Architectures](https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/ia-32-ia-64-benchmark-code-execution-paper.pdf). I have never tried this, and looks like it's not feasible for some of the big benchmarks and most of the it's overkill.
+5. Most of the comments agreed that disabling [ASLR]({{ site.url }}/blog/2019/08/02/Perf-measurement-environment-on-Linux#7-disable-address-space-randomization) in majority of cases doesn't help to reduce the noise. Still I leave it in the post, just for the record.
