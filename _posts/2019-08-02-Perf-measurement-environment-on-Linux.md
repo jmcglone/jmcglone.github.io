@@ -222,8 +222,10 @@ Finally, I hope it is needless to say that no other process should be running at
 ### _UPD 09 Aug 2019_
 
 There were lots of comments on [HN](https://news.ycombinator.com/item?id=20607042) and [Reddit](https://www.reddit.com/r/programming/comments/clptsx/how_to_get_consistent_results_when_benchmarking/evywea9/?context=3), here is what I found interesting:
-1. There were debates about how to process the results of benchmarking: whether to take `min`, `avg`, `mean`, etc. The conclusion is that the strategy depends on a distribution of the results, and there is no substitute for **plotting** the data and taking a look at the distribution.
+1. There were debates about how to process the results of benchmarking: whether to take `min`, `avg`, `mean`, etc. The conclusion is that the strategy depends on a distribution of the results, and there is no substitute for **plotting** the data and taking a look at the distribution. Andrey Akinshin dedicated entire chapter to this topic in his book ["Pro .NET Benchmarking"](https://amzn.to/2H3Z8qw) [^1] which I find very clear.
 2. Besides TurboBoots one can also disable [Intel SpeedShift technology](https://www.anandtech.com/show/9751/examining-intel-skylake-speed-shift-more-responsive-processors).
 3. Reducing the number of kernel background processes might reduce the noise. This can be accomplished by booting in `single-user/recovery` mode.
 4. For even better accuracy one can put the benchmark body into the kernel module to guarantee the exclusive ownership of the CPU. More details in whitepaper: [How to Benchmark Code Execution Times on Intel® IA-32 and IA-64 Instruction Set Architectures](https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/ia-32-ia-64-benchmark-code-execution-paper.pdf). I have never tried this, and looks like it's not feasible for some of the big benchmarks and most of the it's overkill.
 5. Most of the comments agreed that disabling [ASLR]({{ site.url }}/blog/2019/08/02/Perf-measurement-environment-on-Linux#7-disable-address-space-randomization) in majority of cases doesn't help to reduce the noise. Still I leave it in the post, just for the record.
+
+[^1]: This is affiliate link.
