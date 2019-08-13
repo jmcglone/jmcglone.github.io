@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Swatches. A Place to Think About Color on the Web
+tags: BBB
 ---
 Designers find inspiration and motivation from other designers. Everyday on the web we see things that are beautifully made by our peers -- work that spark ideas for new projects or teaches us a new technique or technology. Recently, I've been trying to pay better attention to designers' use of color on the web. I'm also working to combat my forgetfulness and feed my obsessive need to cata(log) aspects of my life in a really straightforward manner. While I'm already familiar with great services like Adobe Kuler's [Wheel](https://kuler.adobe.com/) and [Explore](https://kuler.adobe.com/explore/) tools and [Color Scheme Designer](http://colorschemedesigner.com/), I'm interested in something much simpler, cleaner, and straightforward -- HTML on a page with hex color values and ordered in reverse chronological order.
 

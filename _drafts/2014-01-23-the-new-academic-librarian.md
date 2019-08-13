@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The New Academic Librarian
-tags: default
+tags: AAA
 ---
 After what seemed to be a never-ending publication process, the book [*The New Academic Librarian: Essays on Changing Roles and Responsibilities*](http://www.amazon.com/The-New-Academic-Librarian-Responsibilities/dp/0786471530) – edited by Wayne State University librarian [Rebeca Peacock](http://www.rebecapeacock.com/) and the library's associate director for marketing, Jill Wurm – is finally published and available. After skimming through the table of contents, this will no doubt be a valuable and necessary read for library and information science students interested in careers at an academic library; the essays featured in the volume present a very current inside look at the functions and responsibilities of academic librarians, especially in regards to how they interact with, use, play with, and rely on technology in their work.
 
