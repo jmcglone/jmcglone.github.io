@@ -3,7 +3,7 @@ layout: post
 title: IFS Pre-Call Announcement for Basic Research Grant 2020
 date: 2019-09-23
 Description: The International Foundation for Science pre-call announcement for the basic research grant applications 2020. 
-tag: research scholarship 
+tags: research africa scholarship 
 ---
 
 ## IFS?
