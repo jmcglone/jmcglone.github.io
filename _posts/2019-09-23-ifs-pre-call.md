@@ -1,0 +1,39 @@
+---
+layout: post
+title: IFS Pre-Call Announcement 2020
+date: 2019-09-23
+Description: The International Foundation for Science pre-call announcement for the basic research grant applications 2020. 
+tag: research scholarship 
+---
+
+## IFS?
+IFS which stands for International Foundation for Science was founded as a Research Council and registered as a non-governmental organisation (NGO) in Sweden in 1972. IFS receives funding from a portfolio of donors and funders including development organisations and science academies. The annual budget is approximately USD 5 million. IFS has 135 Affiliated Organisations in 86 countries, mainly in the developing world.
+ 
+## They do what?
+IFS provides opportunities for young scientists to propose research into biological and water resources in low income countries. These proposals are rigorously assessed by international experts, with grants and support provided to the very best early career scientists to enable them to work in their own country and tackle research issues related to local needs.
+
+## Imminent opportunity - IFS Basic Research Grant Applications 2020
+
+- Call will open on 1st October 2019
+- Call will close on 30 November 2019 (24:00 GMT+1)
+- Anticipated announcement of results: 31 July 2020.
+
+The following criteria that apply:
+
+1) The applicant should be an early career scientist, should have completed a [PhD
+degree](https://www.findaphd.com/advice/finding/what-is-a-phd.aspx) within the last five years, or be enrolled in a PhD programme.
+(Age criteria don’t apply.)
+2) Unlike previously, only English is accepted for submissions.
+3) The budget to be requested is to cover costs for equipment, consumables, travel
+for field work, additional manpower etc for a maximum of 15 000 USD. 
+
+Note that this is just the pre-call to give prospective applicants the right information for a better application process. With that in mind, we (hhh yes I will apply also!) should start drafting the proposals and get them ready by the opening date. Good luck everyone!!
+
+Ps: Please be informed that the IFS Basic Research Grant replaces the previous individual
+research grant.
+
+Find more details on the official website [www.ifs.se](https://ifs.se)
+
+Reference
+IFS website
+
