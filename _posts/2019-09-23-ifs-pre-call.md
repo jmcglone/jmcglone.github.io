@@ -30,5 +30,5 @@ for field work, additional manpower etc for a maximum of 15 000 USD.
 Ps: Please be informed that the IFS Basic Research Grant replaces the previous individual
 research grant.
 
-Find more details on the official website (www.ifs.se)[https://ifs.se]
+Find more details on the official website [www.ifs.se](https://ifs.se)
 
