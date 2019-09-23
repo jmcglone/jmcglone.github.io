@@ -5,7 +5,7 @@ date: 2019-09-23
 Description: The International Foundation for Science pre-call announcement for the basic research grant applications 2020. 
 tags: research africa scholarships 
 ---
-If you are here, I assume that we might have more than one thing in common ;) and probably have been waiting for this exceptional opportunity from the IFS for 2020. This article starts with a quick backgroung information on the foundation and details for this year's announcement follow )^^
+If you are here, I assume that we might have more than one thing in common ;) and probably have been waiting for this exceptional opportunity from the IFS. This article starts with a quick backgroung information on the foundation and details for this year's announcement follow )^^
 ## IFS?
 IFS which stands for International Foundation for Science was founded as a Research Council and registered as a non-governmental organisation (NGO) in Sweden in 1972. IFS receives funding from a portfolio of donors and funders including development organisations and science academies. The annual budget is approximately USD 5 million. IFS has 135 Affiliated Organisations in 86 countries, mainly in the developing world.
  
