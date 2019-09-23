@@ -3,6 +3,7 @@ layout: post
 title: IFS Pre-Call Announcement 2020
 date: 2019-09-23
 Description: The International Foundation for Science pre-call announcement for the basic research grant applications 2020. 
+tag: research scholarship 
 ---
 
 ## IFS?
@@ -22,13 +23,17 @@ The following criteria that apply:
 1) The applicant should be an early career scientist, should have completed a PhD
 degree within the last five years, or be enrolled in a PhD programme.
 (Age criteria don’t apply.)
-2) The application should be submitted in English only.
+2) Unlike previously, only English is accepted for submissions.
 3) The budget to be requested is to cover costs for equipment, consumables, travel
 for field work, additional manpower etc for a maximum of 15 000 USD. 
 
+Note that this is just the pre-call to give prospective applicants the right information for a better application process. With that in mind, we (hhh yes I will apply also!) should start drafting the proposals and get them ready by the opening date. Good luck everyone!!
 
 Ps: Please be informed that the IFS Basic Research Grant replaces the previous individual
 research grant.
 
 Find more details on the official website [www.ifs.se](https://ifs.se)
+
+Reference
+IFS website
 
