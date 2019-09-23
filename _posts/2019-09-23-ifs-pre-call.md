@@ -20,8 +20,8 @@ IFS provides opportunities for young scientists to propose research into biologi
 
 The following criteria that apply:
 
-1) The applicant should be an early career scientist, should have completed a PhD
-degree within the last five years, or be enrolled in a PhD programme.
+1) The applicant should be an early career scientist, should have completed a [PhD
+degree](https://www.findaphd.com/advice/finding/what-is-a-phd.aspx) within the last five years, or be enrolled in a PhD programme.
 (Age criteria don’t apply.)
 2) Unlike previously, only English is accepted for submissions.
 3) The budget to be requested is to cover costs for equipment, consumables, travel
