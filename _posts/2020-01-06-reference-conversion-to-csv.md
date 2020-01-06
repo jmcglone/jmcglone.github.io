@@ -13,17 +13,20 @@ It was new because I have been used to deal with BibTex databases only. From my 
 trick in a one step conversion ;). Let me take you through the steps I have identified to be most rigourous and robust way to d the conversion. 
 I assume that we all use a reference manager ;) I personnally use Mendeley therefore the steps might be different if you use another one.
 
-* Step 1: Export from Mendeley to BibTex
+* Step 1: Export from Mendeley to BibTex 
+
 In Mendeley Desktop 
- ** File --- >  Export
- ** Save as type --- > BibTex (*.bib) 
+ * File --- >  Export
+ * Save as type --- > BibTex (*.bib) 
  
  * Step 2: Using JabRef
+ 
  Once you have your BibTex file, you have to open it in JabRef
  ** File --- >  Open database
  ** And select the BibTex file
  
  * Step 3: JabRef to CSV
+ 
   ** File --- >  Export
   ** Choose CSV file type (*.csv)
  
