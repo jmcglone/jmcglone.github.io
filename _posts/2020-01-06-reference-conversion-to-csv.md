@@ -10,9 +10,8 @@ If I may quote **Therese Fowler** "Some rules are nothing but old habits but old
 I recently had to break one of my habits which is using LateX for my writing activities. For the need of a paper I have been working on, 
 I used Ms-Word for the entire paper and I came accross an issue. In fact, as the article was a systematic mapping, and for the need of data analysis, I needed to export my references into a csv file to be used in Ms Excel. 
 
-By any chance, if you found yourself reading this article and don't know what LateX is, read this article of mine I wrote a while back before proceeding to the rest of this post. 
+It was new because I have been used to deal with BibTex databases only. From my online investigations, I did not find any tool that could do the trick in a one step conversion. Let me take you through the steps I have identified to be most rigourous and robust way to  the conversion. By any chance, if you found yourself reading this article and don't know what LateX is, read [this article](https://mkantem.github.io/notes/2017/07/26/latex) I wrote a while back on the subject.   
 
-It was new because I have been used to deal with BibTex databases only. From my online investigations, I did not find any tool that could do the trick in a one step conversion. Let me take you through the steps I have identified to be most rigourous and robust way to  the conversion. 
 I assume that we all use a reference manager ;) I personnally use Mendeley therefore the steps might be different if you use another one. 
 
 ## Step 1: Export from Mendeley to BibTex 
@@ -33,12 +32,12 @@ In Mendeley Desktop
   * Choose CSV file type (*.csv)
  
  ##  Step 4: Import your csv file to Excel
- ** Open a new Excel document
- ** Go to data tab and click "From Text"
- ** Navigate to the csv file from the opened window and click import
- ** Choose "Delimited" from the new window and click "next"
- ** Check the box next to "type of Delimietr" (comma)
- ** Click finnish 
+ * Open a new Excel document
+ * Go to data tab and click "From Text"
+ * Navigate to the csv file from the opened window and click import
+ * Choose "Delimited" from the new window and click "next"
+ * Check the box next to "type of Delimietr" (comma)
+ * Click finnish 
  
 As you can see from above, it is a bit tedous but I can ensure you that it works perfectly free of errors and it is always better than typing in
 our data line by line into Ms-Excel. At this point, according to your data extraction methodology, you can easily add/use information at your will.
