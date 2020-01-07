@@ -3,7 +3,7 @@ layout: post
 title: References exporting guide from Mendeley to Ms Excel !
 date: 2020-01-06
 Description: This post describes a step by step method to export Mendeley references into a csv file for use in Ms Excel.
-tag: writing research csv bibliography 
+tag: writing research latex bibliography 
 ---
 
 If I may quote **Therese Fowler** "Some rules are nothing but old habits but old habits that people are afraid to change". 
