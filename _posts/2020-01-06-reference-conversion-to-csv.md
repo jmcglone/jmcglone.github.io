@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Reference exporting guide from Mendeley to Ms Excel !
+title: References exporting guide from Mendeley to Ms Excel !
 date: 2020-01-06
 Description: This post describes a step by step method to export Mendeley references into a csv file for use in Ms Excel.
 tag: writing research csv bibliography 
@@ -21,6 +21,7 @@ In Mendeley Desktop
  * Save as type --- > BibTex (*.bib) 
  
  ## Step 2: Using JabRef
+ 
  **LaTeX** users might be familiar with this tool but if you are not, you can read about it and download it free of charge from [their website](https://www.jabref.org/).
  Once you have your BibTex file, you have to open it in JabRef
  * File --- >  Open database
@@ -32,6 +33,7 @@ In Mendeley Desktop
   * Choose CSV file type (*.csv)
  
  ##  Step 4: Import your csv file to Excel
+ 
  * Open a new Excel document
  * Go to data tab and click "From Text"
  * Navigate to the csv file from the opened window and click import
