@@ -61,10 +61,13 @@ ul.swatch li:first-child { webkit-border-top-left-radius: 9px; -webkit-border-bo
 .clear { clear: both; height: 20px; }
 
 /* CV */
-.cv {line-height: 23px; width: 90%; margin: 0 auto;}
-.cv li { line-height: 23px; }
-.cv h2 { font-size: 26.5px; }
-.cv h1 { font-size: 32.5px; }
+.cv {width: 90%; margin: 0 auto;}
+.cv ul li { margin-bottom: 1rem;  }
+.cv ul li ul {margin-top: 1rem; }
+.cv ul.list-unstyled li { margin-bottom: 1rem;}
+.cv h3 {margin-bottom: 1rem; font-size: 1rem; line-height: 1.5em;}
+.cv h3 button { font-weight: 600; padding-left: 0; padding-right: 0; }
+.cv section {padding-bottom: 2em;}
 
 .notes, .contact, .about, .cv, .error, .swatches { padding-bottom: 2em; padding-top: 2em; }
 .cv { padding-top: 0;}
